@@ -1,0 +1,21 @@
+{
+  "_note": "Settings for the company that runs this website.",
+  "brand": {
+    "name": "Nexora",
+    "tagline": "The Real Estate SaaS Platform — Powered by Jatta M Kommerce",
+    "logo": null,
+    "accent": "#ffd200"
+  },
+  "company": {
+    "legalName": "Jatta M Kommerce",
+    "email": "contact@jattamkommerce.com",
+    "phone": null,
+    "address": null,
+    "hours": null
+  },
+  "social": [],
+  "forms": {
+    "endpoint": null
+  },
+  "defaultProperty": "meridian-residences"
+}

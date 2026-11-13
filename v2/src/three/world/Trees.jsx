@@ -1,0 +1,186 @@
+import { useMemo, useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+import { mergeGeometries, mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { ImprovedNoise } from 'three/examples/jsm/math/ImprovedNoise.js';
+import { forestDensity, terrainHeight, rng, ORCHARDS, ROADS, ROAD_W, WATER_Y } from './geo.js';
+import { makeFoamMaterial } from '../materials.js';
+import { W } from '../../core/world.js';
+import { quality } from '../../core/quality.js';
+
+/**
+ * Model-railway foam trees: a few lumpy balls clustered together, smooth-shaded, darker underneath.
+ * Thousands of them in one draw call per shape.
+ */
+const perlin = new ImprovedNoise();
+
+/** A cauliflower canopy of small puffs on a thin pale trunk. */
+export function foamTree(seed, { blobs = 6, detail = 1, trunk = true } = {}) {
+  const r = rng(seed);
+  const parts = [];
+  for (let i = 0; i < blobs; i++) {
+    const s = i === 0 ? 0.78 : 0.42 + r() * 0.3;
+    const g = new THREE.IcosahedronGeometry(s, detail);
+    const a = (i / blobs) * Math.PI * 2 + r() * 0.8;
+    const rad = i === 0 ? 0 : 0.42 + r() * 0.32;
+    g.translate(Math.cos(a) * rad, i === 0 ? 1.55 : 1.15 + r() * 0.7, Math.sin(a) * rad);
+    parts.push(g);
+  }
+  let g = mergeGeometries(parts);
+  g.deleteAttribute('normal');
+  g.deleteAttribute('uv');
+  g = mergeVertices(g, 1e-3);
+  const p = g.attributes.position;
+  const v = new THREE.Vector3();
+  const colors = new Float32Array(p.count * 3);
+  let minY = Infinity;
+  let maxY = -Infinity;
+  for (let i = 0; i < p.count; i++) {
+    minY = Math.min(minY, p.getY(i));
+    maxY = Math.max(maxY, p.getY(i));
+  }
+  for (let i = 0; i < p.count; i++) {
+    v.fromBufferAttribute(p, i);
+    const n = perlin.noise(v.x * 1.9 + seed, v.y * 1.9, v.z * 1.9) * 0.16;
+    v.multiplyScalar(1 + n);
+    p.setXYZ(i, v.x, v.y, v.z);
+    // clamped: the bump above can push a vertex past the original extremes (a negative base would give NaN)
+    const t = Math.min(1, Math.max(0, (v.y - minY) / (maxY - minY)));
+    // darker underneath, and mottled: each tiny facet a little lighter or darker, like crumbly foam
+    const speck = 0.86 + 0.28 * ((Math.sin(i * 12.9898 + seed * 78.233) * 43758.5453) % 1 + 1) % 1;
+    const shade = (0.5 + 0.6 * Math.pow(t, 0.7)) * speck;
+    colors[i * 3] = colors[i * 3 + 1] = colors[i * 3 + 2] = shade;
+  }
+  g.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  g.computeVertexNormals();
+  if (trunk) {
+    // the trunk: pale, slightly lighter than the canopy's shaded underside
+    const t = new THREE.CylinderGeometry(0.05, 0.08, 1.2, 5, 1, true).translate(0, 0.45, 0);
+    t.deleteAttribute('uv');
+    const tc = new Float32Array(t.attributes.position.count * 3).fill(1.08);
+    t.setAttribute('color', new THREE.BufferAttribute(tc, 3));
+    g = mergeGeometries([g, t]);
+  }
+  g.translate(0, -0.15, 0);
+  return g;
+}
+
+// light, fresh khaki-sage foam: harmonious with the sand and the sage meadows
+// pale cream-olive model-foam, with a few warmer, browner ones (as in the reference)
+// natural greens, from fresh to deep, with a few pale-gold and warm accents as in a crafted model
+const PALETTE = ['#93b25f', '#86a957', '#9fbb68', '#7c9e52', '#a8c06e', '#8daf5b', '#76984e', '#99b663', '#93b25f', '#86a957', '#c4c58a', '#b9a573'].map(
+  (c) => new THREE.Color(c)
+);
+const ORCHARD = ['#86ab56', '#92b55e', '#7ea150'].map((c) => new THREE.Color(c));
+
+export default function Trees() {
+  const shapes = useMemo(() => [foamTree(3), foamTree(11, { blobs: 4 }), foamTree(29, { blobs: 6 })], []);
+  const material = useMemo(() => makeFoamMaterial(), []);
+  const refs = useRef([]);
+
+  const placements = useMemo(() => {
+    const r = rng(77);
+    const out = [[], [], []];
+    const want = quality.trees;
+    const extent = 760;
+    const step = 6;
+    const cand = [];
+    for (let x = -extent; x <= extent; x += step)
+      for (let z = -extent; z <= extent; z += step) cand.push([x + (r() - 0.5) * step * 0.9, z + (r() - 0.5) * step * 0.9]);
+    // shuffle so thinning stays even
+    for (let i = cand.length - 1; i > 0; i--) {
+      const j = Math.floor(r() * (i + 1));
+      [cand[i], cand[j]] = [cand[j], cand[i]];
+    }
+    let n = 0;
+    for (const [x, z] of cand) {
+      if (n >= want) break;
+      // cheap reject before the height lookup
+      const far = Math.hypot(x, z);
+      if (far < 112) continue;
+      const h = terrainHeight(x, z);
+      const f = forestDensity(x, z, h);
+      const keep = far > 700 ? f * 0.6 : f;
+      if (r() > keep * keep * 1.5) continue;
+      // mostly mid-sized trees, some small shrubs at the edges of the woods, a few big ones inside
+      const k = r();
+      const s = k < 0.22 ? 1.8 + r() * 1.4 : 3.4 + r() * 3.2 + (f > 0.7 && k > 0.8 ? 2.2 : 0);
+      out[n % 3].push({ x, z, y: h, s, sy: 0.82 + r() * 0.4, rot: r() * Math.PI * 2, c: PALETTE[Math.floor(r() * PALETTE.length)] });
+      n++;
+    }
+    return out;
+  }, []);
+
+  // orchards: small round trees in straight rows
+  const orchard = useMemo(() => {
+    const r = rng(303);
+    const list = [];
+    const sets = quality.low ? ORCHARDS.slice(0, 2) : ORCHARDS;
+    for (const o of sets) {
+      const c = Math.cos(o.rot);
+      const sn = Math.sin(o.rot);
+      for (let a = -o.w / 2 + 4; a <= o.w / 2 - 4; a += 7.5)
+        for (let b = -o.d / 2 + 4; b <= o.d / 2 - 4; b += 8.5) {
+          const x = o.x + a * c - b * sn;
+          const z = o.z + a * sn + b * c;
+          const h = terrainHeight(x, z);
+          if (h < WATER_Y + 1.5) continue;
+          if (Object.entries(ROADS).some(([nm, t]) => t.nearest(x, z).d < ROAD_W[nm] / 2 + 5)) continue;
+          if (r() < 0.06) continue; // a few gaps, like a real orchard
+          list.push({ x, z, y: h, s: 2.2 + r() * 0.6, rot: r() * 6.28, c: ORCHARD[Math.floor(r() * ORCHARD.length)] });
+        }
+    }
+    const m = new THREE.InstancedMesh(foamTree(91, { blobs: 3 }), material, list.length);
+    const ob = new THREE.Object3D();
+    list.forEach((t, i) => {
+      ob.position.set(t.x, t.y, t.z);
+      ob.rotation.set(0, t.rot, 0);
+      ob.scale.set(t.s, t.s * 0.95, t.s);
+      ob.updateMatrix();
+      m.setMatrixAt(i, ob.matrix);
+      m.setColorAt(i, t.c);
+    });
+    m.castShadow = true;
+    m.receiveShadow = true;
+    return m;
+  }, [material]);
+
+  const meshes = useMemo(
+    () =>
+      placements.map((list, k) => {
+        const m = new THREE.InstancedMesh(shapes[k], material, list.length);
+        const o = new THREE.Object3D();
+        const c = new THREE.Color();
+        list.forEach((t, i) => {
+          o.position.set(t.x, t.y, t.z);
+          o.rotation.set(0, t.rot, 0);
+          o.scale.set(t.s, t.s * t.sy, t.s);
+          o.updateMatrix();
+          m.setMatrixAt(i, o.matrix);
+          c.copy(t.c).offsetHSL(0, 0, (Math.random() - 0.5) * 0.03);
+          m.setColorAt(i, c);
+        });
+        m.castShadow = true;
+        m.receiveShadow = true;
+        m.frustumCulled = false;
+        return m;
+      }),
+    [placements, shapes, material]
+  );
+
+  // the landscape greens as the project matures
+  const dry = useMemo(() => new THREE.Color(1, 1, 1), []);
+  const lush = useMemo(() => new THREE.Color(0.97, 1.03, 0.95), []);
+  useFrame(() => {
+    material.color.copy(dry).lerp(lush, W.green * 0.85);
+  });
+
+  return (
+    <group>
+      {meshes.map((m, i) => (
+        <primitive key={i} object={m} ref={(el) => (refs.current[i] = el)} />
+      ))}
+      <primitive object={orchard} />
+    </group>
+  );
+}

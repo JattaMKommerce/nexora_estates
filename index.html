@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d1016" />
+    <meta name="description" content="Explore new homes in realistic 3D: choose a tower, a floor and a residence, see the floor plan and walk through the interior." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1016'/%3E%3Cpath d='M11 25V9l10-3v19M14 12h4M14 16h4M14 20h4' fill='none' stroke='%23d9b781' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Paint the page colour before any script runs (no white flash), and style the boot state. -->
+    <style>
+      html { background: #0c0f14; color: #f3eee6; }
+      body { margin: 0; }
+      .boot { position: fixed; inset: 0; display: grid; place-items: center; background: #0c0f14; }
+      .boot__label { font: 500 11px/1 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: 0.32em; text-transform: uppercase; color: #8e887e; opacity: 0; transition: opacity 0.6s ease; }
+      .boot__label.is-visible { opacity: 1; }
+    </style>
+    <title>Restate</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>This website needs JavaScript enabled to show its properties and 3D tours.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
