@@ -1,0 +1,1127 @@
+{
+  "labels": {
+    "baseOffering": "Villa Development",
+    "additionalOffering": "Nexora Real Estate SaaS",
+    "scrollMessage": "Scroll to explore"
+  },
+  "phases": [
+    {
+      "type": "explore",
+      "menuLink": "Site Evaluation",
+      "media": "phase1",
+      "screens": [
+        {
+          "type": "intro",
+          "frame": [
+            3.75
+          ],
+          "badge": "Phase 1",
+          "phaseTitle": [
+            "Site",
+            "Evaluation"
+          ],
+          "pageLoad": "1siteevaluation",
+          "large": "In Phase 1, Nexora helps real estate developers evaluate the plot before breaking ground \u2014 checking road access, boundary topography, water & electrical utilities, and municipal zoning for a luxury villa development.",
+          "media": "phase1"
+        },
+        {
+          "type": "nodes",
+          "frame": [
+            7.8,
+            9.05
+          ],
+          "pageLoad": "1siteevaluation:step1",
+          "screenSummary": "Confirm essential plot infrastructure \u2014 smart fiber telecom, water supply, and EV solar power \u2014 reach the villa land parcel.",
+          "nodes": [
+            {
+              "pos": [
+                48,
+                52
+              ],
+              "title": "Smart Home & Fiber Telecom",
+              "linkClick": "SiteEvaluation:SmartFiber",
+              "board": "/images/master_plan_06_bim_twin.jpg",
+              "boardAlt": "",
+              "content": "Plan high-speed optical fiber backbone, mesh Wi-Fi, and integrated smart home IoT automation into the villa pavilion."
+            },
+            {
+              "pos": [
+                70,
+                68
+              ],
+              "title": "Private Pool & Water Systems",
+              "linkClick": "SiteEvaluation:PoolWaterSupply",
+              "board": "/images/villa_completion.jpg",
+              "boardAlt": "",
+              "content": "Verify dedicated municipal freshwater supply, dual-plumbing greywater recycling, and swimming pool filtration systems."
+            },
+            {
+              "pos": [
+                22,
+                58
+              ],
+              "title": "EV Carport & Rooftop Solar",
+              "linkClick": "SiteEvaluation:SolarEVPower",
+              "board": "/images/villa_site_evaluation_clean.jpg",
+              "boardAlt": "",
+              "content": "Coordinate 3-phase grid power, 11kW EV fast charger station at the carport, and rooftop net-metered solar array.",
+              "onsite": true
+            }
+          ],
+          "media": "phase1"
+        },
+        {
+          "type": "nodes",
+          "frame": [
+            11.8,
+            13.5
+          ],
+          "pageLoad": "1siteevaluation:step2",
+          "screenSummary": "Review architectural villa boundaries, municipal clearances, and zoning parameters in Nexora.",
+          "nodes": [
+            {
+              "pos": [
+                15,
+                45
+              ],
+              "title": "Plot Boundary & Laser Contour",
+              "linkClick": "SiteEvaluation:BoundarySurvey",
+              "board": "/images/master_plan_03_rera.jpg",
+              "boardAlt": "",
+              "content": "High-precision LiDAR laser topography fixes the villa plot demarcations, ground plinth levels, and natural surface runoff."
+            },
+            {
+              "pos": [
+                56,
+                32
+              ],
+              "title": "Municipal Sanctions & NOCs",
+              "linkClick": "SiteEvaluation:MunicipalSanction",
+              "board": "/images/master_plan_02_sanctions.jpg",
+              "boardAlt": "",
+              "content": "Secure municipal town planning sanctions, height approvals, water board NOCs, and sanctioned architectural layouts."
+            },
+            {
+              "pos": [
+                38,
+                25
+              ],
+              "title": "Zoning & Setback Standards",
+              "linkClick": "SiteEvaluation:ZoningSetbacks",
+              "board": "/images/master_plan_01_feasibility.jpg",
+              "boardAlt": "",
+              "content": "Verify floor area ratio (FAR), landscaped front/rear setbacks, and gated community architectural guidelines."
+            },
+            {
+              "pos": [
+                76,
+                42
+              ],
+              "title": "Gated Society Integration",
+              "linkClick": "SiteEvaluation:SocietyMapping",
+              "board": "/images/society_construction_clean.jpg",
+              "boardAlt": "",
+              "content": "Integrate the villa with the master township network \u2014 internal boulevards, clubhouse amenities, and security perimeter.",
+              "onsite": true
+            }
+          ],
+          "media": "phase1"
+        },
+        {
+          "type": "nodes",
+          "frame": [
+            17.3,
+            18.8
+          ],
+          "pageLoad": "1siteevaluation:step3",
+          "screenSummary": "Conduct comprehensive soil strata testing, solar daylight analysis, and environmental certifications.",
+          "nodes": [
+            {
+              "pos": [
+                35,
+                68
+              ],
+              "title": "<span>Geotechnical Soil</span><span>Testing</span>",
+              "linkClick": "SiteEvaluation:SoilTesting",
+              "board": "/images/master_plan_05_environment.jpg",
+              "boardAlt": "",
+              "content": "Borehole core sampling confirms safe soil load-bearing capacity for the villa reinforced concrete raft and retaining walls."
+            },
+            {
+              "pos": [
+                60,
+                36
+              ],
+              "title": "Solar Path & Cross-Ventilation",
+              "linkClick": "SiteEvaluation:SolarMicroclimate",
+              "board": "/images/villa_completion.jpg",
+              "boardAlt": "",
+              "content": "Simulate microclimate sun angles and seasonal wind directions to optimize passive thermal cooling, shaded terraces, and daylighting.",
+              "deepDive": "LowerCarbonPathways",
+              "deepDiveLabel": "Learn How"
+            },
+            {
+              "pos": [
+                50,
+                50
+              ],
+              "title": "Community Eco-Standards",
+              "board": "/images/society_construction_clean.jpg",
+              "boardAlt": "",
+              "content": "Align with society green guidelines \u2014 tree preservation, indigenous landscaping, and zero-discharge organic composting."
+            },
+            {
+              "pos": [
+                28,
+                38
+              ],
+              "title": "Environmental Clearances",
+              "linkClick": "SiteEvaluation:EnvironmentalClearance",
+              "board": "/images/master_plan_05_environment.jpg",
+              "boardAlt": "",
+              "content": "Obtain statutory state environmental approvals, building fire clearance, and certified RERA environmental compliance.",
+              "onsite": true
+            },
+            {
+              "pos": [
+                78,
+                62
+              ],
+              "title": "Rainwater & Deck Recharge",
+              "linkClick": "SiteEvaluation:RainwaterRecharge",
+              "board": "/images/master_plan_05_environment.jpg",
+              "boardAlt": "",
+              "content": "Design permeable lawn pavers, subsoil recharge trenches, and automated rainwater storage tanks for landscape irrigation.",
+              "onsite": true
+            }
+          ],
+          "media": "phase1"
+        },
+        {
+          "type": "exit",
+          "frame": [
+            1
+          ],
+          "button": "Scroll to Phase 2",
+          "media": "phase1_output"
+        }
+      ]
+    },
+    {
+      "type": "scroll",
+      "menuLink": "Master Planning",
+      "button": "Scroll to Phase 3",
+      "pageLoad": "2sitedevelopment",
+      "screens": [
+        {
+          "type": "introScreen",
+          "badge": "Phase 2",
+          "phaseTitle": [
+            "Master",
+            "Planning"
+          ],
+          "large": "Before the first brick is laid, architectural villa layouts are finalized, RERA registration is secured, and Nexora's 3D interactive twin is launched for buyers."
+        },
+        {
+          "type": "nodeDotPoints",
+          "media": "phase2_top",
+          "badge": "Master Planning & Sanctions",
+          "isFlipped": false,
+          "blocks": [
+            {
+              "frame": [
+                1
+              ],
+              "heading": "AI Feasibility & Algorithmic Plot Layout",
+              "pageLoad": "2sitedevelopment:masterplanning",
+              "content": "Nexora Studio runs algorithmic slope contouring, solar daylight path vectors, and generative parcel slicing for 24 luxury villa footprints with 100% North-South alignment."
+            },
+            {
+              "frame": [
+                2
+              ],
+              "heading": "Sanction Plans & Automated Municipal NOCs",
+              "pageLoad": "2sitedevelopment:masterplanning",
+              "content": "Direct digital submission across Town Planning (DTCP), Fire & Life Safety, Water & Sewerage Board, and Power Transmission Grid with cryptographic digital verification."
+            },
+            {
+              "frame": [
+                3
+              ],
+              "heading": "RERA Statutory Registration & Escrow Ring-Fencing",
+              "pageLoad": "2sitedevelopment:masterplanning",
+              "content": "Complete regulatory compliance vault featuring RERA certified carpet area schedules, dedicated project escrow accounts with automated 70% construction fund allocation, and quarterly filings."
+            },
+            {
+              "frame": [
+                4
+              ],
+              "heading": "Predictive Supply Chain & Material Price-Lock",
+              "pageLoad": "2sitedevelopment:masterplanning",
+              "content": "Lock in structural steel, high-performance RMC batching, and custom Low-E double glazing early through Nexora's enterprise vendor network to eliminate supply bottlenecks and cost variance."
+            },
+            {
+              "frame": [
+                5
+              ],
+              "heading": "Environmental Clearances & Net-Zero Suite",
+              "pageLoad": "2sitedevelopment:masterplanning",
+              "content": "IGBC Platinum and LEED Gold tracking with real-time groundwater recharge simulations, 145 kWp rooftop solar generation, and micro-climate wind corridor optimization."
+            }
+          ]
+        },
+        {
+          "type": "breakHeading",
+          "icon": "https://nrgcdn.b-cdn.net/ui/bolt.svg",
+          "iconAlt": "Lightning Bolt Icon",
+          "heading": "Launch-ready 3D sales platform:"
+        },
+        {
+          "type": "nodeDotPoints",
+          "media": "phase2_bottom",
+          "badge": "3D Digital Twin & Sales Launch",
+          "isFlipped": true,
+          "blocks": [
+            {
+              "frame": [
+                1
+              ],
+              "heading": "BIM to Photorealistic 3D Digital Twin",
+              "pageLoad": "2sitedevelopment:digitaltwin",
+              "content": "Proprietary 60 FPS WebGL pipeline automatically converts architectural Revit, ArchiCAD, and IFC models into interactive browser digital twins with dynamic PBR lighting in under 72 hours."
+            },
+            {
+              "frame": [
+                2
+              ],
+              "heading": "Interactive Villa Customizer & Finishes",
+              "pageLoad": "2sitedevelopment:digitaltwin",
+              "content": "Homebuyers explore interior layouts, toggle Italian marble vs French oak flooring, configure modular kitchens, and customize private infinity pools with real-time quote generation."
+            },
+            {
+              "frame": [
+                3
+              ],
+              "heading": "Live Inventory & Instant Digital Booking CRM",
+              "pageLoad": "2sitedevelopment:digitaltwin",
+              "content": "Interactive 24-unit enclave status heatmap, online token deposit payments via Stripe/Wire, automated e-signature sales agreements, and instant bi-directional CRM synchronization."
+            },
+            {
+              "frame": [
+                4
+              ],
+              "heading": "Homeowner Milestone & Handover Vault",
+              "pageLoad": "2sitedevelopment:digitaltwin",
+              "content": "Transparent buyer portal featuring weekly 4K drone flight timelapses, third-party civil auditor certified escrow drawdowns, and digital warranty dossiers with RFID keyless provisioning."
+            }
+          ]
+        },
+        {
+          "type": "deepDiveFeature",
+          "heading": "Nexora 3D Experience Platform",
+          "content": "Nexora accelerates residential sales and construction transparency with an all-in-one SaaS platform \u2014 combining 3D digital twins, site evaluation analytics, and automated buyer handovers. Powered by Jatta M Kommerce.",
+          "pageLoad": "2sitedevelopment:nexoraplatform",
+          "buttonLabel": "Explore Nexora SaaS Platform",
+          "deepDive": "BridgePower"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "menuLink": "Construction",
+      "media": "phase3",
+      "screens": [
+        {
+          "type": "intro",
+          "frame": [
+            2
+          ],
+          "badge": "Phase 3",
+          "phaseTitle": [
+            "Construction"
+          ],
+          "pageLoad": "3construction",
+          "large": "Watch the residential society, towers, and small clubhouse rise from ground to finish: excavation, foundation raft, structural framing, masonry walls, roofing, and modern glass facades.",
+          "media": "phase3"
+        },
+        {
+          "type": "nodes",
+          "frame": [
+            4.2,
+            6.0
+          ],
+          "pageLoad": "3construction:step1",
+          "screenSummary": "Mobilize the construction site, excavate the foundations, and cast reinforced concrete plinths.",
+          "nodes": [
+            {
+              "pos": [
+                45,
+                65
+              ],
+              "title": "Clubhouse Foundation & Raft",
+              "linkClick": "Construction:ClubhouseFoundation",
+              "board": "/images/society_stage1_excavation.jpg",
+              "boardAlt": "",
+              "content": "Excavate foundation trenches, compact sub-base, and cast the reinforced concrete foundation raft for the central society small house."
+            },
+            {
+              "pos": [
+                20,
+                42
+              ],
+              "title": "Site Mobilization & Gatehouse",
+              "linkClick": "Construction:GatehouseMobilization",
+              "board": "/images/society_stage2_framing.jpg",
+              "boardAlt": "",
+              "content": "Erect entry gatehouse, staging yards, perimeter security fencing, and ready-mix concrete pump lines across the society parcel.",
+              "onsite": true
+            }
+          ],
+          "media": "phase3"
+        },
+        {
+          "type": "nodes",
+          "frame": [
+            9.2,
+            10.2
+          ],
+          "pageLoad": "3construction:step2",
+          "screenSummary": "Erect reinforced concrete residential towers, clubhouse glass facade, and landscape boulevard.",
+          "nodes": [
+            {
+              "pos": [
+                36,
+                40
+              ],
+              "title": "Residential Tower Superstructure",
+              "linkClick": "Construction:TowerSuperstructure",
+              "board": "/images/society_stage2_framing.jpg",
+              "boardAlt": "",
+              "content": "Cast monolithic shear walls, high-strength columns, post-tensioned floor slabs, and elevator shafts for the residential towers.",
+              "onsite": true
+            },
+            {
+              "pos": [
+                45,
+                64
+              ],
+              "title": "Society Small House / Clubhouse",
+              "linkClick": "Construction:ClubhouseStructure",
+              "board": "/images/society_stage3_facade.jpg",
+              "boardAlt": "",
+              "content": "Complete architectural concrete shell, double-height glass reception lounge, and private banquet pavilion for the society house."
+            },
+            {
+              "pos": [
+                52,
+                56
+              ],
+              "title": "Olympic-Style Pool & Deck",
+              "linkClick": "Construction:PoolConstruction",
+              "board": "/images/society_stage1_excavation.jpg",
+              "boardAlt": "",
+              "content": "Cast waterproof reinforced concrete swimming pool basin, sunken filtration equipment room, and anti-skid poolside deck."
+            },
+            {
+              "pos": [
+                86,
+                62
+              ],
+              "title": "Sports Court & Children Play Area",
+              "linkClick": "Construction:SportsArena",
+              "board": "/images/master_plan_04_procurement.jpg",
+              "boardAlt": "",
+              "content": "Grade and install all-weather acrylic basketball/tennis sports turf, perimeter floodlights, and children playground safety mats."
+            },
+            {
+              "pos": [
+                68,
+                46
+              ],
+              "title": "Underground MEP & Substation",
+              "linkClick": "Construction:MEPInfrastructure",
+              "board": "/images/society_construction_clean.jpg",
+              "boardAlt": "",
+              "content": "Lay underground high-voltage power conduits, backup diesel gensets, fiber optic raceways, and sewage treatment pipelines.",
+              "deepDive": "GasCapabilities",
+              "deepDiveLabel": "Explore Capabilities",
+              "onsite": true
+            }
+          ],
+          "media": "phase3"
+        },
+        {
+          "type": "exit",
+          "frame": [
+            1
+          ],
+          "button": "Scroll to Phase 4",
+          "media": "phase3_output"
+        }
+      ]
+    },
+    {
+      "type": "horizontal",
+      "menuLink": "Fit-Out & Handover",
+      "button": "Scroll to Phase 5",
+      "pageLoad": "4powerrampup",
+      "screens": [
+        {
+          "type": "introScreen",
+          "badge": "Phase 4",
+          "phaseTitle": [
+            "Fit-Out &",
+            "Handover"
+          ],
+          "large": "Before the keys change hands, every room in the villa is crafted with premium finishes, tested against 200+ quality checkpoints, and handed over."
+        },
+        {
+          "type": "imageBreak",
+          "media": "phase4"
+        },
+        {
+          "type": "nodeDotRail",
+          "toggle1": "Villa Interior Fit-Out",
+          "toggle2": "Quality Audit & Handover",
+          "blocks": [
+            {
+              "onsite": true,
+              "pageLoad": "4fitouthandover:interiors",
+              "number": "01",
+              "heading": "Premium Interior Finishes",
+              "content": "Lay imported Italian marble in living lounges, engineered hardwood in master bedrooms, and vitrified tiles on open outdoor decks."
+            },
+            {
+              "onsite": true,
+              "pageLoad": "4fitouthandover:interiors",
+              "number": "02",
+              "heading": "Modular Kitchen & Wardrobes",
+              "content": "Install custom modular kitchen cabinetry with quartz stone countertops, soft-close hardware, and bespoke fitted wardrobes across all suites."
+            },
+            {
+              "onsite": true,
+              "pageLoad": "4fitouthandover:quality",
+              "number": "03",
+              "heading": "200+ Point Digital Snag Audit",
+              "content": "Site engineers conduct structured inspections via Nexora mobile app \u2014 testing water pressure, electrical circuits, window seals, and paint uniformity."
+            },
+            {
+              "onsite": true,
+              "pageLoad": "4fitouthandover:quality",
+              "number": "04",
+              "heading": "Contractor Snag Resolution",
+              "content": "Contractors log and resolve punch-list items with before-and-after photo verification tracked in real time on Nexora's builder portal."
+            },
+            {
+              "onsite": true,
+              "pageLoad": "4fitouthandover:handover",
+              "number": "05",
+              "heading": "Homeowner Walkthrough & Handover",
+              "content": "Host personalized client walkthrough, digital sign-off on possession certificates, and handover of smart keys and warranty manuals."
+            },
+            {
+              "onsite": true,
+              "pageLoad": "4fitouthandover:handover",
+              "number": "06",
+              "heading": "Society Facilities Commissioning",
+              "content": "Commission society clubhouse amenities, swimming pool filtration, landscape lighting, and gated security access for residents."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "menuLink": "Ready to Move In",
+      "media": "phase5",
+      "screens": [
+        {
+          "type": "intro",
+          "frame": [
+            2.65
+          ],
+          "badge": "Phase 5",
+          "phaseTitle": [
+            "Ready to",
+            "Move In"
+          ],
+          "pageLoad": "5fullyoperational",
+          "large": "Homeowners settle in, the society clubhouse and swimming pool open, and the vibrant gated community comes alive."
+        },
+        {
+          "type": "nodes",
+          "frame": [
+            2.65,
+            3.65
+          ],
+          "pageLoad": "5fullyoperational:step1",
+          "screenSummary": "Deliver seamless resident onboarding, society facility management, and ongoing maintenance through the Nexora living platform.",
+          "nodes": [
+            {
+              "pos": [
+                72,
+                33
+              ],
+              "title": "Society Clubhouse & Pool",
+              "linkClick": "FullyOperational:RetailPowerSupport",
+              "board": "/images/society_construction_clean.jpg",
+              "boardAlt": "",
+              "content": "Heated swimming pool, modern fitness studio, indoor badminton court, and party lawn managed via the Nexora Resident App.",
+              "deepDive": "RetailOfferings",
+              "deepDiveLabel": "Explore Offerings"
+            },
+            {
+              "pos": [
+                45,
+                55
+              ],
+              "title": "24/7 Gated Security",
+              "linkClick": "FullyOperational:Low-CarbonPath",
+              "board": "/images/society_construction_clean.jpg",
+              "boardAlt": "",
+              "content": "Boom-barrier access control, RFID vehicle tags, perimeter CCTV surveillance, and visitor pre-authorization via app.",
+              "deepDive": "LowerCarbonPathways",
+              "deepDiveLabel": "Learn How"
+            },
+            {
+              "pos": [
+                42,
+                30
+              ],
+              "title": "Estate Facility Management",
+              "linkClick": "FullyOperational:GasGridRetail",
+              "board": "/images/master_plan_08_crm_sales.jpg",
+              "boardAlt": "",
+              "content": "Common area solar lighting, automated lawn sprinklers, waste management, and dedicated on-site society maintenance desk.",
+              "onsite": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scroll",
+      "isStatic": true,
+      "menuLink": "Virtual Tour",
+      "button": "Scroll to take a tour",
+      "pageLoad": "6virtualtour",
+      "screens": [
+        {
+          "type": "introScreen",
+          "frame": [
+            0
+          ],
+          "media": "phase5_tour",
+          "badge": "Take a tour",
+          "phaseTitle": [
+            "Explore Your",
+            "Villa"
+          ],
+          "large": "The villa and society community are ready for living. Step inside the Nexora 3D interactive twin to explore every space \u2014 from the living pavilion and master suite to the society clubhouse and private garden."
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "media": "phase5_tour",
+      "screens": [
+        {
+          "type": "nodes",
+          "media": "phase5_tour",
+          "frame": [
+            0
+          ],
+          "screenSummary": "",
+          "isTour": true,
+          "pageLoad": "6virtualtour:takeatour",
+          "nodes": [
+            {
+              "pos": [
+                46,
+                45
+              ],
+              "title": "Villa Architecture & Driveway",
+              "tourLocation": "Security",
+              "content": "Contemporary two-storey luxury villa with private portico parking, landscaped front lawn, and grand double-height entrance."
+            },
+            {
+              "pos": [
+                39,
+                33
+              ],
+              "title": "Private Garden & Courtyard",
+              "tourLocation": "Cooling",
+              "content": "Secluded landscaped lawn with timber deck, ambient garden lighting, and outdoor seating gazebo."
+            },
+            {
+              "pos": [
+                80,
+                36
+              ],
+              "title": "Society Clubhouse & Pool",
+              "tourLocation": "Power",
+              "content": "Central community pavilion with infinity swimming pool, children's splash deck, and fitness center."
+            },
+            {
+              "pos": [
+                59,
+                59
+              ],
+              "title": "Living & Dining Pavilion",
+              "tourLocation": "Battery",
+              "content": "Spacious 800 sq.ft living lounge opening onto garden deck with floor-to-ceiling panoramic glass sliding doors."
+            },
+            {
+              "pos": [
+                69,
+                25
+              ],
+              "title": "Master Bedroom Suite",
+              "tourLocation": "Operations",
+              "content": "Upper-level master bedroom featuring wooden floors, private sunset balcony, walk-in dressing room, and spa bathroom."
+            },
+            {
+              "pos": [
+                38,
+                64
+              ],
+              "title": "Smart Security & Solar Roof",
+              "tourLocation": "Sustainability",
+              "content": "Rooftop solar panel installation, rainwater harvesting recharge point, and smart home hub."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tour": {
+    "Security": {
+      "thumb": "/images/society_construction_clean.jpg",
+      "media": "phase5_tour",
+      "frames": [
+        0,
+        3.2,
+        5.0,
+        8.2
+      ],
+      "pageLoad": "6virtualtour:security",
+      "blocks": [
+        {
+          "heading": "Gated Society Security",
+          "id": "securi",
+          "content": "Multi-tiered security infrastructure \u2014 boom-barriers, automated RFID license plate scanners, perimeter beam sensors, and 24/7 CCTV surveillance protect the community."
+        },
+        {
+          "heading": "Smart Villa Access",
+          "id": "datahs",
+          "content": "Keyless biometric front door locks, digital visitor video intercom, and real-time doorbell camera integration accessible from the Nexora homeowner app."
+        }
+      ]
+    },
+    "Cooling": {
+      "thumb": "/images/villa_completion.jpg",
+      "media": "phase5_tour",
+      "frames": [
+        8.6,
+        9.7,
+        11.6,
+        12.7
+      ],
+      "pageLoad": "6virtualtour:cooling",
+      "blocks": [
+        {
+          "heading": "Climate Comfort & Cross-Ventilation",
+          "id": "hvaca",
+          "content": "Architecturally positioned wind corridors, double-glazed low-E thermal windows, and deep terrace overhangs keep the villa naturally cool year-round."
+        },
+        {
+          "heading": "Smart VRV Air Conditioning",
+          "id": "cools",
+          "content": "Energy-efficient variable refrigerant volume (VRV) multi-split cooling with individual climate zone control for each bedroom and living pavilion."
+        }
+      ]
+    },
+    "Power": {
+      "thumb": "/images/villa_site_evaluation_clean.jpg",
+      "media": "phase5_tour",
+      "frames": [
+        13.1,
+        14.2,
+        16.1,
+        17.2
+      ],
+      "pageLoad": "6virtualtour:power",
+      "blocks": [
+        {
+          "heading": "Underground Power Grid",
+          "id": "gridi",
+          "content": "Concealed underground electrical infrastructure and dedicated society transformer ensure dependable, surge-protected power distribution to every villa."
+        },
+        {
+          "heading": "High-Speed Optical Fiber",
+          "id": "fiberc",
+          "content": "Fiber-to-the-home (FTTH) Gigabit infrastructure pre-wired throughout the villa, powering ultra-fast internet, streaming, and home automation."
+        }
+      ]
+    },
+    "Battery": {
+      "thumb": "/images/luxury_villa_floor_plan.jpg",
+      "media": "phase5_tour",
+      "frames": [
+        18.0,
+        19.0,
+        19.9,
+        21.0
+      ],
+      "pageLoad": "6virtualtour:battery",
+      "blocks": [
+        {
+          "heading": "Solar Hybrid Battery Storage",
+          "id": "batts",
+          "content": "Smart inverter battery systems paired with rooftop solar panels deliver instant, uninterrupted backup power for lighting, fans, refrigeration, and security."
+        },
+        {
+          "heading": "Intelligent Energy Monitoring",
+          "id": "powerm",
+          "content": "Smart power monitors dynamically balance solar generation, battery reserve, and grid supply to minimize utility bills and carbon impact."
+        }
+      ]
+    },
+    "Operations": {
+      "thumb": "/images/master_plan_08_crm_sales.jpg",
+      "media": "phase5_tour",
+      "frames": [
+        21.8,
+        23.55,
+        24.85,
+        26.6
+      ],
+      "pageLoad": "6virtualtour:operations",
+      "blocks": [
+        {
+          "heading": "Concierge & Facility Management",
+          "id": "onsites",
+          "content": "Professional on-site estate staff manage common areas, landscape maintenance, clubhouse operations, and resident requests 24/7."
+        },
+        {
+          "heading": "Society Resident Hub",
+          "id": "controlr",
+          "content": "The digital control center in the Nexora app enables one-tap amenity reservations, visitor pre-approvals, maintenance bill payments, and community notices."
+        }
+      ]
+    },
+    "Sustainability": {
+      "thumb": "/images/master_plan_05_environment.jpg",
+      "media": "phase5_tour",
+      "frames": [
+        27.1,
+        28.1,
+        29.0,
+        30.1
+      ],
+      "pageLoad": "6virtualtour:water",
+      "blocks": [
+        {
+          "heading": "Green Villa Architecture",
+          "id": "sust",
+          "content": "Rooftop solar arrays, energy-rated appliances, and IGBC-certified green construction reduce operational carbon footprint and ongoing utility costs."
+        },
+        {
+          "heading": "Rainwater & Greywater Recycling",
+          "id": "waterp",
+          "content": "On-site rainwater harvesting recharge pits collect 100% of roof run-off, while treated greywater irrigates community gardens and green lawns."
+        }
+      ]
+    }
+  },
+  "deepDives": {
+    "LowerCarbonPathways": {
+      "title": "Nexora Sustainable Villa Living",
+      "intro": "Eco-friendly, energy-efficient architecture designed for modern gated communities and green building certifications.",
+      "color": "#E0AEFF",
+      "pageLoad": "deepdive:lowercarbonpathways",
+      "blocks": [
+        {
+          "type": "accordion",
+          "id": "lc1",
+          "heading": "Rooftop Solar PV & Net Metering",
+          "content": "Seamlessly integrate rooftop solar systems into each villa with net metering and smart storage batteries."
+        },
+        {
+          "type": "accordion",
+          "id": "lc2",
+          "heading": "Rainwater Harvesting & Ground Recharge",
+          "content": "Automated groundwater recharge pits and dual plumbing lines for garden landscape irrigation."
+        },
+        {
+          "type": "accordion",
+          "id": "lc3",
+          "heading": "IGBC Green Home Compliance",
+          "content": "Built-in energy simulation models to achieve gold/platinum green building certification."
+        },
+        {
+          "type": "accordion",
+          "id": "lc4",
+          "heading": "EV Charging Infrastructure",
+          "content": "Pre-wired level-2 electric vehicle chargers in every villa portico and visitor parking area."
+        },
+        {
+          "type": "accordion",
+          "id": "lc5",
+          "heading": "Smart Home Climate & Energy Tracking",
+          "content": "IoT connected thermostats and smart circuit breakers monitoring power usage in real time."
+        },
+        {
+          "type": "accordion",
+          "id": "lc6",
+          "heading": "Organic Waste Composting",
+          "content": "Decentralized society organic waste converters generating compost for community landscaping."
+        },
+        {
+          "type": "accordion",
+          "id": "lc7",
+          "heading": "Native Flora & Microclimate Landscaping",
+          "content": "Thoughtfully planned tree canopies reducing ambient heat island effects across the society."
+        }
+      ]
+    },
+    "BridgePower": {
+      "title": "Nexora 3D Digital Twin Platform",
+      "intro": "Nexora's proprietary real-time 3D engine transforms architectural blueprints into interactive digital twins that accelerate pre-sales, investor presentations, and construction audits.",
+      "color": "#6FE45D",
+      "pageLoad": "deepdive:bridgepowersolutions",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Key Advantages of the Nexora Digital Twin Platform:",
+          "rows": [
+            [
+              "Interactive 3D Fidelity",
+              "4K WebGL photorealistic rendering with real-time day/night lighting simulation"
+            ],
+            [
+              "Deployment Speed",
+              "Convert CAD/Revit/BIM models to interactive browser twins in under 72 hours"
+            ],
+            [
+              "Real-time Inventory Sync",
+              "Direct two-way sync with Salesforce, HubSpot, and proprietary builder ERPs"
+            ],
+            [
+              "Buyer Customization Engine",
+              "Real-time interior finishes, flooring choices, and furniture package configurator"
+            ]
+          ]
+        }
+      ]
+    },
+    "GasCapabilities": {
+      "title": "Nexora Real Estate SaaS Architecture",
+      "intro": "Nexora is the cloud operating system for modern real estate developers, property syndicates, and residential communities \u2014 powered by Jatta M Kommerce.",
+      "color": "#7FEFF6",
+      "pageLoad": "deepdive:gascapabilities",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Integrated Modules for Modern Real Estate Development:",
+          "rows": [
+            [
+              "Land & Feasibility Module",
+              "Automated contour analysis, zoning setbacks, FSI calculations, and utility routing feasibility."
+            ],
+            [
+              "3D Virtual Sales Gallery",
+              "Embeddable interactive web experience, touch-screen kiosks, and VR headset walkthroughs."
+            ],
+            [
+              "Construction Milestone Tracker",
+              "Geotagged drone orthomosaics, contractor bill verification, and photographic audit trails."
+            ],
+            [
+              "Digital Quality & Snagging",
+              "Mobile app for site engineers with 200+ standard checkpoints and instant sub-contractor assignment."
+            ],
+            [
+              "Buyer Handover & Resident Portal",
+              "Automated RERA possession packets, digital keys, maintenance ticketing, and amenity reservations."
+            ]
+          ]
+        }
+      ]
+    },
+    "RetailOfferings": {
+      "title": "Nexora Enterprise & Developer Plans",
+      "intro": "Flexible SaaS subscription tiers designed for boutique villa builders, multi-phase township developers, and enterprise real estate syndicates.",
+      "color": "#E0AEFF",
+      "pageLoad": "deepdive:retailofferings",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Enterprise-Grade Real Estate SaaS Platform:",
+          "rows": [
+            [
+              "Flexible Deployment",
+              "Cloud SaaS or private tenant instances with enterprise 99.9% uptime SLA guarantees"
+            ],
+            [
+              "Multi-Project Portfolio",
+              "Manage dozens of land parcels, villa phases, and towers under a single unified dashboard"
+            ],
+            [
+              "Dedicated Support & Onboarding",
+              "24/7 dedicated customer success engineering and digital twin 3D modeling specialists"
+            ],
+            [
+              "Enterprise Integrations",
+              "Webhooks, REST APIs, and native connectors for SAP, Salesforce, and municipal RERA portals"
+            ]
+          ]
+        }
+      ]
+    },
+    "Onsite": {
+      "title": "What is an Interactive 3D Digital Twin?",
+      "intro": "",
+      "color": "#FFC20E",
+      "blocks": [
+        {
+          "type": "textblock",
+          "title": "",
+          "content": "A Digital Twin is a dynamic, photorealistic 3D replica of your real estate development \u2014 created directly from architectural and engineering drawings. <br><br>With Nexora, developers and buyers can explore every villa, examine structural details, inspect society amenities, and track construction progress in real time before physical completion."
+        }
+      ]
+    },
+    "Contact": {
+      "title": "Ready to Transform Your Real Estate Development?",
+      "intro": "Schedule a personalized walkthrough of the Nexora platform with our real estate technology specialists.",
+      "color": "#6FE45D",
+      "pageLoad": "7getIntouch",
+      "blocks": [
+        {
+          "type": "contactForm"
+        },
+        {
+          "type": "textblock",
+          "title": "",
+          "content": "By clicking the 'Talk to an Expert' button, you agree to the Nexora <a href=\"#privacy\">Privacy Policy</a> and authorize our team to connect with you regarding platform onboarding and real estate SaaS solutions. Powered by Jatta M Kommerce."
+        }
+      ]
+    }
+  },
+  "media": [
+    {
+      "id": "phase1",
+      "type": "video",
+      "src": [
+        "https://nrgcdn.b-cdn.net/videos/min/phase1_loop.mp4#t=0.1",
+        "A 3D simulation showing the site evaluation and preparation for the villa development in Phase 1"
+      ]
+    },
+    {
+      "id": "phase1_output",
+      "type": "imageSequence",
+      "srcs": [
+        [
+          "/images/villa_site_evaluation_clean.jpg",
+          "Completed 3D digital twin of the luxury villa development"
+        ]
+      ]
+    },
+    {
+      "id": "phase2_top",
+      "type": "imageSequence",
+      "srcs": [
+        [
+          "/images/master_plan_01_feasibility.jpg",
+          "AI Algorithmic Plot Slicing & Sunlight Simulation"
+        ],
+        [
+          "/images/master_plan_02_sanctions.jpg",
+          "Automated Municipal Sanction Dossier & NOC Vault"
+        ],
+        [
+          "/images/master_plan_03_rera.jpg",
+          "Statutory RERA Regulatory Vault & Escrow Ring-Fencing"
+        ],
+        [
+          "/images/master_plan_04_procurement.jpg",
+          "Long-Lead Material Procurement & Dynamic Cost Variance"
+        ],
+        [
+          "/images/master_plan_05_environment.jpg",
+          "Eco-Impact Assessment & Net-Zero Sustainability Suite"
+        ]
+      ]
+    },
+    {
+      "id": "phase2_bottom",
+      "type": "imageSequence",
+      "srcs": [
+        [
+          "/images/master_plan_06_bim_twin.jpg",
+          "Automated BIM-to-WebGL Conversion Pipeline (60 FPS)"
+        ],
+        [
+          "/images/master_plan_07_customizer.jpg",
+          "Real-Time Homebuyer Spec & Interior Finishes Configurator"
+        ],
+        [
+          "/images/master_plan_08_crm_sales.jpg",
+          "Developer Sales Cockpit & Instant Digital Token Booking"
+        ],
+        [
+          "/images/master_plan_09_handover.jpg",
+          "Homeowner Transparency Portal & Digital Handover Vault"
+        ]
+      ]
+    },
+    {
+      "id": "phase3",
+      "type": "video",
+      "src": [
+        "https://nrgcdn.b-cdn.net/videos/min/phase3_loop3.mp4#t=0.1",
+        "A 3D diorama timelapse showing the construction building automatically in Phase 3"
+      ]
+    },
+    {
+      "id": "phase3_output",
+      "type": "imageSequence",
+      "srcs": [
+        [
+          "/images/society_construction_clean.jpg",
+          "Completed residential society, towers, and small clubhouse output"
+        ]
+      ]
+    },
+    {
+      "id": "phase4",
+      "type": "imageSequence",
+      "srcs": [
+        [
+          "/images/luxury_villa_floor_plan.jpg",
+          "Architectural luxury villa master floor plan layout \u2014 5,420 sq.ft RERA approved"
+        ]
+      ]
+    },
+    {
+      "id": "phase5",
+      "type": "imageSequence",
+      "srcs": [
+        [
+          "/images/society_construction_clean.jpg",
+          "A 3D simulation showing the completion and vibrant living in the residential community in Phase 5"
+        ]
+      ]
+    },
+    {
+      "id": "phase5_tour",
+      "type": "imageSequence",
+      "srcs": [
+        [
+          "/images/society_construction_clean.jpg",
+          "A 3D interactive virtual tour exploring key amenities across the villa and society"
+        ]
+      ]
+    }
+  ]
+}

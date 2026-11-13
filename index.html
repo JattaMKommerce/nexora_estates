@@ -1,27 +1,269 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0d1016" />
-    <meta name="description" content="Explore new homes in realistic 3D: choose a tower, a floor and a residence, see the floor plan and walk through the interior." />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1016'/%3E%3Cpath d='M11 25V9l10-3v19M14 12h4M14 16h4M14 20h4' fill='none' stroke='%23d9b781' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <!-- Paint the page colour before any script runs (no white flash), and style the boot state. -->
-    <style>
-      html { background: #0c0f14; color: #f3eee6; }
-      body { margin: 0; }
-      .boot { position: fixed; inset: 0; display: grid; place-items: center; background: #0c0f14; }
-      .boot__label { font: 500 11px/1 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: 0.32em; text-transform: uppercase; color: #8e887e; opacity: 0; transition: opacity 0.6s ease; }
-      .boot__label.is-visible { opacity: 1; }
-    </style>
-    <title>Restate</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <noscript>This website needs JavaScript enabled to show its properties and 3D tours.</noscript>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html class="loading-page flip-nav" lang="en">
+    <head>
+
+        <title>Nexora | Real Estate Development Platform — Powered by Jatta M Kommerce</title>
+        <meta name="description" content="Nexora is a next-generation real estate digital twin & construction tracking SaaS platform powered by Jatta M Kommerce. Plan, visualize, and sell luxury villas and society developments.">
+
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="preload" href="/style.css?v=2" as="style">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <link rel="icon" type="image/png" href="https://nrgcdn.b-cdn.net/images/favicon.png" />
+
+        <meta property="og:title" content="Nexora | Real Estate Development Platform — Powered by Jatta M Kommerce">
+        <meta property="og:description" content="Nexora is a modern real estate digital twin SaaS platform powered by Jatta M Kommerce. Showcase luxury villas, homes, and society developments from site evaluation to completion.">
+        <meta property="og:image" content="https://nrgcdn.b-cdn.net/images/og.png">
+        <meta property="og:url" content="https://jattamkommerce.com/nexora/">
+        <meta property="og:type" content="website">
+
+<script>
+var dataLayerInternal = {};
+</script>
+
+    </head>
+    <body>
+
+        <nav class="nav" id="nav">
+            <div class="nav__logo tabme" id="nav-logo" role="button" tabindex="0" title="Return to Nexora Home">
+                <svg viewBox="0 0 53 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Nexora Architectural Geometric Monogram -->
+                    <path class="flip" d="M5 30V6H11L24 23.5V6H30V30H24L11 12.5V30H5Z" fill="white"/>
+                    <path d="M34 6H39V30H34V6Z" fill="#FFD200"/>
+                    <path class="flip" d="M42 13H47V30H42V13Z" fill="white"/>
+                    <path d="M42 6H47V10H42V6Z" fill="#6FE45D"/>
+                </svg>
+                <span class="title">
+                    <span class="brand-name">Nexora</span>
+                    <span class="brand-sub">powered by jattamkommerce</span>
+                </span>
+            </div>
+            <div class="nav__right">
+                <div class="nav__power tooltipHover" id="tab-power" tabindex="0">
+                    <span><img src="https://nrgcdn.b-cdn.net/ui/onsite_node.svg" alt="Nexora Digital Twin Icon"></span>
+                    <span>What is Nexora?</span>
+                    <div class="nav__powerTooltip tooltip">
+                        <p><strong>Nexora</strong> is a real estate digital twin & construction tracking SaaS platform powered by <strong>Jatta M Kommerce</strong>, enabling developers and buyers to visualize, manage, and pre-sell villas and society developments before breaking ground.</p>
+                    </div>
+                </div>
+                <div class="nav__menu" id="nav-menu">
+                    <div class="nav__menuLabel" id="menu-label" aria-label="Menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu-inner">
+                        <span class="nav__phaseCircle" id="menu-phase-number">0</span>
+                        <span class="nav__phaseLabel" id="menu-phase-label">Menu</span>
+                    </div>
+                    
+                    <div class="nav__menuIcon tabme" id="menu-icon" role="button" tabindex="0" aria-label="Toggle Navigation Menu">
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="nav__menuBG" id="menu-bg"></div>
+
+                    <div class="nav__menuContent" id="menu-inner">
+                        <ul class="nav__menuLinks" id="menu-links"></ul>
+                        <div class="nav__menuContact">
+                            <div class="nav__menuBranding" style="margin-bottom: 1.5rem; text-align: center; color: #fff; font-size: 1.2rem;">
+                                <span style="display: block; font-weight: 700; letter-spacing: 0.1em;">NEXORA SAAS</span>
+                                <span style="display: block; font-size: 0.9em; opacity: 0.75; margin-top: 0.2rem;">Powered by <strong>Jatta M Kommerce</strong></span>
+                            </div>
+                            <span class="nav__menuContactButton tabme" id="menu-contact" role="button" tabindex="0">
+                                <span>
+                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.56579 0.5H3.65789L4.72368 3.14474L3.42105 3.93421C3.97368 5.07895 4.92105 5.98684 6.06579 6.57895L6.85526 5.27632L9.5 6.34211V8.43421C9.5 9.02632 9.02632 9.5 8.43421 9.5C4.13158 9.18421 0.776316 5.82895 0.5 1.56579C0.5 0.973684 0.973684 0.5 1.56579 0.5Z" stroke="black" class="stroke" stroke-miterlimit="5.3333" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span> Book a Nexora Demo </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> 
+
+        </nav>
+
+        <div class="progress" id="progress"></div>
+
+        <div id="base-focus"></div>
+
+        <div class="loadingScreen" id="loading">
+            <div class="loadingScreen__inner">
+                <div class="loadingScreen__spinner">
+                    
+                    <svg viewBox="0 0 53 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="flip" d="M5 30V6H11L24 23.5V6H30V30H24L11 12.5V30H5Z" fill="white"/>
+                        <path d="M34 6H39V30H34V6Z" fill="#FFD200"/>
+                        <path class="flip" d="M42 13H47V30H42V13Z" fill="white"/>
+                        <path d="M42 6H47V10H42V6Z" fill="#6FE45D"/>
+                    </svg>
+
+                    <p>
+                        <span class="line"><span class="linner">Nexora</span></span>
+                        <span class="line"><span class="linner" style="font-size: 0.45em; letter-spacing: 0.15em; color: #ffd200; text-transform: uppercase;">Powered by Jatta M Kommerce</span></span>
+                    </p>
+                </div>
+                <span class="loadingScreen__progress" id="loading-progress"></span>
+                <button class="loadingScreen__button button yellowButton" id="enter-button" role="button" tabindex="0">Enter Site</button>
+            </div>
+        </div>
+
+        <div class="startScreen" id="start">
+
+            <div class="startScreen__top" id="start-top">
+                <div class="startScreen__topContent" id="start-top-content">
+                    <h1 class="startScreen__title phaseTitle anim anim-delay-5 u-hideMobile">
+                        <span class="line"><span class="inner">Homes Shape</span></span> 
+                        <span class="line"><span class="inner">Our Lives.</span></span> 
+                    </h1>
+                    <p class="startScreen__title phaseTitle anim anim-delay-5 u-showMobile">
+                        <span class="line"><span class="inner">Homes</span></span> 
+                        <span class="line"><span class="inner">Shape</span></span>
+                        <span class="line"><span class="inner">Our</span></span>
+                        <span class="line"><span class="inner">Lives.</span></span> 
+                    </p>
+                    <p class="startScreen__paragraph paragraph anim fadeUp anim-delay-5"> Nexora powers the real estate SaaS platform that brings villas and society communities to life before they are built. </p>
+                    <div class="startScreen__scrollMessage scrollMessage anim fadeUp anim-delay-9">
+                        <lottie-player
+                            src="https://nrgcdn.b-cdn.net/lottie/mousescroll.json"
+                            style="width: 11px; height: 16px;"
+                            background="transparent"
+                            speed="1"
+                            loop
+                            autoplay
+                        ></lottie-player>
+                        <span>Scroll to explore</span>
+                    </div>
+                </div>
+                
+                <div class="startScreen__videoWrap nav-dark anim fade anim-delay-6" id="start-video-wrap">
+                    <div class="startScreen__video" id="scrolly-video"></div>
+                </div>
+            </div>
+
+            <div class="startScreen__lowerContent" id="start-mid">
+                <h2 class="startScreen__midLabel anim halfFade">Explore Our </br>Build Process</h2>
+                <p class="startScreen__intro paragraph">
+                    <span class="line"> <span class="img-wrap"><img src="https://nrgcdn.b-cdn.net//ui/onsite_node.svg" alt="Interactive 3D Twins icon"></span> <span class="label-wrap">Nexora Digital Twins</span></span>
+                    <span class="line">for villas & society developments</span>
+                    <span class="line">powered by Jatta M Kommerce —</span>
+                    <span class="line">built to deliver faster sales,</span>
+                    <span class="line">clarity, and buyer confidence.</span>
+                </p>
+                <p class="startScreen__intro paragraph">
+                    <span class="line">From plot evaluation </span>
+                    <span class="line">to villa construction </span>
+                    <span class="line">and society handover,</span>
+                    <span class="line">Nexora powers every step.</span>
+                </p>
+            </div>
+
+            <div class="startScreen__bottom" id="start-bottom">
+                <div class="startScreen__bottomInner">
+                    <h2 class="startScreen__bottomTitle anim phaseTitle phaseTitle--light">
+                        <span class="line"><span class="inner">Start</span></span> 
+                        <span class="line"><span class="inner">Building</span></span> 
+                        <span class="line"><span class="inner">With Us</span></span> 
+                    </h2>
+
+                    <p class="startScreen__bottomPara paragraph anim fadeUp anim-delay-5">See a villa and society community come together in five simple phases.</p>
+
+                    <span class="scrollButton startScreen__scrollButton anim fadeUp tabme" id="start-button" role="button" tabindex="0">
+                        <span class="scrollButton__progress"></span>
+                        <img src="https://nrgcdn.b-cdn.net/ui/scroll_black.svg" class="scrollButton__icon" alt="Scroll Icon"/>
+                        <span class="scrollButton__label">Scroll to Phase 1</span>
+                    </span>
+                </div>
+            </div>
+
+            <footer class="nexora-footer" id="site-footer">
+                <div class="nexora-footer__inner">
+                    <div class="nexora-footer__top">
+                        <div class="nexora-footer__brand">
+                            <div class="nexora-footer__brandHeader">
+                                <svg class="nexora-footer__logoSvg" viewBox="0 0 53 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 30V6H11L24 23.5V6H30V30H24L11 12.5V30H5Z" fill="#ffffff"/>
+                                    <path d="M34 6H39V30H34V6Z" fill="#FFD200"/>
+                                    <path d="M42 13H47V30H42V13Z" fill="#ffffff"/>
+                                    <path d="M42 6H47V10H42V6Z" fill="#6FE45D"/>
+                                </svg>
+                                <div class="nexora-footer__logo">NEXORA</div>
+                            </div>
+                            <p class="nexora-footer__tagline">The Real Estate Digital Twin & Construction Tracking SaaS Platform</p>
+                            <p class="nexora-footer__by">Powered by <a href="https://jattamkommerce.com/" target="_blank" rel="noopener" style="color: #6fe45d; text-decoration: underline; font-weight: 700;">Jatta M Kommerce ↗</a></p>
+                            <p class="nexora-footer__desc">Transforming residential development from site evaluation to 3D digital twins, live construction tracking, and seamless buyer handover.</p>
+                        </div>
+                        <div class="nexora-footer__grid">
+                            <div class="nexora-footer__col">
+                                <h4>Platform & Phases</h4>
+                                <a href="#start" onclick="window.experience && window.experience.goToStart(); return false;">Overview</a>
+                                <a href="#" onclick="window.experience && window.experience.skipToPhase(1); return false;">Phase 1: Site Evaluation</a>
+                                <a href="#" onclick="window.experience && window.experience.skipToPhase(2); return false;">Phase 2: Master Planning</a>
+                                <a href="#" onclick="window.experience && window.experience.skipToPhase(3); return false;">Phase 3: Construction</a>
+                                <a href="#" onclick="window.experience && window.experience.skipToPhase(4); return false;">Phase 4: Fit-Out & Handover</a>
+                                <a href="#" onclick="window.experience && window.experience.skipToPhase(5); return false;">Phase 5: Ready to Move In</a>
+                                <a href="#" onclick="window.experience && window.experience.skipToPhase(6); return false;">Phase 6: Virtual Twin Tour</a>
+                            </div>
+                            <div class="nexora-footer__col">
+                                <h4>Solutions</h4>
+                                <a href="#" onclick="window.experience && window.experience.openDeepDive('BridgePower'); return false;">3D Digital Twin Suite</a>
+                                <a href="#" onclick="window.experience && window.experience.openDeepDive('GasCapabilities'); return false;">SaaS Architecture</a>
+                                <a href="#" onclick="window.experience && window.experience.openDeepDive('LowerCarbonPathways'); return false;">Sustainable Villa Living</a>
+                                <a href="#" onclick="window.experience && window.experience.openDeepDive('RetailOfferings'); return false;">Enterprise & Builder Plans</a>
+                                <a href="#" onclick="window.experience && window.experience.openDeepDive('Onsite'); return false;">Digital Twin Guide</a>
+                            </div>
+                            <div class="nexora-footer__col">
+                                <h4>Company & Legal</h4>
+                                <a href="https://jattamkommerce.com/" target="_blank" rel="noopener" style="color: #6fe45d; font-weight: 700;">Jatta M Kommerce Official Site ↗</a>
+                                <a href="https://jattamkommerce.com/" target="_blank" rel="noopener">About Jatta M Kommerce</a>
+                                <a href="#" id="footer-demo-btn" onclick="window.experience && window.experience.openDeepDive('Contact'); return false;">Book an Enterprise Demo</a>
+                                <a href="#" onclick="alert('Nexora respects your privacy. All client data and digital twin assets are securely encrypted.'); return false;">Privacy Policy</a>
+                                <a href="#" onclick="alert('Nexora Terms of Service: Enterprise SaaS license under Jatta M Kommerce.'); return false;">Terms of Service</a>
+                                <a href="#" onclick="window.experience && window.experience.openDeepDive('Contact'); return false;">Contact Sales</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nexora-footer__bottom">
+                        <p>© 2026 Nexora. All rights reserved. Transforming Real Estate with 3D Digital Twins.</p>
+                        <div class="nexora-footer__status"><span class="status-dot"></span> All Systems Operational</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    
+        <div class="experience_wrap">
+            <div class="experience plx__front" id="main-front"></div>
+            <div class="experience plx__back" id="main-back"></div>
+            <div class="experience" id="main-static"></div>
+        </div>
+
+        <div class="exploreScroll" id="explore-scroll"></div>
+        <div class="scrolling" id="scrolling"></div>
+        <div class="deepDive" id="deep-dive"></div>
+
+        <div class="window" id="window">
+            <div class="window__move plx__back">
+                <div class="window__inner ">
+                    <div class="window__media" id="media"></div>
+                    <div class="window__overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+        <script type="text/javascript" src="/scripts.js?v=2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+        <script type="text/javascript">
+            new ScrollyVideo({
+                scrollyVideoContainer: "scrolly-video",
+                src: "https://nrgcdn.b-cdn.net/videos/min/phase1_start.mp4",
+            });
+        </script>
+        
+    </body>
 </html>

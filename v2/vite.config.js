@@ -8,7 +8,7 @@ export default defineConfig({
   publicDir: here('public'),
   cacheDir: here('../node_modules/.vite-v2'),
   build: {
-    outDir: here('../dist-v2'),
+    outDir: here('../dist'),
     emptyOutDir: true,
     target: 'es2020'
   },

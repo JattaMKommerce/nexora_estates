@@ -5,12 +5,13 @@
   "description": "Static 3D residence website: React + Three.js tower with selectable floors.",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "vite --config v2/vite.config.js",
+    "build": "vite build --config v2/vite.config.js",
+    "preview": "vite preview --config v2/vite.config.js",
     "dev:v2": "vite --config v2/vite.config.js",
     "build:v2": "vite build --config v2/vite.config.js",
-    "preview:v2": "vite preview --config v2/vite.config.js"
+    "preview:v2": "vite preview --config v2/vite.config.js",
+    "build:legacy": "vite build --config vite.config.js"
   },
   "dependencies": {
     "@react-three/drei": "10.7.9",
