@@ -34,6 +34,18 @@ commented patches (backups: `backups/2026-11-13-before-ui-pass/`).
 the demo form sends nothing and offers to email the request to `settings.contactEmail`; log in / sign up
 say they are not connected. Set the endpoints (JSON POST) to switch both forms to live submission.
 
+## Hannah, the virtual receptionist (2026-11-16)
+
+Every visitor first meets Hannah on a video-call style welcome screen
+(`v2/public/nexora/hannah*.js`, `hannah.css`). She is her approved portrait brought to life in
+WebGL, with lip sync to her browser voice, expressions and blinks. She listens through the
+microphone or the ask bar, answers only from `hannah-knowledge.json` (edit that file to train her),
+and can open a phase or the Book a Demo form on request. The site loads untouched behind her;
+**Skip Introduction** or the red end-call button start it, and **Talk to Hannah** in the menu brings
+her back. Once per browser session; `?welcome` shows her again, `?skipwelcome` skips her. No API
+keys or paid services. Face sources: `v2/nexora-src/hannah/`. Details, training guide and test
+steps: `docs/hannah-receptionist.md`.
+
 ## Architecture & Features
 
 - **Brand & Identity**: **Nexora**, powered by **Jatta M Kommerce**.

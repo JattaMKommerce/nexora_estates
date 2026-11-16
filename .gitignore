@@ -3,3 +3,5 @@ dist/
 dist-v2/
 .DS_Store
 *.zip
+scratch/
+__pycache__/

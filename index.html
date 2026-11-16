@@ -12,6 +12,23 @@
         <link rel="preload" href="/style.css?v=3" as="style">
         <link rel="stylesheet" type="text/css" href="/style.css?v=3">
         <link rel="stylesheet" type="text/css" href="/nexora/nexora.css?v=1">
+        <link rel="stylesheet" type="text/css" href="/nexora/hannah.css?v=6">
+        <script>
+            /* Hannah, the virtual receptionist (nexora/hannah.js), greets the first page view of each
+               browser session. Decided here, before the first paint, so the homepage never flashes.
+               ?welcome shows her again; ?skipwelcome skips her. */
+            (function () {
+                var d = document.documentElement, q = location.search, k = 'nx-hannah-entered', show = true;
+                try {
+                    if (/[?&]welcome(=|&|$)/.test(q)) sessionStorage.removeItem(k);
+                    show = !sessionStorage.getItem(k);
+                } catch (e) { /* storage blocked: show her */ }
+                if (/[?&]skipwelcome(=|&|$)/.test(q)) show = false;
+                if (show) d.classList.add('nx-hannah');
+                // if hannah.js never runs (blocked or failed), the site shows as before
+                window.addEventListener('load', function () { if (!window.NexoraHannah) d.classList.remove('nx-hannah'); });
+            })();
+        </script>
         <meta name="mobile-web-app-capable" content="yes">
 
         <link rel="icon" type="image/svg+xml" href="/nexora/favicon.svg">
@@ -92,6 +109,12 @@ var dataLayerInternal = {};
                                     <svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="5.2" r="3" class="stroke" stroke="black" stroke-width="1.6"/><path d="M2.2 14.2c.6-2.9 3-4.6 5.8-4.6s5.2 1.7 5.8 4.6" class="stroke" stroke="black" stroke-width="1.6" stroke-linecap="round"/></svg>
                                 </span>
                                 <span> Log in / Sign up </span>
+                            </button>
+                            <button type="button" class="nav__menuContactButton tabme" id="menu-hannah" data-nx-hannah>
+                                <span>
+                                    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.4 3.2h11.2v7.4H8L4.6 13.4v-2.8H2.4z" class="stroke" stroke="black" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                                </span>
+                                <span> Talk to Hannah </span>
                             </button>
                         </div>
                     </div>
@@ -271,6 +294,11 @@ var dataLayerInternal = {};
 
         <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
         <script src="/nexora/nexora.js?v=1"></script>
+        <script src="/nexora/hannah-face.js?v=6"></script>
+        <script src="/nexora/hannah-voice.js?v=6"></script>
+        <script src="/nexora/hannah-brain.js?v=6"></script>
+        <script src="/nexora/hannah-lang.js?v=6"></script>
+        <script src="/nexora/hannah.js?v=6" onerror="document.documentElement.classList.remove('nx-hannah')"></script>
         <script type="text/javascript" src="/scripts.js?v=3"></script>
         <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

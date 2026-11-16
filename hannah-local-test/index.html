@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hannah | Nexora Virtual Receptionist (Independent Test)</title>
+  <meta name="description" content="Independent AI Human Receptionist Hannah for Nexora, powered by Jatta M Kommerce.">
+  
+  <link rel="stylesheet" href="./hannah.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+  
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.187.0/build/three.module.js",
+      "three/examples/jsm/": "https://unpkg.com/three@0.187.0/examples/jsm/",
+      "three/addons/": "https://unpkg.com/three@0.187.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Atmosphere Backdrop -->
+  <div class="hn-atmosphere"></div>
+
+  <!-- Main Container -->
+  <div class="hn-app">
+
+    <!-- 1. Header Bar -->
+    <header class="hn-header">
+      <a href="/" class="hn-brand" title="Return to Nexora Home">
+        <svg class="hn-logo-svg" viewBox="0 0 53 36" fill="none" aria-hidden="true">
+          <path d="M5 30V6H11L24 23.5V6H30V30H24L11 12.5V30H5Z" fill="#FFFFFF"/>
+          <path d="M34 6H39V30H34V6Z" fill="#FFD200"/>
+          <path d="M42 13H47V30H42V13Z" fill="#FFFFFF"/>
+          <path d="M42 6H47V10H42V6Z" fill="#6FE45D"/>
+        </svg>
+        <div class="hn-brand-meta">
+          <span class="hn-brand-title">Nexora</span>
+          <span class="hn-brand-sub">powered by Jatta M Kommerce</span>
+        </div>
+      </a>
+
+      <div class="hn-header-controls">
+        <!-- Live Status Indicator Pill -->
+        <div class="hn-status-pill" id="hn-status-pill" data-state="ready" role="status" aria-live="polite">
+          <span class="hn-status-dot"></span>
+          <span id="hn-status-label">Ready</span>
+        </div>
+
+        <!-- Language Selector -->
+        <div class="hn-select-wrap">
+          <select id="hn-lang-select" class="hn-select" aria-label="Select Conversation Language">
+            <option value="en" selected>English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="kn">ಕನ್ನಡ (Kannada)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+          </select>
+        </div>
+
+        <!-- Skip Introduction Button -->
+        <button type="button" class="hn-btn-ghost" id="hn-skip-btn">Skip Introduction</button>
+      </div>
+    </header>
+
+    <!-- 2. Main Viewport -->
+    <main class="hn-main">
+
+      <!-- 3D Avatar Stage Viewport -->
+      <section class="hn-stage-container" aria-label="Hannah 3D Avatar">
+        <canvas id="hn-avatar-canvas"></canvas>
+
+        <!-- Reference Portrait Card -->
+        <div class="hn-ref-badge" id="hn-ref-toggle" title="Approved Visual Reference">
+          <img src="/hannah/reference.png" alt="Hannah Approved Portrait" class="hn-ref-thumb">
+          <span>Hannah (Approved Reference)</span>
+        </div>
+
+        <!-- Session Badge -->
+        <div class="hn-session-pill" id="hn-session-badge">
+          <span>Session: <strong id="hn-session-id-display">...</strong></span>
+          <button type="button" class="hn-reset-session-btn" id="hn-reset-session" title="Reset Session">(New)</button>
+        </div>
+
+        <!-- Loading Veil -->
+        <div class="hn-veil" id="hn-veil">
+          <div class="hn-loader-spinner"></div>
+          <p class="hn-veil-text" id="hn-veil-text">Initializing Hannah & 3D Rig…</p>
+        </div>
+      </section>
+
+      <!-- Dynamic Conversation Transcript (Directly Below Hannah) -->
+      <section class="hn-transcript-wrap" aria-label="Conversation Transcript">
+        <div class="hn-transcript" id="hn-transcript">
+          <div class="hn-transcript-empty" id="hn-empty-msg">
+            Transcript will appear here dynamically as you and Hannah converse.
+          </div>
+        </div>
+      </section>
+
+      <!-- Nexora Development Stages Quick Bar -->
+      <nav class="hn-stages-bar" aria-label="Nexora Stages">
+        <span class="hn-stages-label">Explore Stages:</span>
+        <button type="button" class="hn-stage-chip" data-stage="1">
+          <span class="hn-stage-num">1</span> Site Evaluation
+        </button>
+        <button type="button" class="hn-stage-chip" data-stage="2">
+          <span class="hn-stage-num">2</span> Master Planning
+        </button>
+        <button type="button" class="hn-stage-chip" data-stage="3">
+          <span class="hn-stage-num">3</span> Construction
+        </button>
+        <button type="button" class="hn-stage-chip" data-stage="4">
+          <span class="hn-stage-num">4</span> Fit-Out & Handover
+        </button>
+        <button type="button" class="hn-stage-chip" data-stage="5">
+          <span class="hn-stage-num">5</span> Ready to Move In
+        </button>
+        <button type="button" class="hn-stage-chip" data-stage="6">
+          <span class="hn-stage-num">6</span> Virtual Tour
+        </button>
+      </nav>
+
+    </main>
+
+    <!-- 3. Bottom Controls Bar -->
+    <footer class="hn-controls-bar">
+      <!-- Input Field & Mic -->
+      <form class="hn-input-wrap" id="hn-input-form" onsubmit="return false;">
+        <button type="button" class="hn-btn-icon hn-btn-mic" id="hn-mic-btn" title="Toggle Microphone">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="7" y="2.5" width="6" height="10" rx="3" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M4.5 9.5a5.5 5.5 0 0 0 11 0M10 15v2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <input 
+          type="text" 
+          id="hn-text-input" 
+          class="hn-text-input" 
+          placeholder="Ask Hannah anything about Nexora, stages, or digital twins..." 
+          autocomplete="off"
+        >
+
+        <button type="submit" class="hn-btn-icon hn-btn-send" id="hn-send-btn" title="Send message">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M3 10L17 3L10 17L9 11L3 10Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Aux Controls (Mute & Diagnostics Toggle) -->
+      <div class="hn-aux-controls">
+        <button type="button" class="hn-btn-icon" id="hn-mute-btn" title="Toggle Audio Mute">
+          <svg id="hn-mute-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M9 4.5L5 8H2V12H5L9 15.5V4.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M14 6.5C15.5 8 15.5 12 14 13.5M16.5 4C19 7 19 13 16.5 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <button type="button" class="hn-btn-icon" id="hn-diag-btn" title="Diagnostics & Live Testing">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M10 7V10L12 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Primary Action: ENTER NEXORA -->
+      <button type="button" class="hn-btn-enter" id="hn-enter-btn">
+        <span>Enter Nexora</span>
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4 10H16M11 5L16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </footer>
+
+  </div>
+
+  <!-- 4. Diagnostics & Live Verification Drawer -->
+  <aside class="hn-diag-drawer is-collapsed" id="hn-diag-drawer" aria-label="Technical Verification">
+    <div class="hn-diag-header">
+      <span class="hn-diag-title">Hannah 3D Diagnostics</span>
+      <button type="button" class="hn-diag-close" id="hn-diag-close">&times;</button>
+    </div>
+
+    <!-- Live Viseme Level Monitor -->
+    <div class="hn-diag-row">
+      <span>Viseme: <strong id="diag-viseme-name">viseme_sil</strong></span>
+      <div class="hn-diag-meter-wrap">
+        <div class="hn-diag-meter-fill" id="diag-viseme-meter"></div>
+      </div>
+      <span id="diag-viseme-val">0.00</span>
+    </div>
+
+    <div class="hn-diag-row">
+      <span>Mouth Open:</span>
+      <div class="hn-diag-meter-wrap">
+        <div class="hn-diag-meter-fill" id="diag-mouth-meter" style="background: var(--accent-gold);"></div>
+      </div>
+      <span id="diag-mouth-val">0.00</span>
+    </div>
+
+    <!-- Expression Triggers -->
+    <div style="margin-top: 6px; font-weight: 600; color: var(--text-muted);">Test Expressions:</div>
+    <div class="hn-diag-actions">
+      <button type="button" class="hn-btn-mini" data-exp="idle">Idle</button>
+      <button type="button" class="hn-btn-mini" data-exp="listening">Listening</button>
+      <button type="button" class="hn-btn-mini" data-exp="thinking">Thinking</button>
+      <button type="button" class="hn-btn-mini" data-exp="speaking">Speaking</button>
+      <button type="button" class="hn-btn-mini" data-exp="happy">Happy</button>
+      <button type="button" class="hn-btn-mini" data-exp="interrupted">Interrupted</button>
+    </div>
+
+    <!-- Live Audio/Speech Tests -->
+    <div style="margin-top: 6px; font-weight: 600; color: var(--text-muted);">Quick Speech Tests:</div>
+    <div class="hn-diag-actions">
+      <button type="button" class="hn-btn-mini" id="test-greeting">Greeting</button>
+      <button type="button" class="hn-btn-mini" id="test-construction">Stage 3 Info</button>
+      <button type="button" class="hn-btn-mini" id="test-interrupt">Interrupt Test</button>
+      <button type="button" class="hn-btn-mini" id="test-multi-tab">Open 5 Tabs</button>
+    </div>
+  </aside>
+
+  <!-- Application Logic Module -->
+  <script type="module">
+    import { HannahAvatarController } from './hannah-avatar.js';
+    import { HannahSpeechEngine } from './hannah-speech.js';
+    import { HannahAIEngine } from './hannah-ai.js';
+    import { HannahSession } from './hannah-session.js';
+
+    // 1. Initialize Subsystems
+    const session = new HannahSession();
+    const ai = new HannahAIEngine();
+    
+    // UI Elements
+    const canvas = document.getElementById('hn-avatar-canvas');
+    const statusPill = document.getElementById('hn-status-pill');
+    const statusLabel = document.getElementById('hn-status-label');
+    const transcriptEl = document.getElementById('hn-transcript');
+    const emptyMsgEl = document.getElementById('hn-empty-msg');
+    const textInput = document.getElementById('hn-text-input');
+    const inputForm = document.getElementById('hn-input-form');
+    const micBtn = document.getElementById('hn-mic-btn');
+    const muteBtn = document.getElementById('hn-mute-btn');
+    const enterBtn = document.getElementById('hn-enter-btn');
+    const skipBtn = document.getElementById('hn-skip-btn');
+    const langSelect = document.getElementById('hn-lang-select');
+    const veil = document.getElementById('hn-veil');
+    const sessionBadge = document.getElementById('hn-session-id-display');
+    const resetSessionBtn = document.getElementById('hn-reset-session');
+
+    // Diagnostics Elements
+    const diagBtn = document.getElementById('hn-diag-btn');
+    const diagDrawer = document.getElementById('hn-diag-drawer');
+    const diagClose = document.getElementById('hn-diag-close');
+    const diagVisemeName = document.getElementById('diag-viseme-name');
+    const diagVisemeMeter = document.getElementById('diag-viseme-meter');
+    const diagVisemeVal = document.getElementById('diag-viseme-val');
+    const diagMouthMeter = document.getElementById('diag-mouth-meter');
+    const diagMouthVal = document.getElementById('diag-mouth-val');
+
+    sessionBadge.textContent = session.getSessionId();
+
+    // 2. Avatar Controller Setup
+    const avatar = new HannahAvatarController(canvas, {
+      modelUrl: '/hannah/hannah.glb',
+      onLoadComplete: () => {
+        veil.classList.add('is-hidden');
+        setStatus('ready', 'Ready');
+
+        // Greet on initial load if no prior messages in this session
+        if (session.getMessages().length === 0) {
+          triggerHannahGreeting();
+        } else {
+          renderAllMessages();
+        }
+      },
+      onVisemeUpdate: (data) => {
+        diagVisemeName.textContent = data.viseme;
+        diagVisemeMeter.style.width = Math.round(data.weight * 100) + '%';
+        diagVisemeVal.textContent = data.weight.toFixed(2);
+        diagMouthMeter.style.width = Math.round(data.mouthOpen * 100) + '%';
+        diagMouthVal.textContent = data.mouthOpen.toFixed(2);
+      }
+    });
+
+    // 3. Speech Engine Setup
+    const speech = new HannahSpeechEngine({
+      language: 'en',
+      onViseme: (viseme, weight, open) => {
+        avatar.setViseme(viseme, weight, open);
+      },
+      onStateChange: (state) => {
+        if (state === 'speaking') {
+          setStatus('speaking', 'Speaking…');
+          avatar.setExpression('speaking');
+        } else if (state === 'listening') {
+          setStatus('listening', 'Listening…');
+          avatar.setExpression('listening');
+          micBtn.classList.add('is-listening');
+        } else if (state === 'idle') {
+          setStatus('ready', 'Ready');
+          avatar.setExpression('idle');
+          micBtn.classList.remove('is-listening');
+        }
+      },
+      onInterrupted: () => {
+        // Visitor spoke while Hannah was speaking
+        setStatus('interrupted', 'Interrupted');
+        avatar.setExpression('interrupted');
+        setTimeout(() => {
+          setStatus('listening', 'Listening…');
+          avatar.setExpression('listening');
+        }, 600);
+      },
+      onUserTranscript: (result) => {
+        if (result.final) {
+          handleUserSubmission(result.final);
+        } else if (result.interim) {
+          textInput.value = result.interim;
+        }
+      }
+    });
+
+    // 4. Status UI Helper
+    function setStatus(state, label) {
+      statusPill.setAttribute('data-state', state);
+      statusLabel.textContent = label;
+    }
+
+    // 5. Message Rendering Helper
+    function appendMessage(sender, text) {
+      if (emptyMsgEl && emptyMsgEl.parentNode) {
+        emptyMsgEl.remove();
+      }
+
+      const msg = session.addMessage(sender, text);
+      renderMessageDOM(msg);
+    }
+
+    function renderMessageDOM(msg) {
+      const row = document.createElement('div');
+      row.className = `hn-msg hn-msg-${msg.sender}`;
+
+      if (msg.sender === 'hannah') {
+        const img = document.createElement('img');
+        img.src = '/hannah/reference.png';
+        img.alt = 'Hannah';
+        img.className = 'hn-msg-avatar';
+        row.appendChild(img);
+      } else {
+        const userIcon = document.createElement('div');
+        userIcon.className = 'hn-user-icon';
+        userIcon.textContent = 'YOU';
+        row.appendChild(userIcon);
+      }
+
+      const bubble = document.createElement('div');
+      bubble.className = 'hn-msg-bubble';
+      bubble.textContent = msg.text;
+
+      const time = document.createElement('span');
+      time.className = 'hn-msg-time';
+      time.textContent = msg.time;
+      bubble.appendChild(time);
+
+      row.appendChild(bubble);
+      transcriptEl.appendChild(row);
+      transcriptEl.scrollTop = transcriptEl.scrollHeight;
+    }
+
+    function renderAllMessages() {
+      transcriptEl.innerHTML = '';
+      const msgs = session.getMessages();
+      if (msgs.length === 0) {
+        transcriptEl.appendChild(emptyMsgEl);
+        return;
+      }
+      for (const m of msgs) {
+        renderMessageDOM(m);
+      }
+    }
+
+    // 6. Conversational Flow
+    async function triggerHannahGreeting() {
+      const greeting = ai.getGreeting();
+      avatar.setExpression('greeting');
+      appendMessage('hannah', greeting);
+      await speech.speak(greeting);
+    }
+
+    async function handleUserSubmission(text) {
+      const query = (text || '').trim();
+      if (!query) return;
+
+      textInput.value = '';
+
+      // Interruption check: stop speaking if currently speaking
+      speech.stopSpeaking();
+
+      // Append user message
+      appendMessage('user', query);
+
+      // Transition to Thinking
+      setStatus('thinking', 'Thinking…');
+      avatar.setExpression('thinking');
+
+      // AI response generation
+      const answer = await ai.generateResponse(query);
+
+      // Highlight corresponding stage chip if answer references one
+      if (answer.stage) {
+        highlightStage(answer.stage);
+      }
+
+      // Display and Speak response
+      appendMessage('hannah', answer.text);
+      await speech.speak(answer.text);
+    }
+
+    function highlightStage(stageNum) {
+      document.querySelectorAll('.hn-stage-chip').forEach(c => {
+        c.classList.toggle('is-active', Number(c.dataset.stage) === stageNum);
+      });
+    }
+
+    // 7. Event Handlers
+    inputForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleUserSubmission(textInput.value);
+    });
+
+    micBtn.addEventListener('click', () => {
+      speech.toggleListening();
+    });
+
+    muteBtn.addEventListener('click', () => {
+      speech.isMuted = !speech.isMuted;
+      muteBtn.style.opacity = speech.isMuted ? '0.4' : '1.0';
+      if (speech.isMuted) speech.stopSpeaking();
+    });
+
+    langSelect.addEventListener('change', () => {
+      const lang = langSelect.value;
+      ai.setLanguage(lang);
+      speech.setLanguage(lang);
+      triggerHannahGreeting();
+    });
+
+    // Stage Chips Navigation
+    document.querySelectorAll('.hn-stage-chip').forEach(chip => {
+      chip.addEventListener('click', async () => {
+        const stageNum = Number(chip.dataset.stage);
+        highlightStage(stageNum);
+        handleUserSubmission(`Explain Stage ${stageNum}: ${chip.textContent.trim()}`);
+      });
+    });
+
+    // Enter Nexora
+    enterBtn.addEventListener('click', () => {
+      try { sessionStorage.setItem('nx-hannah-entered', '1'); } catch (e) {}
+      window.location.href = '/';
+    });
+
+    // Skip Introduction
+    skipBtn.addEventListener('click', () => {
+      try { sessionStorage.setItem('nx-hannah-entered', '1'); } catch (e) {}
+      window.location.href = '/?skipwelcome';
+    });
+
+    // Reset Session
+    resetSessionBtn.addEventListener('click', () => {
+      session.resetSession();
+      sessionBadge.textContent = session.getSessionId();
+      renderAllMessages();
+      triggerHannahGreeting();
+    });
+
+    // Diagnostics Drawer Toggle
+    diagBtn.addEventListener('click', () => {
+      diagDrawer.classList.toggle('is-collapsed');
+    });
+    diagClose.addEventListener('click', () => {
+      diagDrawer.classList.add('is-collapsed');
+    });
+
+    // Diagnostics Expression Buttons
+    document.querySelectorAll('[data-exp]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        avatar.setExpression(btn.dataset.exp);
+      });
+    });
+
+    // Diagnostics Speech Buttons
+    document.getElementById('test-greeting')?.addEventListener('click', () => {
+      handleUserSubmission('Hello Hannah! How are you today?');
+    });
+    document.getElementById('test-construction')?.addEventListener('click', () => {
+      handleUserSubmission('Tell me about Stage 3 Construction.');
+    });
+    document.getElementById('test-interrupt')?.addEventListener('click', async () => {
+      speech.speak('Hannah is now speaking a very long sentence about our structural engineering and high-grade concrete raft foundations...').catch(() => {});
+      setTimeout(() => {
+        speech.stopSpeaking();
+        speech.onInterrupted();
+      }, 1200);
+    });
+    document.getElementById('test-multi-tab')?.addEventListener('click', () => {
+      for (let i = 1; i <= 5; i++) {
+        window.open(window.location.origin + '/hannah-local-test/?session=' + i, '_blank');
+      }
+    });
+
+  </script>
+
+</body>
+</html>
