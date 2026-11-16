@@ -203,14 +203,110 @@ html.nx-hannah body > :not(.hn) { visibility: hidden !important; }
     0 14px 28px -16px rgba(38, 29, 38, 0.2);
   isolation: isolate;
 }
-.hn__frame iframe {
+.hn__frame iframe,
+.hn__frame canvas {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   border: 0;
   display: block;
   background: #1d171d;
+  outline: none;
+}
+
+.hn__caption {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  background: rgba(18, 22, 31, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: #fff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.3s ease;
+}
+
+.hn__chatBar {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 22, 31, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 4px 6px 4px 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.hn__chatInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 13.5px;
+  font-family: inherit;
+}
+
+.hn__chatInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hn__chatMic,
+.hn__chatSend {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hn__chatMic svg,
+.hn__chatSend svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hn__chatMic:hover,
+.hn__chatSend:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hn__chatMic.is-listening {
+  background: #c62f2f;
+  animation: pulse-mic 1.2s infinite;
+}
+
+.hn__chatSend {
+  background: var(--hn-yellow, #ffd200);
+  color: #000;
+}
+
+@keyframes pulse-mic {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(198, 47, 47, 0.6); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(198, 47, 47, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(198, 47, 47, 0); }
 }
 
 /* shown until the embed has loaded, or when it cannot */
