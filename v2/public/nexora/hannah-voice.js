@@ -22,20 +22,20 @@
   // Consonants bring the lips together (most of the way, or fully for m, b, p); vowels open the
   // jaw. That open-close beat per syllable is what makes speech readable on the lips.
   var VIS = {
-    sil: [0, 0.55, 0, 0],
-    PP: [0, 1, 0, 0],
+    sil: [0, 0, 0, 0],
+    PP: [0, 0.95, 0, 0],
     FF: [0.05, 0.75, 0, 0.1],
-    TH: [0.14, 0.35, 0, 0.1],
-    DD: [0.12, 0.5, 0, 0.15],
-    kk: [0.2, 0.3, 0, 0.05],
-    CH: [0.1, 0.45, 0.75, 0],
-    SS: [0.05, 0.6, 0, 0.5],
-    RR: [0.14, 0.35, 0.55, 0],
-    aa: [0.8, 0, 0, 0.1],
-    E: [0.55, 0, 0, 0.4],
-    I: [0.32, 0.05, 0, 0.65],
-    O: [0.65, 0, 0.7, 0],
-    U: [0.28, 0.15, 0.9, 0]
+    TH: [0.1, 0.35, 0, 0.1],
+    DD: [0.1, 0.45, 0, 0.12],
+    kk: [0.15, 0.25, 0, 0.05],
+    CH: [0.1, 0.35, 0.4, 0],
+    SS: [0.05, 0.5, 0, 0.3],
+    RR: [0.1, 0.25, 0.35, 0],
+    aa: [0.45, 0, 0, 0.1],
+    E: [0.3, 0, 0, 0.25],
+    I: [0.15, 0, 0, 0.35],
+    O: [0.35, 0, 0.45, 0],
+    U: [0.2, 0.08, 0.55, 0]
   };
   // small words are said lightly; the words that carry meaning get the full movement
   var LIGHT = /^(a|an|the|to|of|and|or|in|on|at|for|is|it|its|i|im|you|we|be|as|by|with|that|this|your|our|are|can|so|if|but|me|my|do|from|has|have|will|was|were|there|their|them|they|he|she|his|her|not|no|yes|all|any|up|out|into|about|than|then|just|also|very|more|most|some|each|every|which|what|when|where|who|how|would|could|should|may|might|shall|been|being|am|did|does|let|lets|here|now)$/i;
@@ -504,7 +504,7 @@
     if (!cur || !cur.on) return null;
     var pos = position(cur, now + LEAD_MS);
     var segs = cur.tl.segs;
-    if (pos >= cur.tl.units || !segs.length) return { jaw: 0, close: 0.55, round: 0, wide: 0 };
+    if (pos >= cur.tl.units || !segs.length) return { jaw: 0, close: 0, round: 0, wide: 0 };
     var k = 0;
     while (k < segs.length - 1 && segs[k].b <= pos) k++;
     var s = segs[k], a = VIS[s.v], nx = segs[k + 1] ? VIS[segs[k + 1].v] : VIS.sil;

@@ -91,7 +91,7 @@
         set: e.up.concat(e.low)
       };
     });
-    var JAW = 24;
+    var JAW = 6.5;
 
     for (var i = 0; i < N; i++) {
       if (i >= 468) continue; // iris points only follow the head
@@ -99,41 +99,41 @@
       var u = (x - cx) / W, au = Math.abs(u), sg = u < 0 ? -1 : 1;
       var dm = y - mid(x);
 
-      // jaw: everything below the lip line drops; the mouth corners and jaw angles follow less
-      var below = smooth(-1.5, 3, dm);
+      // jaw: subtle natural speech opening for vowels (photo is already a smile)
+      var below = smooth(-1.0, 3, dm);
       var prof = au < 1 ? lerp(1, 0.42, au * au) : 0.42 * (1 - smooth(1, 2.4, au));
       D.jaw[o + 1] = JAW * below * prof;
 
-      // close: the lips meet (M, B, P); the upper lip does most of the travel over the teeth
+      // close: the lower lip rises naturally to meet the upper teeth/lip (M, B, P, F)
+      // upper lip stays anchored to upper jaw/skull bone to prevent smeared teeth
       var g = gap(x);
       if (dm < 0) {
         var du = iu(clampX(x)) - y;
-        D.close[o + 1] = 0.58 * g * (du <= 0 ? 1 : Math.exp(-du / 16));
+        D.close[o + 1] = 0.08 * g * (du <= 0 ? 1 : Math.exp(-du / 14));
       } else {
         var dl = y - il(clampX(x));
-        D.close[o + 1] = -0.42 * g * (dl <= 0 ? 1 : Math.exp(-dl / 20));
+        D.close[o + 1] = -0.92 * g * (dl <= 0 ? 1 : Math.exp(-dl / 18));
       }
 
-      // relax: mouth corners come in and down, the upper lip covers more of the teeth
+      // relax: subtle resting tension
       var c = smooth(0.3, 1.0, au) * (1 - smooth(1.7, 2.8, au));
       var vy = y - mid(x), vf = Math.exp(-(vy * vy) / (55 * 55));
-      D.relax[o] = -sg * 11 * c * vf;
-      D.relax[o + 1] = 6 * c * vf;
+      D.relax[o] = -sg * 4.0 * c * vf;
+      D.relax[o + 1] = 1.2 * c * vf;
       if (dm < 0) {
         var du2 = iu(clampX(x)) - y;
-        D.relax[o + 1] += 7.5 * (1 - smooth(0.35, 1.0, au)) * (du2 <= 0 ? 1 : Math.exp(-du2 / 18));
+        D.relax[o + 1] += 0.8 * (1 - smooth(0.35, 1.0, au)) * (du2 <= 0 ? 1 : Math.exp(-du2 / 18));
       } else if (au < 1) {
         var dl2 = y - il(clampX(x));
-        D.relax[o + 1] -= 2.5 * (1 - au) * (dl2 <= 0 ? 1 : Math.exp(-dl2 / 20));
+        D.relax[o + 1] -= 1.2 * (1 - au) * (dl2 <= 0 ? 1 : Math.exp(-dl2 / 20));
       }
 
-      // round (O, U, W) and wide (E, I, S): the corners move in or out along the lip band
+      // round (O, U, W) and wide (E, I, S): natural subtle lip shaping
       var band = Math.exp(-(dm * dm) / (40 * 40)) * (1 - smooth(1.3, 2.4, au));
-      D.round[o] = -sg * 22 * smooth(0.1, 1.0, Math.min(au, 1)) * band;
-      // pushed-out lips: the centre of each lip moves away from the other, the corners close in
-      D.round[o + 1] = (dm < 0 ? -2.5 : 2.5) * (1 - Math.min(1, au)) * band + (dm < 0 ? 2 : -2) * smooth(0.6, 1, Math.min(au, 1)) * band;
-      D.wide[o] = sg * 5 * smooth(0.2, 1.0, Math.min(au, 1)) * band;
-      D.wide[o + 1] = -1.2 * c * band;
+      D.round[o] = -sg * 7.0 * smooth(0.1, 1.0, Math.min(au, 1)) * band;
+      D.round[o + 1] = (dm < 0 ? -1.0 : 1.5) * (1 - Math.min(1, au)) * band + (dm < 0 ? 1.0 : -1.0) * smooth(0.6, 1, Math.min(au, 1)) * band;
+      D.wide[o] = sg * 3.5 * smooth(0.2, 1.0, Math.min(au, 1)) * band;
+      D.wide[o + 1] = -0.8 * c * band;
 
       for (var ei = 0; ei < 2; ei++) {
         var e = eyes[ei];
@@ -201,23 +201,19 @@
   var FS_TEX = 'varying vec2 v_uv; varying vec2 v_pos; uniform sampler2D u_tex;' +
     'void main(){ gl_FragColor = vec4(texture2D(u_tex, v_uv).rgb, 1.0); }';
 
-  var FS_MOUTH = 'varying vec2 v_uv; varying vec2 v_pos; uniform sampler2D u_tex; uniform sampler2D u_teeth;' + HEAD +
-    'uniform vec4 u_teethRect; uniform vec3 u_low; uniform float u_mx; uniform float u_mw; uniform float u_jaw; uniform float u_k;' +
+  var FS_MOUTH = 'varying vec2 v_uv; varying vec2 v_pos; uniform sampler2D u_tex;' + HEAD +
+    'uniform vec4 u_teethRect; uniform float u_jaw; uniform float u_k;' +
     'void main(){' +
     ' vec2 p0 = unhead(v_pos);' +
-    ' vec2 tuv = (p0 - u_teethRect.xy) / u_teethRect.zw;' +
-    ' float inside = step(0.0, tuv.x) * step(0.0, tuv.y) * step(tuv.x, 1.0) * step(tuv.y, 1.0);' +
-    ' float tm = texture2D(u_teeth, tuv).r * inside;' +
-    ' vec3 teeth = texture2D(u_tex, p0 / u_plate).rgb;' +
-    ' float dx = p0.x - u_mx; float r = abs(dx) / u_mw;' +
-    ' float dl = (u_low.x*dx*dx + u_low.y*dx + u_low.z) - p0.y;' +
-    ' float hx = 1.0 - smoothstep(0.55, 1.0, r);' +
-    ' vec3 cav = mix(vec3(0.16, 0.06, 0.06), vec3(0.38, 0.15, 0.14), hx * 0.75);' +
-    ' float open = clamp(u_jaw * 1.6, 0.0, 1.0);' +
-    ' cav = mix(cav, vec3(0.62, 0.30, 0.29), smoothstep(16.0 * u_k, 2.0 * u_k, dl) * hx * 0.85 * open);' +
-    ' float lt = smoothstep(0.4 * u_k, 1.8 * u_k, dl) * (1.0 - smoothstep(3.2 * u_k, 6.0 * u_k, dl)) * smoothstep(0.85, 0.4, r) * clamp(u_jaw * 2.0 - 0.3, 0.0, 0.5);' +
-    ' cav = mix(cav, vec3(0.80, 0.76, 0.70), lt);' +
-    ' gl_FragColor = vec4(mix(cav, teeth, tm), 1.0); }';
+    ' vec2 samplePos = p0;' +
+    ' float maxTeethY = u_teethRect.y + u_teethRect.w * 0.92;' +
+    ' samplePos.y = min(p0.y, maxTeethY);' +
+    ' vec3 col = texture2D(u_tex, samplePos / u_plate).rgb;' +
+    ' float depth = max(0.0, p0.y - maxTeethY);' +
+    ' float shadow = smoothstep(0.0, 7.0 * u_k, depth);' +
+    ' vec3 darkCavity = vec3(0.10, 0.035, 0.03);' +
+    ' col = mix(col, darkCavity, shadow * 0.85);' +
+    ' gl_FragColor = vec4(col, 1.0); }';
 
   var FS_EYE = 'varying vec2 v_uv; varying vec2 v_pos; uniform sampler2D u_tex;' + HEAD +
     'uniform vec2 u_iris; uniform float u_irisR; uniform vec2 u_gaze;' +
@@ -476,8 +472,7 @@
     ease('round', tgt.round, 0.07);
     ease('wide', tgt.wide, 0.07);
     this.gestures(m, dt);
-    // while talking the photo's broad smile relaxes, so her lips can cover her teeth between sounds
-    ease('relax', m ? Math.max(0.8, mood.relax) : mood.relax, m ? 0.18 : 0.35);
+    ease('relax', mood.relax, 0.25);
     ease('browUp', mood.browUp + this.browPulse, 0.12);
     ease('browInner', mood.browInner, 0.35);
     ease('tilt', mood.tilt, 0.6);
@@ -542,11 +537,12 @@
     for (i = 0; i < INNER_PAIRS.length; i++) {
       var ia = INNER_PAIRS[i][0] * 2, ib = INNER_PAIRS[i][1] * 2;
       if (seal > 0) {
-        var mx2 = (pos[ia] + pos[ib]) / 2, my2 = (pos[ia + 1] + pos[ib + 1]) / 2;
-        pos[ia] += (mx2 - pos[ia]) * seal; pos[ib] += (mx2 - pos[ib]) * seal;
-        pos[ia + 1] += (my2 - 0.2 - pos[ia + 1]) * seal; pos[ib + 1] += (my2 + 0.2 - pos[ib + 1]) * seal;
+        var targetY = pos[ia + 1];
+        pos[ib + 1] += (targetY + 0.3 - pos[ib + 1]) * seal;
       }
-      if (pos[ia + 1] > pos[ib + 1] - 0.4) { var mid = (pos[ia + 1] + pos[ib + 1]) / 2; pos[ia + 1] = mid - 0.2; pos[ib + 1] = mid + 0.2; }
+      if (pos[ia + 1] > pos[ib + 1] - 0.2) {
+        pos[ib + 1] = pos[ia + 1] + 0.2;
+      }
     }
     // lower lip curve (before head motion) for the mouth shader: a parabola through its corners and centre
     var mx = rig.mouth.cx;
@@ -621,17 +617,10 @@
     // 2. inside the mouth: her upper teeth stay put, the rest is the mouth interior
     var pm = this.progMouth;
     useProg(pm);
-    gl.activeTexture(gl.TEXTURE1);
-    gl.bindTexture(gl.TEXTURE_2D, this.teethTex);
-    gl.uniform1i(pm.u.u_teeth, 1);
-    gl.activeTexture(gl.TEXTURE0);
     var tr = this.teethRect;
-    gl.uniform4f(pm.u.u_teethRect, tr[0], tr[1], tr[2], tr[3]);
-    gl.uniform3f(pm.u.u_low, this.low[0], this.low[1], this.low[2]);
-    gl.uniform1f(pm.u.u_mx, rig.mouth.cx);
-    gl.uniform1f(pm.u.u_mw, rig.mouth.W);
-    gl.uniform1f(pm.u.u_jaw, c.jaw);
-    gl.uniform1f(pm.u.u_k, rig.k);
+    if (pm.u.u_teethRect) gl.uniform4f(pm.u.u_teethRect, tr[0], tr[1], tr[2], tr[3]);
+    if (pm.u.u_jaw) gl.uniform1f(pm.u.u_jaw, c.jaw);
+    if (pm.u.u_k) gl.uniform1f(pm.u.u_k, rig.k);
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.mouthIdx.b);
     gl.drawElements(gl.TRIANGLES, this.mouthIdx.n, gl.UNSIGNED_SHORT, 0);
 

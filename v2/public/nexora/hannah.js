@@ -1,6 +1,6 @@
 /*
- * Hannah, Nexora's virtual receptionist: 100% independent, credit-free 3D AI receptionist.
- * Powered by Three.js, Web Speech API, and verified Nexora knowledge base.
+ * Hannah, Nexora's virtual receptionist: 100% independent, credit-free human AI receptionist.
+ * Powered by WebGL real-photo facial animation, Web Speech API, and verified Nexora knowledge base.
  * Zero dependency on LiveAvatar, zero credits, zero subscription billing.
  */
 (function () {
@@ -8,7 +8,10 @@
 
   var CONFIG = {
     storageKey: 'nx-hannah-entered',
-    modelUrl: '/hannah/hannah.glb',
+    plateUrl: '/nexora/hannah/hannah-plate.jpg',
+    rigUrl: '/nexora/hannah/hannah-face.json',
+    avatarUrl: '/nexora/hannah/hannah-avatar.jpg',
+    knowledgeUrl: '/nexora/hannah-knowledge.json',
     loadTimeoutMs: 15000
   };
 
@@ -23,10 +26,11 @@
 
   var html = document.documentElement;
   var ui = null;
-  var inerted = [];
-  var lenisWasRunning = false;
-  var avatarController = null;
-  var speechEngine = null;
+  var face = null;
+  var voice = null;
+  var isSpeaking = false;
+  var isListening = false;
+  var captionRaf = null;
 
   /* Helper to create DOM elements */
   function h(tag, attrs, kids) {
@@ -59,7 +63,7 @@
 
   /* ---------------- Verified Knowledge Base Engine ---------------- */
   var KNOWLEDGE = {
-    greeting: "Welcome to Nexora! I'm Hannah, your virtual receptionist. I'm here to guide you through our 3D real estate platform and development stages. What would you like to explore today?",
+    greeting: "Hello and welcome to Nexora! I'm Hannah, your virtual receptionist. I'm here to guide you through our platform and development stages. What would you like to explore today?",
     stages: {
       1: "Stage 1 is Site Evaluation: Comprehensive road access assessment, boundary and topography surveys, water and electrical utility verification, municipal sanction reviews, zoning and setbacks, soil compaction testing, and environmental clearances.",
       2: "Stage 2 is Master Planning: Crafting villa layouts, sanction plans, RERA registration compliance, early material planning, and launching Nexora's interactive 3D digital twin with villa customization.",
@@ -92,12 +96,12 @@
     var returning = mode === 'return';
 
     var status = h('span', { class: 'hn__status', 'data-state': 'connecting', role: 'status', 'aria-live': 'polite' },
-      [h('i', { 'aria-hidden': 'true' }), h('span', { text: 'Loading Hannah 3D…' })]);
+      [h('i', { 'aria-hidden': 'true' }), h('span', { text: 'Loading Hannah…' })]);
 
-    var veilText = h('p', { text: 'Preparing Hannah & 3D Rig…' });
+    var veilText = h('p', { text: 'Preparing Hannah…' });
     var veil = h('div', { class: 'hn__veil' }, [h('span', { class: 'hn__spinner', 'aria-hidden': 'true' }), veilText]);
 
-    var canvas = h('canvas', { id: 'hn-avatar-canvas' });
+    var videoContainer = h('div', { class: 'hn__videoContainer hnf', id: 'hn-avatar-container' });
     var caption = h('div', { class: 'hn__caption', style: 'opacity: 0;' });
 
     var micBtn = h('button', { type: 'button', class: 'hn__chatMic', title: 'Speak to Hannah', html: MIC });
@@ -105,20 +109,20 @@
     var sendBtn = h('button', { type: 'button', class: 'hn__chatSend', title: 'Send message', html: SEND });
     var chatBar = h('div', { class: 'hn__chatBar' }, [micBtn, textInput, sendBtn]);
 
-    var frame = h('div', { class: 'hn__frame' }, [canvas, caption, chatBar, veil]);
+    var frame = h('div', { class: 'hn__frame' }, [videoContainer, caption, chatBar, veil]);
 
-    var mic = h('p', { class: 'hn__mic', 'data-state': 'granted' }, [
+    var micNote = h('p', { class: 'hn__mic', 'data-state': 'granted' }, [
       h('span', { html: MIC }),
-      h('span', { text: 'Free 100% self-hosted AI receptionist. No credits, no API limits.' })
+      h('span', { text: 'Free 100% self-hosted human AI receptionist. Zero credits, zero subscriptions.' })
     ]);
 
-    var stage = h('section', { class: 'hn__stage', 'aria-label': 'Hannah 3D Avatar' }, [
+    var stage = h('section', { class: 'hn__stage', 'aria-label': 'Hannah Virtual Receptionist' }, [
       h('div', { class: 'hn__stageHead' }, [
         h('div', { class: 'hn__who' }, [h('strong', { text: 'Hannah' }), h('span', { text: 'AI Receptionist · Zero Credits' })]),
         status
       ]),
       frame,
-      mic
+      micNote
     ]);
 
     var stops = h('ul', { class: 'hn__stops' }, STOPS.map(function (s) {
@@ -153,7 +157,7 @@
           stage,
           panel,
           h('div', { class: 'hn__cta' }, [enter]),
-          h('p', { class: 'hn__fine' }, [h('span', { text: 'Independent AI receptionist powered by Three.js & Web Speech API. Completely free with zero credit restrictions.' })])
+          h('p', { class: 'hn__fine' }, [h('span', { text: 'Independent AI receptionist powered by WebGL & Web Speech API. Completely free with zero credit restrictions.' })])
         ])
       ])
     ]);
@@ -187,13 +191,11 @@
     });
 
     micBtn.addEventListener('click', function () {
-      if (speechEngine) {
-        speechEngine.toggleListening();
-      }
+      toggleListening();
     });
 
     return {
-      mode: mode, root: root, frame: frame, canvas: canvas, veil: veil,
+      mode: mode, root: root, frame: frame, videoContainer: videoContainer, veil: veil,
       status: status, micBtn: micBtn, textInput: textInput, caption: caption,
       leaving: false
     };
@@ -205,9 +207,16 @@
     ui.status.lastChild.textContent = text;
   }
 
-  function showCaption(text) {
+  function showCaption(text, progress) {
     if (!ui || !ui.caption) return;
-    ui.caption.textContent = text;
+    if (progress != null && progress < 1) {
+      var chars = Math.round(text.length * progress);
+      var visible = text.substring(0, chars);
+      var rest = text.substring(chars);
+      ui.caption.innerHTML = '<span>' + visible + '</span><span style="opacity: 0.35;">' + rest + '</span>';
+    } else {
+      ui.caption.textContent = text;
+    }
     ui.caption.style.opacity = '1';
   }
 
@@ -216,353 +225,179 @@
     ui.caption.style.opacity = '0';
   }
 
-  /* ---------------- User Interaction Flow ---------------- */
-  function handleUserInput(query, stagePhase) {
-    if (speechEngine) speechEngine.stopSpeaking();
-    setStatus('thinking', 'Thinking…');
-    if (avatarController) avatarController.setExpression('thinking');
+  /* ---------------- Voice Speaking & Caption Synchronization ---------------- */
+  function speakReply(text, onComplete) {
+    if (!voice || !voice.available()) {
+      showCaption(text);
+      if (face) face.setMood('speaking');
+      setTimeout(function () {
+        if (face) face.setMood('idle');
+        if (onComplete) onComplete();
+      }, Math.min(3000, 1000 + text.length * 25));
+      return;
+    }
 
-    var reply = KNOWLEDGE.answer(query);
-    showCaption(reply);
+    if (captionRaf) {
+      cancelAnimationFrame(captionRaf);
+      captionRaf = null;
+    }
 
-    setTimeout(function () {
-      if (avatarController) avatarController.setExpression('speaking');
-      setStatus('speaking', 'Speaking…');
-      if (speechEngine) {
-        speechEngine.speak(reply, function () {
-          setStatus('ready', 'Ready');
-          if (avatarController) avatarController.setExpression('idle');
-          if (stagePhase) {
-            setTimeout(function () { leave(stagePhase); }, 2500);
-          }
-        });
+    isSpeaking = true;
+    setStatus('speaking', 'Speaking…');
+    if (face) face.setMood('speaking');
+
+    var streamCaption = function () {
+      if (!isSpeaking) return;
+      var p = voice.progress(performance.now());
+      showCaption(text, p);
+      captionRaf = requestAnimationFrame(streamCaption);
+    };
+    streamCaption();
+
+    voice.speak(text).then(function () {
+      isSpeaking = false;
+      if (captionRaf) {
+        cancelAnimationFrame(captionRaf);
+        captionRaf = null;
       }
-    }, 400);
+      showCaption(text, 1.0);
+      setStatus('ready', 'Ready');
+      if (face) face.setMood('idle');
+      if (onComplete) onComplete();
+    }).catch(function () {
+      isSpeaking = false;
+      if (captionRaf) {
+        cancelAnimationFrame(captionRaf);
+        captionRaf = null;
+      }
+      showCaption(text, 1.0);
+      setStatus('ready', 'Ready');
+      if (face) face.setMood('idle');
+      if (onComplete) onComplete();
+    });
   }
 
-  /* ---------------- Three.js 3D Avatar Controller ---------------- */
-  function init3DAvatar(canvas, onReady) {
-    // Dynamically import Three.js modules
-    var script = document.createElement('script');
-    script.type = 'module';
-    script.textContent = [
-      'import * as THREE from "https://unpkg.com/three@0.187.0/build/three.module.js";',
-      'import { GLTFLoader } from "https://unpkg.com/three@0.187.0/examples/jsm/loaders/GLTFLoader.js";',
-      'window.__setupNexoraHannahAvatar(THREE, GLTFLoader);'
-    ].join('\n');
+  function stopSpeaking() {
+    isSpeaking = false;
+    if (captionRaf) {
+      cancelAnimationFrame(captionRaf);
+      captionRaf = null;
+    }
+    if (voice) voice.cancel();
+    if (face) face.setMood('idle');
+  }
 
-    window.__setupNexoraHannahAvatar = function (THREE, GLTFLoader) {
-      var width = canvas.clientWidth || 640;
-      var height = canvas.clientHeight || 360;
+  /* ---------------- Speech Recognition (Microphone) ---------------- */
+  function toggleListening() {
+    if (!voice || !voice.listener || !voice.listener.supported()) {
+      alert("Microphone input is supported in Chrome, Edge, and Safari.");
+      return;
+    }
 
-      var scene = new THREE.Scene();
-      var camera = new THREE.PerspectiveCamera(28, width / height, 0.1, 50);
-      camera.position.set(0, 1.48, 1.05);
-      camera.lookAt(0, 1.43, 0);
+    if (isListening) {
+      voice.listener.stop();
+      isListening = false;
+      if (ui && ui.micBtn) ui.micBtn.classList.remove('is-listening');
+      setStatus('ready', 'Ready');
+      if (face) face.setMood('idle');
+    } else {
+      stopSpeaking();
+      isListening = true;
+      if (ui && ui.micBtn) ui.micBtn.classList.add('is-listening');
+      setStatus('listening', 'Listening…');
+      if (face) face.setMood('listening');
+      showCaption('Listening… Please speak now.');
 
-      var renderer;
-      try {
-        renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-        renderer.setSize(width, height, false);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.08;
-      } catch (e) {
-        console.warn('[Hannah] WebGL fallback:', e);
-        onReady();
-        return;
-      }
-
-      // Studio Lighting
-      scene.add(new THREE.AmbientLight(0xfff6ea, 0.95));
-      var keyLight = new THREE.DirectionalLight(0xffedd8, 1.75);
-      keyLight.position.set(0.65, 2.1, 1.4);
-      scene.add(keyLight);
-      var fillLight = new THREE.DirectionalLight(0xdce7ff, 0.85);
-      fillLight.position.set(-0.75, 1.6, 1.1);
-      scene.add(fillLight);
-      var rimLight = new THREE.DirectionalLight(0xffdfa8, 1.5);
-      rimLight.position.set(0, 2.3, -1.2);
-      scene.add(rimLight);
-
-      var headMesh = null, teethMesh = null, neckBone = null, headBone = null;
-      var morphDict = {}, currentWeights = {}, targetWeights = {};
-      var state = 'idle';
-
-      var loader = new GLTFLoader();
-      loader.load(CONFIG.modelUrl, function (gltf) {
-        var avatar = gltf.scene;
-        avatar.position.set(0, 0, 0);
-
-        avatar.traverse(function (child) {
-          if (child.isBone) {
-            var n = child.name.toLowerCase();
-            if (n.indexOf('neck') !== -1) neckBone = child;
-            if (n.indexOf('head') !== -1) headBone = child;
+      voice.listener.start({
+        onInterim: function (t) {
+          showCaption('“' + t + '…”');
+        },
+        onFinal: function (t) {
+          isListening = false;
+          if (ui && ui.micBtn) ui.micBtn.classList.remove('is-listening');
+          showCaption('“' + t + '”');
+          handleUserInput(t);
+        },
+        onEnd: function (heard) {
+          isListening = false;
+          if (ui && ui.micBtn) ui.micBtn.classList.remove('is-listening');
+          if (!heard && !isSpeaking) {
+            setStatus('ready', 'Ready');
+            if (face) face.setMood('idle');
           }
-          if (child.isMesh && child.morphTargetDictionary) {
-            if (child.name === 'Wolf3D_Head' || child.name.toLowerCase().indexOf('head') !== -1) {
-              headMesh = child;
-              morphDict = child.morphTargetDictionary;
-              Object.keys(morphDict).forEach(function (k) { currentWeights[k] = 0; targetWeights[k] = 0; });
-            }
-            if (child.name === 'Wolf3D_Teeth' || child.name.toLowerCase().indexOf('teeth') !== -1) teethMesh = child;
+        },
+        onError: function (err) {
+          isListening = false;
+          if (ui && ui.micBtn) ui.micBtn.classList.remove('is-listening');
+          setStatus('ready', 'Ready');
+          if (face) face.setMood('idle');
+        }
+      });
+    }
+  }
+
+  /* ---------------- User Interaction Flow ---------------- */
+  function handleUserInput(query, stagePhase) {
+    stopSpeaking();
+    setStatus('thinking', 'Thinking…');
+    if (face) face.setMood('thinking');
+
+    var reply = KNOWLEDGE.answer(query);
+
+    setTimeout(function () {
+      speakReply(reply, function () {
+        if (stagePhase) {
+          setTimeout(function () { leave(stagePhase); }, 2200);
+        }
+      });
+    }, 350);
+  }
+
+  /* ---------------- Mount Photorealistic Human Avatar ---------------- */
+  function mountAvatar() {
+    if (!ui) return;
+    setStatus('connecting', 'Preparing Hannah…');
+
+    // Initialize Web Speech voice engine
+    if (window.NexoraHannahVoice) {
+      voice = window.NexoraHannahVoice({ simulate: false });
+    }
+
+    // Initialize WebGL Photorealistic Face
+    if (window.NexoraHannahFace) {
+      face = window.NexoraHannahFace(ui.videoContainer, {
+        plateUrl: CONFIG.plateUrl,
+        rigUrl: CONFIG.rigUrl,
+        onReady: function (ok) {
+          if (ui.veil) {
+            ui.veil.style.opacity = '0';
+            setTimeout(function () { if (ui.veil) ui.veil.style.display = 'none'; }, 400);
           }
-          if (child.isMesh && child.material) {
-            var nm = child.name.toLowerCase();
-            if (nm.indexOf('hair') !== -1) {
-              child.material = child.material.clone();
-              child.material.color = new THREE.Color('#9f6e3c'); // Caramel hair
-              child.material.roughness = 0.58;
-            } else if (nm.indexOf('outfit') !== -1 || nm.indexOf('top') !== -1) {
-              child.material = child.material.clone();
-              child.material.color = new THREE.Color('#f5f2ea'); // Cream knit top
-              child.material.roughness = 0.88;
-            } else if (nm.indexOf('eye') !== -1 && nm.indexOf('cornea') === -1) {
-              child.material = child.material.clone();
-              child.material.color = new THREE.Color('#648b6f'); // Hazel-green eyes
-            } else if (nm.indexOf('head') !== -1 || nm.indexOf('body') !== -1) {
-              child.material = child.material.clone();
-              child.material.color = new THREE.Color('#ffe2d1'); // Warm natural skin
-            }
-          }
-        });
+          ui.frame.classList.add('is-loaded');
+          setStatus('ready', 'Ready');
 
-        scene.add(avatar);
-
-        function setMorph(name, val) {
-          if (morphDict[name] !== undefined) targetWeights[name] = Math.max(0, Math.min(1, val));
-        }
-
-        function setExpression(expr) {
-          state = expr;
-          setMorph('mouthSmileLeft', 0);
-          setMorph('mouthSmileRight', 0);
-          setMorph('browInnerUp', 0);
-          if (expr === 'idle') { setMorph('mouthSmileLeft', 0.22); setMorph('mouthSmileRight', 0.22); }
-          else if (expr === 'listening') { setMorph('mouthSmileLeft', 0.25); setMorph('mouthSmileRight', 0.25); setMorph('browInnerUp', 0.2); }
-          else if (expr === 'thinking') { setMorph('browInnerUp', 0.25); }
-          else if (expr === 'speaking') { setMorph('mouthSmileLeft', 0.25); setMorph('mouthSmileRight', 0.25); }
-          else if (expr === 'interrupted') { setMorph('browInnerUp', 0.45); closeMouth(); }
-        }
-
-        function setViseme(name, weight, open) {
-          var visemes = ['viseme_aa', 'viseme_E', 'viseme_I', 'viseme_O', 'viseme_U', 'viseme_PP', 'viseme_FF', 'viseme_TH', 'viseme_DD', 'viseme_SS'];
-          visemes.forEach(function (v) { setMorph(v, v === name ? weight : 0); });
-          if (name === 'viseme_sil') closeMouth();
-          else { setMorph('mouthOpen', open * 0.7); setMorph('jawOpen', open * 0.5); }
-        }
-
-        function closeMouth() {
-          var visemes = ['viseme_aa', 'viseme_E', 'viseme_I', 'viseme_O', 'viseme_U', 'viseme_PP', 'viseme_FF', 'viseme_TH', 'viseme_DD', 'viseme_SS', 'mouthOpen', 'jawOpen'];
-          visemes.forEach(function (v) { targetWeights[v] = 0; });
-        }
-
-        setExpression('idle');
-
-        var clock = new THREE.Clock();
-        var blinkTimer = 0, nextBlink = 3.5, isBlinking = false;
-
-        function animate() {
-          requestAnimationFrame(animate);
-          var delta = Math.min(clock.getDelta(), 0.1);
-          var elapsed = clock.getElapsedTime();
-
-          // Lerp blendshapes
-          if (headMesh) {
-            var lerpSpeed = 18.0 * delta;
-            Object.keys(targetWeights).forEach(function (k) {
-              var idx = morphDict[k];
-              if (idx !== undefined) {
-                var cur = currentWeights[k] || 0;
-                var nxt = THREE.MathUtils.lerp(cur, targetWeights[k], Math.min(lerpSpeed, 1.0));
-                currentWeights[k] = nxt;
-                headMesh.morphTargetInfluences[idx] = nxt;
-                if (teethMesh && teethMesh.morphTargetDictionary[k] !== undefined) {
-                  teethMesh.morphTargetInfluences[teethMesh.morphTargetDictionary[k]] = nxt;
-                }
-              }
+          if (voice) {
+            face.setMouthSource(function (now) {
+              return voice.mouth(now);
             });
           }
 
-          // Blinking
-          blinkTimer += delta;
-          if (!isBlinking && blinkTimer >= nextBlink) { isBlinking = true; blinkTimer = 0; nextBlink = 3.2 + Math.random() * 2.5; }
-          if (isBlinking) {
-            if (blinkTimer <= 0.15) {
-              var b = Math.sin((blinkTimer / 0.15) * Math.PI);
-              setMorph('eyeBlinkLeft', b); setMorph('eyeBlinkRight', b);
-            } else {
-              isBlinking = false;
-              setMorph('eyeBlinkLeft', 0); setMorph('eyeBlinkRight', 0);
-            }
-          }
-
-          // Subtle breathing sway
-          if (headBone) {
-            var sway = Math.sin(elapsed * 1.5) * 0.012;
-            headBone.rotation.x = sway;
-          }
-
-          renderer.render(scene, camera);
-        }
-        animate();
-
-        window.addEventListener('resize', function () {
-          var w = canvas.clientWidth, h = canvas.clientHeight;
-          camera.aspect = w / h;
-          camera.updateProjectionMatrix();
-          renderer.setSize(w, h, false);
-        });
-
-        avatarController = {
-          setExpression: setExpression,
-          setViseme: setViseme,
-          closeMouth: closeMouth
-        };
-
-        onReady();
-      });
-    };
-
-    document.head.appendChild(script);
-  }
-
-  /* ---------------- Speech & STT Engine ---------------- */
-  function initSpeechEngine(onViseme, onInterrupted) {
-    var isSpeaking = false;
-    var isListening = false;
-    var visemeTimer = null;
-    var recognition = null;
-
-    var SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (SpeechRec) {
-      try {
-        recognition = new SpeechRec();
-        recognition.continuous = true;
-        recognition.interimResults = true;
-        recognition.lang = 'en-US';
-
-        recognition.onspeechstart = function () {
-          if (isSpeaking) {
-            stopSpeaking();
-            onInterrupted();
-          }
-        };
-
-        recognition.onresult = function (event) {
-          if (isSpeaking) {
-            stopSpeaking();
-            onInterrupted();
-          }
-          var text = '';
-          for (var i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) text += event.results[i][0].transcript;
-          }
-          if (text && text.trim()) {
-            handleUserInput(text.trim());
-          }
-        };
-      } catch (e) {}
-    }
-
-    function stopSpeaking() {
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-      isSpeaking = false;
-      if (visemeTimer) { clearInterval(visemeTimer); visemeTimer = null; }
-      onViseme('viseme_sil', 0, 0);
-    }
-
-    function speak(text, onDone) {
-      if (!('speechSynthesis' in window)) { if (onDone) onDone(); return; }
-      stopSpeaking();
-
-      var u = new SpeechSynthesisUtterance(text);
-      var voices = window.speechSynthesis.getVoices();
-      var female = voices.filter(function (v) { return /samantha|karen|victoria|female/i.test(v.name); })[0] || voices[0];
-      if (female) u.voice = female;
-      u.rate = 1.0;
-      u.pitch = 1.05;
-
-      isSpeaking = true;
-      var visemeList = [
-        { v: 'viseme_aa', o: 0.7 }, { v: 'viseme_O', o: 0.6 },
-        { v: 'viseme_E', o: 0.5 }, { v: 'viseme_I', o: 0.4 },
-        { v: 'viseme_PP', o: 0.1 }, { v: 'viseme_TH', o: 0.25 }
-      ];
-      var idx = 0;
-      visemeTimer = setInterval(function () {
-        if (!isSpeaking) return;
-        var cur = visemeList[idx];
-        onViseme(cur.v, 0.75, cur.o);
-        idx = (idx + 1) % visemeList.length;
-      }, 110);
-
-      u.onend = function () {
-        stopSpeaking();
-        if (onDone) onDone();
-      };
-      u.onerror = function () {
-        stopSpeaking();
-        if (onDone) onDone();
-      };
-
-      window.speechSynthesis.speak(u);
-    }
-
-    function toggleListening() {
-      if (!recognition) return;
-      if (isListening) {
-        recognition.stop();
-        isListening = false;
-        if (ui && ui.micBtn) ui.micBtn.classList.remove('is-listening');
-      } else {
-        stopSpeaking();
-        try {
-          recognition.start();
-          isListening = true;
-          if (ui && ui.micBtn) ui.micBtn.classList.add('is-listening');
-          setStatus('listening', 'Listening…');
-          if (avatarController) avatarController.setExpression('listening');
-        } catch (e) {}
-      }
-    }
-
-    return {
-      speak: speak,
-      stopSpeaking: stopSpeaking,
-      toggleListening: toggleListening
-    };
-  }
-
-  /* ---------------- Mount Avatar Layer ---------------- */
-  function mountAvatar() {
-    if (!ui) return;
-    setStatus('connecting', 'Loading Hannah 3D…');
-
-    init3DAvatar(ui.canvas, function () {
-      ui.frame.classList.add('is-loaded');
-      setStatus('ready', 'Ready');
-
-      speechEngine = initSpeechEngine(
-        function (viseme, weight, open) {
-          if (avatarController) avatarController.setViseme(viseme, weight, open);
-        },
-        function () {
-          setStatus('interrupted', 'Interrupted');
-          if (avatarController) avatarController.setExpression('interrupted');
+          // Greet visitor automatically
           setTimeout(function () {
-            setStatus('listening', 'Listening…');
-            if (avatarController) avatarController.setExpression('listening');
+            handleUserInput('', null);
           }, 500);
         }
-      );
-
-      // Greet the visitor automatically
+      });
+    } else {
+      // Fallback poster
+      var poster = h('img', { class: 'hnf__poster', src: CONFIG.plateUrl, alt: 'Hannah' });
+      ui.videoContainer.appendChild(poster);
+      if (ui.veil) ui.veil.style.display = 'none';
+      setStatus('ready', 'Ready');
       setTimeout(function () {
         handleUserInput('', null);
-      }, 600);
-    });
+      }, 500);
+    }
   }
 
   /* ---------------- Dismiss / Enter Site ---------------- */
@@ -571,7 +406,11 @@
     ui.leaving = true;
     remember();
 
-    if (speechEngine) speechEngine.stopSpeaking();
+    stopSpeaking();
+    if (face && typeof face.destroy === 'function') {
+      face.destroy();
+      face = null;
+    }
 
     ui.root.classList.add('is-leaving');
     setTimeout(function () {
