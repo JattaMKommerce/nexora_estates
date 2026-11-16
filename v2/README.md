@@ -5,13 +5,34 @@ Nexora is the next-generation real estate SaaS platform for builders, developers
 
 ## Commands
 
-| Command | Action | URL |
+| Command | Action | URL / output |
 |---|---|---|
-| `npm run dev:v2` | Launch the Nexora SaaS platform dev server | `http://localhost:5174` |
-| `npm run build:v2` | Build production bundle for Nexora | writes to `dist-v2/` |
-| `npm run preview:v2` | Preview production build | `http://localhost:4174` |
-| `npm run dev` | Launch the legacy residential Restate 3D prototype | `http://localhost:5173` |
-| `npm run build` | Build legacy Restate prototype | writes to `dist/` |
+| `npm run dev` (same as `dev:v2`) | Nexora dev server | `http://localhost:5174` |
+| `npm run build` (same as `build:v2`) | Builds the site | writes to `dist/` |
+| `npm run preview` | Preview the production build | `http://localhost:4174` |
+
+The site's sources are `v2/index.html` and `v2/public/` (`scripts.js`, `style.css`, `content.json`,
+`images/`, `nexora/`). Copies of these files also sit in `v2/` and at the repository root (the static
+upload set); keep them identical to `v2/public` and `v2/index.html`.
+
+## Nexora additions (2026-11-13)
+
+Everything new lives in `v2/public/nexora/`; `style.css` is untouched and `scripts.js` has five small,
+commented patches (backups: `backups/2026-11-13-before-ui-pass/`).
+
+- `nexora.css` — yellow buttons (no green), vibrant yellow entrance screen, endless shine on "powered by
+  jattamkommerce" in the top bar, the yellow letter-by-letter text wipe, top-bar buttons, forms.
+- `nexora.js` — text wipe on all main text (start page, phase intros, step summaries, panels);
+  **Book a Demo** in the top bar and centered "Log in / Sign up" in the menu; scrolling **back**
+  to earlier phases (wheel, ↑/PageUp, swipe; one gesture moves one place); the demo request form
+  (required fields marked *) and the log in / sign up form; Escape closes panels.
+- Favicon: `nexora/favicon.svg` (+ PNG fallbacks).
+
+### Not connected yet
+
+`content.json` → `settings`: `formEndpoint` and `authEndpoint` are `null`. Until the CRM is connected,
+the demo form sends nothing and offers to email the request to `settings.contactEmail`; log in / sign up
+say they are not connected. Set the endpoints (JSON POST) to switch both forms to live submission.
 
 ## Architecture & Features
 

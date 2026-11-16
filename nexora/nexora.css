@@ -1,0 +1,378 @@
+/*
+ * Nexora additions and overrides. Loaded after style.css; nothing in style.css is edited.
+ *
+ *  1. Brand tokens
+ *  2. Buttons: green -> yellow
+ *  3. Entrance (loading) screen: yellow
+ *  4. "Powered by Jatta M Kommerce" (top bar): endless shine
+ *  5. Text fill wipe (yellow letter-by-letter sweep) for text that did not have it
+ *  6. Top bar: Book a Demo button; the menu ends with a centred "Log in / Sign up"
+ *  7. Forms: demo request + account (log in / sign up)
+ */
+
+/* 1. Brand tokens ---------------------------------------------------------------------------- */
+:root {
+  --nx-yellow: #ffd200;
+  --nx-yellow-deep: #ffc20e;
+  --nx-ink: #261d26;
+  --nx-ink-soft: rgba(38, 29, 38, 0.62);
+  --nx-line: rgba(38, 29, 38, 0.18);
+  --nx-error: #c62f2f;
+  --nx-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* 2. Buttons: green -> yellow ----------------------------------------------------------------- */
+.scrollButton__progress { background-color: var(--nx-yellow); }
+.arrowButton::before {
+  background-image: linear-gradient(90deg, var(--nx-yellow) 50%, var(--nx-ink) 50%);
+}
+@media screen and (max-width: 640px), screen and (orientation: portrait) and (max-width: 1025px) {
+  .arrowButton::before { background: var(--nx-yellow) !important; }
+}
+.toggle__focus { background-color: var(--nx-yellow); }
+.nav__menu { color: var(--nx-ink); }
+@media (hover: hover) {
+  .nav__menuIcon:hover::before,
+  .nav__menuLabel:hover ~ .nav__menuIcon::before { background-color: var(--nx-ink); }
+  .nav__menuIcon:hover span,
+  .nav__menuLabel:hover ~ .nav__menuIcon span { background: var(--nx-yellow); }
+}
+.nav__phaseCircle { background-color: var(--nx-yellow); }
+.nav__menuLink.active::before { background-color: var(--nx-yellow); }
+.nav__menuContactButton { background-color: var(--nx-yellow); }
+.nav__menuContactButton span:nth-child(1) { background-color: var(--nx-ink); }
+.nav__menuContactButton span:nth-child(1) svg .stroke { stroke: var(--nx-yellow); }
+.nav__menuContactButton span:nth-child(2) { color: var(--nx-ink); }
+@media (hover: hover) {
+  .nav__menuContactButton:hover { background-color: var(--nx-ink); }
+  .nav__menuContactButton:hover span:nth-child(1) { background-color: var(--nx-yellow); }
+  .nav__menuContactButton:hover span:nth-child(1) svg .stroke { stroke: var(--nx-ink); }
+  .nav__menuContactButton:hover span:nth-child(2) { color: var(--nx-yellow); }
+}
+.progress__dot.active { background-color: var(--nx-yellow); }
+.exploreScreen__nodeDot::before { background-color: var(--nx-yellow); }
+.startScreen__intro .label-wrap { color: var(--nx-yellow-deep); }
+/* The tour phase used to turn the menu pill into a green "Get in Touch" button. Book a Demo has its
+   own button now, so the pill stays a normal menu and the Book a Demo button pulses instead. */
+.nav-cta:not(.menu-open) .nav .nav__menuBG { background-color: #fff; }
+.nav-cta .nav__phaseCircle { color: #001d09; background-color: var(--nx-yellow); }
+.nav-cta .nav__phaseCircle::after { opacity: 0; }
+
+/* 3. Entrance screen: yellow ---------------------------------------------------------------- */
+/* Brand yellow with a soft glow behind the logo. Everything on it turns dark so it stays readable:
+   the logo's N and i, the name, "Powered by", the loading %, the footer links and the button. */
+.loadingScreen::before {
+  background-color: #ffd200;
+  background-image:
+    radial-gradient(70% 55% at 50% 40%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 70%),
+    radial-gradient(140% 110% at 50% 40%, #ffdc2e 0%, #ffd200 45%, #ffc20e 82%, #f7b500 100%);
+}
+.loadingScreen__spinner svg path.flip { fill: var(--nx-ink); }
+.loadingScreen__spinner svg path:not(.flip) { fill: #fff; }
+.loadingScreen__spinner p { color: var(--nx-ink); }
+.loadingScreen__spinner p .line:nth-child(2) .linner { color: rgba(38, 29, 38, 0.74) !important; }
+.loadingScreen__progress { color: var(--nx-ink); }
+.loadingScreen__footer, .loadingScreen__footer a { color: rgba(38, 29, 38, 0.8); }
+.loadingScreen__button.yellowButton {
+  background-color: var(--nx-ink);
+  border-color: var(--nx-ink);
+  color: var(--nx-yellow);
+}
+@media (hover: hover) {
+  .loadingScreen__button.yellowButton:hover { background-color: #43354a; }
+}
+.loadingScreen__button.yellowButton:focus-visible { outline: 4px solid #fff; }
+
+/* 4. "Powered by Jatta M Kommerce" in the top bar: a shine that never stops ------------------- */
+.nav__logo .title .brand-sub {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 1;
+  margin-top: 0.25rem;
+  background-image: linear-gradient(105deg,
+      #9a6f00 0%, #9a6f00 38%, #ffd200 45%, #fff6c8 50%, #ffd200 55%, #9a6f00 62%, #9a6f00 100%);
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: nx-shine 2.6s linear infinite;
+}
+.menu-dark .nav__logo .title .brand-sub {
+  background-image: linear-gradient(105deg,
+      #ffc20e 0%, #ffc20e 38%, #ffe680 45%, #ffffff 50%, #ffe680 55%, #ffc20e 62%, #ffc20e 100%);
+  filter: drop-shadow(0 0 0.5rem rgba(255, 210, 0, 0.35));
+}
+@keyframes nx-shine {
+  from { background-position: 100% 0; }
+  to { background-position: 0% 0; }
+}
+
+/* 5. Text fill wipe ------------------------------------------------------------------------- */
+/* nexora.js wraps the text of each element in .nx-wipe__text and sets --wf (final colour) and --wd
+   (dim colour). The inline span lays its gradient across all of its lines as one strip, so the
+   yellow band runs through the text letter by letter, line after line, in reading order. */
+.nx-wipe__text {
+  --wb: 1.15em;
+  background-image: linear-gradient(90deg,
+      var(--wf, #fff) calc(50% - var(--wb)),
+      var(--nx-yellow-deep) calc(50% - var(--wb) + 1px),
+      var(--nx-yellow-deep) calc(50% + var(--wb) - 1px),
+      var(--wd, rgba(255, 255, 255, 0.25)) calc(50% + var(--wb)));
+  background-size: calc(200% + var(--wb) * 2) 100%;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: slice;
+  box-decoration-break: slice;
+}
+.nx-wipe.in .nx-wipe__text,
+.nx-wipe.nx-wiped .nx-wipe__text {
+  background-position: 0 0;
+  transition: background-position var(--wt, 1.8s) cubic-bezier(0.45, 0.05, 0.35, 1) var(--wdl, 0s);
+}
+.nx-wipe.out .nx-wipe__text { background-position: 0 0; }
+@media (prefers-reduced-motion: reduce) {
+  .nx-wipe .nx-wipe__text { background-position: 0 0 !important; transition: none !important; }
+}
+
+/* 6. Top bar buttons ------------------------------------------------------------------------- */
+.nav__cta {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  height: 4.4rem;
+  pointer-events: auto;
+  transition: opacity 0.2s linear;
+}
+.nav__ctaBtn {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  margin: 0;
+  height: 4.4rem;
+  padding: 0 2rem;
+  border-radius: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.8rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.nav__ctaBtn svg { width: 1.6rem; height: 1.6rem; flex: none; }
+.nav__ctaBtn:focus-visible { outline: 4px solid var(--nx-yellow-deep); outline-offset: 2px; }
+.nav__demo {
+  background: var(--nx-yellow);
+  color: var(--nx-ink);
+  box-shadow: 0 0.4rem 1.6rem rgba(255, 194, 14, 0.35);
+}
+@media (hover: hover) {
+  .nav__demo:hover { background: var(--nx-ink); color: var(--nx-yellow); }
+}
+.menu-open .nav__cta { opacity: 0; pointer-events: none; }
+.nav-cta .nav__demo { animation: nx-pulse 2.4s ease-in-out infinite; }
+@keyframes nx-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 210, 0, 0.6); }
+  60% { box-shadow: 0 0 0 1.1rem rgba(255, 210, 0, 0); }
+}
+/* The menu ends with one button, centred: "Log in / Sign up". The original menu button stays in
+   the page for the site script but is hidden, and so is the "NEXORA SAAS" block beside it (white
+   text on the white menu, so it was invisible and only pushed the button off-centre). */
+#menu-contact, .nav__menuBranding { display: none !important; }
+.nav__menuContact {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+#menu-login {
+  margin: 0 auto !important;
+}
+button.nav__menuContactButton { -webkit-appearance: none; appearance: none; border: 0; padding: 0; margin: 0; font-family: inherit; }
+
+@media screen and (max-width: 640px), screen and (orientation: portrait) and (max-width: 1025px) {
+  .nav__cta { column-gap: 0.6rem; height: 3.6rem; }
+  .nav__ctaBtn { height: 3.6rem; padding: 0 1.4rem; font-size: 1.3rem; }
+  .nav__right { column-gap: 1rem; }
+  .nav__demo .nav__demoLong { display: none; }
+  /* inside the phases the pill shows the phase number only (the names are in the open menu) */
+  .nav__phaseCircle.show + .nav__phaseLabel { display: none; }
+}
+
+/* 7. Forms ---------------------------------------------------------------------------------- */
+.nxf { color: var(--nx-ink); font-size: 1.6rem; line-height: 1.4; max-width: 64rem; }
+.nxf__note {
+  font-size: 1.35rem;
+  color: var(--nx-ink-soft);
+  margin: 0 0 2.4rem;
+}
+.nxf__note b { color: var(--nx-error); font-weight: 700; }
+.nxf__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 2.4rem; }
+.nxf__field { display: flex; flex-direction: column; row-gap: 0.7rem; min-width: 0; }
+.nxf__field--wide { grid-column: 1 / -1; }
+.nxf__label { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.01em; }
+.nxf__req { color: var(--nx-error); }
+.nxf__opt { font-weight: 400; color: var(--nx-ink-soft); }
+.nxf__hint { font-size: 1.25rem; color: var(--nx-ink-soft); margin: 0; }
+.nxf input[type="text"], .nxf input[type="email"], .nxf input[type="tel"], .nxf input[type="password"],
+.nxf input[type="date"], .nxf select, .nxf textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+  height: 5rem;
+  padding: 0 1.4rem;
+  border: 1px solid #cfc8cf;
+  border-radius: 1rem;
+  background: #fff;
+  color: var(--nx-ink);
+  font: inherit;
+  font-size: 1.6rem;
+  transition: border-color 0.15s linear, box-shadow 0.15s linear;
+}
+.nxf select {
+  padding-right: 4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23261d26' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.6rem center;
+  background-size: 1.2rem auto;
+}
+.nxf textarea { height: auto; min-height: 11rem; padding: 1.2rem 1.4rem; resize: vertical; }
+.nxf input::placeholder, .nxf textarea::placeholder { color: rgba(38, 29, 38, 0.38); }
+.nxf input:focus, .nxf select:focus, .nxf textarea:focus {
+  outline: 0;
+  border-color: var(--nx-ink);
+  box-shadow: 0 0 0 0.3rem rgba(255, 210, 0, 0.75);
+}
+.nxf__field.is-invalid input, .nxf__field.is-invalid select, .nxf__field.is-invalid textarea {
+  border-color: var(--nx-error);
+}
+.nxf__error { display: none; margin: 0; font-size: 1.3rem; font-weight: 500; color: var(--nx-error); }
+.nxf__field.is-invalid .nxf__error { display: block; }
+.nxf__pass { position: relative; }
+.nxf__pass input { padding-right: 7.5rem; }
+.nxf__passToggle {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%);
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--nx-ink);
+  padding: 0.8rem;
+  cursor: pointer;
+}
+.nxf__check { display: flex; align-items: flex-start; column-gap: 1rem; font-size: 1.4rem; line-height: 1.45; cursor: pointer; }
+.nxf__check input { width: 2rem; height: 2rem; margin: 0.1rem 0 0; flex: none; accent-color: var(--nx-ink); }
+.nxf__check a { color: inherit; }
+.nxf__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.6rem; margin-top: 3rem; }
+.nxf__submit, .nxf__secondary {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  height: 5.4rem;
+  padding: 0 3rem;
+  border-radius: 2.7rem;
+  font: inherit;
+  font-size: 1.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 1rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.nxf__submit { background: var(--nx-yellow); color: var(--nx-ink); }
+.nxf__secondary { background: rgba(38, 29, 38, 0.08); color: var(--nx-ink); }
+@media (hover: hover) {
+  .nxf__submit:hover { background: var(--nx-ink); color: var(--nx-yellow); }
+  .nxf__secondary:hover { background: rgba(38, 29, 38, 0.16); }
+}
+.nxf__submit:focus-visible, .nxf__secondary:focus-visible, .nxf__passToggle:focus-visible,
+.nxf__tab:focus-visible { outline: 4px solid var(--nx-yellow-deep); outline-offset: 2px; }
+.nxf__submit[disabled] { opacity: 0.6; cursor: progress; }
+.nxf__status {
+  display: none;
+  margin-top: 2.4rem;
+  padding: 2rem 2.2rem;
+  border-radius: 1.4rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  background: #fff7d1;
+  border: 1px solid #f2d36b;
+}
+.nxf__status.is-shown { display: block; }
+.nxf__status.is-error { background: #fdeceb; border-color: #f0b4b0; }
+.nxf__status.is-success { background: #eef8e8; border-color: #b9dca6; }
+.nxf__status strong { display: block; font-size: 1.7rem; margin-bottom: 0.6rem; }
+.nxf__status .nxf__actions { margin-top: 1.6rem; }
+.nxf__info {
+  display: flex;
+  column-gap: 1.2rem;
+  align-items: flex-start;
+  margin: 0 0 2.6rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 1.2rem;
+  background: rgba(38, 29, 38, 0.05);
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--nx-ink-soft);
+}
+.nxf__info svg { width: 2rem; height: 2rem; flex: none; margin-top: 0.1rem; }
+.nxf__tabs {
+  display: inline-flex;
+  padding: 0.4rem;
+  border-radius: 2.6rem;
+  background: rgba(38, 29, 38, 0.07);
+  margin-bottom: 2.6rem;
+}
+.nxf__tab {
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--nx-ink-soft);
+  height: 4.4rem;
+  padding: 0 2.6rem;
+  border-radius: 2.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.nxf__tab[aria-selected="true"] { background: var(--nx-yellow); color: var(--nx-ink); }
+.nxf__panel[hidden] { display: none; }
+.nxf__switch { margin-top: 2.4rem; font-size: 1.4rem; color: var(--nx-ink-soft); }
+.nxf__switch button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 700;
+  color: var(--nx-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  cursor: pointer;
+}
+.nxf__contact { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--nx-line); font-size: 1.5rem; line-height: 1.6; }
+.nxf__contact h3 { font-size: 1.8rem; font-weight: 700; margin: 0 0 0.8rem; }
+.nxf__contact a { color: var(--nx-ink); font-weight: 700; }
+@media screen and (max-width: 640px), screen and (orientation: portrait) and (max-width: 1025px) {
+  .nxf { font-size: 1.5rem; }
+  .nxf__grid { grid-template-columns: 1fr; gap: 1.8rem; }
+  .nxf input[type="text"], .nxf input[type="email"], .nxf input[type="tel"], .nxf input[type="password"],
+  .nxf input[type="date"], .nxf select, .nxf textarea { font-size: 16px; height: 4.8rem; }
+  .nxf textarea { height: auto; }
+}

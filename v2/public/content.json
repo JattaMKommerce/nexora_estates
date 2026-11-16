@@ -456,7 +456,7 @@
             1
           ],
           "button": "Scroll to Phase 4",
-          "media": "phase3_output"
+          "media": "phase3"
         }
       ]
     },
@@ -992,18 +992,31 @@
       ]
     },
     "Contact": {
-      "title": "Ready to Transform Your Real Estate Development?",
-      "intro": "Schedule a personalized walkthrough of the Nexora platform with our real estate technology specialists.",
-      "color": "#6FE45D",
+      "title": "Book a Free Nexora Demo",
+      "intro": "See your villa or community project as a live 3D digital twin. Tell us a little about it and our team will arrange a personalised walkthrough.",
+      "color": "#FFD200",
       "pageLoad": "7getIntouch",
       "blocks": [
         {
-          "type": "contactForm"
+          "type": "contactForm",
+          "form": "demo"
         },
         {
           "type": "textblock",
           "title": "",
-          "content": "By clicking the 'Talk to an Expert' button, you agree to the Nexora <a href=\"#privacy\">Privacy Policy</a> and authorize our team to connect with you regarding platform onboarding and real estate SaaS solutions. Powered by Jatta M Kommerce."
+          "content": "By sending a request you agree to the Nexora <a href=\"#privacy\">Privacy Policy</a> and allow our team to contact you about platform onboarding and real estate SaaS solutions. Powered by Jatta M Kommerce."
+        }
+      ]
+    },
+    "Account": {
+      "title": "Your Nexora Account",
+      "intro": "Log in to follow your projects, or create an account for your company.",
+      "color": "#FFD200",
+      "pageLoad": "account",
+      "blocks": [
+        {
+          "type": "contactForm",
+          "form": "auth"
         }
       ]
     }
@@ -1077,10 +1090,12 @@
     },
     {
       "id": "phase3",
-      "type": "video",
-      "src": [
-        "https://nrgcdn.b-cdn.net/videos/min/phase3_loop3.mp4#t=0.1",
-        "A 3D diorama timelapse showing the construction building automatically in Phase 3"
+      "type": "imageSequence",
+      "srcs": [
+        [
+          "/images/society_construction_clean.jpg",
+          "Completed residential society, towers, and small clubhouse output"
+        ]
       ]
     },
     {
@@ -1123,5 +1138,11 @@
         ]
       ]
     }
-  ]
+  ],
+  "settings": {
+    "_note": "Website settings. formEndpoint / authEndpoint stay null until the CRM is connected: the demo form then offers to send the request by email, and log in / sign up say they are not connected yet.",
+    "contactEmail": "contact@jattamkommerce.com",
+    "formEndpoint": null,
+    "authEndpoint": null
+  }
 }
