@@ -446,13 +446,11 @@
     var reply = KNOWLEDGE.answer(query);
     var targetMood = isGreeting ? 'welcome' : 'speaking';
 
-    setTimeout(function () {
-      speakReply(reply, function () {
-        if (stagePhase) {
-          setTimeout(function () { leave(stagePhase); }, 2200);
-        }
-      }, targetMood, audioKey ? AUDIO_MAP[audioKey] : null);
-    }, 350);
+    speakReply(reply, function () {
+      if (stagePhase) {
+        setTimeout(function () { leave(stagePhase); }, 2200);
+      }
+    }, targetMood, audioKey ? AUDIO_MAP[audioKey] : null);
   }
 
   /* ---------------- Mount Photorealistic Human Avatar ---------------- */
