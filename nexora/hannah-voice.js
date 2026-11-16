@@ -303,7 +303,11 @@
       this.voice = find(lang) || (VOICE_FALLBACK[lang] ? find(VOICE_FALLBACK[lang]) : null);
       return;
     }
-    var prefs = this.cfg.preferredVoices || [];
+    var prefs = this.cfg.preferredVoices || [
+      'Samantha', 'Karen', 'Victoria', 'Serena', 'Ava', 'Zoe',
+      'Microsoft Jenny Online (Natural)', 'Microsoft Aria Online (Natural)',
+      'Google UK English Female', 'Google US English'
+    ];
     var pick = null;
     for (var i = 0; i < prefs.length && !pick; i++) {
       for (var j = 0; j < list.length; j++) {
@@ -457,6 +461,10 @@
         if (e.error === 'interrupted' || e.error === 'canceled') return;
         end();
       };
+      u.volume = 1.0;
+      if (self.synth && self.synth.paused) {
+        try { self.synth.resume(); } catch (e) {}
+      }
       self.synth.speak(u);
       // if the voice never starts (no voices installed, stuck engine), carry on in text
       clearTimeout(job.watch);

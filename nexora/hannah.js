@@ -31,6 +31,8 @@
   var isSpeaking = false;
   var isListening = false;
   var captionRaf = null;
+  var speechWatchdog = null;
+  var hasUserInteracted = false;
 
   /* Helper to create DOM elements */
   function h(tag, attrs, kids) {
@@ -104,12 +106,20 @@
     var videoContainer = h('div', { class: 'hn__videoContainer hnf', id: 'hn-avatar-container' });
     var caption = h('div', { class: 'hn__caption', style: 'opacity: 0;' });
 
+    var startBtn = h('button', {
+      type: 'button',
+      class: 'hn__startBtn',
+      html: '<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><polygon points="6,4 16,10 6,16" fill="currentColor"/></svg><span>Talk to Hannah</span>'
+    });
+    var startHint = h('p', { class: 'hn__startHint', text: 'Click anywhere to begin audio conversation' });
+    var startOverlay = h('div', { class: 'hn__startOverlay' }, [startBtn, startHint]);
+
     var micBtn = h('button', { type: 'button', class: 'hn__chatMic', title: 'Speak to Hannah', html: MIC });
     var textInput = h('input', { type: 'text', class: 'hn__chatInput', placeholder: 'Ask Hannah about Nexora or any stage…' });
     var sendBtn = h('button', { type: 'button', class: 'hn__chatSend', title: 'Send message', html: SEND });
     var chatBar = h('div', { class: 'hn__chatBar' }, [micBtn, textInput, sendBtn]);
 
-    var frame = h('div', { class: 'hn__frame' }, [videoContainer, caption, chatBar, veil]);
+    var frame = h('div', { class: 'hn__frame' }, [videoContainer, caption, chatBar, startOverlay, veil]);
 
     var micNote = h('p', { class: 'hn__mic', 'data-state': 'granted' }, [
       h('span', { html: MIC }),
@@ -164,15 +174,29 @@
 
     enter.addEventListener('click', function () { leave(0); });
     skip.addEventListener('click', function () { leave(0); });
+
+    startOverlay.addEventListener('click', function (e) {
+      e.stopPropagation();
+      unlockAndGreet();
+    });
+
+    frame.addEventListener('click', function (e) {
+      if (!hasUserInteracted && !e.target.closest('.hn__chatBar')) {
+        unlockAndGreet();
+      }
+    });
+
     stops.addEventListener('click', function (e) {
       var b = e.target.closest('[data-phase]');
       if (b) {
+        unlockAudio();
         var p = Number(b.getAttribute('data-phase'));
         handleUserInput("Explain Stage " + p + ": " + b.textContent.trim(), p);
       }
     });
 
     sendBtn.addEventListener('click', function () {
+      unlockAudio();
       var q = textInput.value;
       if (q && q.trim()) {
         textInput.value = '';
@@ -182,6 +206,7 @@
 
     textInput.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
+        unlockAudio();
         var q = textInput.value;
         if (q && q.trim()) {
           textInput.value = '';
@@ -191,14 +216,39 @@
     });
 
     micBtn.addEventListener('click', function () {
+      unlockAudio();
       toggleListening();
     });
 
     return {
       mode: mode, root: root, frame: frame, videoContainer: videoContainer, veil: veil,
-      status: status, micBtn: micBtn, textInput: textInput, caption: caption,
-      leaving: false
+      startOverlay: startOverlay, status: status, micBtn: micBtn, textInput: textInput,
+      caption: caption, leaving: false
     };
+  }
+
+  function unlockAudio() {
+    if (hasUserInteracted) return;
+    hasUserInteracted = true;
+    try {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+      }
+    } catch (e) {}
+    if (ui && ui.startOverlay) {
+      ui.startOverlay.style.opacity = '0';
+      setTimeout(function () {
+        if (ui && ui.startOverlay && ui.startOverlay.parentNode) {
+          ui.startOverlay.parentNode.removeChild(ui.startOverlay);
+        }
+      }, 350);
+    }
+  }
+
+  function unlockAndGreet() {
+    unlockAudio();
+    handleUserInput('', null);
   }
 
   function setStatus(state, text) {
@@ -243,6 +293,16 @@
       captionRaf = null;
     }
 
+    if (speechWatchdog) {
+      clearInterval(speechWatchdog);
+      speechWatchdog = null;
+    }
+    speechWatchdog = setInterval(function () {
+      if (isSpeaking && window.speechSynthesis && window.speechSynthesis.paused) {
+        try { window.speechSynthesis.resume(); } catch (e) {}
+      }
+    }, 350);
+
     isSpeaking = true;
     setStatus('speaking', 'Speaking…');
     if (face) face.setMood(targetMood);
@@ -255,7 +315,18 @@
     };
     streamCaption();
 
-    voice.speak(text).then(function () {
+    voice.speak(text, {
+      onBlocked: function () {
+        isSpeaking = false;
+        if (speechWatchdog) { clearInterval(speechWatchdog); speechWatchdog = null; }
+        if (captionRaf) { cancelAnimationFrame(captionRaf); captionRaf = null; }
+        if (ui && ui.startOverlay) {
+          ui.startOverlay.style.opacity = '1';
+        }
+        setStatus('ready', 'Click to Listen');
+      }
+    }).then(function () {
+      if (speechWatchdog) { clearInterval(speechWatchdog); speechWatchdog = null; }
       isSpeaking = false;
       if (captionRaf) {
         cancelAnimationFrame(captionRaf);
@@ -266,6 +337,7 @@
       if (face) face.setMood('idle');
       if (onComplete) onComplete();
     }).catch(function () {
+      if (speechWatchdog) { clearInterval(speechWatchdog); speechWatchdog = null; }
       isSpeaking = false;
       if (captionRaf) {
         cancelAnimationFrame(captionRaf);
@@ -280,6 +352,10 @@
 
   function stopSpeaking() {
     isSpeaking = false;
+    if (speechWatchdog) {
+      clearInterval(speechWatchdog);
+      speechWatchdog = null;
+    }
     if (captionRaf) {
       cancelAnimationFrame(captionRaf);
       captionRaf = null;
@@ -386,10 +462,13 @@
             });
           }
 
-          // Greet visitor automatically
-          setTimeout(function () {
+          // Initial caption shows greeting
+          showCaption(KNOWLEDGE.greeting);
+
+          // If the visitor already interacted, speak immediately; otherwise wait for click to unlock audio
+          if (hasUserInteracted) {
             handleUserInput('', null);
-          }, 500);
+          }
         }
       });
     } else {
@@ -398,9 +477,10 @@
       ui.videoContainer.appendChild(poster);
       if (ui.veil) ui.veil.style.display = 'none';
       setStatus('ready', 'Ready');
-      setTimeout(function () {
+      showCaption(KNOWLEDGE.greeting);
+      if (hasUserInteracted) {
         handleUserInput('', null);
-      }, 500);
+      }
     }
   }
 

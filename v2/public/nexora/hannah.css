@@ -251,6 +251,53 @@ html.nx-hannah body > :not(.hn) { visibility: hidden !important; }
   transition: opacity 0.3s ease;
 }
 
+.hn__startOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 124px;
+  background: linear-gradient(180deg, rgba(18, 22, 31, 0) 40%, rgba(18, 22, 31, 0.45) 80%, rgba(18, 22, 31, 0.75) 100%);
+  z-index: 8;
+  cursor: pointer;
+  transition: opacity 0.35s ease;
+}
+.hn__startBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background: var(--hn-yellow);
+  color: #261d26;
+  border: none;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 210, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease;
+  animation: hn-btn-glow 2.4s ease-in-out infinite;
+}
+.hn__startBtn svg { width: 18px; height: 18px; flex: none; }
+.hn__startBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(255, 210, 0, 0.55), 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+.hn__startHint {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.02em;
+}
+@keyframes hn-btn-glow {
+  0%, 100% { box-shadow: 0 8px 24px rgba(255, 210, 0, 0.35); }
+  50% { box-shadow: 0 10px 30px rgba(255, 210, 0, 0.65), 0 0 16px rgba(255, 210, 0, 0.4); }
+}
+
 .hn__chatBar {
   position: absolute;
   bottom: 14px;

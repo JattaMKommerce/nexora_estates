@@ -41,13 +41,13 @@
   // speaking: mouth driven by speech visemes
   // happy: warm smile
   var MOODS = {
-    idle:       { relax: 0.8,  close: 0.85, browUp: 0,    browInner: 0,    gx: 0,    gy: 0,    tilt: 0 },
-    welcome:    { relax: 0,    close: 0,    browUp: 0.25, browInner: 0,    gx: 0,    gy: 0,    tilt: 0.01 },
-    listening:  { relax: 0.75, close: 0.85, browUp: 0.12, browInner: 0,    gx: 0.4,  gy: -0.2, tilt: 0.018 },
-    thinking:   { relax: 0.85, close: 0.86, browUp: 0.08, browInner: 0.35, gx: -2.0, gy: -1.6, tilt: -0.012 },
-    speaking:   { relax: 0.25, close: 0,    browUp: 0.1,  browInner: 0,    gx: 0,    gy: 0,    tilt: 0.006 },
-    happy:      { relax: 0,    close: 0,    browUp: 0.2,  browInner: 0,    gx: 0,    gy: 0,    tilt: 0.012 },
-    apologetic: { relax: 0.8,  close: 0.85, browUp: 0,    browInner: 0.55, gx: 0,    gy: 0.5,  tilt: -0.008 }
+    idle:       { relax: 0.35, browUp: 0,    browInner: 0,    gx: 0,    gy: 0,    tilt: 0 },
+    welcome:    { relax: 0,    browUp: 0.3,  browInner: 0,    gx: 0,    gy: 0,    tilt: 0.01 },
+    listening:  { relax: 0.35, browUp: 0.15, browInner: 0,    gx: 0.4,  gy: -0.2, tilt: 0.018 },
+    thinking:   { relax: 0.55, browUp: 0.1,  browInner: 0.35, gx: -2.0, gy: -1.6, tilt: -0.012 },
+    speaking:   { relax: 0.3,  browUp: 0.1,  browInner: 0,    gx: 0,    gy: 0,    tilt: 0.006 },
+    happy:      { relax: 0,    browUp: 0.25, browInner: 0,    gx: 0,    gy: 0,    tilt: 0.012 },
+    apologetic: { relax: 0.6,  browUp: 0,    browInner: 0.55, gx: 0,    gy: 0.5,  tilt: -0.008 }
   };
 
   function smooth(a, b, x) { var t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
@@ -124,8 +124,8 @@
       // relax: subtle resting tension
       var c = smooth(0.3, 1.0, au) * (1 - smooth(1.7, 2.8, au));
       var vy = y - mid(x), vf = Math.exp(-(vy * vy) / (55 * 55));
-      D.relax[o] = -sg * 4.5 * c * vf;
-      D.relax[o + 1] = 1.6 * c * vf;
+      D.relax[o] = -sg * 4.0 * c * vf;
+      D.relax[o + 1] = 1.2 * c * vf;
       if (dm < 0) {
         var du2 = iu(clampX(x)) - y;
         D.relax[o + 1] += 0.8 * (1 - smooth(0.35, 1.0, au)) * (du2 <= 0 ? 1 : Math.exp(-du2 / 18));
@@ -257,7 +257,7 @@
     this.mouthSource = null;
     this.alive = true;
     this.t0 = performance.now();
-    this.cur = { jaw: 0, close: 0.85, round: 0, wide: 0, relax: 0.8, blink: 0, browUp: 0, browInner: 0, gx: 0, gy: 0, tilt: 0 };
+    this.cur = { jaw: 0, close: 0, round: 0, wide: 0, relax: 0.35, blink: 0, browUp: 0, browInner: 0, gx: 0, gy: 0, tilt: 0 };
     this.nextBlink = 1200;
     this.blinkT = -1;
     this.nodT = -1;
@@ -471,25 +471,14 @@
 
     // mouth from speech, smoothed like real articulators (lips close fast, the jaw is heavier)
     var m = this.mouthSource ? this.mouthSource(now) : null;
-    var baseClose = (mood && mood.close != null) ? mood.close : 0.85;
-    var tgt = m ? {
-      jaw: m.jaw,
-      close: m.close,
-      round: m.round,
-      wide: m.wide
-    } : {
-      jaw: 0,
-      close: baseClose,
-      round: 0,
-      wide: 0
-    };
+    var tgt = m || { jaw: 0, close: 0, round: 0, wide: 0 };
     var ease = function (k, target, tau) { c[k] += (target - c[k]) * (1 - Math.exp(-dt / tau)); };
     ease('jaw', tgt.jaw, 0.055);
-    ease('close', tgt.close, m ? 0.035 : 0.14);
+    ease('close', tgt.close, 0.035);
     ease('round', tgt.round, 0.07);
     ease('wide', tgt.wide, 0.07);
     this.gestures(m, dt);
-    ease('relax', mood.relax, 0.22);
+    ease('relax', mood.relax, 0.25);
     ease('browUp', mood.browUp + this.browPulse, 0.12);
     ease('browInner', mood.browInner, 0.25);
     ease('tilt', mood.tilt, 0.45);
