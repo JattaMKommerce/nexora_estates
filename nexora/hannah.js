@@ -226,10 +226,11 @@
   }
 
   /* ---------------- Voice Speaking & Caption Synchronization ---------------- */
-  function speakReply(text, onComplete) {
+  function speakReply(text, onComplete, mood) {
+    var targetMood = mood || 'speaking';
     if (!voice || !voice.available()) {
       showCaption(text);
-      if (face) face.setMood('speaking');
+      if (face) face.setMood(targetMood);
       setTimeout(function () {
         if (face) face.setMood('idle');
         if (onComplete) onComplete();
@@ -244,7 +245,7 @@
 
     isSpeaking = true;
     setStatus('speaking', 'Speaking…');
-    if (face) face.setMood('speaking');
+    if (face) face.setMood(targetMood);
 
     var streamCaption = function () {
       if (!isSpeaking) return;
@@ -342,14 +343,17 @@
     setStatus('thinking', 'Thinking…');
     if (face) face.setMood('thinking');
 
+    var qLower = (query || '').toLowerCase().trim();
+    var isGreeting = !query || qLower.indexOf('hello') !== -1 || qLower.indexOf('hi') !== -1 || qLower.indexOf('welcome') !== -1;
     var reply = KNOWLEDGE.answer(query);
+    var targetMood = isGreeting ? 'welcome' : 'speaking';
 
     setTimeout(function () {
       speakReply(reply, function () {
         if (stagePhase) {
           setTimeout(function () { leave(stagePhase); }, 2200);
         }
-      });
+      }, targetMood);
     }, 350);
   }
 
