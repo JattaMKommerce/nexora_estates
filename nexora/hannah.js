@@ -275,8 +275,20 @@
     ui.caption.style.opacity = '0';
   }
 
+  var AUDIO_MAP = {
+    greeting: '/nexora/audio/greeting.m4a',
+    stage1: '/nexora/audio/stage1.m4a',
+    stage2: '/nexora/audio/stage2.m4a',
+    stage3: '/nexora/audio/stage3.m4a',
+    stage4: '/nexora/audio/stage4.m4a',
+    stage5: '/nexora/audio/stage5.m4a',
+    stage6: '/nexora/audio/stage6.m4a',
+    about: '/nexora/audio/about.m4a',
+    general: '/nexora/audio/general.m4a'
+  };
+
   /* ---------------- Voice Speaking & Caption Synchronization ---------------- */
-  function speakReply(text, onComplete, mood) {
+  function speakReply(text, onComplete, mood, audioUrl) {
     var targetMood = mood || 'speaking';
     if (!voice || !voice.available()) {
       showCaption(text);
@@ -315,17 +327,7 @@
     };
     streamCaption();
 
-    voice.speak(text, {
-      onBlocked: function () {
-        isSpeaking = false;
-        if (speechWatchdog) { clearInterval(speechWatchdog); speechWatchdog = null; }
-        if (captionRaf) { cancelAnimationFrame(captionRaf); captionRaf = null; }
-        if (ui && ui.startOverlay) {
-          ui.startOverlay.style.opacity = '1';
-        }
-        setStatus('ready', 'Click to Listen');
-      }
-    }).then(function () {
+    var onDone = function () {
       if (speechWatchdog) { clearInterval(speechWatchdog); speechWatchdog = null; }
       isSpeaking = false;
       if (captionRaf) {
@@ -336,18 +338,27 @@
       setStatus('ready', 'Ready');
       if (face) face.setMood('idle');
       if (onComplete) onComplete();
-    }).catch(function () {
-      if (speechWatchdog) { clearInterval(speechWatchdog); speechWatchdog = null; }
+    };
+
+    var onBlocked = function () {
       isSpeaking = false;
-      if (captionRaf) {
-        cancelAnimationFrame(captionRaf);
-        captionRaf = null;
+      if (speechWatchdog) { clearInterval(speechWatchdog); speechWatchdog = null; }
+      if (captionRaf) { cancelAnimationFrame(captionRaf); captionRaf = null; }
+      if (ui && ui.startOverlay) {
+        ui.startOverlay.style.opacity = '1';
       }
-      showCaption(text, 1.0);
-      setStatus('ready', 'Ready');
-      if (face) face.setMood('idle');
-      if (onComplete) onComplete();
-    });
+      setStatus('ready', 'Click to Listen');
+    };
+
+    if (audioUrl && typeof voice.speakAudio === 'function') {
+      voice.speakAudio(audioUrl, text, {
+        onBlocked: onBlocked
+      }).then(onDone).catch(onDone);
+    } else {
+      voice.speak(text, {
+        onBlocked: onBlocked
+      }).then(onDone).catch(onDone);
+    }
   }
 
   function stopSpeaking() {
@@ -421,6 +432,17 @@
 
     var qLower = (query || '').toLowerCase().trim();
     var isGreeting = !query || qLower.indexOf('hello') !== -1 || qLower.indexOf('hi') !== -1 || qLower.indexOf('welcome') !== -1;
+    var audioKey = null;
+    if (isGreeting) audioKey = 'greeting';
+    else if (stagePhase === 1 || qLower.indexOf('stage 1') !== -1 || qLower.indexOf('site') !== -1) audioKey = 'stage1';
+    else if (stagePhase === 2 || qLower.indexOf('stage 2') !== -1 || qLower.indexOf('master') !== -1) audioKey = 'stage2';
+    else if (stagePhase === 3 || qLower.indexOf('stage 3') !== -1 || qLower.indexOf('construct') !== -1) audioKey = 'stage3';
+    else if (stagePhase === 4 || qLower.indexOf('stage 4') !== -1 || qLower.indexOf('fit') !== -1 || qLower.indexOf('handover') !== -1) audioKey = 'stage4';
+    else if (stagePhase === 5 || qLower.indexOf('stage 5') !== -1 || qLower.indexOf('ready') !== -1 || qLower.indexOf('move') !== -1) audioKey = 'stage5';
+    else if (stagePhase === 6 || qLower.indexOf('stage 6') !== -1 || qLower.indexOf('virtual') !== -1 || qLower.indexOf('tour') !== -1) audioKey = 'stage6';
+    else if (qLower.indexOf('what is nexora') !== -1 || qLower.indexOf('about') !== -1) audioKey = 'about';
+    else audioKey = 'general';
+
     var reply = KNOWLEDGE.answer(query);
     var targetMood = isGreeting ? 'welcome' : 'speaking';
 
@@ -429,7 +451,7 @@
         if (stagePhase) {
           setTimeout(function () { leave(stagePhase); }, 2200);
         }
-      }, targetMood);
+      }, targetMood, audioKey ? AUDIO_MAP[audioKey] : null);
     }, 350);
   }
 

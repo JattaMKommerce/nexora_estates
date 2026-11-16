@@ -264,6 +264,8 @@
     this.cpsBy = {};            // characters per second for each language, learned as she speaks
     this.voices = {};           // the voice chosen for each language (kept once she has used it)
     this.job = null;
+    this.currentAudio = null;
+    this.audioCtx = null;
     this.simulate = !!cfg.simulate;
     var self = this;
     if (this.synth) {
@@ -273,10 +275,7 @@
   }
 
   Voice.prototype.available = function () {
-    if (this.simulate) return true;
-    if (!(this.synth && window.SpeechSynthesisUtterance)) return false;
-    // another language needs a voice that can read it; English can use the browser's default
-    return this.lang === 'en' || !!this.voice;
+    return true; // Native HTML5 audio playback is always available
   };
 
   // languages without their own voice that a related voice reads well (same script)
@@ -331,6 +330,80 @@
       .replace(/([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+)\.([a-z]{2,})/g, '$1 at $2 dot $3')
       .replace(/\s*&\s*/g, ' and ')
       .replace(/(\d)\+/g, '$1 plus');
+  };
+
+  /*
+   * speakAudio(audioUrl, text, { onStart, onEnd(ok), onBlocked }) → Promise
+   * Plays a native crystal-clear pre-rendered audio file with guaranteed audibility and frequency analysis.
+   */
+  Voice.prototype.speakAudio = function (audioUrl, text, cb) {
+    cb = cb || {};
+    this.cancel();
+    var self = this;
+    var audio = new Audio(audioUrl);
+    this.currentAudio = audio;
+    audio.volume = 1.0;
+
+    var job = {
+      isAudio: true, audio: audio, text: text,
+      ended: false, started: false, cb: cb, t0: 0, dur: 5.0,
+      analyser: null, dataArray: null
+    };
+    this.job = job;
+
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (AC) {
+        if (!self.audioCtx || self.audioCtx.state === 'closed') self.audioCtx = new AC();
+        if (self.audioCtx.state === 'suspended') self.audioCtx.resume();
+        var source = self.audioCtx.createMediaElementSource(audio);
+        var analyser = self.audioCtx.createAnalyser();
+        analyser.fftSize = 128;
+        source.connect(analyser);
+        analyser.connect(self.audioCtx.destination);
+        job.analyser = analyser;
+        job.dataArray = new Uint8Array(analyser.frequencyBinCount);
+      }
+    } catch (e) {
+      // Audio playback continues normally without web audio node
+    }
+
+    return new Promise(function (resolve) {
+      job.resolve = resolve;
+
+      audio.onplay = function () {
+        job.started = true;
+        job.t0 = performance.now();
+        job.dur = audio.duration || 5.0;
+        if (cb.onStart) cb.onStart();
+      };
+
+      audio.onended = function () {
+        finish(true);
+      };
+
+      audio.onerror = function () {
+        // Fall back to synthesis if file has issue
+        self.speak(text, cb).then(resolve);
+      };
+
+      var p = audio.play();
+      if (p && p.catch) {
+        p.catch(function () {
+          if (cb.onBlocked) cb.onBlocked();
+          finish(false);
+        });
+      }
+    });
+
+    function finish(ok) {
+      if (job.ended) return;
+      job.ended = true;
+      if (self.job === job) self.job = null;
+      if (self.currentAudio === audio) self.currentAudio = null;
+      if (cb.onEnd) cb.onEnd(ok);
+      job.resolve(ok);
+    }
   };
 
   /*
@@ -482,16 +555,26 @@
   Voice.prototype.cancel = function () {
     var job = this.job;
     this.job = null;
+    if (this.currentAudio) {
+      try {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+      } catch (e) {}
+      this.currentAudio = null;
+    }
     if (this.synth && !this.simulate) { try { this.synth.cancel(); } catch (e) { /* ignore */ } }
     if (job && !job.ended) {
       job.ended = true;
       clearTimeout(job.watch);
-      if (job.cb.onEnd) job.cb.onEnd(false);
-      job.resolve(false);
+      if (job.cb && job.cb.onEnd) job.cb.onEnd(false);
+      if (job.resolve) job.resolve(false);
     }
   };
 
-  Voice.prototype.speaking = function () { return !!(this.job && this.job.cur && this.job.cur.on); };
+  Voice.prototype.speaking = function () {
+    if (this.job && this.job.isAudio) return !!(this.job.started && !this.job.ended);
+    return !!(this.job && this.job.cur && this.job.cur.on);
+  };
 
   // where the voice is in the current sentence, in timeline units. If the voice is still talking
   // when the estimate runs out (a slower voice without word events), the last words are
@@ -508,7 +591,42 @@
 
   // the mouth shape for "now", with a short blend into the next shape (coarticulation)
   Voice.prototype.mouth = function (now) {
-    var job = this.job, cur = job && job.cur;
+    var job = this.job;
+    if (!job) return null;
+
+    if (job.isAudio) {
+      if (!job.started || job.ended) return null;
+      var jaw = 0, wide = 0, round = 0;
+      if (job.analyser && job.dataArray) {
+        job.analyser.getByteFrequencyData(job.dataArray);
+        var sum = 0, lowSum = 0;
+        var count = Math.min(24, job.dataArray.length);
+        for (var ai = 0; ai < count; ai++) {
+          sum += job.dataArray[ai];
+          if (ai < 8) lowSum += job.dataArray[ai];
+        }
+        var avg = sum / count / 255;
+        var lowAvg = lowSum / 8 / 255;
+        jaw = Math.min(0.9, avg * 2.4);
+        round = Math.min(0.7, lowAvg * 1.6);
+        wide = Math.min(0.4, avg * 1.1);
+      } else {
+        var el = (now - job.t0) / 1000;
+        jaw = 0.2 + 0.35 * Math.sin(el * 12) * Math.sin(el * 7.5);
+        jaw = Math.max(0, Math.min(0.7, jaw));
+      }
+      return {
+        jaw: jaw,
+        close: (jaw < 0.08 ? 0.4 : 0),
+        round: round,
+        wide: wide,
+        sentence: 0,
+        word: '',
+        stress: (jaw > 0.4)
+      };
+    }
+
+    var cur = job.cur;
     if (!cur || !cur.on) return null;
     var pos = position(cur, now + LEAD_MS);
     var segs = cur.tl.segs;
@@ -535,6 +653,14 @@
   Voice.prototype.progress = function (now) {
     var job = this.job;
     if (!job) return 1;
+    if (job.isAudio) {
+      if (!job.started || job.ended) return 1;
+      if (job.audio && job.audio.duration && !isNaN(job.audio.duration)) {
+        return Math.min(1.0, job.audio.currentTime / job.audio.duration);
+      }
+      var elapsed = (now - job.t0) / 1000;
+      return Math.min(1.0, elapsed / (job.dur || 5.0));
+    }
     var cur = job.cur;
     if (!cur || !cur.on) return job.done / job.total;
     var pos = position(cur, now);
