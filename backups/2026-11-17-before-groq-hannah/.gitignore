@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-v2/
+.DS_Store
+*.zip
+scratch/
+__pycache__/
+
+# secrets: never commit (Groq key lives only on this Mac and on the server)
+api/secrets.php
+.env
+.env.*
+api/.ratelimit/

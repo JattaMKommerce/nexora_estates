@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["js/NexoraTwin-FCZ51Iqy.js","js/jsx-runtime-D0wqlvYd.js","js/preload-helper-BAhRBEfI.js","js/NexoraTwin-DmrgZYZA.css"])))=>i.map(i=>d[i]);
+import{t as e}from"./preload-helper-BAhRBEfI.js";var t=(t,n)=>e(()=>import(`./NexoraTwin-FCZ51Iqy.js`).then(e=>e.mount(t,n)),__vite__mapDeps([0,1,2,3]));export{t as mount};

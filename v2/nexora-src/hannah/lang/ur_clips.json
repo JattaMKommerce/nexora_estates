@@ -1,0 +1,1068 @@
+[
+ {
+  "id": "ur_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "अस्सलाम अलैकुम, नेक्सोरा में ख़ुश आमदीद! मैं हन्ना हूँ, आपकी वर्चुअल रिसेप्शनिस्ट। क्या मैं आपका नाम जान सकती हूँ?",
+  "engine": "kokoro",
+  "voice": "af_bella",
+  "lang": "h",
+  "file": "ur/c083.mp4"
+ },
+ {
+  "id": "ur_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "دوبارہ خوش آمدید! آپ کو پھر سے دیکھ کر بہت اچھا لگا۔ آج میں آپ کی کیا مدد کر سکتی ہوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c084.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "نیکسورا، جٹا ایم کامرس کا ریئل اسٹیٹ سافٹ ویئر ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c085.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "یہ ڈیولپرز کو ان کے پروجیکٹس بننے سے پہلے ہی 3D میں دکھانے میں مدد کرتا ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c086.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "یہ تعمیر پر نظر رکھتا ہے اور خریداروں کو گھر سونپنے تک، سب کچھ ایک ہی جگہ سنبھالتا ہے۔ کیا آپ جاننا چاہیں گے کہ 3D ڈیجیٹل ٹوئن کیا ہوتا ہے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c087.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "ڈیجیٹل ٹوئن کسی پروجیکٹ کی ہوبہو، اصلی جیسی 3D کاپی ہوتی ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c088.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "یہ آرکیٹیکٹ کی ڈرائنگز سے بنتی ہے، تاکہ خریدار براؤزر میں ہر ولا دیکھ سکیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c089.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "نیکسورا ریوٹ، آرکی کیڈ یا بِم ماڈلز کو 72 گھنٹوں سے کم میں ٹوئن میں بدل سکتا ہے۔ کیا آپ ہمارے نمونہ ولا کا ورچوئل ٹور دیکھنا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c090.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "نیکسورا میں پانچ اہم ماڈیولز ہیں، خالی زمین سے لے کر لوگوں کے رہنے آنے تک۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c091.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "پہلے تین ہیں: زمین اور فزیبلٹی، 3D سیلز گیلری، اور کنسٹرکشن ٹریکر۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c092.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "پھر آتے ہیں کوالٹی اور سنیگنگ، اور آخر میں بائر ہینڈ اوور اور ریزیڈنٹ پورٹل۔ کیا میں ایک ایک کر کے دکھاؤں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c093.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "نیکسورا ریئل اسٹیٹ ڈیولپرز اور بلڈرز کے لیے بنا ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c094.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "چھوٹے ولا بلڈرز سے لے کر بڑے ٹاؤن شپ ڈیولپرز تک۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c095.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "ان کے خریدار اور رہنے والے بھی اسے گھر دیکھنے اور تعمیر پر نظر رکھنے کے لیے استعمال کرتے ہیں۔ کیا آپ ڈیولپر ہیں، یا اپنے لیے گھر ڈھونڈ رہے ہیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c096.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "فیز ون سائٹ ایویلیوایشن ہے، جہاں بنانے سے پہلے ڈیولپر زمین کی جانچ کرتا ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c097.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "نیکسورا سڑک، سروے، پانی، بجلی، منظوریوں، زوننگ اور مٹی کی جانچ، سب پر نظر رکھتا ہے۔ کیا میں آپ کے لیے سائٹ ایویلیوایشن کھولوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c098.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "فیز ٹو ماسٹر پلاننگ ہے، جہاں ولا کے لے آؤٹ طے ہوتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c099.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "ریرا رجسٹریشن مکمل ہوتی ہے، اور خریداروں کے لیے 3D ٹوئن لائیو ہو جاتا ہے، لائیو انوینٹری اور بکنگ کے ساتھ۔ کیا میں ماسٹر پلاننگ کھولوں، تاکہ آپ دیکھ سکیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c100.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "فیز تھری کنسٹرکشن ہے، جہاں ٹاور اور کلب ہاؤس زمین سے اوپر اٹھتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c101.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "نیکسورا ہر مرحلے کو ڈرون تصویروں، بلوں کی جانچ اور فوٹو ریکارڈ کے ساتھ ٹریک کرتا ہے۔ کیا میں آپ کو کنسٹرکشن فیز پر لے چلوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c102.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "فیز فور فٹ آؤٹ اور ہینڈ اوور ہے، جب انٹیریئر مکمل ہوتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c103.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "ہر گھر کو 200 سے زیادہ کوالٹی پوائنٹس پر جانچا جاتا ہے، اور واک تھرو کے بعد چابیاں سونپی جاتی ہیں۔ کیا میں آپ کے لیے فٹ آؤٹ اور ہینڈ اوور کھولوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c104.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "فیز فائیو ریڈی ٹو موو اِن ہے، جب لوگ اپنے گھروں میں بس جاتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c105.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "ریزیڈنٹ ایپ سے سہولتوں کی بکنگ، مہمان، سیکیورٹی اور مینٹیننس، سب سنبھلتا ہے۔ کیا آپ ریڈی ٹو موو اِن دیکھنا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c106.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "ورچوئل ٹور میں آپ ہمارا نمونہ لگژری ولا 3D میں دیکھ سکتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c107.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "آپ باغ، کلب ہاؤس اور پول، لیونگ پویلین اور ماسٹر سوئٹ میں گھوم سکتے ہیں۔ کیا میں آپ کے لیے ورچوئل ٹور شروع کروں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c108.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "ویب سائٹ نیکسورا کی کہانی پانچ فیز اور ایک ورچوئل ٹور میں بتاتی ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c109.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "سائٹ ایویلیوایشن، ماسٹر پلاننگ، کنسٹرکشن، فٹ آؤٹ اور ہینڈ اوور، اور ریڈی ٹو موو اِن۔ کیا آپ شروع سے، سائٹ ایویلیوایشن سے آغاز کرنا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c110.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "نیکسورا میں ہر سائز کے بلڈرز کے لیے سبسکرپشن پلان ہیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c111.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "قیمتیں ویب سائٹ پر نہیں دی گئیں، اس لیے ٹیم ڈیمو میں آپ کے پروجیکٹ کی قیمت بتاتی ہے۔ کیا میں ڈیمو بکنگ فارم کھولوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c112.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "معاف کیجیے، یہاں دکھایا گیا ولا ایک مثال ہے، فروخت کے لیے نہیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c113.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "اس لیے کوئی قیمت یا لوکیشن نہیں ہے، لیکن ورچوئل ٹور دکھاتا ہے کہ خریدار کسی پروجیکٹ کو کیسے دیکھتے ہیں۔ کیا آپ ورچوئل ٹور دیکھنا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c114.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "مجھے آپ کا مفت ڈیمو بک کرنے میں مدد کر کے خوشی ہوگی۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c115.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "آپ اپنے پروجیکٹ کے بارے میں تھوڑا بتائیں، اور ٹیم ذاتی واک تھرو کے لیے آپ سے رابطہ کرے گی۔ کیا میں ابھی ڈیمو فارم کھولوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c116.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "آپ ٹیم کو contact@jattamkommerce.com پر ای میل کر سکتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c117.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "یا بک اے ڈیمو فارم بھریں، ٹیم آپ سے رابطہ کرے گی۔ کیا میں بک اے ڈیمو فارم کھولوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c118.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "نیکسورا، جٹا ایم کامرس کا پروڈکٹ ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c119.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "ٹیم آپ کو contact@jattamkommerce.com پر مزید معلومات دے سکتی ہے۔ کیا آپ جاننا چاہیں گے کہ نیکسورا کیا کرتا ہے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c120.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "نیکسورا سیلز فورس، ہب اسپاٹ اور بلڈر ای آر پی جیسے ٹولز سے جڑتا ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c121.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "اس کے علاوہ ویب ہُکس، ریسٹ اے پی آئی، اور ایس اے پی و ریرا پورٹل کے کنیکٹر بھی ہیں۔ کیا میں ڈیمو فارم کھولوں، تاکہ ٹیم بتا سکے کہ آپ کے لیے کیا ٹھیک رہے گا؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c122.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "نمونہ پروجیکٹ میں ہر جگہ ماحول کا خیال رکھا گیا ہے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c123.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "چھت پر سولر، بارش کے پانی کا ذخیرہ، گرے واٹر ری سائیکلنگ، ای وی چارجنگ اور گرین بلڈنگ ٹریکنگ۔ کیا آپ سائٹ ایویلیوایشن سے آغاز کرنا چاہیں گے، جہاں یہ پلاننگ شروع ہوتی ہے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c124.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "نیکسورا اکاؤنٹس ابھی تیار ہو رہے ہیں، اس لیے لاگ اِن ابھی جڑا نہیں ہے۔ کیا میں ڈیمو فارم کھولوں، تاکہ ٹیم آپ کو رسائی دے سکے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c125.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "بہت آسان ہے: فیز بدلنے کے لیے بس اسکرول کیجیے۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c126.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "اوپر دائیں طرف مینو میں ہر فیز ہے، اور بک اے ڈیمو صفحے کے اوپر ہے۔ کیا میں آپ کو ابھی ویب سائٹ میں لے چلوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c127.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "یہ ویب سائٹ ہماری گفتگو محفوظ نہیں کرتی۔ کیا آپ مزید جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c128.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "جب آپ بولتے ہیں، تو آپ کا براؤزر آپ کی آواز کو تحریر میں بدلتا ہے، اس لیے یہاں کوئی ذاتی معلومات شیئر نہ کریں۔ کیا نیکسورا کے بارے میں میں آپ کی کوئی مدد کر سکتی ہوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c129.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "بہت خوب، تو نیکسورا آپ ہی کے لیے بنا ہے۔ کیا آپ پانچ ماڈیولز پر ایک نظر ڈالنا چاہیں گے، یا میں ڈیمو بک کرنے میں مدد کروں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c130.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "بہت خوب! نیکسورا میں آپ گھروں کو بننے سے پہلے ہی 3D میں دیکھ سکتے ہیں۔ کیا میں آپ کے لیے ورچوئل ٹور شروع کروں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c131.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "کوئی بات نہیں، آرام سے دیکھیے۔ کیا میں پہلے فیز سے شروع کر کے آپ کو سب دکھاؤں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c132.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "अस्सलाम अलैकुम! क्या आप डेवलपर या बिल्डर हैं, घर ढूँढ रहे हैं, या बस देख रहे हैं?",
+  "engine": "kokoro",
+  "voice": "af_bella",
+  "lang": "h",
+  "file": "ur/c133.mp4"
+ },
+ {
+  "id": "ur_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "अस्सलाम अलैकुम! आपका यहाँ होना बहुत अच्छा लगा। क्या आप डेवलपर हैं, घर ख़रीदना चाहते हैं, या बस देख रहे हैं?",
+  "engine": "kokoro",
+  "voice": "af_bella",
+  "lang": "h",
+  "file": "ur/c134.mp4"
+ },
+ {
+  "id": "ur_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "میں بہت اچھی ہوں، شکریہ! آج میں آپ کی کیا مدد کر سکتی ہوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c135.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "میں بہترین ہوں، پوچھنے کا شکریہ! آپ نیکسورا کے بارے میں کیا جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c136.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "میں ہنا ہوں، نیکسورا کی ورچوئل ریسیپشنسٹ، اور میں آپ کی گائیڈ ہوں۔ آپ کیا جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c137.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "میں یہاں آپ کا استقبال کرنے، آپ کے سوالوں کے جواب دینے، اور آپ کو نیکسورا دکھانے کے لیے ہوں۔ آپ کیا جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c138.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "میں ایک اے آئی ریسیپشنسٹ ہوں، لیکن مدد کے لیے پوری طرح حاضر ہوں۔ آپ کیا جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c139.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "آپ کا خیرمقدم ہے! کیا میں آپ کی کوئی اور مدد کر سکتی ہوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c034.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "میری خوشی ہے! نیکسورا کے بارے میں آپ کچھ اور جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c035.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "نیکسورا پر آنے کا شکریہ! ضرورت ہو تو میں ہمیشہ مینو میں ہوں۔ آپ کا دن اچھا گزرے!",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c140.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "میں نیکسورا کے بارے میں بتا سکتی ہوں، ویب سائٹ دکھا سکتی ہوں، اور ڈیمو بک کرنے میں مدد کر سکتی ہوں۔ کہاں سے شروع کریں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c141.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "یہ میرے دائرے سے تھوڑا باہر ہے، لیکن مجھے آپ کو نیکسورا دکھا کر خوشی ہوگی۔ کیا میں آپ کو ایک چھوٹا سا ٹور دوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c142.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "معاف کیجیے، اس میں میں مدد نہیں کر سکتی۔ لیکن میں آپ کو نیکسورا دکھا سکتی ہوں۔ کیا ایک چھوٹا سا ٹور کریں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c143.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "کاش میں اس میں مدد کر پاتی! میں نیکسورا دکھانے میں سب سے اچھی ہوں۔ کیا آپ ایک چھوٹا سا ٹور لینا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c144.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "کوئی بات نہیں، آسان الفاظ میں بتاتی ہوں۔ نیکسورا بلڈرز کو گھر بننے سے پہلے ہی 3D میں دکھانے میں مدد کرتا ہے۔ کیا میں آپ کو سب دکھاؤں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c145.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "بالکل ٹھیک ہے۔ نیکسورا کو سمجھنے کا سب سے آسان طریقہ ایک چھوٹا سا ٹور ہے۔ کیا میں آپ کو سب دکھاؤں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c146.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "معاف کیجیے، یہ معلومات میرے پاس نہیں ہے۔ ہماری ٹیم ڈیمو میں اس کا جواب دے سکتی ہے۔ کیا میں ڈیمو فارم کھولوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c147.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "اچھا سوال ہے! اس کا جواب میرے پاس نہیں ہے، لیکن ٹیم ڈیمو میں بتا دے گی۔ کیا میں ڈیمو فارم کھولوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c148.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "معاف کیجیے، میں ٹھیک سے سمجھ نہیں پائی۔ کیا آپ اسے دوسرے طریقے سے کہہ سکتے ہیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c149.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "معاف کیجیے، میں سمجھ نہیں پائی۔ آپ مجھ سے پوچھ سکتے ہیں کہ نیکسورا کیا ہے، یا ٹور کے لیے کہہ سکتے ہیں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c150.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "کوئی بات نہیں۔ آپ اس کے بجائے کیا جاننا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c048.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "ٹھیک ہے۔ کیا نیکسورا کے بارے میں میں آپ کی کوئی اور مدد کر سکتی ہوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c049.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "بہت خوب! میں نیکسورا کے بارے میں بتا سکتی ہوں، آپ کو سب دکھا سکتی ہوں، یا ڈیمو بک کرنے میں مدد کر سکتی ہوں۔ آپ کیا چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c151.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "معاف کیجیے، میں آپ کی زبان نہیں سمجھ پا رہی۔ براہ کرم میری زبانوں میں سے ایک چنیں، تاکہ ہم بات کر سکیں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c152.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "ज़रूर, अब हम उर्दू में बात करते हैं। मैं आपकी क्या मदद कर सकती हूँ?",
+  "engine": "kokoro",
+  "voice": "af_bella",
+  "lang": "h",
+  "file": "ur/c185.mp4"
+ },
+ {
+  "id": "ur_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "ضرور، آپ کو ابھی سائٹ ایویلیوایشن پر لے چلتی ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c153.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "ضرور، آپ کو ابھی ماسٹر پلاننگ پر لے چلتی ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c154.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "ضرور، آپ کو ابھی کنسٹرکشن پر لے چلتی ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c155.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "ضرور، آپ کو ابھی فٹ آؤٹ اور ہینڈ اوور پر لے چلتی ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c156.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "ضرور، آپ کو ابھی ریڈی ٹو موو اِن پر لے چلتی ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c157.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "ضرور، آپ کو ابھی ورچوئل ٹور پر لے چلتی ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c158.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "ضرور، آپ کے لیے ڈیمو فارم کھول رہی ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c159.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "ضرور، آپ کو ابھی ویب سائٹ میں لے چلتی ہوں۔ ضرورت ہو تو میں مینو میں ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c160.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "معاف کیجیے، میں آپ کا نام سمجھ نہیں پائی۔ کیا آپ صرف اپنا پہلا نام لکھ سکتے ہیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c161.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "کوئی بات نہیں! کیا آپ ڈیولپر یا بلڈر ہیں، گھر ڈھونڈ رہے ہیں، یا بس دیکھ رہے ہیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c162.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "آپ سے مل کر بہت اچھا لگا! کیا آپ ڈیولپر یا بلڈر ہیں، گھر ڈھونڈ رہے ہیں، یا بس دیکھ رہے ہیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c163.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "بہت خوب! آپ کس کمپنی سے ہیں، اور وہاں آپ کا رول کیا ہے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c164.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "شکریہ! کیا میں آپ کو نیکسورا کا ایک چھوٹا سا گائیڈڈ ٹور دوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c165.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "بہت خوب! نیکسورا میں آپ گھروں کو بننے سے پہلے ہی 3D میں دیکھ سکتے ہیں۔ کیا میں آپ کو ایک چھوٹا سا گائیڈڈ ٹور دوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c166.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "کوئی بات نہیں، آرام سے دیکھیے۔ کیا میں آپ کو ایک چھوٹا سا گائیڈڈ ٹور دوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c167.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "کوئی بات نہیں۔ آپ مجھ سے کچھ بھی پوچھ سکتے ہیں، یا اپنے حساب سے ویب سائٹ دیکھ سکتے ہیں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c168.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "چلیے شروع کرتے ہیں! یہ ہے سائٹ ایویلیوایشن، جہاں ڈیولپر بنانے سے پہلے زمین کی جانچ کرتا ہے۔ آگے چلیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c169.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "یہ ہے ماسٹر پلاننگ۔ ولا کے لے آؤٹ طے ہوتے ہیں، اور خریداروں کے لیے 3D ٹوئن لائیو ہو جاتا ہے۔ آگے چلیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c170.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "یہ ہے کنسٹرکشن۔ نیکسورا ڈرون تصویروں اور فوٹو ریکارڈ سے ہر مرحلہ ٹریک کرتا ہے۔ آگے چلیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c171.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "یہ ہے فٹ آؤٹ اور ہینڈ اوور۔ چابیاں سونپنے سے پہلے ہر گھر کی کوالٹی جانچی جاتی ہے۔ آگے چلیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c172.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "ریڈی ٹو موو اِن میں خوش آمدید۔ ریزیڈنٹ ایپ بکنگ، مہمان اور مینٹیننس سنبھالتی ہے۔ کیا ولا دیکھیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c173.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "یہ ہے ہمارے ڈیمو ولا کا ورچوئل ٹور۔ آرام سے گھومیے اور دیکھیے۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c174.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "یہ تھا ہمارا ٹور! کیا آپ اپنے پروجیکٹ کے لیے ایک ذاتی ڈیمو چاہیں گے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c175.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "کوئی بات نہیں، ہم یہیں رکتے ہیں۔ ضرورت ہو تو میں ہمیشہ مینو میں ہوں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c176.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "مجھے آپ کا مفت ڈیمو طے کرنے میں خوشی ہوگی! آپ سے رابطے کے لیے سب سے اچھا فون نمبر کیا ہے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c177.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "مجھے آپ کا مفت ڈیمو طے کرنے میں خوشی ہوگی! کیا پہلے میں آپ کا نام جان سکتی ہوں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c178.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "شکریہ! آپ سے رابطے کے لیے سب سے اچھا فون نمبر کیا ہے؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c179.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "ہمم، یہ نمبر صحیح نہیں لگ رہا۔ کیا آپ اسے دس ہندسوں کے ساتھ دوبارہ لکھ سکتے ہیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c180.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c181",
+  "key": "Thank you. And your email address?",
+  "say": "شکریہ۔ اور آپ کا ای میل پتا؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c181.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "یہ ای میل ٹھیک نہیں لگ رہا۔ کیا آپ اسے دوبارہ لکھ سکتے ہیں؟",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c182.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "شکریہ! ہماری ٹیم جلد ہی آپ سے رابطہ کرے گی۔ میں ڈیمو فارم کھول رہی ہوں، تاکہ آپ تاریخ چن سکیں۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c183.mp4",
+  "shared": true
+ },
+ {
+  "id": "ur_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "کوئی بات نہیں۔ جب بھی آپ تیار ہوں، بک اے ڈیمو بٹن اوپر ہے۔",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ur",
+  "file": "hi/c184.mp4",
+  "shared": true
+ }
+]

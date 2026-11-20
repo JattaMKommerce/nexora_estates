@@ -5,3 +5,9 @@ dist-v2/
 *.zip
 scratch/
 __pycache__/
+
+# secrets: never commit (Groq key lives only on this Mac and on the server)
+api/secrets.php
+.env
+.env.*
+api/.cache/

@@ -1,0 +1,544 @@
+{
+ "code": "ur",
+ "label": "اردو",
+ "placeholder": "اپنا نام لکھیں، یا نیکسورا کے بارے میں کچھ بھی پوچھیں...",
+ "greetingKey": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+ "switchedKey": "Of course, let's continue in English. How can I help you?",
+ "lines": {
+  "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?": {
+   "text": "السلام علیکم، نیکسورا میں خوش آمدید! میں ہنا ہوں، آپ کی ورچوئل ریسیپشنسٹ۔ کیا میں آپ کا نام جان سکتی ہوں؟"
+  },
+  "Welcome back! It's lovely to see you again. How can I help you today?": {
+   "text": "دوبارہ خوش آمدید! آپ کو پھر سے دیکھ کر بہت اچھا لگا۔ آج میں آپ کی کیا مدد کر سکتی ہوں؟"
+  },
+  "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?": {
+   "text": "نیکسورا، جٹا ایم کامرس کا ریئل اسٹیٹ سافٹ ویئر ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?": {
+   "text": "یہ ڈیولپرز کو ان کے پروجیکٹس بننے سے پہلے ہی 3D میں دکھانے میں مدد کرتا ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?": {
+   "text": "یہ تعمیر پر نظر رکھتا ہے اور خریداروں کو گھر سونپنے تک، سب کچھ ایک ہی جگہ سنبھالتا ہے۔ کیا آپ جاننا چاہیں گے کہ 3D ڈیجیٹل ٹوئن کیا ہوتا ہے؟"
+  },
+  "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?": {
+   "text": "ڈیجیٹل ٹوئن کسی پروجیکٹ کی ہوبہو، اصلی جیسی 3D کاپی ہوتی ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?": {
+   "text": "یہ آرکیٹیکٹ کی ڈرائنگز سے بنتی ہے، تاکہ خریدار براؤزر میں ہر ولا دیکھ سکیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?": {
+   "text": "نیکسورا ریوٹ، آرکی کیڈ یا بِم ماڈلز کو 72 گھنٹوں سے کم میں ٹوئن میں بدل سکتا ہے۔ کیا آپ ہمارے نمونہ ولا کا ورچوئل ٹور دیکھنا چاہیں گے؟"
+  },
+  "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?": {
+   "text": "نیکسورا میں پانچ اہم ماڈیولز ہیں، خالی زمین سے لے کر لوگوں کے رہنے آنے تک۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?": {
+   "text": "پہلے تین ہیں: زمین اور فزیبلٹی، 3D سیلز گیلری، اور کنسٹرکشن ٹریکر۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?": {
+   "text": "پھر آتے ہیں کوالٹی اور سنیگنگ، اور آخر میں بائر ہینڈ اوور اور ریزیڈنٹ پورٹل۔ کیا میں ایک ایک کر کے دکھاؤں؟"
+  },
+  "Nexora is built for real estate developers and builders. Would you like to hear more?": {
+   "text": "نیکسورا ریئل اسٹیٹ ڈیولپرز اور بلڈرز کے لیے بنا ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "From boutique villa builders to large township developers. Would you like to hear more?": {
+   "text": "چھوٹے ولا بلڈرز سے لے کر بڑے ٹاؤن شپ ڈیولپرز تک۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?": {
+   "text": "ان کے خریدار اور رہنے والے بھی اسے گھر دیکھنے اور تعمیر پر نظر رکھنے کے لیے استعمال کرتے ہیں۔ کیا آپ ڈیولپر ہیں، یا اپنے لیے گھر ڈھونڈ رہے ہیں؟"
+  },
+  "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?": {
+   "text": "فیز ون سائٹ ایویلیوایشن ہے، جہاں بنانے سے پہلے ڈیولپر زمین کی جانچ کرتا ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?": {
+   "text": "نیکسورا سڑک، سروے، پانی، بجلی، منظوریوں، زوننگ اور مٹی کی جانچ، سب پر نظر رکھتا ہے۔ کیا میں آپ کے لیے سائٹ ایویلیوایشن کھولوں؟"
+  },
+  "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?": {
+   "text": "فیز ٹو ماسٹر پلاننگ ہے، جہاں ولا کے لے آؤٹ طے ہوتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?": {
+   "text": "ریرا رجسٹریشن مکمل ہوتی ہے، اور خریداروں کے لیے 3D ٹوئن لائیو ہو جاتا ہے، لائیو انوینٹری اور بکنگ کے ساتھ۔ کیا میں ماسٹر پلاننگ کھولوں، تاکہ آپ دیکھ سکیں؟"
+  },
+  "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?": {
+   "text": "فیز تھری کنسٹرکشن ہے، جہاں ٹاور اور کلب ہاؤس زمین سے اوپر اٹھتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?": {
+   "text": "نیکسورا ہر مرحلے کو ڈرون تصویروں، بلوں کی جانچ اور فوٹو ریکارڈ کے ساتھ ٹریک کرتا ہے۔ کیا میں آپ کو کنسٹرکشن فیز پر لے چلوں؟"
+  },
+  "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?": {
+   "text": "فیز فور فٹ آؤٹ اور ہینڈ اوور ہے، جب انٹیریئر مکمل ہوتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?": {
+   "text": "ہر گھر کو 200 سے زیادہ کوالٹی پوائنٹس پر جانچا جاتا ہے، اور واک تھرو کے بعد چابیاں سونپی جاتی ہیں۔ کیا میں آپ کے لیے فٹ آؤٹ اور ہینڈ اوور کھولوں؟"
+  },
+  "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?": {
+   "text": "فیز فائیو ریڈی ٹو موو اِن ہے، جب لوگ اپنے گھروں میں بس جاتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?": {
+   "text": "ریزیڈنٹ ایپ سے سہولتوں کی بکنگ، مہمان، سیکیورٹی اور مینٹیننس، سب سنبھلتا ہے۔ کیا آپ ریڈی ٹو موو اِن دیکھنا چاہیں گے؟"
+  },
+  "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?": {
+   "text": "ورچوئل ٹور میں آپ ہمارا نمونہ لگژری ولا 3D میں دیکھ سکتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?": {
+   "text": "آپ باغ، کلب ہاؤس اور پول، لیونگ پویلین اور ماسٹر سوئٹ میں گھوم سکتے ہیں۔ کیا میں آپ کے لیے ورچوئل ٹور شروع کروں؟"
+  },
+  "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?": {
+   "text": "ویب سائٹ نیکسورا کی کہانی پانچ فیز اور ایک ورچوئل ٹور میں بتاتی ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?": {
+   "text": "سائٹ ایویلیوایشن، ماسٹر پلاننگ، کنسٹرکشن، فٹ آؤٹ اور ہینڈ اوور، اور ریڈی ٹو موو اِن۔ کیا آپ شروع سے، سائٹ ایویلیوایشن سے آغاز کرنا چاہیں گے؟"
+  },
+  "Nexora has subscription plans for builders of every size. Would you like to hear more?": {
+   "text": "نیکسورا میں ہر سائز کے بلڈرز کے لیے سبسکرپشن پلان ہیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?": {
+   "text": "قیمتیں ویب سائٹ پر نہیں دی گئیں، اس لیے ٹیم ڈیمو میں آپ کے پروجیکٹ کی قیمت بتاتی ہے۔ کیا میں ڈیمو بکنگ فارم کھولوں؟"
+  },
+  "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?": {
+   "text": "معاف کیجیے، یہاں دکھایا گیا ولا ایک مثال ہے، فروخت کے لیے نہیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?": {
+   "text": "اس لیے کوئی قیمت یا لوکیشن نہیں ہے، لیکن ورچوئل ٹور دکھاتا ہے کہ خریدار کسی پروجیکٹ کو کیسے دیکھتے ہیں۔ کیا آپ ورچوئل ٹور دیکھنا چاہیں گے؟"
+  },
+  "I'd be happy to help you book a free demo. Would you like to hear more?": {
+   "text": "مجھے آپ کا مفت ڈیمو بک کرنے میں مدد کر کے خوشی ہوگی۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?": {
+   "text": "آپ اپنے پروجیکٹ کے بارے میں تھوڑا بتائیں، اور ٹیم ذاتی واک تھرو کے لیے آپ سے رابطہ کرے گی۔ کیا میں ابھی ڈیمو فارم کھولوں؟"
+  },
+  "You can email the team at contact@jattamkommerce.com. Would you like to hear more?": {
+   "text": "آپ ٹیم کو contact@jattamkommerce.com پر ای میل کر سکتے ہیں۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?": {
+   "text": "یا بک اے ڈیمو فارم بھریں، ٹیم آپ سے رابطہ کرے گی۔ کیا میں بک اے ڈیمو فارم کھولوں؟"
+  },
+  "Nexora is powered by Jatta M Kommerce. Would you like to hear more?": {
+   "text": "نیکسورا، جٹا ایم کامرس کا پروڈکٹ ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?": {
+   "text": "ٹیم آپ کو contact@jattamkommerce.com پر مزید معلومات دے سکتی ہے۔ کیا آپ جاننا چاہیں گے کہ نیکسورا کیا کرتا ہے؟"
+  },
+  "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?": {
+   "text": "نیکسورا سیلز فورس، ہب اسپاٹ اور بلڈر ای آر پی جیسے ٹولز سے جڑتا ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?": {
+   "text": "اس کے علاوہ ویب ہُکس، ریسٹ اے پی آئی، اور ایس اے پی و ریرا پورٹل کے کنیکٹر بھی ہیں۔ کیا میں ڈیمو فارم کھولوں، تاکہ ٹیم بتا سکے کہ آپ کے لیے کیا ٹھیک رہے گا؟"
+  },
+  "Sustainability runs all through the example project. Would you like to hear more?": {
+   "text": "نمونہ پروجیکٹ میں ہر جگہ ماحول کا خیال رکھا گیا ہے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?": {
+   "text": "چھت پر سولر، بارش کے پانی کا ذخیرہ، گرے واٹر ری سائیکلنگ، ای وی چارجنگ اور گرین بلڈنگ ٹریکنگ۔ کیا آپ سائٹ ایویلیوایشن سے آغاز کرنا چاہیں گے، جہاں یہ پلاننگ شروع ہوتی ہے؟"
+  },
+  "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?": {
+   "text": "نیکسورا اکاؤنٹس ابھی تیار ہو رہے ہیں، اس لیے لاگ اِن ابھی جڑا نہیں ہے۔ کیا میں ڈیمو فارم کھولوں، تاکہ ٹیم آپ کو رسائی دے سکے؟"
+  },
+  "It's simple: just scroll to move through the phases. Would you like to hear more?": {
+   "text": "بہت آسان ہے: فیز بدلنے کے لیے بس اسکرول کیجیے۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?": {
+   "text": "اوپر دائیں طرف مینو میں ہر فیز ہے، اور بک اے ڈیمو صفحے کے اوپر ہے۔ کیا میں آپ کو ابھی ویب سائٹ میں لے چلوں؟"
+  },
+  "This website doesn't save our conversation. Would you like to hear more?": {
+   "text": "یہ ویب سائٹ ہماری گفتگو محفوظ نہیں کرتی۔ کیا آپ مزید جاننا چاہیں گے؟"
+  },
+  "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?": {
+   "text": "جب آپ بولتے ہیں، تو آپ کا براؤزر آپ کی آواز کو تحریر میں بدلتا ہے، اس لیے یہاں کوئی ذاتی معلومات شیئر نہ کریں۔ کیا نیکسورا کے بارے میں میں آپ کی کوئی مدد کر سکتی ہوں؟"
+  },
+  "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?": {
+   "text": "بہت خوب، تو نیکسورا آپ ہی کے لیے بنا ہے۔ کیا آپ پانچ ماڈیولز پر ایک نظر ڈالنا چاہیں گے، یا میں ڈیمو بک کرنے میں مدد کروں؟"
+  },
+  "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?": {
+   "text": "بہت خوب! نیکسورا میں آپ گھروں کو بننے سے پہلے ہی 3D میں دیکھ سکتے ہیں۔ کیا میں آپ کے لیے ورچوئل ٹور شروع کروں؟"
+  },
+  "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?": {
+   "text": "کوئی بات نہیں، آرام سے دیکھیے۔ کیا میں پہلے فیز سے شروع کر کے آپ کو سب دکھاؤں؟"
+  },
+  "Hi there! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "السلام علیکم! کیا آپ ڈیولپر یا بلڈر ہیں، گھر ڈھونڈ رہے ہیں، یا بس دیکھ رہے ہیں؟"
+  },
+  "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?": {
+   "text": "السلام علیکم! آپ کا یہاں ہونا بہت اچھا لگا۔ کیا آپ ڈیولپر ہیں، گھر خریدنا چاہتے ہیں، یا بس دیکھ رہے ہیں؟"
+  },
+  "I'm doing very well, thank you! How can I help you today?": {
+   "text": "میں بہت اچھی ہوں، شکریہ! آج میں آپ کی کیا مدد کر سکتی ہوں؟"
+  },
+  "I'm great, thanks for asking! What would you like to know about Nexora?": {
+   "text": "میں بہترین ہوں، پوچھنے کا شکریہ! آپ نیکسورا کے بارے میں کیا جاننا چاہیں گے؟"
+  },
+  "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?": {
+   "text": "میں ہنا ہوں، نیکسورا کی ورچوئل ریسیپشنسٹ، اور میں آپ کی گائیڈ ہوں۔ آپ کیا جاننا چاہیں گے؟"
+  },
+  "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?": {
+   "text": "میں یہاں آپ کا استقبال کرنے، آپ کے سوالوں کے جواب دینے، اور آپ کو نیکسورا دکھانے کے لیے ہوں۔ آپ کیا جاننا چاہیں گے؟"
+  },
+  "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?": {
+   "text": "میں ایک اے آئی ریسیپشنسٹ ہوں، لیکن مدد کے لیے پوری طرح حاضر ہوں۔ آپ کیا جاننا چاہیں گے؟"
+  },
+  "You're very welcome! Is there anything else I can help you with?": {
+   "text": "آپ کا خیرمقدم ہے! کیا میں آپ کی کوئی اور مدد کر سکتی ہوں؟"
+  },
+  "My pleasure! Anything else you'd like to know about Nexora?": {
+   "text": "میری خوشی ہے! نیکسورا کے بارے میں آپ کچھ اور جاننا چاہیں گے؟"
+  },
+  "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!": {
+   "text": "نیکسورا پر آنے کا شکریہ! ضرورت ہو تو میں ہمیشہ مینو میں ہوں۔ آپ کا دن اچھا گزرے!"
+  },
+  "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?": {
+   "text": "میں نیکسورا کے بارے میں بتا سکتی ہوں، ویب سائٹ دکھا سکتی ہوں، اور ڈیمو بک کرنے میں مدد کر سکتی ہوں۔ کہاں سے شروع کریں؟"
+  },
+  "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?": {
+   "text": "یہ میرے دائرے سے تھوڑا باہر ہے، لیکن مجھے آپ کو نیکسورا دکھا کر خوشی ہوگی۔ کیا میں آپ کو ایک چھوٹا سا ٹور دوں؟"
+  },
+  "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?": {
+   "text": "معاف کیجیے، اس میں میں مدد نہیں کر سکتی۔ لیکن میں آپ کو نیکسورا دکھا سکتی ہوں۔ کیا ایک چھوٹا سا ٹور کریں؟"
+  },
+  "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?": {
+   "text": "کاش میں اس میں مدد کر پاتی! میں نیکسورا دکھانے میں سب سے اچھی ہوں۔ کیا آپ ایک چھوٹا سا ٹور لینا چاہیں گے؟"
+  },
+  "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?": {
+   "text": "کوئی بات نہیں، آسان الفاظ میں بتاتی ہوں۔ نیکسورا بلڈرز کو گھر بننے سے پہلے ہی 3D میں دکھانے میں مدد کرتا ہے۔ کیا میں آپ کو سب دکھاؤں؟"
+  },
+  "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?": {
+   "text": "بالکل ٹھیک ہے۔ نیکسورا کو سمجھنے کا سب سے آسان طریقہ ایک چھوٹا سا ٹور ہے۔ کیا میں آپ کو سب دکھاؤں؟"
+  },
+  "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?": {
+   "text": "معاف کیجیے، یہ معلومات میرے پاس نہیں ہے۔ ہماری ٹیم ڈیمو میں اس کا جواب دے سکتی ہے۔ کیا میں ڈیمو فارم کھولوں؟"
+  },
+  "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?": {
+   "text": "اچھا سوال ہے! اس کا جواب میرے پاس نہیں ہے، لیکن ٹیم ڈیمو میں بتا دے گی۔ کیا میں ڈیمو فارم کھولوں؟"
+  },
+  "Sorry, I didn't quite catch that. Could you say it another way?": {
+   "text": "معاف کیجیے، میں ٹھیک سے سمجھ نہیں پائی۔ کیا آپ اسے دوسرے طریقے سے کہہ سکتے ہیں؟"
+  },
+  "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.": {
+   "text": "معاف کیجیے، میں سمجھ نہیں پائی۔ آپ مجھ سے پوچھ سکتے ہیں کہ نیکسورا کیا ہے، یا ٹور کے لیے کہہ سکتے ہیں۔"
+  },
+  "No problem at all. What would you like to know instead?": {
+   "text": "کوئی بات نہیں۔ آپ اس کے بجائے کیا جاننا چاہیں گے؟"
+  },
+  "That's fine. Is there something else about Nexora I can help with?": {
+   "text": "ٹھیک ہے۔ کیا نیکسورا کے بارے میں میں آپ کی کوئی اور مدد کر سکتی ہوں؟"
+  },
+  "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?": {
+   "text": "بہت خوب! میں نیکسورا کے بارے میں بتا سکتی ہوں، آپ کو سب دکھا سکتی ہوں، یا ڈیمو بک کرنے میں مدد کر سکتی ہوں۔ آپ کیا چاہیں گے؟"
+  },
+  "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.": {
+   "text": "معاف کیجیے، میں آپ کی زبان نہیں سمجھ پا رہی۔ براہ کرم میری زبانوں میں سے ایک چنیں، تاکہ ہم بات کر سکیں۔"
+  },
+  "Of course, let's continue in English. How can I help you?": {
+   "text": "ضرور، اب ہم اردو میں بات کرتے ہیں۔ میں آپ کی کیا مدد کر سکتی ہوں؟"
+  },
+  "Of course, taking you to Site Evaluation now.": {
+   "text": "ضرور، آپ کو ابھی سائٹ ایویلیوایشن پر لے چلتی ہوں۔"
+  },
+  "Of course, taking you to Master Planning now.": {
+   "text": "ضرور، آپ کو ابھی ماسٹر پلاننگ پر لے چلتی ہوں۔"
+  },
+  "Of course, taking you to Construction now.": {
+   "text": "ضرور، آپ کو ابھی کنسٹرکشن پر لے چلتی ہوں۔"
+  },
+  "Of course, taking you to Fit-Out and Handover now.": {
+   "text": "ضرور، آپ کو ابھی فٹ آؤٹ اور ہینڈ اوور پر لے چلتی ہوں۔"
+  },
+  "Of course, taking you to Ready to Move In now.": {
+   "text": "ضرور، آپ کو ابھی ریڈی ٹو موو اِن پر لے چلتی ہوں۔"
+  },
+  "Of course, taking you to the Virtual Tour now.": {
+   "text": "ضرور، آپ کو ابھی ورچوئل ٹور پر لے چلتی ہوں۔"
+  },
+  "Of course, opening the demo form for you.": {
+   "text": "ضرور، آپ کے لیے ڈیمو فارم کھول رہی ہوں۔"
+  },
+  "Of course, taking you into the website now. I'm in the menu if you need me.": {
+   "text": "ضرور، آپ کو ابھی ویب سائٹ میں لے چلتی ہوں۔ ضرورت ہو تو میں مینو میں ہوں۔"
+  },
+  "Sorry, I didn't catch your name. Could you type just your first name?": {
+   "text": "معاف کیجیے، میں آپ کا نام سمجھ نہیں پائی۔ کیا آپ صرف اپنا پہلا نام لکھ سکتے ہیں؟"
+  },
+  "No problem at all! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "کوئی بات نہیں! کیا آپ ڈیولپر یا بلڈر ہیں، گھر ڈھونڈ رہے ہیں، یا بس دیکھ رہے ہیں؟"
+  },
+  "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "{name}، آپ سے مل کر بہت اچھا لگا! کیا آپ ڈیولپر یا بلڈر ہیں، گھر ڈھونڈ رہے ہیں، یا بس دیکھ رہے ہیں؟"
+  },
+  "Wonderful! Which company are you with, and what's your role there?": {
+   "text": "بہت خوب! آپ کس کمپنی سے ہیں، اور وہاں آپ کا رول کیا ہے؟"
+  },
+  "Thank you! Shall I give you a quick guided tour of Nexora?": {
+   "text": "{name}، شکریہ! کیا میں آپ کو نیکسورا کا ایک چھوٹا سا گائیڈڈ ٹور دوں؟"
+  },
+  "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?": {
+   "text": "بہت خوب! نیکسورا میں آپ گھروں کو بننے سے پہلے ہی 3D میں دیکھ سکتے ہیں۔ کیا میں آپ کو ایک چھوٹا سا گائیڈڈ ٹور دوں؟"
+  },
+  "That's perfectly fine, take your time. Shall I give you a quick guided tour?": {
+   "text": "کوئی بات نہیں، آرام سے دیکھیے۔ کیا میں آپ کو ایک چھوٹا سا گائیڈڈ ٹور دوں؟"
+  },
+  "No problem. You can ask me anything, or explore at your own pace.": {
+   "text": "کوئی بات نہیں۔ آپ مجھ سے کچھ بھی پوچھ سکتے ہیں، یا اپنے حساب سے ویب سائٹ دیکھ سکتے ہیں۔"
+  },
+  "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?": {
+   "text": "چلیے شروع کرتے ہیں! یہ ہے سائٹ ایویلیوایشن، جہاں ڈیولپر بنانے سے پہلے زمین کی جانچ کرتا ہے۔ آگے چلیں؟"
+  },
+  "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?": {
+   "text": "یہ ہے ماسٹر پلاننگ۔ ولا کے لے آؤٹ طے ہوتے ہیں، اور خریداروں کے لیے 3D ٹوئن لائیو ہو جاتا ہے۔ آگے چلیں؟"
+  },
+  "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?": {
+   "text": "یہ ہے کنسٹرکشن۔ نیکسورا ڈرون تصویروں اور فوٹو ریکارڈ سے ہر مرحلہ ٹریک کرتا ہے۔ آگے چلیں؟"
+  },
+  "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?": {
+   "text": "یہ ہے فٹ آؤٹ اور ہینڈ اوور۔ چابیاں سونپنے سے پہلے ہر گھر کی کوالٹی جانچی جاتی ہے۔ آگے چلیں؟"
+  },
+  "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?": {
+   "text": "ریڈی ٹو موو اِن میں خوش آمدید۔ ریزیڈنٹ ایپ بکنگ، مہمان اور مینٹیننس سنبھالتی ہے۔ کیا ولا دیکھیں؟"
+  },
+  "This is the virtual tour of our demo villa. Take your time, and look around.": {
+   "text": "یہ ہے ہمارے ڈیمو ولا کا ورچوئل ٹور۔ آرام سے گھومیے اور دیکھیے۔"
+  },
+  "That's the tour! Would you like a personal demo for your own project?": {
+   "text": "{name}، یہ تھا ہمارا ٹور! کیا آپ اپنے پروجیکٹ کے لیے ایک ذاتی ڈیمو چاہیں گے؟"
+  },
+  "No problem, we'll stop here. I'm always in the menu if you need me.": {
+   "text": "کوئی بات نہیں، ہم یہیں رکتے ہیں۔ ضرورت ہو تو میں ہمیشہ مینو میں ہوں۔"
+  },
+  "I'd be happy to arrange a free demo! What's the best phone number to reach you?": {
+   "text": "مجھے آپ کا مفت ڈیمو طے کرنے میں خوشی ہوگی! آپ سے رابطے کے لیے سب سے اچھا فون نمبر کیا ہے؟"
+  },
+  "I'd be happy to arrange a free demo! May I have your name first?": {
+   "text": "مجھے آپ کا مفت ڈیمو طے کرنے میں خوشی ہوگی! کیا پہلے میں آپ کا نام جان سکتی ہوں؟"
+  },
+  "Thank you! What's the best phone number to reach you?": {
+   "text": "شکریہ! آپ سے رابطے کے لیے سب سے اچھا فون نمبر کیا ہے؟"
+  },
+  "Hmm, that number doesn't look right. Could you type it again, with ten digits?": {
+   "text": "ہمم، یہ نمبر صحیح نہیں لگ رہا۔ کیا آپ اسے دس ہندسوں کے ساتھ دوبارہ لکھ سکتے ہیں؟"
+  },
+  "Thank you. And your email address?": {
+   "text": "شکریہ۔ اور آپ کا ای میل پتا؟"
+  },
+  "That email doesn't look quite right. Could you type it again?": {
+   "text": "یہ ای میل ٹھیک نہیں لگ رہا۔ کیا آپ اسے دوبارہ لکھ سکتے ہیں؟"
+  },
+  "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.": {
+   "text": "{name}، شکریہ! ہماری ٹیم جلد ہی آپ سے رابطہ کرے گی۔ میں ڈیمو فارم کھول رہی ہوں، تاکہ آپ تاریخ چن سکیں۔"
+  },
+  "No problem at all. The Book a Demo button is at the top, whenever you're ready.": {
+   "text": "کوئی بات نہیں۔ جب بھی آپ تیار ہوں، بک اے ڈیمو بٹن اوپر ہے۔"
+  }
+ },
+ "words": [
+  [
+   "جی ہاں",
+   "yes"
+  ],
+  [
+   "ہاں جی",
+   "yes"
+  ],
+  [
+   "ہاں",
+   "yes"
+  ],
+  [
+   "جی",
+   ""
+  ],
+  [
+   "ٹھیک ہے",
+   "yes"
+  ],
+  [
+   "ضرور",
+   "yes"
+  ],
+  [
+   "بالکل",
+   "yes"
+  ],
+  [
+   "اوکے",
+   "ok"
+  ],
+  [
+   "نہیں",
+   "no"
+  ],
+  [
+   "نہیں شکریہ",
+   "no thanks"
+  ],
+  [
+   "ابھی نہیں",
+   "not now"
+  ],
+  [
+   "بعد میں",
+   "later"
+  ],
+  [
+   "اور بتائیں",
+   "tell me more"
+  ],
+  [
+   "مزید بتائیں",
+   "tell me more"
+  ],
+  [
+   "آگے",
+   "next"
+  ],
+  [
+   "میرا نام",
+   "my name is"
+  ],
+  [
+   "میں",
+   "i am"
+  ],
+  [
+   "ہوں",
+   ""
+  ],
+  [
+   "ہے",
+   ""
+  ],
+  [
+   "ہیں",
+   ""
+  ],
+  [
+   "ڈیولپر",
+   "developer"
+  ],
+  [
+   "بلڈر",
+   "builder"
+  ],
+  [
+   "گھر ڈھونڈ رہا",
+   "looking for a home"
+  ],
+  [
+   "گھر ڈھونڈ رہی",
+   "looking for a home"
+  ],
+  [
+   "گھر خریدنا",
+   "buy a home"
+  ],
+  [
+   "بس دیکھ رہا",
+   "just looking"
+  ],
+  [
+   "بس دیکھ رہی",
+   "just looking"
+  ],
+  [
+   "نیکسورا",
+   "nexora"
+  ],
+  [
+   "کیا ہے",
+   "what is"
+  ],
+  [
+   "کیا",
+   "what"
+  ],
+  [
+   "قیمت",
+   "price"
+  ],
+  [
+   "خرچ",
+   "cost"
+  ],
+  [
+   "ڈیمو",
+   "demo"
+  ],
+  [
+   "ٹور",
+   "tour"
+  ],
+  [
+   "دکھائیں",
+   "show me"
+  ],
+  [
+   "کھولیں",
+   "open"
+  ],
+  [
+   "رابطہ",
+   "contact"
+  ],
+  [
+   "ای میل",
+   "email"
+  ],
+  [
+   "السلام علیکم",
+   "hello"
+  ],
+  [
+   "سلام",
+   "hello"
+  ],
+  [
+   "آداب",
+   "hello"
+  ],
+  [
+   "آپ کیسی ہیں",
+   "how are you"
+  ],
+  [
+   "آپ کیسے ہیں",
+   "how are you"
+  ],
+  [
+   "کیسی ہیں",
+   "how are you"
+  ],
+  [
+   "شکریہ",
+   "thanks"
+  ],
+  [
+   "خدا حافظ",
+   "bye"
+  ],
+  [
+   "آپ کون ہیں",
+   "who are you"
+  ],
+  [
+   "آپ کا نام",
+   "your name"
+  ],
+  [
+   "ولا",
+   "villa"
+  ],
+  [
+   "تعمیر",
+   "construction"
+  ],
+  [
+   "زمین",
+   "land"
+  ],
+  [
+   "سمجھ نہیں آیا",
+   "do not understand"
+  ],
+  [
+   "مدد",
+   "help"
+  ]
+ ]
+}

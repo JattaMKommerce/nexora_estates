@@ -1,0 +1,965 @@
+[
+ {
+  "id": "or_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "ନମସ୍କାର, ନେକ୍ସୋରାକୁ ଆପଣଙ୍କୁ ସ୍ୱାଗତ! ମୁଁ ହାନ୍ନା, ଆପଣଙ୍କ ଭର୍ଚୁଆଲ ରିସେପସନିଷ୍ଟ। ମୁଁ ଆପଣଙ୍କ ନାମ ଜାଣିପାରିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c083.mp4"
+ },
+ {
+  "id": "or_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "ପୁଣି ସ୍ୱାଗତ! ଆପଣଙ୍କୁ ପୁଣି ଦେଖି ବହୁତ ଖୁସି ଲାଗିଲା। ଆଜି ମୁଁ ଆପଣଙ୍କୁ କିପରି ସାହାଯ୍ୟ କରିପାରିବି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c084.mp4"
+ },
+ {
+  "id": "or_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "ନେକ୍ସୋରା ହେଉଛି ଜଟ୍ଟା ଏମ୍ କମର୍ସର ରିଅଲ ଏଷ୍ଟେଟ ସଫ୍ଟୱେର। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c085.mp4"
+ },
+ {
+  "id": "or_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "ଏହା ଡେଭଲପରମାନଙ୍କୁ ସେମାନଙ୍କ ପ୍ରୋଜେକ୍ଟ ତିଆରି ହେବା ପୂର୍ବରୁ ଥ୍ରୀ-ଡି ରେ ଦେଖାଇବାରେ ସାହାଯ୍ୟ କରେ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c086.mp4"
+ },
+ {
+  "id": "or_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "ଏହା ନିର୍ମାଣ ଉପରେ ନଜର ରଖେ, ଏବଂ କ୍ରେତାଙ୍କୁ ଘର ହସ୍ତାନ୍ତର ପର୍ଯ୍ୟନ୍ତ ସବୁକିଛି ଗୋଟିଏ ଜାଗାରେ ସମ୍ଭାଳେ। ଥ୍ରୀ-ଡି ଡିଜିଟାଲ ଟ୍ୱିନ କଣ, ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c087.mp4"
+ },
+ {
+  "id": "or_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "ଡିଜିଟାଲ ଟ୍ୱିନ ହେଉଛି ଗୋଟିଏ ପ୍ରୋଜେକ୍ଟର ଅବିକଳ, ବାସ୍ତବ ଭଳି ଥ୍ରୀ-ଡି ନକଲ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c088.mp4"
+ },
+ {
+  "id": "or_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "ଏହା ଆର୍କିଟେକ୍ଟଙ୍କ ଡ୍ରଇଂରୁ ତିଆରି ହୁଏ, ତେଣୁ କ୍ରେତାମାନେ ବ୍ରାଉଜରରେ ପ୍ରତ୍ୟେକ ଭିଲା ଦେଖିପାରିବେ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c089.mp4"
+ },
+ {
+  "id": "or_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "ନେକ୍ସୋରା ରେଭିଟ୍, ଆର୍କିକ୍ୟାଡ୍ କିମ୍ବା ବିମ୍ ମଡେଲକୁ ବାସ୍ତରି ଘଣ୍ଟା ଭିତରେ ଟ୍ୱିନରେ ବଦଳାଇପାରେ। ଆମ ନମୁନା ଭିଲାର ଭର୍ଚୁଆଲ ଟୁର ଦେଖିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c090.mp4"
+ },
+ {
+  "id": "or_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "ନେକ୍ସୋରାରେ ପାଞ୍ଚଟି ମୁଖ୍ୟ ମଡ୍ୟୁଲ ଅଛି, ଖାଲି ଜମିରୁ ବାସିନ୍ଦାମାନେ ଆସିବା ପର୍ଯ୍ୟନ୍ତ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c091.mp4"
+ },
+ {
+  "id": "or_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "ପ୍ରଥମ ତିନୋଟି: ଜମି ଏବଂ ସମ୍ଭାବ୍ୟତା, ଥ୍ରୀ-ଡି ସେଲ୍ସ ଗ୍ୟାଲେରୀ, ଏବଂ କନଷ୍ଟ୍ରକସନ ଟ୍ରାକର। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c092.mp4"
+ },
+ {
+  "id": "or_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "ତା'ପରେ କ୍ୱାଲିଟି ଏବଂ ସ୍ନାଗିଂ, ଆଉ ଶେଷରେ ବାୟର ହ୍ୟାଣ୍ଡଓଭର ଏବଂ ରେସିଡେଣ୍ଟ ପୋର୍ଟାଲ। ଗୋଟି ଗୋଟି କରି ଦେଖାଇବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c093.mp4"
+ },
+ {
+  "id": "or_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "ନେକ୍ସୋରା ରିଅଲ ଏଷ୍ଟେଟ ଡେଭଲପର ଏବଂ ବିଲ୍ଡରମାନଙ୍କ ପାଇଁ ତିଆରି। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c094.mp4"
+ },
+ {
+  "id": "or_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "ଛୋଟ ଭିଲା ବିଲ୍ଡରଙ୍କଠାରୁ ବଡ଼ ଟାଉନସିପ୍ ଡେଭଲପରଙ୍କ ପର୍ଯ୍ୟନ୍ତ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c095.mp4"
+ },
+ {
+  "id": "or_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "ସେମାନଙ୍କ କ୍ରେତା ଏବଂ ବାସିନ୍ଦାମାନେ ମଧ୍ୟ ଘର ଦେଖିବା ଏବଂ ନିର୍ମାଣ ଉପରେ ନଜର ରଖିବା ପାଇଁ ଏହାକୁ ବ୍ୟବହାର କରନ୍ତି। ଆପଣ ଡେଭଲପର କି, ନା ନିଜ ପାଇଁ ଘର ଖୋଜୁଛନ୍ତି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c096.mp4"
+ },
+ {
+  "id": "or_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "ପ୍ରଥମ ପର୍ଯ୍ୟାୟ ସାଇଟ୍ ଇଭାଲ୍ୟୁଏସନ, ଯେଉଁଠି ତିଆରି ପୂର୍ବରୁ ଡେଭଲପର ଜମି ଯାଞ୍ଚ କରନ୍ତି। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c097.mp4"
+ },
+ {
+  "id": "or_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "ରାସ୍ତା, ସର୍ଭେ, ପାଣି, ବିଜୁଳି, ଅନୁମତି, ଜୋନିଂ ଏବଂ ମାଟି ପରୀକ୍ଷା, ସବୁ ଉପରେ ନେକ୍ସୋରା ନଜର ରଖେ। ଆପଣଙ୍କ ପାଇଁ ସାଇଟ୍ ଇଭାଲ୍ୟୁଏସନ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c098.mp4"
+ },
+ {
+  "id": "or_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "ଦ୍ୱିତୀୟ ପର୍ଯ୍ୟାୟ ମାଷ୍ଟର ପ୍ଲାନିଂ, ଯେଉଁଠି ଭିଲାର ଲେଆଉଟ ଚୂଡ଼ାନ୍ତ ହୁଏ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c099.mp4"
+ },
+ {
+  "id": "or_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "ରେରା ପଞ୍ଜୀକରଣ ସମ୍ପୂର୍ଣ୍ଣ ହୁଏ, ଏବଂ କ୍ରେତାଙ୍କ ପାଇଁ ଥ୍ରୀ-ଡି ଟ୍ୱିନ ଲାଇଭ ହୁଏ, ଲାଇଭ ଇନଭେଣ୍ଟୋରୀ ଏବଂ ବୁକିଂ ସହିତ। ଦେଖିବା ପାଇଁ ମାଷ୍ଟର ପ୍ଲାନିଂ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c100.mp4"
+ },
+ {
+  "id": "or_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "ତୃତୀୟ ପର୍ଯ୍ୟାୟ କନଷ୍ଟ୍ରକସନ, ଯେଉଁଠି ଟାୱାର ଏବଂ କ୍ଲବହାଉସ ମାଟିରୁ ଉପରକୁ ଉଠେ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c101.mp4"
+ },
+ {
+  "id": "or_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "ଡ୍ରୋନ ଫଟୋ, ବିଲ ଯାଞ୍ଚ ଏବଂ ଫଟୋ ରେକର୍ଡ ସହିତ ନେକ୍ସୋରା ପ୍ରତ୍ୟେକ ପର୍ଯ୍ୟାୟ ଟ୍ରାକ କରେ। ଆପଣଙ୍କୁ କନଷ୍ଟ୍ରକସନ ପର୍ଯ୍ୟାୟକୁ ନେଇଯିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c102.mp4"
+ },
+ {
+  "id": "or_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "ଚତୁର୍ଥ ପର୍ଯ୍ୟାୟ ଫିଟ୍-ଆଉଟ୍ ଏବଂ ହ୍ୟାଣ୍ଡଓଭର, ଯେତେବେଳେ ଭିତର କାମ ଶେଷ ହୁଏ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c103.mp4"
+ },
+ {
+  "id": "or_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "ପ୍ରତ୍ୟେକ ଘରକୁ ଦୁଇ ଶହ ରୁ ଅଧିକ କ୍ୱାଲିଟି ପଏଣ୍ଟରେ ଯାଞ୍ଚ କରାଯାଏ, ଏବଂ ୱାକଥ୍ରୁ ପରେ ଚାବି ହସ୍ତାନ୍ତର କରାଯାଏ। ଆପଣଙ୍କ ପାଇଁ ଫିଟ୍-ଆଉଟ୍ ଏବଂ ହ୍ୟାଣ୍ଡଓଭର ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c104.mp4"
+ },
+ {
+  "id": "or_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "ପଞ୍ଚମ ପର୍ଯ୍ୟାୟ ରେଡି ଟୁ ମୁଭ୍ ଇନ୍, ଯେତେବେଳେ ବାସିନ୍ଦାମାନେ ରହିବା ଆରମ୍ଭ କରନ୍ତି। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c105.mp4"
+ },
+ {
+  "id": "or_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "ରେସିଡେଣ୍ଟ ଆପ୍ ସୁବିଧା ବୁକିଂ, ଅତିଥି, ସୁରକ୍ଷା ଏବଂ ରକ୍ଷଣାବେକ୍ଷଣ ସମ୍ଭାଳେ। ରେଡି ଟୁ ମୁଭ୍ ଇନ୍ ଦେଖିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c106.mp4"
+ },
+ {
+  "id": "or_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "ଭର୍ଚୁଆଲ ଟୁରରେ ଆମର ନମୁନା ବିଳାସପୂର୍ଣ୍ଣ ଭିଲା ଥ୍ରୀ-ଡି ରେ ଦେଖିପାରିବେ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c107.mp4"
+ },
+ {
+  "id": "or_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "ବଗିଚା, କ୍ଲବହାଉସ ଏବଂ ପୁଲ୍, ଲିଭିଂ ପାଭିଲିଅନ ଏବଂ ମାଷ୍ଟର ସୁଟ୍ ଦେଇ ବୁଲି ଦେଖିପାରିବେ। ଆପଣଙ୍କ ପାଇଁ ଭର୍ଚୁଆଲ ଟୁର ଆରମ୍ଭ କରିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c108.mp4"
+ },
+ {
+  "id": "or_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "ୱେବସାଇଟ୍ ନେକ୍ସୋରାର କାହାଣୀ ପାଞ୍ଚଟି ପର୍ଯ୍ୟାୟ ଏବଂ ଗୋଟିଏ ଭର୍ଚୁଆଲ ଟୁରରେ କହେ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c109.mp4"
+ },
+ {
+  "id": "or_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "ସାଇଟ୍ ଇଭାଲ୍ୟୁଏସନ, ମାଷ୍ଟର ପ୍ଲାନିଂ, କନଷ୍ଟ୍ରକସନ, ଫିଟ୍-ଆଉଟ୍ ଏବଂ ହ୍ୟାଣ୍ଡଓଭର, ଏବଂ ରେଡି ଟୁ ମୁଭ୍ ଇନ୍। ଆରମ୍ଭରୁ, ସାଇଟ୍ ଇଭାଲ୍ୟୁଏସନରୁ ଆରମ୍ଭ କରିବା କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c110.mp4"
+ },
+ {
+  "id": "or_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "ନେକ୍ସୋରାରେ ସବୁ ଆକାରର ବିଲ୍ଡରଙ୍କ ପାଇଁ ସବସ୍କ୍ରିପସନ ପ୍ଲାନ ଅଛି। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c111.mp4"
+ },
+ {
+  "id": "or_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "ଦାମ ପ୍ରକାଶିତ ହୋଇନାହିଁ, ତେଣୁ ଡେମୋରେ ଟିମ୍ ଆପଣଙ୍କ ପ୍ରୋଜେକ୍ଟର ଦାମ କହେ। ଡେମୋ ବୁକିଂ ଫର୍ମ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c112.mp4"
+ },
+ {
+  "id": "or_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "କ୍ଷମା କରନ୍ତୁ, ଏଠାରେ ଥିବା ଭିଲା କେବଳ ଏକ ଉଦାହରଣ, ବିକ୍ରି ପାଇଁ ନୁହେଁ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c113.mp4"
+ },
+ {
+  "id": "or_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "ତେଣୁ କୌଣସି ଦାମ କିମ୍ବା ସ୍ଥାନ ନାହିଁ, କିନ୍ତୁ କ୍ରେତାମାନେ ପ୍ରୋଜେକ୍ଟ କିପରି ଦେଖନ୍ତି, ତାହା ଭର୍ଚୁଆଲ ଟୁର ଦେଖାଏ। ଭର୍ଚୁଆଲ ଟୁର ଦେଖିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c114.mp4"
+ },
+ {
+  "id": "or_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "ଆପଣଙ୍କ ମାଗଣା ଡେମୋ ବୁକ୍ କରିବାରେ ସାହାଯ୍ୟ କରି ମୁଁ ଖୁସି ହେବି। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c115.mp4"
+ },
+ {
+  "id": "or_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "ଆପଣଙ୍କ ପ୍ରୋଜେକ୍ଟ ବିଷୟରେ ଟିକେ କୁହନ୍ତୁ, ଏବଂ ବ୍ୟକ୍ତିଗତ ୱାକଥ୍ରୁ ପାଇଁ ଟିମ୍ ଆପଣଙ୍କ ସହ ଯୋଗାଯୋଗ କରିବ। ଏବେ ଡେମୋ ଫର୍ମ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c116.mp4"
+ },
+ {
+  "id": "or_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "ଆପଣ ଟିମ୍‌କୁ କଣ୍ଟାକ୍ଟ ଆଟ୍ ଜଟ୍ଟା ଏମ୍ କମର୍ସ ଡଟ୍ କମ୍ ରେ ଇମେଲ କରିପାରିବେ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c117.mp4"
+ },
+ {
+  "id": "or_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "କିମ୍ବା ବୁକ୍ ଏ ଡେମୋ ଫର୍ମ ବ୍ୟବହାର କରନ୍ତୁ, ସେମାନେ ଆପଣଙ୍କ ସହ ଯୋଗାଯୋଗ କରିବେ। ବୁକ୍ ଏ ଡେମୋ ଫର୍ମ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c118.mp4"
+ },
+ {
+  "id": "or_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "ନେକ୍ସୋରା ହେଉଛି ଜଟ୍ଟା ଏମ୍ କମର୍ସର ଉତ୍ପାଦ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c119.mp4"
+ },
+ {
+  "id": "or_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "ଅଧିକ ତଥ୍ୟ ଟିମ୍ କଣ୍ଟାକ୍ଟ ଆଟ୍ ଜଟ୍ଟା ଏମ୍ କମର୍ସ ଡଟ୍ କମ୍ ରେ ଦେବ। ନେକ୍ସୋରା କଣ କରେ, ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c120.mp4"
+ },
+ {
+  "id": "or_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "ନେକ୍ସୋରା ସେଲ୍ସଫୋର୍ସ, ହବସ୍ପଟ୍ ଏବଂ ବିଲ୍ଡର ଇ-ଆର-ପି ଭଳି ଟୁଲ୍ ସହ ଯୋଡ଼ି ହୁଏ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c121.mp4"
+ },
+ {
+  "id": "or_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "ୱେବହୁକ୍, ରେଷ୍ଟ ଏ-ପି-ଆଇ, ଏବଂ ଏସ-ଏ-ପି ଓ ରେରା ପୋର୍ଟାଲ ପାଇଁ କନେକ୍ଟର ମଧ୍ୟ ଅଛି। ଆପଣଙ୍କ ପାଇଁ କଣ ଠିକ୍, ତାହା ଟିମ୍ ନିଶ୍ଚିତ କରିବା ପାଇଁ ଡେମୋ ଫର୍ମ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c122.mp4"
+ },
+ {
+  "id": "or_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "ନମୁନା ପ୍ରୋଜେକ୍ଟର ସବୁଠାରେ ପରିବେଶର ଧ୍ୟାନ ରଖାଯାଇଛି। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c123.mp4"
+ },
+ {
+  "id": "or_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "ଛାତ ଉପରେ ସୋଲାର, ବର୍ଷା ଜଳ ସଂରକ୍ଷଣ, ଗ୍ରେୱାଟର ରିସାଇକ୍ଲିଂ, ଇଭି ଚାର୍ଜିଂ ଏବଂ ଗ୍ରୀନ ବିଲ୍ଡିଂ ଟ୍ରାକିଂ। ଯେଉଁଠୁ ଏହି ଯୋଜନା ଆରମ୍ଭ ହୁଏ, ସେହି ସାଇଟ୍ ଇଭାଲ୍ୟୁଏସନରୁ ଆରମ୍ଭ କରିବା କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c124.mp4"
+ },
+ {
+  "id": "or_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "ନେକ୍ସୋରା ଆକାଉଣ୍ଟ ଏବେ ବି ପ୍ରସ୍ତୁତ ହେଉଛି, ତେଣୁ ଲଗ୍ ଇନ୍ ଏବେ ଯୋଡ଼ା ହୋଇନାହିଁ। ଟିମ୍ ଆପଣଙ୍କୁ ଆକ୍ସେସ ଦେବା ପାଇଁ ଡେମୋ ଫର୍ମ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c125.mp4"
+ },
+ {
+  "id": "or_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "ବହୁତ ସହଜ: ପର୍ଯ୍ୟାୟ ବଦଳାଇବାକୁ କେବଳ ସ୍କ୍ରୋଲ କରନ୍ତୁ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c126.mp4"
+ },
+ {
+  "id": "or_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "ଉପରେ ଡାହାଣ ପଟ ମେନୁରେ ସବୁ ପର୍ଯ୍ୟାୟ ଅଛି, ଏବଂ ବୁକ୍ ଏ ଡେମୋ ପେଜର ଉପରେ ଅଛି। ଏବେ ଆପଣଙ୍କୁ ୱେବସାଇଟ୍‌କୁ ନେଇଯିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c127.mp4"
+ },
+ {
+  "id": "or_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "ଏହି ୱେବସାଇଟ୍ ଆମ କଥାବାର୍ତ୍ତା ସେଭ୍ କରେ ନାହିଁ। ଆହୁରି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c128.mp4"
+ },
+ {
+  "id": "or_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "ଆପଣ କଥା କହିଲେ, ଆପଣଙ୍କ ବ୍ରାଉଜର ସ୍ୱରକୁ ଲେଖାରେ ବଦଳାଏ, ତେଣୁ ଏଠାରେ ବ୍ୟକ୍ତିଗତ ତଥ୍ୟ ସେୟାର କରନ୍ତୁ ନାହିଁ। ନେକ୍ସୋରା ବିଷୟରେ ଆଉ କିଛି ସାହାଯ୍ୟ ଦରକାର କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c129.mp4"
+ },
+ {
+  "id": "or_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "ବହୁତ ଭଲ, ତେବେ ନେକ୍ସୋରା ଆପଣଙ୍କ ପାଇଁ ହିଁ ତିଆରି। ପାଞ୍ଚଟି ମଡ୍ୟୁଲ ଦେଖିବାକୁ ଚାହିଁବେ, ନା ଡେମୋ ବୁକ୍ କରିବାରେ ସାହାଯ୍ୟ କରିବି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c130.mp4"
+ },
+ {
+  "id": "or_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "ବହୁତ ଭଲ! ନେକ୍ସୋରାରେ ଘର ତିଆରି ହେବା ପୂର୍ବରୁ ଥ୍ରୀ-ଡି ରେ ଦେଖିପାରିବେ। ଆପଣଙ୍କ ପାଇଁ ଭର୍ଚୁଆଲ ଟୁର ଆରମ୍ଭ କରିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c131.mp4"
+ },
+ {
+  "id": "or_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "କିଛି ଅସୁବିଧା ନାହିଁ, ଧୀରେ ଧୀରେ ଦେଖନ୍ତୁ। ପ୍ରଥମ ପର୍ଯ୍ୟାୟରୁ ସବୁ ଦେଖାଇବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c132.mp4"
+ },
+ {
+  "id": "or_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "ନମସ୍କାର! ଆପଣ ଡେଭଲପର କିମ୍ବା ବିଲ୍ଡର କି, ଘର ଖୋଜୁଛନ୍ତି କି, ନା କେବଳ ଦେଖୁଛନ୍ତି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c133.mp4"
+ },
+ {
+  "id": "or_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "ନମସ୍କାର! ଆପଣ ଆସିଥିବାରୁ ବହୁତ ଭଲ ଲାଗିଲା। ଆପଣ ଡେଭଲପର କି, ଘର କ୍ରେତା କି, ନା କେବଳ ଦେଖୁଛନ୍ତି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c134.mp4"
+ },
+ {
+  "id": "or_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "ମୁଁ ବହୁତ ଭଲ ଅଛି, ଧନ୍ୟବାଦ! ଆଜି ଆପଣଙ୍କୁ କିପରି ସାହାଯ୍ୟ କରିପାରିବି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c135.mp4"
+ },
+ {
+  "id": "or_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "ମୁଁ ଭଲ ଅଛି, ପଚାରିଥିବାରୁ ଧନ୍ୟବାଦ! ନେକ୍ସୋରା ବିଷୟରେ କଣ ଜାଣିବାକୁ ଚାହିଁବେ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c136.mp4"
+ },
+ {
+  "id": "or_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "ମୁଁ ହାନ୍ନା, ନେକ୍ସୋରାର ଭର୍ଚୁଆଲ ରିସେପସନିଷ୍ଟ, ଆପଣଙ୍କୁ ବାଟ ଦେଖାଇବାକୁ ଏଠାରେ ଅଛି। କଣ ଜାଣିବାକୁ ଚାହିଁବେ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c137.mp4"
+ },
+ {
+  "id": "or_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "ଆପଣଙ୍କୁ ସ୍ୱାଗତ କରିବା, ପ୍ରଶ୍ନର ଉତ୍ତର ଦେବା ଏବଂ ନେକ୍ସୋରା ଦେଖାଇବା ପାଇଁ ମୁଁ ଏଠାରେ ଅଛି। କଣ ଜାଣିବାକୁ ଚାହିଁବେ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c138.mp4"
+ },
+ {
+  "id": "or_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "ମୁଁ ଜଣେ ଏଆଇ ରିସେପସନିଷ୍ଟ, ତଥାପି ସାହାଯ୍ୟ ପାଇଁ ପୂରା ପ୍ରସ୍ତୁତ। କଣ ଜାଣିବାକୁ ଚାହିଁବେ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c139.mp4"
+ },
+ {
+  "id": "or_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "ସ୍ୱାଗତ! ଆଉ କିଛି ସାହାଯ୍ୟ ଦରକାର କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c034.mp4"
+ },
+ {
+  "id": "or_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "ମୋର ଆନନ୍ଦ! ନେକ୍ସୋରା ବିଷୟରେ ଆଉ କିଛି ଜାଣିବାକୁ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c035.mp4"
+ },
+ {
+  "id": "or_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "ନେକ୍ସୋରାକୁ ଆସିଥିବାରୁ ଧନ୍ୟବାଦ! ଦରକାର ହେଲେ ମୁଁ ସବୁବେଳେ ମେନୁରେ ଅଛି। ଆପଣଙ୍କ ଦିନ ଶୁଭ ହେଉ!",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c140.mp4"
+ },
+ {
+  "id": "or_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "ମୁଁ ନେକ୍ସୋରା ବିଷୟରେ ବୁଝାଇପାରିବି, ୱେବସାଇଟ୍ ଦେଖାଇପାରିବି, ଏବଂ ଡେମୋ ବୁକ୍ କରିବାରେ ସାହାଯ୍ୟ କରିପାରିବି। କେଉଁଠୁ ଆରମ୍ଭ କରିବା?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c141.mp4"
+ },
+ {
+  "id": "or_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "ତାହା ମୋ ପରିସରର ଟିକେ ବାହାରେ, କିନ୍ତୁ ନେକ୍ସୋରା ଦେଖାଇବାକୁ ମୋର ଭଲ ଲାଗିବ। ଗୋଟିଏ ଛୋଟ ଟୁର ଦେବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c142.mp4"
+ },
+ {
+  "id": "or_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "କ୍ଷମା କରନ୍ତୁ, ସେଥିରେ ମୁଁ ସାହାଯ୍ୟ କରିପାରିବି ନାହିଁ। କିନ୍ତୁ ନେକ୍ସୋରା ଦେଖାଇପାରିବି। ଗୋଟିଏ ଛୋଟ ଟୁର କରିବା କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c143.mp4"
+ },
+ {
+  "id": "or_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "ସେଥିରେ ସାହାଯ୍ୟ କରିପାରିଥିଲେ ଭଲ ହୋଇଥାନ୍ତା! ନେକ୍ସୋରା ଦେଖାଇବାରେ ମୁଁ ସବୁଠାରୁ ଭଲ। ଗୋଟିଏ ଛୋଟ ଟୁର ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c144.mp4"
+ },
+ {
+  "id": "or_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "କିଛି ଅସୁବିଧା ନାହିଁ, ସହଜରେ କହୁଛି। ନେକ୍ସୋରା ବିଲ୍ଡରମାନଙ୍କୁ ଘର ତିଆରି ପୂର୍ବରୁ ଥ୍ରୀ-ଡି ରେ ଦେଖାଇବାରେ ସାହାଯ୍ୟ କରେ। ସବୁ ଦେଖାଇବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c145.mp4"
+ },
+ {
+  "id": "or_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "ଏକଦମ୍ ଠିକ୍ ଅଛି। ନେକ୍ସୋରା ବୁଝିବାର ସବୁଠାରୁ ସହଜ ଉପାୟ ଗୋଟିଏ ଛୋଟ ଟୁର। ସବୁ ଦେଖାଇବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c146.mp4"
+ },
+ {
+  "id": "or_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "କ୍ଷମା କରନ୍ତୁ, ଏହି ତଥ୍ୟ ମୋ ପାଖରେ ନାହିଁ। ଡେମୋରେ ଆମ ଟିମ୍ ଏହାର ଉତ୍ତର ଦେଇପାରିବ। ଡେମୋ ଫର୍ମ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c147.mp4"
+ },
+ {
+  "id": "or_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "ଭଲ ପ୍ରଶ୍ନ! ଏହାର ଉତ୍ତର ମୋ ପାଖରେ ନାହିଁ, କିନ୍ତୁ ଡେମୋରେ ଟିମ୍ କହିବ। ଡେମୋ ଫର୍ମ ଖୋଲିବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c148.mp4"
+ },
+ {
+  "id": "or_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "କ୍ଷମା କରନ୍ତୁ, ମୁଁ ଠିକ୍ ବୁଝିପାରିଲି ନାହିଁ। ଅନ୍ୟ ଭାବରେ କହିପାରିବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c149.mp4"
+ },
+ {
+  "id": "or_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "କ୍ଷମା କରନ୍ତୁ, ବୁଝିପାରିଲି ନାହିଁ। ନେକ୍ସୋରା କଣ ବୋଲି ପଚାରିପାରିବେ, କିମ୍ବା ଟୁର ମାଗିପାରିବେ।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c150.mp4"
+ },
+ {
+  "id": "or_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "କିଛି ଅସୁବିଧା ନାହିଁ। ତା ବଦଳରେ କଣ ଜାଣିବାକୁ ଚାହିଁବେ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c048.mp4"
+ },
+ {
+  "id": "or_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "ଠିକ୍ ଅଛି। ନେକ୍ସୋରା ବିଷୟରେ ଆଉ କିଛି ସାହାଯ୍ୟ ଦରକାର କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c049.mp4"
+ },
+ {
+  "id": "or_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "ବହୁତ ଭଲ! ମୁଁ ନେକ୍ସୋରା ବିଷୟରେ ବୁଝାଇପାରିବି, ସବୁ ଦେଖାଇପାରିବି, କିମ୍ବା ଡେମୋ ବୁକ୍ କରିବାରେ ସାହାଯ୍ୟ କରିପାରିବି। କଣ ଚାହିଁବେ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c151.mp4"
+ },
+ {
+  "id": "or_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "କ୍ଷମା କରନ୍ତୁ, ମୁଁ ଆପଣଙ୍କ ଭାଷା ବୁଝିପାରୁନାହିଁ। କଥା ହେବା ପାଇଁ, ମୋ ଭାଷାଗୁଡ଼ିକ ମଧ୍ୟରୁ ଗୋଟିଏ ବାଛନ୍ତୁ।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c152.mp4"
+ },
+ {
+  "id": "or_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "ନିଶ୍ଚୟ, ଏବେ ଆମେ ଓଡ଼ିଆରେ କଥା ହେବା। ମୁଁ ଆପଣଙ୍କୁ କିପରି ସାହାଯ୍ୟ କରିପାରିବି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c185.mp4"
+ },
+ {
+  "id": "or_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "ନିଶ୍ଚୟ, ଏବେ ଆପଣଙ୍କୁ ସାଇଟ୍ ଇଭାଲ୍ୟୁଏସନକୁ ନେଇଯାଉଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c153.mp4"
+ },
+ {
+  "id": "or_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "ନିଶ୍ଚୟ, ଏବେ ଆପଣଙ୍କୁ ମାଷ୍ଟର ପ୍ଲାନିଂକୁ ନେଇଯାଉଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c154.mp4"
+ },
+ {
+  "id": "or_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "ନିଶ୍ଚୟ, ଏବେ ଆପଣଙ୍କୁ କନଷ୍ଟ୍ରକସନକୁ ନେଇଯାଉଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c155.mp4"
+ },
+ {
+  "id": "or_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "ନିଶ୍ଚୟ, ଏବେ ଆପଣଙ୍କୁ ଫିଟ୍-ଆଉଟ୍ ଏବଂ ହ୍ୟାଣ୍ଡଓଭରକୁ ନେଇଯାଉଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c156.mp4"
+ },
+ {
+  "id": "or_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "ନିଶ୍ଚୟ, ଏବେ ଆପଣଙ୍କୁ ରେଡି ଟୁ ମୁଭ୍ ଇନ୍‌କୁ ନେଇଯାଉଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c157.mp4"
+ },
+ {
+  "id": "or_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "ନିଶ୍ଚୟ, ଏବେ ଆପଣଙ୍କୁ ଭର୍ଚୁଆଲ ଟୁରକୁ ନେଇଯାଉଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c158.mp4"
+ },
+ {
+  "id": "or_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "ନିଶ୍ଚୟ, ଆପଣଙ୍କ ପାଇଁ ଡେମୋ ଫର୍ମ ଖୋଲୁଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c159.mp4"
+ },
+ {
+  "id": "or_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "ନିଶ୍ଚୟ, ଏବେ ଆପଣଙ୍କୁ ୱେବସାଇଟ୍‌କୁ ନେଇଯାଉଛି। ଦରକାର ହେଲେ ମୁଁ ମେନୁରେ ଅଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c160.mp4"
+ },
+ {
+  "id": "or_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "କ୍ଷମା କରନ୍ତୁ, ଆପଣଙ୍କ ନାମ ବୁଝିପାରିଲି ନାହିଁ। କେବଳ ଆପଣଙ୍କ ପ୍ରଥମ ନାମ ଲେଖିପାରିବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c161.mp4"
+ },
+ {
+  "id": "or_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "କିଛି ଅସୁବିଧା ନାହିଁ! ଆପଣ ଡେଭଲପର କିମ୍ବା ବିଲ୍ଡର କି, ଘର ଖୋଜୁଛନ୍ତି କି, ନା କେବଳ ଦେଖୁଛନ୍ତି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c162.mp4"
+ },
+ {
+  "id": "or_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "ଆପଣଙ୍କୁ ଭେଟି ବହୁତ ଖୁସି ଲାଗିଲା! ଆପଣ ଡେଭଲପର କିମ୍ବା ବିଲ୍ଡର କି, ଘର ଖୋଜୁଛନ୍ତି କି, ନା କେବଳ ଦେଖୁଛନ୍ତି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c163.mp4"
+ },
+ {
+  "id": "or_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "ବହୁତ ଭଲ! ଆପଣ କେଉଁ କମ୍ପାନୀରେ ଅଛନ୍ତି, ଏବଂ ସେଠାରେ ଆପଣଙ୍କ ଭୂମିକା କଣ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c164.mp4"
+ },
+ {
+  "id": "or_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "ଧନ୍ୟବାଦ! ନେକ୍ସୋରାର ଗୋଟିଏ ଛୋଟ ଗାଇଡେଡ୍ ଟୁର ଦେବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c165.mp4"
+ },
+ {
+  "id": "or_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "ବହୁତ ଭଲ! ନେକ୍ସୋରାରେ ଘର ତିଆରି ହେବା ପୂର୍ବରୁ ଥ୍ରୀ-ଡି ରେ ଦେଖିପାରିବେ। ଗୋଟିଏ ଛୋଟ ଗାଇଡେଡ୍ ଟୁର ଦେବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c166.mp4"
+ },
+ {
+  "id": "or_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "କିଛି ଅସୁବିଧା ନାହିଁ, ଧୀରେ ଧୀରେ ଦେଖନ୍ତୁ। ଗୋଟିଏ ଛୋଟ ଗାଇଡେଡ୍ ଟୁର ଦେବି କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c167.mp4"
+ },
+ {
+  "id": "or_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "କିଛି ଅସୁବିଧା ନାହିଁ। ମୋତେ ଯାହା ବି ପଚାରିପାରିବେ, କିମ୍ବା ନିଜ ମନ ମୁତାବକ ଦେଖିପାରିବେ।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c168.mp4"
+ },
+ {
+  "id": "or_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "ଚାଲନ୍ତୁ ଆରମ୍ଭ କରିବା! ଏହା ସାଇଟ୍ ଇଭାଲ୍ୟୁଏସନ, ଯେଉଁଠି ତିଆରି ପୂର୍ବରୁ ଡେଭଲପର ଜମି ଯାଞ୍ଚ କରନ୍ତି। ଆଗକୁ ଯିବା କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c169.mp4"
+ },
+ {
+  "id": "or_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "ଏହା ମାଷ୍ଟର ପ୍ଲାନିଂ। ଭିଲାର ଲେଆଉଟ ଚୂଡ଼ାନ୍ତ ହୁଏ, ଏବଂ କ୍ରେତାଙ୍କ ପାଇଁ ଥ୍ରୀ-ଡି ଟ୍ୱିନ ଲାଇଭ ହୁଏ। ଆଗକୁ ଯିବା କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c170.mp4"
+ },
+ {
+  "id": "or_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "ଏହା କନଷ୍ଟ୍ରକସନ। ଡ୍ରୋନ ଫଟୋ ଏବଂ ଫଟୋ ରେକର୍ଡ ସହିତ ନେକ୍ସୋରା ପ୍ରତ୍ୟେକ ପର୍ଯ୍ୟାୟ ଟ୍ରାକ କରେ। ଆଗକୁ ଯିବା କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c171.mp4"
+ },
+ {
+  "id": "or_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "ଏହା ଫିଟ୍-ଆଉଟ୍ ଏବଂ ହ୍ୟାଣ୍ଡଓଭର। ଚାବି ହସ୍ତାନ୍ତର ପୂର୍ବରୁ ପ୍ରତ୍ୟେକ ଘରର କ୍ୱାଲିଟି ଯାଞ୍ଚ ହୁଏ। ଆଗକୁ ଯିବା କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c172.mp4"
+ },
+ {
+  "id": "or_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "ରେଡି ଟୁ ମୁଭ୍ ଇନ୍‌କୁ ସ୍ୱାଗତ। ରେସିଡେଣ୍ଟ ଆପ୍ ବୁକିଂ, ଅତିଥି ଏବଂ ରକ୍ଷଣାବେକ୍ଷଣ ସମ୍ଭାଳେ। ଭିଲା ଦେଖିବା କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c173.mp4"
+ },
+ {
+  "id": "or_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "ଏହା ଆମ ଡେମୋ ଭିଲାର ଭର୍ଚୁଆଲ ଟୁର। ଧୀରେ ଧୀରେ ବୁଲି ଦେଖନ୍ତୁ।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c174.mp4"
+ },
+ {
+  "id": "or_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "ଏହା ଥିଲା ଆମ ଟୁର! ଆପଣଙ୍କ ନିଜ ପ୍ରୋଜେକ୍ଟ ପାଇଁ ଗୋଟିଏ ବ୍ୟକ୍ତିଗତ ଡେମୋ ଚାହିଁବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c175.mp4"
+ },
+ {
+  "id": "or_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "କିଛି ଅସୁବିଧା ନାହିଁ, ଏଠାରେ ହିଁ ଅଟକିବା। ଦରକାର ହେଲେ ମୁଁ ସବୁବେଳେ ମେନୁରେ ଅଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c176.mp4"
+ },
+ {
+  "id": "or_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "ଆପଣଙ୍କ ମାଗଣା ଡେମୋ ଠିକ୍ କରି ମୁଁ ଖୁସି ହେବି! ଆପଣଙ୍କ ସହ ଯୋଗାଯୋଗ ପାଇଁ ସବୁଠାରୁ ଭଲ ଫୋନ୍ ନମ୍ବର କେଉଁଟି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c177.mp4"
+ },
+ {
+  "id": "or_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "ଆପଣଙ୍କ ମାଗଣା ଡେମୋ ଠିକ୍ କରି ମୁଁ ଖୁସି ହେବି! ପ୍ରଥମେ ଆପଣଙ୍କ ନାମ କହିବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c178.mp4"
+ },
+ {
+  "id": "or_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "ଧନ୍ୟବାଦ! ଆପଣଙ୍କ ସହ ଯୋଗାଯୋଗ ପାଇଁ ସବୁଠାରୁ ଭଲ ଫୋନ୍ ନମ୍ବର କେଉଁଟି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c179.mp4"
+ },
+ {
+  "id": "or_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "ହମ୍, ଏହି ନମ୍ବର ଠିକ୍ ଲାଗୁନାହିଁ। ଦଶଟି ଅଙ୍କ ସହିତ ପୁଣି ଲେଖିପାରିବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c180.mp4"
+ },
+ {
+  "id": "or_c181",
+  "key": "Thank you. And your email address?",
+  "say": "ଧନ୍ୟବାଦ। ଆଉ ଆପଣଙ୍କ ଇମେଲ ଠିକଣା?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c181.mp4"
+ },
+ {
+  "id": "or_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "ଏହି ଇମେଲ ଠିକ୍ ଲାଗୁନାହିଁ। ପୁଣି ଲେଖିପାରିବେ କି?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c182.mp4"
+ },
+ {
+  "id": "or_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "ଧନ୍ୟବାଦ! ଆମ ଟିମ୍ ଶୀଘ୍ର ଆପଣଙ୍କ ସହ ଯୋଗାଯୋଗ କରିବ। ତାରିଖ ବାଛିବା ପାଇଁ ଡେମୋ ଫର୍ମ ଖୋଲୁଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c183.mp4"
+ },
+ {
+  "id": "or_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "କିଛି ଅସୁବିଧା ନାହିଁ। ଯେତେବେଳେ ପ୍ରସ୍ତୁତ ହେବେ, ବୁକ୍ ଏ ଡେମୋ ବଟନ ଉପରେ ଅଛି।",
+  "engine": "f5",
+  "voice": "",
+  "lang": "or",
+  "file": "or/c184.mp4"
+ }
+]

@@ -1,0 +1,965 @@
+[
+ {
+  "id": "te_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "నమస్కారం, నెక్సోరాకు స్వాగతం! నేను హన్నా, మీ వర్చువల్ రిసెప్షనిస్ట్‌ని. మీ పేరు తెలుసుకోవచ్చా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c083.mp4"
+ },
+ {
+  "id": "te_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "మళ్ళీ స్వాగతం! మిమ్మల్ని మళ్ళీ చూడటం చాలా సంతోషం. ఈరోజు నేను మీకు ఎలా సహాయం చేయగలను?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c084.mp4"
+ },
+ {
+  "id": "te_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "నెక్సోరా, జట్టా ఎం కామర్స్ యొక్క రియల్ ఎస్టేట్ సాఫ్ట్‌వేర్. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c085.mp4"
+ },
+ {
+  "id": "te_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "ఇది డెవలపర్లు తమ ప్రాజెక్టులను కట్టకముందే త్రీ-డి లో చూపించడానికి సహాయపడుతుంది. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c086.mp4"
+ },
+ {
+  "id": "te_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "ఇది నిర్మాణాన్ని ట్రాక్ చేస్తుంది, ఇళ్ళను కొనుగోలుదారులకు అప్పగించే వరకు అన్నీ ఒకే చోట చూసుకుంటుంది. త్రీ-డి డిజిటల్ ట్విన్ అంటే ఏమిటో తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c087.mp4"
+ },
+ {
+  "id": "te_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "డిజిటల్ ట్విన్ అంటే ఒక ప్రాజెక్ట్ యొక్క నిజమైనట్టుండే త్రీ-డి కాపీ. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c088.mp4"
+ },
+ {
+  "id": "te_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "ఇది ఆర్కిటెక్ట్ డ్రాయింగ్‌ల నుండి తయారవుతుంది, కాబట్టి కొనుగోలుదారులు ప్రతి విల్లాను బ్రౌజర్‌లో చూడవచ్చు. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c089.mp4"
+ },
+ {
+  "id": "te_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "నెక్సోరా రెవిట్, ఆర్కికాడ్ లేదా బిమ్ మోడల్స్‌ను డెబ్బై రెండు గంటలలోపు ట్విన్‌గా మార్చగలదు. మా మోడల్ విల్లా వర్చువల్ టూర్ చూడాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c090.mp4"
+ },
+ {
+  "id": "te_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "నెక్సోరాలో ఐదు ముఖ్యమైన మాడ్యూల్స్ ఉన్నాయి, ఖాళీ స్థలం నుండి నివాసితులు చేరే వరకు. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c091.mp4"
+ },
+ {
+  "id": "te_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "మొదటి మూడు: భూమి మరియు సాధ్యాసాధ్యాలు, త్రీ-డి సేల్స్ గ్యాలరీ, మరియు కన్‌స్ట్రక్షన్ ట్రాకర్. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c092.mp4"
+ },
+ {
+  "id": "te_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "తర్వాత క్వాలిటీ మరియు స్నాగింగ్, చివరగా బయ్యర్ హ్యాండోవర్ మరియు రెసిడెంట్ పోర్టల్. ఒక్కొక్కటిగా చూపించమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c093.mp4"
+ },
+ {
+  "id": "te_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "నెక్సోరా రియల్ ఎస్టేట్ డెవలపర్లు మరియు బిల్డర్ల కోసం తయారైంది. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c094.mp4"
+ },
+ {
+  "id": "te_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "చిన్న విల్లా బిల్డర్ల నుండి పెద్ద టౌన్‌షిప్ డెవలపర్ల వరకు. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c095.mp4"
+ },
+ {
+  "id": "te_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "వారి కొనుగోలుదారులు, నివాసితులు కూడా ఇళ్ళను చూడటానికి, నిర్మాణాన్ని ఫాలో అవ్వడానికి దీన్ని వాడుతారు. మీరు డెవలపరా, లేక మీ కోసం ఇల్లు వెతుకుతున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c096.mp4"
+ },
+ {
+  "id": "te_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "మొదటి దశ సైట్ ఎవాల్యుయేషన్, కట్టే ముందు డెవలపర్ స్థలాన్ని పరిశీలించే దశ. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c097.mp4"
+ },
+ {
+  "id": "te_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "రోడ్డు, సర్వేలు, నీరు, కరెంటు, అనుమతులు, జోనింగ్ మరియు మట్టి పరీక్షలు అన్నింటినీ నెక్సోరా ట్రాక్ చేస్తుంది. మీ కోసం సైట్ ఎవాల్యుయేషన్ తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c098.mp4"
+ },
+ {
+  "id": "te_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "రెండవ దశ మాస్టర్ ప్లానింగ్, విల్లా లేఅవుట్‌లు ఖరారయ్యే దశ. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c099.mp4"
+ },
+ {
+  "id": "te_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "రెరా రిజిస్ట్రేషన్ పూర్తవుతుంది, కొనుగోలుదారుల కోసం త్రీ-డి ట్విన్ లైవ్ అవుతుంది, లైవ్ ఇన్వెంటరీ మరియు బుకింగ్‌తో. మీరు చూడటానికి మాస్టర్ ప్లానింగ్ తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c100.mp4"
+ },
+ {
+  "id": "te_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "మూడవ దశ కన్‌స్ట్రక్షన్, టవర్లు మరియు క్లబ్‌హౌస్ పైకి లేచే దశ. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c101.mp4"
+ },
+ {
+  "id": "te_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "డ్రోన్ చిత్రాలు, బిల్లుల తనిఖీ మరియు ఫోటో రికార్డులతో నెక్సోరా ప్రతి మైలురాయిని ట్రాక్ చేస్తుంది. మిమ్మల్ని కన్‌స్ట్రక్షన్ దశకు తీసుకెళ్ళమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c102.mp4"
+ },
+ {
+  "id": "te_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "నాలుగవ దశ ఫిట్-అవుట్ మరియు హ్యాండోవర్, ఇంటీరియర్స్ పూర్తయ్యే సమయం. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c103.mp4"
+ },
+ {
+  "id": "te_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "ప్రతి ఇంటినీ రెండు వందల కి పైగా క్వాలిటీ పాయింట్లపై తనిఖీ చేస్తారు, వాక్‌త్రూ తర్వాత తాళాలు అప్పగిస్తారు. మీ కోసం ఫిట్-అవుట్ మరియు హ్యాండోవర్ తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c104.mp4"
+ },
+ {
+  "id": "te_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "ఐదవ దశ రెడీ టు మూవ్ ఇన్, నివాసితులు స్థిరపడే సమయం. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c105.mp4"
+ },
+ {
+  "id": "te_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "రెసిడెంట్ యాప్ సౌకర్యాల బుకింగ్, సందర్శకులు, భద్రత మరియు నిర్వహణను చూసుకుంటుంది. రెడీ టు మూవ్ ఇన్ చూడాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c106.mp4"
+ },
+ {
+  "id": "te_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "వర్చువల్ టూర్‌లో మా మోడల్ లగ్జరీ విల్లాను త్రీ-డి లో చూడవచ్చు. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c107.mp4"
+ },
+ {
+  "id": "te_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "తోట, క్లబ్‌హౌస్ మరియు పూల్, లివింగ్ పెవిలియన్ మరియు మాస్టర్ సూట్ గుండా నడిచి చూడవచ్చు. మీ కోసం వర్చువల్ టూర్ ప్రారంభించమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c108.mp4"
+ },
+ {
+  "id": "te_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "వెబ్‌సైట్ నెక్సోరా కథను ఐదు దశలు మరియు ఒక వర్చువల్ టూర్‌లో చెబుతుంది. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c109.mp4"
+ },
+ {
+  "id": "te_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "సైట్ ఎవాల్యుయేషన్, మాస్టర్ ప్లానింగ్, కన్‌స్ట్రక్షన్, ఫిట్-అవుట్ మరియు హ్యాండోవర్, మరియు రెడీ టు మూవ్ ఇన్. మొదటి నుండి, సైట్ ఎవాల్యుయేషన్‌తో మొదలుపెడదామా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c110.mp4"
+ },
+ {
+  "id": "te_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "నెక్సోరాలో అన్ని సైజుల బిల్డర్ల కోసం సబ్‌స్క్రిప్షన్ ప్లాన్లు ఉన్నాయి. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c111.mp4"
+ },
+ {
+  "id": "te_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "ధరలు ప్రచురించలేదు, కాబట్టి డెమోలో మీ ప్రాజెక్ట్ ధరను టీమ్ చెబుతుంది. డెమో బుకింగ్ ఫారం తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c112.mp4"
+ },
+ {
+  "id": "te_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "క్షమించండి, ఇక్కడ ఉన్న విల్లా ఒక ఉదాహరణ మాత్రమే, అమ్మకానికి కాదు. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c113.mp4"
+ },
+ {
+  "id": "te_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "కాబట్టి ధరలు లేదా లొకేషన్లు లేవు, కానీ కొనుగోలుదారులు ఒక ప్రాజెక్ట్‌ను ఎలా చూస్తారో వర్చువల్ టూర్ చూపిస్తుంది. వర్చువల్ టూర్ చూడాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c114.mp4"
+ },
+ {
+  "id": "te_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "మీకు ఉచిత డెమో బుక్ చేయడంలో సహాయం చేయడం నాకు సంతోషం. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c115.mp4"
+ },
+ {
+  "id": "te_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "మీ ప్రాజెక్ట్ గురించి కొంచెం చెప్పండి, వ్యక్తిగత వాక్‌త్రూ కోసం టీమ్ మిమ్మల్ని సంప్రదిస్తుంది. ఇప్పుడే డెమో ఫారం తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c116.mp4"
+ },
+ {
+  "id": "te_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "టీమ్‌కి కాంటాక్ట్ ఎట్ జట్టా ఎం కామర్స్ డాట్ కామ్ కు ఈమెయిల్ చేయవచ్చు. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c117.mp4"
+ },
+ {
+  "id": "te_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "లేదా బుక్ ఎ డెమో ఫారం వాడండి, వారు మిమ్మల్ని సంప్రదిస్తారు. బుక్ ఎ డెమో ఫారం తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c118.mp4"
+ },
+ {
+  "id": "te_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "నెక్సోరా, జట్టా ఎం కామర్స్ ఉత్పత్తి. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c119.mp4"
+ },
+ {
+  "id": "te_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "మరిన్ని వివరాలు కాంటాక్ట్ ఎట్ జట్టా ఎం కామర్స్ డాట్ కామ్ లో టీమ్ చెబుతుంది. నెక్సోరా ఏం చేస్తుందో తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c120.mp4"
+ },
+ {
+  "id": "te_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "నెక్సోరా సేల్స్‌ఫోర్స్, హబ్‌స్పాట్ మరియు బిల్డర్ ఈ-ఆర్-పి లాంటి టూల్స్‌తో కనెక్ట్ అవుతుంది. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c121.mp4"
+ },
+ {
+  "id": "te_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "వెబ్‌హుక్స్, రెస్ట్ ఏ-పి-ఐ, మరియు ఎస్-ఏ-పి, రెరా పోర్టల్స్ కోసం కనెక్టర్లు కూడా ఉన్నాయి. మీకు ఏది సరిపోతుందో టీమ్ నిర్ధారించడానికి డెమో ఫారం తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c122.mp4"
+ },
+ {
+  "id": "te_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "మోడల్ ప్రాజెక్ట్ అంతటా పర్యావరణ పరిరక్షణ ఉంది. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c123.mp4"
+ },
+ {
+  "id": "te_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "పైకప్పు సోలార్, వర్షపు నీటి సేకరణ, గ్రేవాటర్ రీసైక్లింగ్, ఈవీ ఛార్జింగ్ మరియు గ్రీన్ బిల్డింగ్ ట్రాకింగ్. ఈ ప్లానింగ్ మొదలయ్యే సైట్ ఎవాల్యుయేషన్‌తో మొదలుపెడదామా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c124.mp4"
+ },
+ {
+  "id": "te_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "నెక్సోరా అకౌంట్లు ఇంకా సిద్ధమవుతున్నాయి, కాబట్టి లాగిన్ ఇంకా కనెక్ట్ కాలేదు. టీమ్ మీకు యాక్సెస్ ఇవ్వడానికి డెమో ఫారం తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c125.mp4"
+ },
+ {
+  "id": "te_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "చాలా సులభం: దశలు మారడానికి స్క్రోల్ చేయండి. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c126.mp4"
+ },
+ {
+  "id": "te_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "పైన కుడివైపు మెనూలో అన్ని దశలు ఉన్నాయి, బుక్ ఎ డెమో పేజీ పైన ఉంది. ఇప్పుడు మిమ్మల్ని వెబ్‌సైట్‌లోకి తీసుకెళ్ళమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c127.mp4"
+ },
+ {
+  "id": "te_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "ఈ వెబ్‌సైట్ మన సంభాషణను సేవ్ చేయదు. ఇంకా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c128.mp4"
+ },
+ {
+  "id": "te_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "మీరు మాట్లాడినప్పుడు, మీ బ్రౌజర్ మీ గొంతును టెక్స్ట్‌గా మారుస్తుంది, కాబట్టి ఇక్కడ వ్యక్తిగత వివరాలు పంచుకోకండి. నెక్సోరా గురించి ఇంకేమైనా సహాయం కావాలా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c129.mp4"
+ },
+ {
+  "id": "te_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "చాలా బాగుంది, అయితే నెక్సోరా మీ కోసమే తయారైంది. ఐదు మాడ్యూల్స్ చూడాలనుకుంటున్నారా, లేక డెమో బుక్ చేయడంలో సహాయం చేయనా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c130.mp4"
+ },
+ {
+  "id": "te_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "అద్భుతం! నెక్సోరాలో ఇళ్ళను కట్టకముందే త్రీ-డి లో చూడవచ్చు. మీ కోసం వర్చువల్ టూర్ ప్రారంభించమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c131.mp4"
+ },
+ {
+  "id": "te_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "పర్వాలేదు, నెమ్మదిగా చూడండి. మొదటి దశ నుండి మీకు చూపించమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c132.mp4"
+ },
+ {
+  "id": "te_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "నమస్కారం! మీరు డెవలపర్ లేదా బిల్డరా, ఇల్లు వెతుకుతున్నారా, లేక ఊరికే చూస్తున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c133.mp4"
+ },
+ {
+  "id": "te_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "నమస్కారం! మీరు ఇక్కడికి రావడం సంతోషం. మీరు డెవలపరా, ఇల్లు కొనేవారా, లేక ఊరికే చూస్తున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c134.mp4"
+ },
+ {
+  "id": "te_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "నేను చాలా బాగున్నాను, ధన్యవాదాలు! ఈరోజు మీకు ఎలా సహాయం చేయగలను?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c135.mp4"
+ },
+ {
+  "id": "te_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "నేను బాగున్నాను, అడిగినందుకు ధన్యవాదాలు! నెక్సోరా గురించి ఏం తెలుసుకోవాలనుకుంటున్నారు?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c136.mp4"
+ },
+ {
+  "id": "te_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "నేను హన్నా, నెక్సోరా వర్చువల్ రిసెప్షనిస్ట్‌ని, మీకు దారి చూపడానికి ఇక్కడ ఉన్నాను. ఏం తెలుసుకోవాలనుకుంటున్నారు?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c137.mp4"
+ },
+ {
+  "id": "te_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "మిమ్మల్ని స్వాగతించడానికి, మీ ప్రశ్నలకు సమాధానం ఇవ్వడానికి, నెక్సోరాను చూపించడానికి నేను ఇక్కడ ఉన్నాను. ఏం తెలుసుకోవాలనుకుంటున్నారు?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c138.mp4"
+ },
+ {
+  "id": "te_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "నేను ఒక ఏఐ రిసెప్షనిస్ట్‌ని, అయినా సహాయం చేయడానికి పూర్తిగా సిద్ధంగా ఉన్నాను. ఏం తెలుసుకోవాలనుకుంటున్నారు?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c139.mp4"
+ },
+ {
+  "id": "te_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "మీకు స్వాగతం! ఇంకేమైనా సహాయం కావాలా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c034.mp4"
+ },
+ {
+  "id": "te_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "నా సంతోషం! నెక్సోరా గురించి ఇంకేమైనా తెలుసుకోవాలనుకుంటున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c035.mp4"
+ },
+ {
+  "id": "te_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "నెక్సోరాకు వచ్చినందుకు ధన్యవాదాలు! అవసరమైతే నేను ఎప్పుడూ మెనూలో ఉంటాను. మీ రోజు బాగుండాలి!",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c140.mp4"
+ },
+ {
+  "id": "te_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "నెక్సోరా గురించి వివరించగలను, వెబ్‌సైట్ చూపించగలను, డెమో బుక్ చేయడంలో సహాయం చేయగలను. ఎక్కడ మొదలుపెడదాం?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c141.mp4"
+ },
+ {
+  "id": "te_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "అది నా పరిధికి కొంచెం బయట ఉంది, కానీ నెక్సోరా చూపించడం నాకు ఇష్టం. ఒక చిన్న టూర్ ఇవ్వమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c142.mp4"
+ },
+ {
+  "id": "te_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "క్షమించండి, దానికి నేను సహాయం చేయలేను. కానీ నెక్సోరా చూపించగలను. ఒక చిన్న టూర్ చేద్దామా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c143.mp4"
+ },
+ {
+  "id": "te_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "దానికి సహాయం చేయగలిగితే బాగుండేది! నెక్సోరా చూపించడంలో నేను బెస్ట్. ఒక చిన్న టూర్ కావాలా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c144.mp4"
+ },
+ {
+  "id": "te_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "పర్వాలేదు, సులభంగా చెబుతాను. ఇళ్ళను కట్టకముందే త్రీ-డి లో చూపించడానికి నెక్సోరా బిల్డర్లకు సహాయపడుతుంది. చూపించమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c145.mp4"
+ },
+ {
+  "id": "te_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "పర్వాలేదు. నెక్సోరాను అర్థం చేసుకోవడానికి సులభమైన మార్గం ఒక చిన్న టూర్. చూపించమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c146.mp4"
+ },
+ {
+  "id": "te_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "క్షమించండి, ఆ వివరం నా దగ్గర లేదు. డెమోలో మా టీమ్ సమాధానం చెబుతుంది. డెమో ఫారం తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c147.mp4"
+ },
+ {
+  "id": "te_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "మంచి ప్రశ్న! దానికి సమాధానం నా దగ్గర లేదు, కానీ డెమోలో టీమ్ చెబుతుంది. డెమో ఫారం తెరవమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c148.mp4"
+ },
+ {
+  "id": "te_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "క్షమించండి, నాకు సరిగ్గా అర్థం కాలేదు. ఇంకో విధంగా చెప్పగలరా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c149.mp4"
+ },
+ {
+  "id": "te_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "క్షమించండి, అర్థం కాలేదు. నెక్సోరా అంటే ఏమిటి అని అడగవచ్చు, లేదా టూర్ అడగవచ్చు.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c150.mp4"
+ },
+ {
+  "id": "te_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "పర్వాలేదు. దానికి బదులు ఏం తెలుసుకోవాలనుకుంటున్నారు?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c048.mp4"
+ },
+ {
+  "id": "te_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "సరే. నెక్సోరా గురించి ఇంకేమైనా సహాయం కావాలా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c049.mp4"
+ },
+ {
+  "id": "te_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "చాలా బాగుంది! నెక్సోరా గురించి వివరించగలను, చూపించగలను, లేదా డెమో బుక్ చేయడంలో సహాయం చేయగలను. ఏది కావాలి?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c151.mp4"
+ },
+ {
+  "id": "te_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "క్షమించండి, మీ భాష నాకు అర్థం కావడం లేదు. మనం మాట్లాడటానికి, నా భాషల్లో ఒకటి ఎంచుకోండి.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c152.mp4"
+ },
+ {
+  "id": "te_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "తప్పకుండా, ఇక మనం తెలుగులో మాట్లాడదాం. నేను మీకు ఎలా సహాయం చేయగలను?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c185.mp4"
+ },
+ {
+  "id": "te_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "తప్పకుండా, ఇప్పుడు మిమ్మల్ని సైట్ ఎవాల్యుయేషన్‌కి తీసుకెళ్తున్నాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c153.mp4"
+ },
+ {
+  "id": "te_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "తప్పకుండా, ఇప్పుడు మిమ్మల్ని మాస్టర్ ప్లానింగ్‌కి తీసుకెళ్తున్నాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c154.mp4"
+ },
+ {
+  "id": "te_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "తప్పకుండా, ఇప్పుడు మిమ్మల్ని కన్‌స్ట్రక్షన్‌కి తీసుకెళ్తున్నాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c155.mp4"
+ },
+ {
+  "id": "te_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "తప్పకుండా, ఇప్పుడు మిమ్మల్ని ఫిట్-అవుట్ మరియు హ్యాండోవర్‌కి తీసుకెళ్తున్నాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c156.mp4"
+ },
+ {
+  "id": "te_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "తప్పకుండా, ఇప్పుడు మిమ్మల్ని రెడీ టు మూవ్ ఇన్‌కి తీసుకెళ్తున్నాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c157.mp4"
+ },
+ {
+  "id": "te_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "తప్పకుండా, ఇప్పుడు మిమ్మల్ని వర్చువల్ టూర్‌కి తీసుకెళ్తున్నాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c158.mp4"
+ },
+ {
+  "id": "te_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "తప్పకుండా, మీ కోసం డెమో ఫారం తెరుస్తున్నాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c159.mp4"
+ },
+ {
+  "id": "te_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "తప్పకుండా, ఇప్పుడు మిమ్మల్ని వెబ్‌సైట్‌లోకి తీసుకెళ్తున్నాను. అవసరమైతే నేను మెనూలో ఉంటాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c160.mp4"
+ },
+ {
+  "id": "te_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "క్షమించండి, మీ పేరు అర్థం కాలేదు. మీ మొదటి పేరు మాత్రమే టైప్ చేయగలరా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c161.mp4"
+ },
+ {
+  "id": "te_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "పర్వాలేదు! మీరు డెవలపర్ లేదా బిల్డరా, ఇల్లు వెతుకుతున్నారా, లేక ఊరికే చూస్తున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c162.mp4"
+ },
+ {
+  "id": "te_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "మిమ్మల్ని కలవడం సంతోషం! మీరు డెవలపర్ లేదా బిల్డరా, ఇల్లు వెతుకుతున్నారా, లేక ఊరికే చూస్తున్నారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c163.mp4"
+ },
+ {
+  "id": "te_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "చాలా బాగుంది! మీరు ఏ కంపెనీలో ఉన్నారు, అక్కడ మీ పాత్ర ఏమిటి?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c164.mp4"
+ },
+ {
+  "id": "te_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "ధన్యవాదాలు! నెక్సోరా యొక్క చిన్న గైడెడ్ టూర్ ఇవ్వమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c165.mp4"
+ },
+ {
+  "id": "te_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "అద్భుతం! నెక్సోరాలో ఇళ్ళను కట్టకముందే త్రీ-డి లో చూడవచ్చు. చిన్న గైడెడ్ టూర్ ఇవ్వమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c166.mp4"
+ },
+ {
+  "id": "te_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "పర్వాలేదు, నెమ్మదిగా చూడండి. చిన్న గైడెడ్ టూర్ ఇవ్వమంటారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c167.mp4"
+ },
+ {
+  "id": "te_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "పర్వాలేదు. నన్ను ఏదైనా అడగవచ్చు, లేదా మీకు నచ్చినట్టు చూడవచ్చు.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c168.mp4"
+ },
+ {
+  "id": "te_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "మొదలుపెడదాం! ఇది సైట్ ఎవాల్యుయేషన్, కట్టే ముందు డెవలపర్ స్థలాన్ని పరిశీలించే దశ. ముందుకు వెళ్దామా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c169.mp4"
+ },
+ {
+  "id": "te_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "ఇది మాస్టర్ ప్లానింగ్. విల్లా లేఅవుట్‌లు ఖరారవుతాయి, కొనుగోలుదారుల కోసం త్రీ-డి ట్విన్ లైవ్ అవుతుంది. ముందుకు వెళ్దామా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c170.mp4"
+ },
+ {
+  "id": "te_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "ఇది కన్‌స్ట్రక్షన్. డ్రోన్ చిత్రాలు, ఫోటో రికార్డులతో నెక్సోరా ప్రతి మైలురాయిని ట్రాక్ చేస్తుంది. ముందుకు వెళ్దామా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c171.mp4"
+ },
+ {
+  "id": "te_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "ఇది ఫిట్-అవుట్ మరియు హ్యాండోవర్. తాళాలు అప్పగించే ముందు ప్రతి ఇంటి క్వాలిటీ తనిఖీ అవుతుంది. ముందుకు వెళ్దామా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c172.mp4"
+ },
+ {
+  "id": "te_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "రెడీ టు మూవ్ ఇన్‌కి స్వాగతం. రెసిడెంట్ యాప్ బుకింగ్‌లు, సందర్శకులు, నిర్వహణను చూసుకుంటుంది. విల్లా చూద్దామా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c173.mp4"
+ },
+ {
+  "id": "te_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "ఇది మా డెమో విల్లా వర్చువల్ టూర్. నెమ్మదిగా చుట్టూ చూడండి.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c174.mp4"
+ },
+ {
+  "id": "te_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "ఇదే మా టూర్! మీ సొంత ప్రాజెక్ట్ కోసం వ్యక్తిగత డెమో కావాలా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c175.mp4"
+ },
+ {
+  "id": "te_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "పర్వాలేదు, ఇక్కడే ఆపేద్దాం. అవసరమైతే నేను ఎప్పుడూ మెనూలో ఉంటాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c176.mp4"
+ },
+ {
+  "id": "te_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "ఉచిత డెమో ఏర్పాటు చేయడం నాకు సంతోషం! మిమ్మల్ని సంప్రదించడానికి సరైన ఫోన్ నంబర్ ఏది?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c177.mp4"
+ },
+ {
+  "id": "te_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "ఉచిత డెమో ఏర్పాటు చేయడం నాకు సంతోషం! ముందుగా మీ పేరు చెబుతారా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c178.mp4"
+ },
+ {
+  "id": "te_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "ధన్యవాదాలు! మిమ్మల్ని సంప్రదించడానికి సరైన ఫోన్ నంబర్ ఏది?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c179.mp4"
+ },
+ {
+  "id": "te_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "హ్మ్, ఆ నంబర్ సరిగ్గా లేనట్టుంది. పది అంకెలతో మళ్ళీ టైప్ చేయగలరా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c180.mp4"
+ },
+ {
+  "id": "te_c181",
+  "key": "Thank you. And your email address?",
+  "say": "ధన్యవాదాలు. మీ ఈమెయిల్ అడ్రస్?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c181.mp4"
+ },
+ {
+  "id": "te_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "ఆ ఈమెయిల్ సరిగ్గా లేనట్టుంది. మళ్ళీ టైప్ చేయగలరా?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c182.mp4"
+ },
+ {
+  "id": "te_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "ధన్యవాదాలు! మా టీమ్ త్వరలో మిమ్మల్ని సంప్రదిస్తుంది. మీరు తేదీ ఎంచుకోవడానికి డెమో ఫారం తెరుస్తున్నాను.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c183.mp4"
+ },
+ {
+  "id": "te_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "పర్వాలేదు. మీరు సిద్ధమైనప్పుడు, బుక్ ఎ డెమో బటన్ పైన ఉంది.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "te",
+  "file": "te/c184.mp4"
+ }
+]

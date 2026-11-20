@@ -1,0 +1,965 @@
+[
+ {
+  "id": "kn_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "ನಮಸ್ಕಾರ, ನೆಕ್ಸೋರಾಗೆ ಸ್ವಾಗತ! ನಾನು ಹನ್ನಾ, ನಿಮ್ಮ ವರ್ಚುವಲ್ ರಿಸೆಪ್ಷನಿಸ್ಟ್. ನಿಮ್ಮ ಹೆಸರು ತಿಳಿಯಬಹುದೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c083.mp4"
+ },
+ {
+  "id": "kn_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "ಮತ್ತೆ ಸ್ವಾಗತ! ನಿಮ್ಮನ್ನು ಮತ್ತೆ ನೋಡಿ ತುಂಬಾ ಸಂತೋಷವಾಯಿತು. ಇಂದು ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c084.mp4"
+ },
+ {
+  "id": "kn_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "ನೆಕ್ಸೋರಾ, ಜಟ್ಟಾ ಎಂ ಕಾಮರ್ಸ್‌ನ ರಿಯಲ್ ಎಸ್ಟೇಟ್ ಸಾಫ್ಟ್‌ವೇರ್. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c085.mp4"
+ },
+ {
+  "id": "kn_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "ಇದು ಡೆವಲಪರ್‌ಗಳು ತಮ್ಮ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳನ್ನು ಕಟ್ಟುವ ಮೊದಲೇ ತ್ರೀ-ಡಿ ಯಲ್ಲಿ ತೋರಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c086.mp4"
+ },
+ {
+  "id": "kn_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "ಇದು ನಿರ್ಮಾಣವನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುತ್ತದೆ, ಮನೆಗಳನ್ನು ಖರೀದಿದಾರರಿಗೆ ಹಸ್ತಾಂತರಿಸುವವರೆಗೆ ಎಲ್ಲವನ್ನೂ ಒಂದೇ ಕಡೆ ನೋಡಿಕೊಳ್ಳುತ್ತದೆ. ತ್ರೀ-ಡಿ ಡಿಜಿಟಲ್ ಟ್ವಿನ್ ಎಂದರೇನು ಎಂದು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c087.mp4"
+ },
+ {
+  "id": "kn_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "ಡಿಜಿಟಲ್ ಟ್ವಿನ್ ಎಂದರೆ ಒಂದು ಪ್ರಾಜೆಕ್ಟ್‌ನ ನಿಜದಂತೆ ಕಾಣುವ ತ್ರೀ-ಡಿ ಪ್ರತಿ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c088.mp4"
+ },
+ {
+  "id": "kn_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "ಇದು ಆರ್ಕಿಟೆಕ್ಟ್‌ನ ಡ್ರಾಯಿಂಗ್‌ಗಳಿಂದ ತಯಾರಾಗುತ್ತದೆ, ಹಾಗಾಗಿ ಖರೀದಿದಾರರು ಪ್ರತಿ ವಿಲ್ಲಾವನ್ನು ಬ್ರೌಸರ್‌ನಲ್ಲೇ ನೋಡಬಹುದು. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c089.mp4"
+ },
+ {
+  "id": "kn_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "ನೆಕ್ಸೋರಾ ರೆವಿಟ್, ಆರ್ಕಿಕ್ಯಾಡ್ ಅಥವಾ ಬಿಮ್ ಮಾಡೆಲ್‌ಗಳನ್ನು ಎಪ್ಪತ್ತೆರಡು ಗಂಟೆಗಳೊಳಗೆ ಟ್ವಿನ್ ಆಗಿ ಬದಲಾಯಿಸಬಲ್ಲದು. ನಮ್ಮ ಮಾದರಿ ವಿಲ್ಲಾದ ವರ್ಚುವಲ್ ಟೂರ್ ನೋಡಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c090.mp4"
+ },
+ {
+  "id": "kn_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "ನೆಕ್ಸೋರಾದಲ್ಲಿ ಐದು ಮುಖ್ಯ ಮಾಡ್ಯೂಲ್‌ಗಳಿವೆ, ಖಾಲಿ ಜಮೀನಿನಿಂದ ನಿವಾಸಿಗಳು ಬರುವವರೆಗೆ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c091.mp4"
+ },
+ {
+  "id": "kn_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "ಮೊದಲ ಮೂರು: ಜಮೀನು ಮತ್ತು ಕಾರ್ಯಸಾಧ್ಯತೆ, ತ್ರೀ-ಡಿ ಸೇಲ್ಸ್ ಗ್ಯಾಲರಿ, ಮತ್ತು ಕನ್‌ಸ್ಟ್ರಕ್ಷನ್ ಟ್ರ್ಯಾಕರ್. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c092.mp4"
+ },
+ {
+  "id": "kn_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "ನಂತರ ಕ್ವಾಲಿಟಿ ಮತ್ತು ಸ್ನ್ಯಾಗಿಂಗ್, ಕೊನೆಯದಾಗಿ ಬಯರ್ ಹ್ಯಾಂಡ್‌ಓವರ್ ಮತ್ತು ರೆಸಿಡೆಂಟ್ ಪೋರ್ಟಲ್. ಒಂದೊಂದಾಗಿ ತೋರಿಸಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c093.mp4"
+ },
+ {
+  "id": "kn_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "ನೆಕ್ಸೋರಾ ರಿಯಲ್ ಎಸ್ಟೇಟ್ ಡೆವಲಪರ್‌ಗಳು ಮತ್ತು ಬಿಲ್ಡರ್‌ಗಳಿಗಾಗಿ ತಯಾರಾಗಿದೆ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c094.mp4"
+ },
+ {
+  "id": "kn_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "ಸಣ್ಣ ವಿಲ್ಲಾ ಬಿಲ್ಡರ್‌ಗಳಿಂದ ದೊಡ್ಡ ಟೌನ್‌ಶಿಪ್ ಡೆವಲಪರ್‌ಗಳವರೆಗೆ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c095.mp4"
+ },
+ {
+  "id": "kn_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "ಅವರ ಖರೀದಿದಾರರು ಮತ್ತು ನಿವಾಸಿಗಳೂ ಮನೆಗಳನ್ನು ನೋಡಲು ಮತ್ತು ನಿರ್ಮಾಣವನ್ನು ಗಮನಿಸಲು ಇದನ್ನು ಬಳಸುತ್ತಾರೆ. ನೀವು ಡೆವಲಪರಾ, ಅಥವಾ ನಿಮಗಾಗಿ ಮನೆ ಹುಡುಕುತ್ತಿದ್ದೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c096.mp4"
+ },
+ {
+  "id": "kn_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "ಮೊದಲ ಹಂತ ಸೈಟ್ ಇವ್ಯಾಲ್ಯುಯೇಶನ್, ಕಟ್ಟುವ ಮೊದಲು ಡೆವಲಪರ್ ಜಮೀನನ್ನು ಪರಿಶೀಲಿಸುವ ಹಂತ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c097.mp4"
+ },
+ {
+  "id": "kn_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "ರಸ್ತೆ, ಸರ್ವೇ, ನೀರು, ವಿದ್ಯುತ್, ಅನುಮತಿಗಳು, ಝೋನಿಂಗ್ ಮತ್ತು ಮಣ್ಣಿನ ಪರೀಕ್ಷೆ ಎಲ್ಲವನ್ನೂ ನೆಕ್ಸೋರಾ ಟ್ರ್ಯಾಕ್ ಮಾಡುತ್ತದೆ. ನಿಮಗಾಗಿ ಸೈಟ್ ಇವ್ಯಾಲ್ಯುಯೇಶನ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c098.mp4"
+ },
+ {
+  "id": "kn_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "ಎರಡನೇ ಹಂತ ಮಾಸ್ಟರ್ ಪ್ಲಾನಿಂಗ್, ವಿಲ್ಲಾ ಲೇಔಟ್‌ಗಳು ಅಂತಿಮಗೊಳ್ಳುವ ಹಂತ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c099.mp4"
+ },
+ {
+  "id": "kn_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "ರೇರಾ ನೋಂದಣಿ ಪೂರ್ಣಗೊಳ್ಳುತ್ತದೆ, ಖರೀದಿದಾರರಿಗೆ ತ್ರೀ-ಡಿ ಟ್ವಿನ್ ಲೈವ್ ಆಗುತ್ತದೆ, ಲೈವ್ ಇನ್ವೆಂಟರಿ ಮತ್ತು ಬುಕಿಂಗ್ ಜೊತೆಗೆ. ನೀವು ನೋಡಲು ಮಾಸ್ಟರ್ ಪ್ಲಾನಿಂಗ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c100.mp4"
+ },
+ {
+  "id": "kn_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "ಮೂರನೇ ಹಂತ ಕನ್‌ಸ್ಟ್ರಕ್ಷನ್, ಟವರ್‌ಗಳು ಮತ್ತು ಕ್ಲಬ್‌ಹೌಸ್ ನೆಲದಿಂದ ಮೇಲೇಳುವ ಹಂತ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c101.mp4"
+ },
+ {
+  "id": "kn_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "ಡ್ರೋನ್ ಚಿತ್ರಗಳು, ಬಿಲ್ ಪರಿಶೀಲನೆ ಮತ್ತು ಫೋಟೋ ದಾಖಲೆಗಳೊಂದಿಗೆ ನೆಕ್ಸೋರಾ ಪ್ರತಿ ಹಂತವನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುತ್ತದೆ. ನಿಮ್ಮನ್ನು ಕನ್‌ಸ್ಟ್ರಕ್ಷನ್ ಹಂತಕ್ಕೆ ಕರೆದೊಯ್ಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c102.mp4"
+ },
+ {
+  "id": "kn_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "ನಾಲ್ಕನೇ ಹಂತ ಫಿಟ್-ಔಟ್ ಮತ್ತು ಹ್ಯಾಂಡ್‌ಓವರ್, ಒಳಾಂಗಣ ಕೆಲಸ ಮುಗಿಯುವ ಸಮಯ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c103.mp4"
+ },
+ {
+  "id": "kn_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "ಪ್ರತಿ ಮನೆಯನ್ನು ಇನ್ನೂರು ಕ್ಕೂ ಹೆಚ್ಚು ಗುಣಮಟ್ಟದ ಅಂಶಗಳಲ್ಲಿ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ, ವಾಕ್‌ಥ್ರೂ ನಂತರ ಕೀಲಿಗಳನ್ನು ಹಸ್ತಾಂತರಿಸಲಾಗುತ್ತದೆ. ನಿಮಗಾಗಿ ಫಿಟ್-ಔಟ್ ಮತ್ತು ಹ್ಯಾಂಡ್‌ಓವರ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c104.mp4"
+ },
+ {
+  "id": "kn_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "ಐದನೇ ಹಂತ ರೆಡಿ ಟು ಮೂವ್ ಇನ್, ನಿವಾಸಿಗಳು ನೆಲೆಸುವ ಸಮಯ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c105.mp4"
+ },
+ {
+  "id": "kn_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "ರೆಸಿಡೆಂಟ್ ಆ್ಯಪ್ ಸೌಲಭ್ಯಗಳ ಬುಕಿಂಗ್, ಅತಿಥಿಗಳು, ಭದ್ರತೆ ಮತ್ತು ನಿರ್ವಹಣೆಯನ್ನು ನೋಡಿಕೊಳ್ಳುತ್ತದೆ. ರೆಡಿ ಟು ಮೂವ್ ಇನ್ ನೋಡಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c106.mp4"
+ },
+ {
+  "id": "kn_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "ವರ್ಚುವಲ್ ಟೂರ್‌ನಲ್ಲಿ ನಮ್ಮ ಮಾದರಿ ಐಷಾರಾಮಿ ವಿಲ್ಲಾವನ್ನು ತ್ರೀ-ಡಿ ಯಲ್ಲಿ ನೋಡಬಹುದು. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c107.mp4"
+ },
+ {
+  "id": "kn_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "ತೋಟ, ಕ್ಲಬ್‌ಹೌಸ್ ಮತ್ತು ಈಜುಕೊಳ, ಲಿವಿಂಗ್ ಪೆವಿಲಿಯನ್ ಮತ್ತು ಮಾಸ್ಟರ್ ಸೂಟ್ ಮೂಲಕ ನಡೆದು ನೋಡಬಹುದು. ನಿಮಗಾಗಿ ವರ್ಚುವಲ್ ಟೂರ್ ಆರಂಭಿಸಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c108.mp4"
+ },
+ {
+  "id": "kn_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "ವೆಬ್‌ಸೈಟ್ ನೆಕ್ಸೋರಾದ ಕಥೆಯನ್ನು ಐದು ಹಂತಗಳು ಮತ್ತು ಒಂದು ವರ್ಚುವಲ್ ಟೂರ್‌ನಲ್ಲಿ ಹೇಳುತ್ತದೆ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c109.mp4"
+ },
+ {
+  "id": "kn_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "ಸೈಟ್ ಇವ್ಯಾಲ್ಯುಯೇಶನ್, ಮಾಸ್ಟರ್ ಪ್ಲಾನಿಂಗ್, ಕನ್‌ಸ್ಟ್ರಕ್ಷನ್, ಫಿಟ್-ಔಟ್ ಮತ್ತು ಹ್ಯಾಂಡ್‌ಓವರ್, ಮತ್ತು ರೆಡಿ ಟು ಮೂವ್ ಇನ್. ಆರಂಭದಿಂದ, ಸೈಟ್ ಇವ್ಯಾಲ್ಯುಯೇಶನ್‌ನಿಂದ ಶುರು ಮಾಡೋಣವೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c110.mp4"
+ },
+ {
+  "id": "kn_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "ನೆಕ್ಸೋರಾದಲ್ಲಿ ಎಲ್ಲಾ ಗಾತ್ರದ ಬಿಲ್ಡರ್‌ಗಳಿಗೆ ಸಬ್‌ಸ್ಕ್ರಿಪ್ಷನ್ ಪ್ಲಾನ್‌ಗಳಿವೆ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c111.mp4"
+ },
+ {
+  "id": "kn_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "ಬೆಲೆಗಳನ್ನು ಪ್ರಕಟಿಸಿಲ್ಲ, ಹಾಗಾಗಿ ಡೆಮೊದಲ್ಲಿ ನಿಮ್ಮ ಪ್ರಾಜೆಕ್ಟ್‌ನ ಬೆಲೆಯನ್ನು ತಂಡ ತಿಳಿಸುತ್ತದೆ. ಡೆಮೊ ಬುಕಿಂಗ್ ಫಾರ್ಮ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c112.mp4"
+ },
+ {
+  "id": "kn_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "ಕ್ಷಮಿಸಿ, ಇಲ್ಲಿರುವ ವಿಲ್ಲಾ ಒಂದು ಉದಾಹರಣೆ ಮಾತ್ರ, ಮಾರಾಟಕ್ಕಲ್ಲ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c113.mp4"
+ },
+ {
+  "id": "kn_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "ಹಾಗಾಗಿ ಬೆಲೆ ಅಥವಾ ಸ್ಥಳದ ವಿವರಗಳಿಲ್ಲ, ಆದರೆ ಖರೀದಿದಾರರು ಪ್ರಾಜೆಕ್ಟ್ ಅನ್ನು ಹೇಗೆ ನೋಡುತ್ತಾರೆ ಎಂಬುದನ್ನು ವರ್ಚುವಲ್ ಟೂರ್ ತೋರಿಸುತ್ತದೆ. ವರ್ಚುವಲ್ ಟೂರ್ ನೋಡಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c114.mp4"
+ },
+ {
+  "id": "kn_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "ಉಚಿತ ಡೆಮೊ ಬುಕ್ ಮಾಡಲು ಸಹಾಯ ಮಾಡಲು ನನಗೆ ಸಂತೋಷ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c115.mp4"
+ },
+ {
+  "id": "kn_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "ನಿಮ್ಮ ಪ್ರಾಜೆಕ್ಟ್ ಬಗ್ಗೆ ಸ್ವಲ್ಪ ಹೇಳಿ, ವೈಯಕ್ತಿಕ ವಾಕ್‌ಥ್ರೂಗಾಗಿ ತಂಡ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ. ಈಗಲೇ ಡೆಮೊ ಫಾರ್ಮ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c116.mp4"
+ },
+ {
+  "id": "kn_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "ತಂಡಕ್ಕೆ ಕಾಂಟ್ಯಾಕ್ಟ್ ಅಟ್ ಜಟ್ಟಾ ಎಂ ಕಾಮರ್ಸ್ ಡಾಟ್ ಕಾಮ್ ಗೆ ಇಮೇಲ್ ಮಾಡಬಹುದು. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c117.mp4"
+ },
+ {
+  "id": "kn_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "ಅಥವಾ ಬುಕ್ ಎ ಡೆಮೊ ಫಾರ್ಮ್ ಬಳಸಿ, ಅವರು ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತಾರೆ. ಬುಕ್ ಎ ಡೆಮೊ ಫಾರ್ಮ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c118.mp4"
+ },
+ {
+  "id": "kn_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "ನೆಕ್ಸೋರಾ, ಜಟ್ಟಾ ಎಂ ಕಾಮರ್ಸ್‌ನ ಉತ್ಪನ್ನ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c119.mp4"
+ },
+ {
+  "id": "kn_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "ಹೆಚ್ಚಿನ ವಿವರಗಳನ್ನು ಕಾಂಟ್ಯಾಕ್ಟ್ ಅಟ್ ಜಟ್ಟಾ ಎಂ ಕಾಮರ್ಸ್ ಡಾಟ್ ಕಾಮ್ ನಲ್ಲಿ ತಂಡ ತಿಳಿಸುತ್ತದೆ. ನೆಕ್ಸೋರಾ ಏನು ಮಾಡುತ್ತದೆ ಎಂದು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c120.mp4"
+ },
+ {
+  "id": "kn_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "ನೆಕ್ಸೋರಾ ಸೇಲ್ಸ್‌ಫೋರ್ಸ್, ಹಬ್‌ಸ್ಪಾಟ್ ಮತ್ತು ಬಿಲ್ಡರ್ ಇ-ಆರ್-ಪಿ ಯಂತಹ ಟೂಲ್‌ಗಳೊಂದಿಗೆ ಸಂಪರ್ಕ ಹೊಂದುತ್ತದೆ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c121.mp4"
+ },
+ {
+  "id": "kn_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "ವೆಬ್‌ಹುಕ್ಸ್, ರೆಸ್ಟ್ ಎ-ಪಿ-ಐ, ಮತ್ತು ಎಸ್-ಎ-ಪಿ, ರೇರಾ ಪೋರ್ಟಲ್‌ಗಳಿಗೆ ಕನೆಕ್ಟರ್‌ಗಳೂ ಇವೆ. ನಿಮಗೆ ಯಾವುದು ಸರಿಹೊಂದುತ್ತದೆ ಎಂದು ತಂಡ ಖಚಿತಪಡಿಸಲು ಡೆಮೊ ಫಾರ್ಮ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c122.mp4"
+ },
+ {
+  "id": "kn_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "ಮಾದರಿ ಪ್ರಾಜೆಕ್ಟ್‌ನ ಎಲ್ಲೆಡೆ ಪರಿಸರ ಕಾಳಜಿ ಇದೆ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c123.mp4"
+ },
+ {
+  "id": "kn_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "ಮೇಲ್ಛಾವಣಿ ಸೋಲಾರ್, ಮಳೆನೀರು ಸಂಗ್ರಹ, ಗ್ರೇವಾಟರ್ ಮರುಬಳಕೆ, ಇವಿ ಚಾರ್ಜಿಂಗ್ ಮತ್ತು ಗ್ರೀನ್ ಬಿಲ್ಡಿಂಗ್ ಟ್ರ್ಯಾಕಿಂಗ್. ಈ ಯೋಜನೆ ಶುರುವಾಗುವ ಸೈಟ್ ಇವ್ಯಾಲ್ಯುಯೇಶನ್‌ನಿಂದ ಆರಂಭಿಸೋಣವೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c124.mp4"
+ },
+ {
+  "id": "kn_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "ನೆಕ್ಸೋರಾ ಖಾತೆಗಳು ಇನ್ನೂ ಸಿದ್ಧವಾಗುತ್ತಿವೆ, ಹಾಗಾಗಿ ಲಾಗಿನ್ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ. ತಂಡ ನಿಮಗೆ ಪ್ರವೇಶ ನೀಡಲು ಡೆಮೊ ಫಾರ್ಮ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c125.mp4"
+ },
+ {
+  "id": "kn_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "ತುಂಬಾ ಸುಲಭ: ಹಂತಗಳನ್ನು ಬದಲಿಸಲು ಸ್ಕ್ರೋಲ್ ಮಾಡಿ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c126.mp4"
+ },
+ {
+  "id": "kn_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "ಮೇಲೆ ಬಲಭಾಗದ ಮೆನುವಿನಲ್ಲಿ ಎಲ್ಲಾ ಹಂತಗಳಿವೆ, ಬುಕ್ ಎ ಡೆಮೊ ಪುಟದ ಮೇಲ್ಭಾಗದಲ್ಲಿದೆ. ಈಗ ನಿಮ್ಮನ್ನು ವೆಬ್‌ಸೈಟ್‌ಗೆ ಕರೆದೊಯ್ಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c127.mp4"
+ },
+ {
+  "id": "kn_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "ಈ ವೆಬ್‌ಸೈಟ್ ನಮ್ಮ ಸಂಭಾಷಣೆಯನ್ನು ಸೇವ್ ಮಾಡುವುದಿಲ್ಲ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c128.mp4"
+ },
+ {
+  "id": "kn_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "ನೀವು ಮಾತನಾಡಿದಾಗ, ನಿಮ್ಮ ಬ್ರೌಸರ್ ಧ್ವನಿಯನ್ನು ಪಠ್ಯವಾಗಿ ಬದಲಾಯಿಸುತ್ತದೆ, ಹಾಗಾಗಿ ಇಲ್ಲಿ ವೈಯಕ್ತಿಕ ವಿವರಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಬೇಡಿ. ನೆಕ್ಸೋರಾ ಬಗ್ಗೆ ಬೇರೆ ಏನಾದರೂ ಸಹಾಯ ಬೇಕೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c129.mp4"
+ },
+ {
+  "id": "kn_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "ಅದ್ಭುತ, ಹಾಗಾದರೆ ನೆಕ್ಸೋರಾ ನಿಮಗಾಗಿಯೇ ತಯಾರಾಗಿದೆ. ಐದು ಮಾಡ್ಯೂಲ್‌ಗಳನ್ನು ನೋಡಲು ಬಯಸುತ್ತೀರಾ, ಅಥವಾ ಡೆಮೊ ಬುಕ್ ಮಾಡಲು ಸಹಾಯ ಮಾಡಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c130.mp4"
+ },
+ {
+  "id": "kn_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "ಅದ್ಭುತ! ನೆಕ್ಸೋರಾದಲ್ಲಿ ಮನೆಗಳನ್ನು ಕಟ್ಟುವ ಮೊದಲೇ ತ್ರೀ-ಡಿ ಯಲ್ಲಿ ನೋಡಬಹುದು. ನಿಮಗಾಗಿ ವರ್ಚುವಲ್ ಟೂರ್ ಆರಂಭಿಸಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c131.mp4"
+ },
+ {
+  "id": "kn_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "ಪರವಾಗಿಲ್ಲ, ನಿಧಾನವಾಗಿ ನೋಡಿ. ಮೊದಲ ಹಂತದಿಂದ ನಿಮಗೆ ತೋರಿಸಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c132.mp4"
+ },
+ {
+  "id": "kn_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "ನಮಸ್ಕಾರ! ನೀವು ಡೆವಲಪರ್ ಅಥವಾ ಬಿಲ್ಡರಾ, ಮನೆ ಹುಡುಕುತ್ತಿದ್ದೀರಾ, ಅಥವಾ ಸುಮ್ಮನೆ ನೋಡುತ್ತಿದ್ದೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c133.mp4"
+ },
+ {
+  "id": "kn_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "ನಮಸ್ಕಾರ! ನೀವು ಇಲ್ಲಿಗೆ ಬಂದಿದ್ದು ಸಂತೋಷ. ನೀವು ಡೆವಲಪರಾ, ಮನೆ ಖರೀದಿದಾರರಾ, ಅಥವಾ ಸುಮ್ಮನೆ ನೋಡುತ್ತಿದ್ದೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c134.mp4"
+ },
+ {
+  "id": "kn_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "ನಾನು ತುಂಬಾ ಚೆನ್ನಾಗಿದ್ದೇನೆ, ಧನ್ಯವಾದ! ಇಂದು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c135.mp4"
+ },
+ {
+  "id": "kn_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "ನಾನು ಚೆನ್ನಾಗಿದ್ದೇನೆ, ಕೇಳಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದ! ನೆಕ್ಸೋರಾ ಬಗ್ಗೆ ಏನು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಿ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c136.mp4"
+ },
+ {
+  "id": "kn_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "ನಾನು ಹನ್ನಾ, ನೆಕ್ಸೋರಾದ ವರ್ಚುವಲ್ ರಿಸೆಪ್ಷನಿಸ್ಟ್, ನಿಮಗೆ ದಾರಿ ತೋರಿಸಲು ಇಲ್ಲಿದ್ದೇನೆ. ಏನು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಿ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c137.mp4"
+ },
+ {
+  "id": "kn_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "ನಿಮ್ಮನ್ನು ಸ್ವಾಗತಿಸಲು, ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಲು ಮತ್ತು ನೆಕ್ಸೋರಾ ತೋರಿಸಲು ನಾನು ಇಲ್ಲಿದ್ದೇನೆ. ಏನು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಿ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c138.mp4"
+ },
+ {
+  "id": "kn_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "ನಾನು ಒಬ್ಬ ಎಐ ರಿಸೆಪ್ಷನಿಸ್ಟ್, ಆದರೂ ಸಹಾಯ ಮಾಡಲು ಸಂಪೂರ್ಣ ಸಿದ್ಧ. ಏನು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಿ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c139.mp4"
+ },
+ {
+  "id": "kn_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "ಸ್ವಾಗತ! ಬೇರೆ ಏನಾದರೂ ಸಹಾಯ ಬೇಕೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c034.mp4"
+ },
+ {
+  "id": "kn_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "ನನ್ನ ಸಂತೋಷ! ನೆಕ್ಸೋರಾ ಬಗ್ಗೆ ಬೇರೆ ಏನಾದರೂ ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c035.mp4"
+ },
+ {
+  "id": "kn_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "ನೆಕ್ಸೋರಾಗೆ ಬಂದಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದ! ಬೇಕಾದರೆ ನಾನು ಯಾವಾಗಲೂ ಮೆನುವಿನಲ್ಲಿರುತ್ತೇನೆ. ನಿಮ್ಮ ದಿನ ಶುಭವಾಗಲಿ!",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c140.mp4"
+ },
+ {
+  "id": "kn_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "ನೆಕ್ಸೋರಾ ಬಗ್ಗೆ ವಿವರಿಸಬಲ್ಲೆ, ವೆಬ್‌ಸೈಟ್ ತೋರಿಸಬಲ್ಲೆ, ಡೆಮೊ ಬುಕ್ ಮಾಡಲು ಸಹಾಯ ಮಾಡಬಲ್ಲೆ. ಎಲ್ಲಿಂದ ಶುರು ಮಾಡೋಣ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c141.mp4"
+ },
+ {
+  "id": "kn_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "ಅದು ನನ್ನ ವ್ಯಾಪ್ತಿಗೆ ಸ್ವಲ್ಪ ಹೊರಗಿದೆ, ಆದರೆ ನೆಕ್ಸೋರಾ ತೋರಿಸಲು ನನಗೆ ಇಷ್ಟ. ಒಂದು ಚಿಕ್ಕ ಟೂರ್ ನೀಡಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c142.mp4"
+ },
+ {
+  "id": "kn_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "ಕ್ಷಮಿಸಿ, ಅದಕ್ಕೆ ನಾನು ಸಹಾಯ ಮಾಡಲಾರೆ. ಆದರೆ ನೆಕ್ಸೋರಾ ತೋರಿಸಬಲ್ಲೆ. ಒಂದು ಚಿಕ್ಕ ಟೂರ್ ಮಾಡೋಣವೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c143.mp4"
+ },
+ {
+  "id": "kn_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "ಅದಕ್ಕೆ ಸಹಾಯ ಮಾಡಲು ಸಾಧ್ಯವಾಗಿದ್ದರೆ ಚೆನ್ನಾಗಿತ್ತು! ನೆಕ್ಸೋರಾ ತೋರಿಸುವುದರಲ್ಲಿ ನಾನು ಉತ್ತಮ. ಒಂದು ಚಿಕ್ಕ ಟೂರ್ ಬೇಕೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c144.mp4"
+ },
+ {
+  "id": "kn_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "ಪರವಾಗಿಲ್ಲ, ಸರಳವಾಗಿ ಹೇಳುತ್ತೇನೆ. ಮನೆಗಳನ್ನು ಕಟ್ಟುವ ಮೊದಲೇ ತ್ರೀ-ಡಿ ಯಲ್ಲಿ ತೋರಿಸಲು ನೆಕ್ಸೋರಾ ಬಿಲ್ಡರ್‌ಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ. ತೋರಿಸಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c145.mp4"
+ },
+ {
+  "id": "kn_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "ಪರವಾಗಿಲ್ಲ. ನೆಕ್ಸೋರಾವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸುಲಭ ದಾರಿ ಒಂದು ಚಿಕ್ಕ ಟೂರ್. ತೋರಿಸಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c146.mp4"
+ },
+ {
+  "id": "kn_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "ಕ್ಷಮಿಸಿ, ಆ ವಿವರ ನನ್ನ ಬಳಿ ಇಲ್ಲ. ಡೆಮೊದಲ್ಲಿ ನಮ್ಮ ತಂಡ ಉತ್ತರಿಸುತ್ತದೆ. ಡೆಮೊ ಫಾರ್ಮ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c147.mp4"
+ },
+ {
+  "id": "kn_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "ಒಳ್ಳೆಯ ಪ್ರಶ್ನೆ! ಅದರ ಉತ್ತರ ನನ್ನ ಬಳಿ ಇಲ್ಲ, ಆದರೆ ಡೆಮೊದಲ್ಲಿ ತಂಡ ತಿಳಿಸುತ್ತದೆ. ಡೆಮೊ ಫಾರ್ಮ್ ತೆರೆಯಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c148.mp4"
+ },
+ {
+  "id": "kn_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "ಕ್ಷಮಿಸಿ, ನನಗೆ ಸರಿಯಾಗಿ ಅರ್ಥವಾಗಲಿಲ್ಲ. ಬೇರೆ ರೀತಿಯಲ್ಲಿ ಹೇಳಬಹುದೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c149.mp4"
+ },
+ {
+  "id": "kn_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "ಕ್ಷಮಿಸಿ, ಅರ್ಥವಾಗಲಿಲ್ಲ. ನೆಕ್ಸೋರಾ ಎಂದರೇನು ಎಂದು ಕೇಳಬಹುದು, ಅಥವಾ ಟೂರ್ ಕೇಳಬಹುದು.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c150.mp4"
+ },
+ {
+  "id": "kn_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "ಪರವಾಗಿಲ್ಲ. ಅದರ ಬದಲು ಏನು ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಿ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c048.mp4"
+ },
+ {
+  "id": "kn_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "ಸರಿ. ನೆಕ್ಸೋರಾ ಬಗ್ಗೆ ಬೇರೆ ಏನಾದರೂ ಸಹಾಯ ಬೇಕೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c049.mp4"
+ },
+ {
+  "id": "kn_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "ಅದ್ಭುತ! ನೆಕ್ಸೋರಾ ಬಗ್ಗೆ ವಿವರಿಸಬಲ್ಲೆ, ತೋರಿಸಬಲ್ಲೆ, ಅಥವಾ ಡೆಮೊ ಬುಕ್ ಮಾಡಲು ಸಹಾಯ ಮಾಡಬಲ್ಲೆ. ಯಾವುದು ಬೇಕು?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c151.mp4"
+ },
+ {
+  "id": "kn_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "ಕ್ಷಮಿಸಿ, ನಿಮ್ಮ ಭಾಷೆ ನನಗೆ ಅರ್ಥವಾಗುತ್ತಿಲ್ಲ. ನಾವು ಮಾತನಾಡಲು, ನನ್ನ ಭಾಷೆಗಳಲ್ಲಿ ಒಂದನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c152.mp4"
+ },
+ {
+  "id": "kn_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "ಖಂಡಿತ, ಇನ್ನು ನಾವು ಕನ್ನಡದಲ್ಲಿ ಮಾತನಾಡೋಣ. ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c185.mp4"
+ },
+ {
+  "id": "kn_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "ಖಂಡಿತ, ಈಗ ನಿಮ್ಮನ್ನು ಸೈಟ್ ಇವ್ಯಾಲ್ಯುಯೇಶನ್‌ಗೆ ಕರೆದೊಯ್ಯುತ್ತೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c153.mp4"
+ },
+ {
+  "id": "kn_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "ಖಂಡಿತ, ಈಗ ನಿಮ್ಮನ್ನು ಮಾಸ್ಟರ್ ಪ್ಲಾನಿಂಗ್‌ಗೆ ಕರೆದೊಯ್ಯುತ್ತೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c154.mp4"
+ },
+ {
+  "id": "kn_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "ಖಂಡಿತ, ಈಗ ನಿಮ್ಮನ್ನು ಕನ್‌ಸ್ಟ್ರಕ್ಷನ್‌ಗೆ ಕರೆದೊಯ್ಯುತ್ತೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c155.mp4"
+ },
+ {
+  "id": "kn_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "ಖಂಡಿತ, ಈಗ ನಿಮ್ಮನ್ನು ಫಿಟ್-ಔಟ್ ಮತ್ತು ಹ್ಯಾಂಡ್‌ಓವರ್‌ಗೆ ಕರೆದೊಯ್ಯುತ್ತೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c156.mp4"
+ },
+ {
+  "id": "kn_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "ಖಂಡಿತ, ಈಗ ನಿಮ್ಮನ್ನು ರೆಡಿ ಟು ಮೂವ್ ಇನ್‌ಗೆ ಕರೆದೊಯ್ಯುತ್ತೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c157.mp4"
+ },
+ {
+  "id": "kn_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "ಖಂಡಿತ, ಈಗ ನಿಮ್ಮನ್ನು ವರ್ಚುವಲ್ ಟೂರ್‌ಗೆ ಕರೆದೊಯ್ಯುತ್ತೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c158.mp4"
+ },
+ {
+  "id": "kn_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "ಖಂಡಿತ, ನಿಮಗಾಗಿ ಡೆಮೊ ಫಾರ್ಮ್ ತೆರೆಯುತ್ತಿದ್ದೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c159.mp4"
+ },
+ {
+  "id": "kn_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "ಖಂಡಿತ, ಈಗ ನಿಮ್ಮನ್ನು ವೆಬ್‌ಸೈಟ್‌ಗೆ ಕರೆದೊಯ್ಯುತ್ತೇನೆ. ಬೇಕಾದರೆ ನಾನು ಮೆನುವಿನಲ್ಲಿರುತ್ತೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c160.mp4"
+ },
+ {
+  "id": "kn_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "ಕ್ಷಮಿಸಿ, ನಿಮ್ಮ ಹೆಸರು ಅರ್ಥವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಮೊದಲ ಹೆಸರನ್ನು ಮಾತ್ರ ಟೈಪ್ ಮಾಡಬಹುದೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c161.mp4"
+ },
+ {
+  "id": "kn_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "ಪರವಾಗಿಲ್ಲ! ನೀವು ಡೆವಲಪರ್ ಅಥವಾ ಬಿಲ್ಡರಾ, ಮನೆ ಹುಡುಕುತ್ತಿದ್ದೀರಾ, ಅಥವಾ ಸುಮ್ಮನೆ ನೋಡುತ್ತಿದ್ದೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c162.mp4"
+ },
+ {
+  "id": "kn_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "ನಿಮ್ಮನ್ನು ಭೇಟಿಯಾಗಿ ಸಂತೋಷವಾಯಿತು! ನೀವು ಡೆವಲಪರ್ ಅಥವಾ ಬಿಲ್ಡರಾ, ಮನೆ ಹುಡುಕುತ್ತಿದ್ದೀರಾ, ಅಥವಾ ಸುಮ್ಮನೆ ನೋಡುತ್ತಿದ್ದೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c163.mp4"
+ },
+ {
+  "id": "kn_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "ಅದ್ಭುತ! ನೀವು ಯಾವ ಕಂಪನಿಯಲ್ಲಿದ್ದೀರಿ, ಅಲ್ಲಿ ನಿಮ್ಮ ಪಾತ್ರ ಏನು?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c164.mp4"
+ },
+ {
+  "id": "kn_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "ಧನ್ಯವಾದ! ನೆಕ್ಸೋರಾದ ಒಂದು ಚಿಕ್ಕ ಗೈಡೆಡ್ ಟೂರ್ ನೀಡಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c165.mp4"
+ },
+ {
+  "id": "kn_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "ಅದ್ಭುತ! ನೆಕ್ಸೋರಾದಲ್ಲಿ ಮನೆಗಳನ್ನು ಕಟ್ಟುವ ಮೊದಲೇ ತ್ರೀ-ಡಿ ಯಲ್ಲಿ ನೋಡಬಹುದು. ಒಂದು ಚಿಕ್ಕ ಗೈಡೆಡ್ ಟೂರ್ ನೀಡಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c166.mp4"
+ },
+ {
+  "id": "kn_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "ಪರವಾಗಿಲ್ಲ, ನಿಧಾನವಾಗಿ ನೋಡಿ. ಒಂದು ಚಿಕ್ಕ ಗೈಡೆಡ್ ಟೂರ್ ನೀಡಲೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c167.mp4"
+ },
+ {
+  "id": "kn_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "ಪರವಾಗಿಲ್ಲ. ನನ್ನನ್ನು ಏನಾದರೂ ಕೇಳಬಹುದು, ಅಥವಾ ನಿಮಗೆ ಇಷ್ಟದಂತೆ ನೋಡಬಹುದು.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c168.mp4"
+ },
+ {
+  "id": "kn_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "ಶುರು ಮಾಡೋಣ! ಇದು ಸೈಟ್ ಇವ್ಯಾಲ್ಯುಯೇಶನ್, ಕಟ್ಟುವ ಮೊದಲು ಡೆವಲಪರ್ ಜಮೀನನ್ನು ಪರಿಶೀಲಿಸುವ ಹಂತ. ಮುಂದೆ ಹೋಗೋಣವೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c169.mp4"
+ },
+ {
+  "id": "kn_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "ಇದು ಮಾಸ್ಟರ್ ಪ್ಲಾನಿಂಗ್. ವಿಲ್ಲಾ ಲೇಔಟ್‌ಗಳು ಅಂತಿಮಗೊಳ್ಳುತ್ತವೆ, ಖರೀದಿದಾರರಿಗೆ ತ್ರೀ-ಡಿ ಟ್ವಿನ್ ಲೈವ್ ಆಗುತ್ತದೆ. ಮುಂದೆ ಹೋಗೋಣವೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c170.mp4"
+ },
+ {
+  "id": "kn_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "ಇದು ಕನ್‌ಸ್ಟ್ರಕ್ಷನ್. ಡ್ರೋನ್ ಚಿತ್ರಗಳು ಮತ್ತು ಫೋಟೋ ದಾಖಲೆಗಳೊಂದಿಗೆ ನೆಕ್ಸೋರಾ ಪ್ರತಿ ಹಂತವನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುತ್ತದೆ. ಮುಂದೆ ಹೋಗೋಣವೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c171.mp4"
+ },
+ {
+  "id": "kn_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "ಇದು ಫಿಟ್-ಔಟ್ ಮತ್ತು ಹ್ಯಾಂಡ್‌ಓವರ್. ಕೀಲಿಗಳನ್ನು ಹಸ್ತಾಂತರಿಸುವ ಮೊದಲು ಪ್ರತಿ ಮನೆಯ ಗುಣಮಟ್ಟ ಪರಿಶೀಲನೆಯಾಗುತ್ತದೆ. ಮುಂದೆ ಹೋಗೋಣವೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c172.mp4"
+ },
+ {
+  "id": "kn_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "ರೆಡಿ ಟು ಮೂವ್ ಇನ್‌ಗೆ ಸ್ವಾಗತ. ರೆಸಿಡೆಂಟ್ ಆ್ಯಪ್ ಬುಕಿಂಗ್, ಅತಿಥಿಗಳು ಮತ್ತು ನಿರ್ವಹಣೆಯನ್ನು ನೋಡಿಕೊಳ್ಳುತ್ತದೆ. ವಿಲ್ಲಾ ನೋಡೋಣವೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c173.mp4"
+ },
+ {
+  "id": "kn_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "ಇದು ನಮ್ಮ ಡೆಮೊ ವಿಲ್ಲಾದ ವರ್ಚುವಲ್ ಟೂರ್. ನಿಧಾನವಾಗಿ ಸುತ್ತಾಡಿ ನೋಡಿ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c174.mp4"
+ },
+ {
+  "id": "kn_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "ಇದೇ ನಮ್ಮ ಟೂರ್! ನಿಮ್ಮ ಸ್ವಂತ ಪ್ರಾಜೆಕ್ಟ್‌ಗೆ ವೈಯಕ್ತಿಕ ಡೆಮೊ ಬೇಕೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c175.mp4"
+ },
+ {
+  "id": "kn_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "ಪರವಾಗಿಲ್ಲ, ಇಲ್ಲಿಯೇ ನಿಲ್ಲಿಸೋಣ. ಬೇಕಾದರೆ ನಾನು ಯಾವಾಗಲೂ ಮೆನುವಿನಲ್ಲಿರುತ್ತೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c176.mp4"
+ },
+ {
+  "id": "kn_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "ಉಚಿತ ಡೆಮೊ ಏರ್ಪಡಿಸಲು ನನಗೆ ಸಂತೋಷ! ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಲು ಸರಿಯಾದ ಫೋನ್ ನಂಬರ್ ಯಾವುದು?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c177.mp4"
+ },
+ {
+  "id": "kn_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "ಉಚಿತ ಡೆಮೊ ಏರ್ಪಡಿಸಲು ನನಗೆ ಸಂತೋಷ! ಮೊದಲು ನಿಮ್ಮ ಹೆಸರು ಹೇಳುತ್ತೀರಾ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c178.mp4"
+ },
+ {
+  "id": "kn_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "ಧನ್ಯವಾದ! ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಲು ಸರಿಯಾದ ಫೋನ್ ನಂಬರ್ ಯಾವುದು?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c179.mp4"
+ },
+ {
+  "id": "kn_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "ಹ್ಮ್, ಆ ನಂಬರ್ ಸರಿಯಾಗಿ ಕಾಣುತ್ತಿಲ್ಲ. ಹತ್ತು ಅಂಕಿಗಳೊಂದಿಗೆ ಮತ್ತೆ ಟೈಪ್ ಮಾಡಬಹುದೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c180.mp4"
+ },
+ {
+  "id": "kn_c181",
+  "key": "Thank you. And your email address?",
+  "say": "ಧನ್ಯವಾದ. ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c181.mp4"
+ },
+ {
+  "id": "kn_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "ಆ ಇಮೇಲ್ ಸರಿಯಾಗಿ ಕಾಣುತ್ತಿಲ್ಲ. ಮತ್ತೆ ಟೈಪ್ ಮಾಡಬಹುದೇ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c182.mp4"
+ },
+ {
+  "id": "kn_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "ಧನ್ಯವಾದ! ನಮ್ಮ ತಂಡ ಶೀಘ್ರದಲ್ಲೇ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ. ನೀವು ದಿನಾಂಕ ಆಯ್ಕೆಮಾಡಲು ಡೆಮೊ ಫಾರ್ಮ್ ತೆರೆಯುತ್ತಿದ್ದೇನೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c183.mp4"
+ },
+ {
+  "id": "kn_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "ಪರವಾಗಿಲ್ಲ. ನೀವು ಸಿದ್ಧರಾದಾಗ, ಬುಕ್ ಎ ಡೆಮೊ ಬಟನ್ ಮೇಲ್ಭಾಗದಲ್ಲಿದೆ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "kn",
+  "file": "kn/c184.mp4"
+ }
+]

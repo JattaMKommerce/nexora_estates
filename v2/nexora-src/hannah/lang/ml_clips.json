@@ -1,0 +1,965 @@
+[
+ {
+  "id": "ml_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "നമസ്കാരം, നെക്സോറയിലേക്ക് സ്വാഗതം! ഞാൻ ഹന്ന, നിങ്ങളുടെ വെർച്വൽ റിസപ്ഷനിസ്റ്റ്. നിങ്ങളുടെ പേര് അറിയാമോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c083.mp4"
+ },
+ {
+  "id": "ml_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "വീണ്ടും സ്വാഗതം! നിങ്ങളെ വീണ്ടും കണ്ടതിൽ സന്തോഷം. ഇന്ന് ഞാൻ എങ്ങനെ സഹായിക്കണം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c084.mp4"
+ },
+ {
+  "id": "ml_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "നെക്സോറ, ജട്ട എം കൊമേഴ്സിന്റെ റിയൽ എസ്റ്റേറ്റ് സോഫ്റ്റ്‌വെയറാണ്. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c085.mp4"
+ },
+ {
+  "id": "ml_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "ഡെവലപ്പർമാർക്ക് അവരുടെ പ്രോജക്ടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ ത്രീ-ഡി യിൽ കാണിക്കാൻ ഇത് സഹായിക്കുന്നു. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c086.mp4"
+ },
+ {
+  "id": "ml_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "ഇത് നിർമ്മാണം ട്രാക്ക് ചെയ്യുന്നു, വീടുകൾ വാങ്ങുന്നവർക്ക് കൈമാറുന്നത് വരെ എല്ലാം ഒരിടത്ത് നോക്കുന്നു. ത്രീ-ഡി ഡിജിറ്റൽ ട്വിൻ എന്താണെന്ന് അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c087.mp4"
+ },
+ {
+  "id": "ml_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "ഡിജിറ്റൽ ട്വിൻ എന്നാൽ ഒരു പ്രോജക്ടിന്റെ യഥാർത്ഥം പോലെ തോന്നുന്ന ത്രീ-ഡി പകർപ്പാണ്. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c088.mp4"
+ },
+ {
+  "id": "ml_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "ഇത് ആർക്കിടെക്ടിന്റെ ഡ്രോയിംഗുകളിൽ നിന്നാണ് ഉണ്ടാക്കുന്നത്, അതിനാൽ വാങ്ങുന്നവർക്ക് ഓരോ വില്ലയും ബ്രൗസറിൽ കാണാം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c089.mp4"
+ },
+ {
+  "id": "ml_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "നെക്സോറയ്ക്ക് റെവിറ്റ്, ആർക്കികാഡ് അല്ലെങ്കിൽ ബിം മോഡലുകളെ എഴുപത്തിരണ്ട് മണിക്കൂറിനുള്ളിൽ ട്വിൻ ആക്കി മാറ്റാൻ കഴിയും. ഞങ്ങളുടെ മാതൃകാ വില്ലയുടെ വെർച്വൽ ടൂർ കാണണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c090.mp4"
+ },
+ {
+  "id": "ml_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "നെക്സോറയിൽ അഞ്ച് പ്രധാന മൊഡ്യൂളുകളുണ്ട്, ഒഴിഞ്ഞ ഭൂമി മുതൽ താമസക്കാർ എത്തുന്നത് വരെ. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c091.mp4"
+ },
+ {
+  "id": "ml_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "ആദ്യത്തെ മൂന്നെണ്ണം: ഭൂമിയും സാധ്യതാ പഠനവും, ത്രീ-ഡി സെയിൽസ് ഗാലറി, പിന്നെ കൺസ്ട്രക്ഷൻ ട്രാക്കർ. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c092.mp4"
+ },
+ {
+  "id": "ml_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "പിന്നെ ക്വാളിറ്റിയും സ്നാഗിംഗും, ഒടുവിൽ ബയർ ഹാൻഡോവറും റസിഡന്റ് പോർട്ടലും. ഓരോന്നായി കാണിക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c093.mp4"
+ },
+ {
+  "id": "ml_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "നെക്സോറ റിയൽ എസ്റ്റേറ്റ് ഡെവലപ്പർമാർക്കും ബിൽഡർമാർക്കും വേണ്ടി ഉണ്ടാക്കിയതാണ്. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c094.mp4"
+ },
+ {
+  "id": "ml_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "ചെറിയ വില്ല ബിൽഡർമാർ മുതൽ വലിയ ടൗൺഷിപ്പ് ഡെവലപ്പർമാർ വരെ. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c095.mp4"
+ },
+ {
+  "id": "ml_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "അവരുടെ വാങ്ങുന്നവരും താമസക്കാരും വീടുകൾ കാണാനും നിർമ്മാണം പിന്തുടരാനും ഇത് ഉപയോഗിക്കുന്നു. നിങ്ങൾ ഡെവലപ്പറാണോ, അതോ സ്വന്തമായി വീട് അന്വേഷിക്കുകയാണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c096.mp4"
+ },
+ {
+  "id": "ml_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "ആദ്യ ഘട്ടം സൈറ്റ് ഇവാല്യുവേഷൻ, പണിയുന്നതിന് മുമ്പ് ഡെവലപ്പർ ഭൂമി പരിശോധിക്കുന്ന ഘട്ടം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c097.mp4"
+ },
+ {
+  "id": "ml_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "റോഡ്, സർവേ, വെള്ളം, വൈദ്യുതി, അനുമതികൾ, സോണിംഗ്, മണ്ണ് പരിശോധന എല്ലാം നെക്സോറ ട്രാക്ക് ചെയ്യുന്നു. നിങ്ങൾക്കായി സൈറ്റ് ഇവാല്യുവേഷൻ തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c098.mp4"
+ },
+ {
+  "id": "ml_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "രണ്ടാം ഘട്ടം മാസ്റ്റർ പ്ലാനിംഗ്, വില്ല ലേഔട്ടുകൾ അന്തിമമാക്കുന്ന ഘട്ടം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c099.mp4"
+ },
+ {
+  "id": "ml_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "റെറ രജിസ്ട്രേഷൻ പൂർത്തിയാകുന്നു, വാങ്ങുന്നവർക്കായി ത്രീ-ഡി ട്വിൻ ലൈവ് ആകുന്നു, ലൈവ് ഇൻവെന്ററിയും ബുക്കിംഗും സഹിതം. കാണാനായി മാസ്റ്റർ പ്ലാനിംഗ് തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c100.mp4"
+ },
+ {
+  "id": "ml_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "മൂന്നാം ഘട്ടം കൺസ്ട്രക്ഷൻ, ടവറുകളും ക്ലബ്ഹൗസും ഉയർന്നുവരുന്ന ഘട്ടം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c101.mp4"
+ },
+ {
+  "id": "ml_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "ഡ്രോൺ ചിത്രങ്ങൾ, ബിൽ പരിശോധന, ഫോട്ടോ രേഖകൾ എന്നിവയോടെ നെക്സോറ ഓരോ ഘട്ടവും ട്രാക്ക് ചെയ്യുന്നു. നിങ്ങളെ കൺസ്ട്രക്ഷൻ ഘട്ടത്തിലേക്ക് കൊണ്ടുപോകട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c102.mp4"
+ },
+ {
+  "id": "ml_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "നാലാം ഘട്ടം ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും, ഇന്റീരിയറുകൾ പൂർത്തിയാകുന്ന സമയം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c103.mp4"
+ },
+ {
+  "id": "ml_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "ഓരോ വീടും ഇരുന്നൂറ്-ലധികം ഗുണനിലവാര പോയിന്റുകളിൽ പരിശോധിക്കുന്നു, വാക്ക്ത്രൂവിന് ശേഷം താക്കോലുകൾ കൈമാറുന്നു. നിങ്ങൾക്കായി ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c104.mp4"
+ },
+ {
+  "id": "ml_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "അഞ്ചാം ഘട്ടം റെഡി ടു മൂവ് ഇൻ, താമസക്കാർ സ്ഥിരതാമസമാക്കുന്ന സമയം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c105.mp4"
+ },
+ {
+  "id": "ml_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "റസിഡന്റ് ആപ്പ് സൗകര്യ ബുക്കിംഗ്, സന്ദർശകർ, സുരക്ഷ, പരിപാലനം എന്നിവ നോക്കുന്നു. റെഡി ടു മൂവ് ഇൻ കാണണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c106.mp4"
+ },
+ {
+  "id": "ml_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "വെർച്വൽ ടൂറിൽ ഞങ്ങളുടെ മാതൃകാ ആഡംബര വില്ല ത്രീ-ഡി യിൽ കാണാം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c107.mp4"
+ },
+ {
+  "id": "ml_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "പൂന്തോട്ടം, ക്ലബ്ഹൗസും പൂളും, ലിവിംഗ് പവലിയൻ, മാസ്റ്റർ സ്യൂട്ട് എന്നിവയിലൂടെ നടന്നു കാണാം. നിങ്ങൾക്കായി വെർച്വൽ ടൂർ തുടങ്ങട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c108.mp4"
+ },
+ {
+  "id": "ml_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "വെബ്സൈറ്റ് നെക്സോറയുടെ കഥ അഞ്ച് ഘട്ടങ്ങളിലും ഒരു വെർച്വൽ ടൂറിലും പറയുന്നു. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c109.mp4"
+ },
+ {
+  "id": "ml_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "സൈറ്റ് ഇവാല്യുവേഷൻ, മാസ്റ്റർ പ്ലാനിംഗ്, കൺസ്ട്രക്ഷൻ, ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും, പിന്നെ റെഡി ടു മൂവ് ഇൻ. തുടക്കം മുതൽ, സൈറ്റ് ഇവാല്യുവേഷനിൽ നിന്ന് ആരംഭിക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c110.mp4"
+ },
+ {
+  "id": "ml_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "നെക്സോറയിൽ എല്ലാ വലിപ്പത്തിലുമുള്ള ബിൽഡർമാർക്കും സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകളുണ്ട്. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c111.mp4"
+ },
+ {
+  "id": "ml_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "വിലകൾ പ്രസിദ്ധീകരിച്ചിട്ടില്ല, അതിനാൽ ഡെമോയിൽ നിങ്ങളുടെ പ്രോജക്ടിന്റെ വില ടീം പറയും. ഡെമോ ബുക്കിംഗ് ഫോം തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c112.mp4"
+ },
+ {
+  "id": "ml_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "ക്ഷമിക്കണം, ഇവിടെയുള്ള വില്ല ഒരു ഉദാഹരണം മാത്രമാണ്, വിൽപ്പനയ്ക്കുള്ളതല്ല. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c113.mp4"
+ },
+ {
+  "id": "ml_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "അതിനാൽ വിലയോ സ്ഥലമോ ഇല്ല, പക്ഷേ വാങ്ങുന്നവർ ഒരു പ്രോജക്ട് എങ്ങനെ കാണുന്നുവെന്ന് വെർച്വൽ ടൂർ കാണിക്കുന്നു. വെർച്വൽ ടൂർ കാണണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c114.mp4"
+ },
+ {
+  "id": "ml_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "സൗജന്യ ഡെമോ ബുക്ക് ചെയ്യാൻ സഹായിക്കുന്നതിൽ സന്തോഷം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c115.mp4"
+ },
+ {
+  "id": "ml_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "നിങ്ങളുടെ പ്രോജക്ടിനെക്കുറിച്ച് അല്പം പറയൂ, വ്യക്തിപരമായ വാക്ക്ത്രൂവിനായി ടീം നിങ്ങളെ ബന്ധപ്പെടും. ഇപ്പോൾ ഡെമോ ഫോം തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c116.mp4"
+ },
+ {
+  "id": "ml_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "ടീമിന് കോൺടാക്ട് അറ്റ് ജട്ട എം കൊമേഴ്സ് ഡോട്ട് കോം എന്ന വിലാസത്തിൽ ഇമെയിൽ ചെയ്യാം. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c117.mp4"
+ },
+ {
+  "id": "ml_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "അല്ലെങ്കിൽ ബുക്ക് എ ഡെമോ ഫോം ഉപയോഗിക്കൂ, അവർ നിങ്ങളെ ബന്ധപ്പെടും. ബുക്ക് എ ഡെമോ ഫോം തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c118.mp4"
+ },
+ {
+  "id": "ml_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "നെക്സോറ, ജട്ട എം കൊമേഴ്സിന്റെ ഉൽപ്പന്നമാണ്. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c119.mp4"
+ },
+ {
+  "id": "ml_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "കൂടുതൽ വിവരങ്ങൾ കോൺടാക്ട് അറ്റ് ജട്ട എം കൊമേഴ്സ് ഡോട്ട് കോം ൽ ടീം നൽകും. നെക്സോറ എന്താണ് ചെയ്യുന്നതെന്ന് അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c120.mp4"
+ },
+ {
+  "id": "ml_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "നെക്സോറ സെയിൽസ്ഫോഴ്സ്, ഹബ്സ്പോട്ട്, ബിൽഡർ ഇ-ആർ-പി പോലുള്ള ടൂളുകളുമായി ബന്ധിപ്പിക്കുന്നു. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c121.mp4"
+ },
+ {
+  "id": "ml_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "വെബ്ഹുക്കുകൾ, റെസ്റ്റ് എ-പി-ഐ, എസ്-എ-പി, റെറ പോർട്ടലുകൾക്കുള്ള കണക്ടറുകളും ഉണ്ട്. നിങ്ങൾക്ക് ഏതാണ് യോജിച്ചതെന്ന് ടീം ഉറപ്പാക്കാൻ ഡെമോ ഫോം തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c122.mp4"
+ },
+ {
+  "id": "ml_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "മാതൃകാ പ്രോജക്ടിലുടനീളം പരിസ്ഥിതി സംരക്ഷണമുണ്ട്. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c123.mp4"
+ },
+ {
+  "id": "ml_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "മേൽക്കൂര സോളാർ, മഴവെള്ള സംഭരണം, ഗ്രേവാട്ടർ പുനരുപയോഗം, ഇവി ചാർജിംഗ്, ഗ്രീൻ ബിൽഡിംഗ് ട്രാക്കിംഗ്. ഈ ആസൂത്രണം തുടങ്ങുന്ന സൈറ്റ് ഇവാല്യുവേഷനിൽ നിന്ന് ആരംഭിക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c124.mp4"
+ },
+ {
+  "id": "ml_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "നെക്സോറ അക്കൗണ്ടുകൾ ഇപ്പോഴും തയ്യാറാക്കുകയാണ്, അതിനാൽ ലോഗിൻ ഇതുവരെ ബന്ധിപ്പിച്ചിട്ടില്ല. ടീം നിങ്ങൾക്ക് ആക്സസ് നൽകാൻ ഡെമോ ഫോം തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c125.mp4"
+ },
+ {
+  "id": "ml_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "വളരെ എളുപ്പം: ഘട്ടങ്ങൾ മാറാൻ സ്ക്രോൾ ചെയ്യൂ. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c126.mp4"
+ },
+ {
+  "id": "ml_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "മുകളിൽ വലതുവശത്തെ മെനുവിൽ എല്ലാ ഘട്ടങ്ങളുമുണ്ട്, ബുക്ക് എ ഡെമോ പേജിന്റെ മുകളിലാണ്. ഇപ്പോൾ നിങ്ങളെ വെബ്സൈറ്റിലേക്ക് കൊണ്ടുപോകട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c127.mp4"
+ },
+ {
+  "id": "ml_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "ഈ വെബ്സൈറ്റ് നമ്മുടെ സംഭാഷണം സേവ് ചെയ്യുന്നില്ല. കൂടുതൽ അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c128.mp4"
+ },
+ {
+  "id": "ml_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "നിങ്ങൾ സംസാരിക്കുമ്പോൾ, ബ്രൗസർ ശബ്ദത്തെ ടെക്സ്റ്റാക്കി മാറ്റുന്നു, അതിനാൽ സ്വകാര്യ വിവരങ്ങൾ ഇവിടെ പങ്കിടരുത്. നെക്സോറയെക്കുറിച്ച് മറ്റെന്തെങ്കിലും സഹായം വേണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c129.mp4"
+ },
+ {
+  "id": "ml_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "കൊള്ളാം, എങ്കിൽ നെക്സോറ നിങ്ങൾക്കായി തന്നെ ഉണ്ടാക്കിയതാണ്. അഞ്ച് മൊഡ്യൂളുകൾ കാണണോ, അതോ ഡെമോ ബുക്ക് ചെയ്യാൻ സഹായിക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c130.mp4"
+ },
+ {
+  "id": "ml_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "അതിമനോഹരം! നെക്സോറയിൽ വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ ത്രീ-ഡി യിൽ കാണാം. നിങ്ങൾക്കായി വെർച്വൽ ടൂർ തുടങ്ങട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c131.mp4"
+ },
+ {
+  "id": "ml_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "കുഴപ്പമില്ല, സാവധാനം നോക്കൂ. ആദ്യ ഘട്ടം മുതൽ കാണിച്ചുതരട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c132.mp4"
+ },
+ {
+  "id": "ml_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "നമസ്കാരം! നിങ്ങൾ ഡെവലപ്പറോ ബിൽഡറോ ആണോ, വീട് അന്വേഷിക്കുകയാണോ, അതോ വെറുതെ നോക്കുകയാണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c133.mp4"
+ },
+ {
+  "id": "ml_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "നമസ്കാരം! നിങ്ങൾ ഇവിടെ വന്നതിൽ സന്തോഷം. നിങ്ങൾ ഡെവലപ്പറാണോ, വീട് വാങ്ങുന്നയാളാണോ, അതോ വെറുതെ നോക്കുകയാണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c134.mp4"
+ },
+ {
+  "id": "ml_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "എനിക്ക് സുഖമാണ്, നന്ദി! ഇന്ന് ഞാൻ എങ്ങനെ സഹായിക്കണം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c135.mp4"
+ },
+ {
+  "id": "ml_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "എനിക്ക് നല്ല സുഖം, ചോദിച്ചതിന് നന്ദി! നെക്സോറയെക്കുറിച്ച് എന്താണ് അറിയേണ്ടത്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c136.mp4"
+ },
+ {
+  "id": "ml_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "ഞാൻ ഹന്ന, നെക്സോറയുടെ വെർച്വൽ റിസപ്ഷനിസ്റ്റ്, നിങ്ങളെ വഴികാട്ടാൻ ഇവിടെയുണ്ട്. എന്താണ് അറിയേണ്ടത്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c137.mp4"
+ },
+ {
+  "id": "ml_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "നിങ്ങളെ സ്വാഗതം ചെയ്യാനും ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകാനും നെക്സോറ കാണിച്ചുതരാനും ഞാൻ ഇവിടെയുണ്ട്. എന്താണ് അറിയേണ്ടത്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c138.mp4"
+ },
+ {
+  "id": "ml_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "ഞാൻ ഒരു എഐ റിസപ്ഷനിസ്റ്റാണ്, എങ്കിലും സഹായിക്കാൻ പൂർണ്ണമായും തയ്യാറാണ്. എന്താണ് അറിയേണ്ടത്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c139.mp4"
+ },
+ {
+  "id": "ml_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "സ്വാഗതം! മറ്റെന്തെങ്കിലും സഹായം വേണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c034.mp4"
+ },
+ {
+  "id": "ml_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "എന്റെ സന്തോഷം! നെക്സോറയെക്കുറിച്ച് മറ്റെന്തെങ്കിലും അറിയണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c035.mp4"
+ },
+ {
+  "id": "ml_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "നെക്സോറ സന്ദർശിച്ചതിന് നന്ദി! ആവശ്യമെങ്കിൽ ഞാൻ എപ്പോഴും മെനുവിലുണ്ട്. നല്ലൊരു ദിവസം ആശംസിക്കുന്നു!",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c140.mp4"
+ },
+ {
+  "id": "ml_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "നെക്സോറയെക്കുറിച്ച് വിശദീകരിക്കാം, വെബ്സൈറ്റ് കാണിച്ചുതരാം, ഡെമോ ബുക്ക് ചെയ്യാൻ സഹായിക്കാം. എവിടെ നിന്ന് തുടങ്ങാം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c141.mp4"
+ },
+ {
+  "id": "ml_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "അത് എന്റെ പരിധിക്ക് അല്പം പുറത്താണ്, പക്ഷേ നെക്സോറ കാണിക്കാൻ എനിക്ക് ഇഷ്ടമാണ്. ഒരു ചെറിയ ടൂർ തരട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c142.mp4"
+ },
+ {
+  "id": "ml_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "ക്ഷമിക്കണം, അതിന് എനിക്ക് സഹായിക്കാനാവില്ല. പക്ഷേ നെക്സോറ കാണിച്ചുതരാം. ഒരു ചെറിയ ടൂർ പോകാം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c143.mp4"
+ },
+ {
+  "id": "ml_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "അതിന് സഹായിക്കാൻ കഴിഞ്ഞിരുന്നെങ്കിൽ! നെക്സോറ കാണിക്കുന്നതിലാണ് ഞാൻ മികച്ചത്. ഒരു ചെറിയ ടൂർ വേണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c144.mp4"
+ },
+ {
+  "id": "ml_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "കുഴപ്പമില്ല, ലളിതമായി പറയാം. വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ ത്രീ-ഡി യിൽ കാണിക്കാൻ നെക്സോറ ബിൽഡർമാരെ സഹായിക്കുന്നു. കാണിച്ചുതരട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c145.mp4"
+ },
+ {
+  "id": "ml_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "കുഴപ്പമില്ല. നെക്സോറ മനസ്സിലാക്കാനുള്ള എളുപ്പവഴി ഒരു ചെറിയ ടൂറാണ്. കാണിച്ചുതരട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c146.mp4"
+ },
+ {
+  "id": "ml_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "ക്ഷമിക്കണം, ആ വിവരം എന്റെ കയ്യിലില്ല. ഡെമോയിൽ ഞങ്ങളുടെ ടീം മറുപടി നൽകും. ഡെമോ ഫോം തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c147.mp4"
+ },
+ {
+  "id": "ml_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "നല്ല ചോദ്യം! അതിന്റെ ഉത്തരം എന്റെ കയ്യിലില്ല, പക്ഷേ ഡെമോയിൽ ടീം പറയും. ഡെമോ ഫോം തുറക്കട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c148.mp4"
+ },
+ {
+  "id": "ml_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "ക്ഷമിക്കണം, എനിക്ക് ശരിക്കും മനസ്സിലായില്ല. മറ്റൊരു രീതിയിൽ പറയാമോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c149.mp4"
+ },
+ {
+  "id": "ml_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "ക്ഷമിക്കണം, മനസ്സിലായില്ല. നെക്സോറ എന്താണെന്ന് ചോദിക്കാം, അല്ലെങ്കിൽ ഒരു ടൂർ ആവശ്യപ്പെടാം.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c150.mp4"
+ },
+ {
+  "id": "ml_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "കുഴപ്പമില്ല. പകരം എന്താണ് അറിയേണ്ടത്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c048.mp4"
+ },
+ {
+  "id": "ml_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "ശരി. നെക്സോറയെക്കുറിച്ച് മറ്റെന്തെങ്കിലും സഹായം വേണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c049.mp4"
+ },
+ {
+  "id": "ml_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "കൊള്ളാം! നെക്സോറയെക്കുറിച്ച് വിശദീകരിക്കാം, കാണിച്ചുതരാം, അല്ലെങ്കിൽ ഡെമോ ബുക്ക് ചെയ്യാൻ സഹായിക്കാം. ഏതാണ് വേണ്ടത്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c151.mp4"
+ },
+ {
+  "id": "ml_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "ക്ഷമിക്കണം, നിങ്ങളുടെ ഭാഷ എനിക്ക് മനസ്സിലാകുന്നില്ല. നമുക്ക് സംസാരിക്കാൻ, എന്റെ ഭാഷകളിൽ ഒന്ന് തിരഞ്ഞെടുക്കൂ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c152.mp4"
+ },
+ {
+  "id": "ml_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "തീർച്ചയായും, ഇനി നമുക്ക് മലയാളത്തിൽ സംസാരിക്കാം. ഞാൻ എങ്ങനെ സഹായിക്കണം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c185.mp4"
+ },
+ {
+  "id": "ml_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ സൈറ്റ് ഇവാല്യുവേഷനിലേക്ക് കൊണ്ടുപോകുന്നു.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c153.mp4"
+ },
+ {
+  "id": "ml_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ മാസ്റ്റർ പ്ലാനിംഗിലേക്ക് കൊണ്ടുപോകുന്നു.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c154.mp4"
+ },
+ {
+  "id": "ml_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ കൺസ്ട്രക്ഷനിലേക്ക് കൊണ്ടുപോകുന്നു.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c155.mp4"
+ },
+ {
+  "id": "ml_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറിലേക്കും കൊണ്ടുപോകുന്നു.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c156.mp4"
+ },
+ {
+  "id": "ml_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ റെഡി ടു മൂവ് ഇന്നിലേക്ക് കൊണ്ടുപോകുന്നു.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c157.mp4"
+ },
+ {
+  "id": "ml_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ വെർച്വൽ ടൂറിലേക്ക് കൊണ്ടുപോകുന്നു.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c158.mp4"
+ },
+ {
+  "id": "ml_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "തീർച്ചയായും, നിങ്ങൾക്കായി ഡെമോ ഫോം തുറക്കുന്നു.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c159.mp4"
+ },
+ {
+  "id": "ml_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ വെബ്സൈറ്റിലേക്ക് കൊണ്ടുപോകുന്നു. ആവശ്യമെങ്കിൽ ഞാൻ മെനുവിലുണ്ട്.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c160.mp4"
+ },
+ {
+  "id": "ml_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "ക്ഷമിക്കണം, നിങ്ങളുടെ പേര് മനസ്സിലായില്ല. നിങ്ങളുടെ ആദ്യ പേര് മാത്രം ടൈപ്പ് ചെയ്യാമോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c161.mp4"
+ },
+ {
+  "id": "ml_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "കുഴപ്പമില്ല! നിങ്ങൾ ഡെവലപ്പറോ ബിൽഡറോ ആണോ, വീട് അന്വേഷിക്കുകയാണോ, അതോ വെറുതെ നോക്കുകയാണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c162.mp4"
+ },
+ {
+  "id": "ml_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "പരിചയപ്പെട്ടതിൽ സന്തോഷം! നിങ്ങൾ ഡെവലപ്പറോ ബിൽഡറോ ആണോ, വീട് അന്വേഷിക്കുകയാണോ, അതോ വെറുതെ നോക്കുകയാണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c163.mp4"
+ },
+ {
+  "id": "ml_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "കൊള്ളാം! നിങ്ങൾ ഏത് കമ്പനിയിലാണ്, അവിടെ നിങ്ങളുടെ ചുമതല എന്താണ്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c164.mp4"
+ },
+ {
+  "id": "ml_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "നന്ദി! നെക്സോറയുടെ ഒരു ചെറിയ ഗൈഡഡ് ടൂർ തരട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c165.mp4"
+ },
+ {
+  "id": "ml_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "അതിമനോഹരം! നെക്സോറയിൽ വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ ത്രീ-ഡി യിൽ കാണാം. ഒരു ചെറിയ ഗൈഡഡ് ടൂർ തരട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c166.mp4"
+ },
+ {
+  "id": "ml_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "കുഴപ്പമില്ല, സാവധാനം നോക്കൂ. ഒരു ചെറിയ ഗൈഡഡ് ടൂർ തരട്ടെ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c167.mp4"
+ },
+ {
+  "id": "ml_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "കുഴപ്പമില്ല. എന്നോട് എന്തും ചോദിക്കാം, അല്ലെങ്കിൽ നിങ്ങളുടെ സൗകര്യത്തിന് നോക്കാം.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c168.mp4"
+ },
+ {
+  "id": "ml_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "നമുക്ക് തുടങ്ങാം! ഇത് സൈറ്റ് ഇവാല്യുവേഷൻ, പണിയുന്നതിന് മുമ്പ് ഡെവലപ്പർ ഭൂമി പരിശോധിക്കുന്ന ഘട്ടം. മുന്നോട്ട് പോകാം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c169.mp4"
+ },
+ {
+  "id": "ml_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "ഇത് മാസ്റ്റർ പ്ലാനിംഗ്. വില്ല ലേഔട്ടുകൾ അന്തിമമാകുന്നു, വാങ്ങുന്നവർക്കായി ത്രീ-ഡി ട്വിൻ ലൈവ് ആകുന്നു. മുന്നോട്ട് പോകാം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c170.mp4"
+ },
+ {
+  "id": "ml_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "ഇത് കൺസ്ട്രക്ഷൻ. ഡ്രോൺ ചിത്രങ്ങളും ഫോട്ടോ രേഖകളും വഴി നെക്സോറ ഓരോ ഘട്ടവും ട്രാക്ക് ചെയ്യുന്നു. മുന്നോട്ട് പോകാം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c171.mp4"
+ },
+ {
+  "id": "ml_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "ഇത് ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും. താക്കോൽ കൈമാറുന്നതിന് മുമ്പ് ഓരോ വീടിന്റെയും ഗുണനിലവാരം പരിശോധിക്കുന്നു. മുന്നോട്ട് പോകാം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c172.mp4"
+ },
+ {
+  "id": "ml_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "റെഡി ടു മൂവ് ഇന്നിലേക്ക് സ്വാഗതം. റസിഡന്റ് ആപ്പ് ബുക്കിംഗുകൾ, സന്ദർശകർ, പരിപാലനം എന്നിവ നോക്കുന്നു. വില്ല കാണാം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c173.mp4"
+ },
+ {
+  "id": "ml_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "ഇത് ഞങ്ങളുടെ ഡെമോ വില്ലയുടെ വെർച്വൽ ടൂർ. സാവധാനം ചുറ്റിനടന്ന് കാണൂ.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c174.mp4"
+ },
+ {
+  "id": "ml_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "ഇതാണ് ഞങ്ങളുടെ ടൂർ! നിങ്ങളുടെ സ്വന്തം പ്രോജക്ടിനായി ഒരു വ്യക്തിഗത ഡെമോ വേണോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c175.mp4"
+ },
+ {
+  "id": "ml_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "കുഴപ്പമില്ല, ഇവിടെ നിർത്താം. ആവശ്യമെങ്കിൽ ഞാൻ എപ്പോഴും മെനുവിലുണ്ട്.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c176.mp4"
+ },
+ {
+  "id": "ml_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "സൗജന്യ ഡെമോ ഒരുക്കാൻ സന്തോഷമേയുള്ളൂ! നിങ്ങളെ ബന്ധപ്പെടാൻ ഏറ്റവും നല്ല ഫോൺ നമ്പർ ഏതാണ്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c177.mp4"
+ },
+ {
+  "id": "ml_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "സൗജന്യ ഡെമോ ഒരുക്കാൻ സന്തോഷമേയുള്ളൂ! ആദ്യം നിങ്ങളുടെ പേര് പറയാമോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c178.mp4"
+ },
+ {
+  "id": "ml_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "നന്ദി! നിങ്ങളെ ബന്ധപ്പെടാൻ ഏറ്റവും നല്ല ഫോൺ നമ്പർ ഏതാണ്?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c179.mp4"
+ },
+ {
+  "id": "ml_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "ഹ്മ്, ആ നമ്പർ ശരിയായി തോന്നുന്നില്ല. പത്ത് അക്കങ്ങളോടെ വീണ്ടും ടൈപ്പ് ചെയ്യാമോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c180.mp4"
+ },
+ {
+  "id": "ml_c181",
+  "key": "Thank you. And your email address?",
+  "say": "നന്ദി. നിങ്ങളുടെ ഇമെയിൽ വിലാസം?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c181.mp4"
+ },
+ {
+  "id": "ml_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "ആ ഇമെയിൽ ശരിയായി തോന്നുന്നില്ല. വീണ്ടും ടൈപ്പ് ചെയ്യാമോ?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c182.mp4"
+ },
+ {
+  "id": "ml_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "നന്ദി! ഞങ്ങളുടെ ടീം ഉടൻ നിങ്ങളെ ബന്ധപ്പെടും. തീയതി തിരഞ്ഞെടുക്കാൻ ഡെമോ ഫോം തുറക്കുന്നു.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c183.mp4"
+ },
+ {
+  "id": "ml_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "കുഴപ്പമില്ല. നിങ്ങൾ തയ്യാറാകുമ്പോൾ, ബുക്ക് എ ഡെമോ ബട്ടൺ മുകളിലുണ്ട്.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ml",
+  "file": "ml/c184.mp4"
+ }
+]

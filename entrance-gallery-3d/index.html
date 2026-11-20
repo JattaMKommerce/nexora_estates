@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Nexora — 3D Twin Building Entrance Gallery</title>
+    <meta name="description" content="Immersive 3D curved rotunda entrance gallery for the Nexora digital twin building." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Top Header Navigation -->
+    <header class="gallery-nav">
+      <div class="gallery-nav__brand">
+        <svg class="gallery-nav__logo" viewBox="0 0 53 36" fill="none" aria-hidden="true">
+          <path d="M5 30V6H11L24 23.5V6H30V30H24L11 12.5V30H5Z" fill="#f3eee6" />
+          <path d="M34 6H39V30H34V6Z" fill="#ffd200" />
+          <path d="M42 13H47V30H42V13Z" fill="#f3eee6" />
+          <path d="M42 6H47V10H42V6Z" fill="#6fe45d" />
+        </svg>
+        <div class="gallery-nav__titles">
+          <span class="gallery-nav__name">NEXORA</span>
+          <span class="gallery-nav__sub" id="nav-mode-sub">3D Entrance Passage & Rotunda</span>
+        </div>
+      </div>
+
+      <div class="gallery-nav__status">
+        <span class="status-indicator"></span>
+        <span id="nav-status-text">Entrance Art Passage</span>
+      </div>
+
+      <div class="gallery-nav__actions">
+        <button type="button" class="passage-nav-btn" id="nav-walk-btn">
+          <span>WALK TO ROTUNDA</span>
+          <svg viewBox="0 0 16 16" fill="none" width="12" height="12" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <a href="http://localhost:5174/" class="gallery-nav__link" target="_blank" rel="noopener">
+          Main 3D Twin Platform ↗
+        </a>
+      </div>
+    </header>
+
+    <!-- 3D WebGL Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Floating Passage / Rotunda Walk Controller -->
+    <div class="walk-hud" id="walk-hud">
+      <button type="button" class="walk-hud__btn" id="walk-hud-btn">
+        <span class="walk-hud__label" id="walk-hud-label">WALK INTO ROTUNDA</span>
+        <span class="walk-hud__arrow" id="walk-hud-arrow">→</span>
+      </button>
+    </div>
+
+    <!-- Drag / Scroll Interaction Prompt -->
+    <div class="interaction-cue" id="drag-cue">
+      <span class="cue-icon" id="cue-icon">↑</span>
+      <span class="cue-text" id="cue-text">SCROLL OR CLICK TO WALK DOWN 3D ART PASSAGE</span>
+    </div>
+
+    <!-- Slide-Out Architectural Inspection Drawer (Shutabug Style) -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <button class="drawer__close" id="drawer-close" aria-label="Close Inspector">✕</button>
+      <div class="drawer__content" id="drawer-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </aside>
+
+    <!-- Bottom View Mode Toggle (Shutabug Style: GALLERY | LIST) -->
+    <div class="view-toggle" role="group" aria-label="View Mode">
+      <button type="button" class="view-btn is-active" id="view-gallery-btn">
+        <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
+          <path d="M2 3h12v10H2V3zm1 1v8h10V4H3z"/>
+        </svg>
+        <span>GALLERY</span>
+      </button>
+      <button type="button" class="view-btn" id="view-list-btn">
+        <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
+          <path d="M2 4h12v1.5H2V4zm0 3.5h12V9H2V7.5zm0 3.5h12v1.5H2V11z"/>
+        </svg>
+        <span>LIST</span>
+      </button>
+    </div>
+
+    <!-- Architectural List View Overlay (shown when LIST is selected) -->
+    <section class="list-view" id="list-view" aria-hidden="true">
+      <div class="list-view__inner">
+        <div class="list-view__header">
+          <h2>Entrance Gallery Index</h2>
+          <p>Complete catalogue of architectural exhibits & twin building designs.</p>
+        </div>
+        <div class="list-view__grid" id="list-view-grid">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+

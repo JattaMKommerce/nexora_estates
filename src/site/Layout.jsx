@@ -82,6 +82,17 @@ export function Header({ current, overlay = false }) {
             ))}
           </ul>
           <div className="shead__actions">
+            <button
+              type="button"
+              className="button button--hannah button--sm"
+              onClick={() => {
+                if (window.NexoraHannah) window.NexoraHannah.open();
+              }}
+              title="Talk to Hannah AI Receptionist"
+            >
+              <span className="button--hannah__dot" aria-hidden="true" />
+              <span>Ask Hannah</span>
+            </button>
             <Link className="shead__login" to="/login" aria-current={current === 'login' ? 'page' : undefined}>
               Login
             </Link>

@@ -1,0 +1,965 @@
+[
+ {
+  "id": "es_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "¡Hola, y bienvenido a Nexora! Soy Hannah, su recepcionista virtual. ¿Puedo saber su nombre?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c083.mp4"
+ },
+ {
+  "id": "es_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "¡Bienvenido de nuevo! Qué alegría volver a verle. ¿En qué puedo ayudarle hoy?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c084.mp4"
+ },
+ {
+  "id": "es_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "Nexora es un software inmobiliario de Jatta M Kommerce. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c085.mp4"
+ },
+ {
+  "id": "es_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "Ayuda a los promotores a mostrar sus proyectos en 3D, incluso antes de construirlos. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c086.mp4"
+ },
+ {
+  "id": "es_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "También sigue la obra y gestiona la entrega de las viviendas a los compradores, todo en un mismo lugar. ¿Le gustaría saber qué es un gemelo digital en 3D?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c087.mp4"
+ },
+ {
+  "id": "es_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "Un gemelo digital es una copia fotorrealista en 3D de un proyecto. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c088.mp4"
+ },
+ {
+  "id": "es_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "Se crea a partir de los planos del arquitecto, así que los compradores pueden recorrer cada villa en el navegador. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c089.mp4"
+ },
+ {
+  "id": "es_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "Nexora puede convertir modelos de Revit, ArchiCAD o BIM en un gemelo en menos de 72 horas. ¿Le gustaría ver el recorrido virtual de nuestra villa de ejemplo?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c090.mp4"
+ },
+ {
+  "id": "es_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "Nexora tiene cinco módulos principales, desde el terreno vacío hasta la llegada de los residentes. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c091.mp4"
+ },
+ {
+  "id": "es_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "Los tres primeros son terreno y viabilidad, una galería de ventas en 3D y un seguimiento de obra. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c092.mp4"
+ },
+ {
+  "id": "es_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "Después vienen calidad y repasos, y por último la entrega al comprador y el portal de residentes. ¿Se los muestro uno por uno?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c093.mp4"
+ },
+ {
+  "id": "es_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "Nexora está pensado para promotores y constructores inmobiliarios. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c094.mp4"
+ },
+ {
+  "id": "es_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "Desde pequeños constructores de villas hasta grandes promotores de urbanizaciones. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c095.mp4"
+ },
+ {
+  "id": "es_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "Sus compradores y residentes también lo usan, para ver las viviendas y seguir la obra. ¿Es usted promotor, o busca una vivienda para usted?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c096.mp4"
+ },
+ {
+  "id": "es_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "La fase uno es Site Evaluation, donde el promotor analiza el terreno antes de construir. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c097.mp4"
+ },
+ {
+  "id": "es_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "Nexora controla accesos, topografía, agua, electricidad, permisos, urbanismo y estudios del suelo. ¿Le abro Site Evaluation?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c098.mp4"
+ },
+ {
+  "id": "es_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "La fase dos es Master Planning, donde se definen los planos de las villas. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c099.mp4"
+ },
+ {
+  "id": "es_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "Se obtiene el registro RERA, y el gemelo 3D se publica para los compradores, con inventario y reservas en vivo. ¿Le abro Master Planning para que lo vea?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c100.mp4"
+ },
+ {
+  "id": "es_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "La fase tres es Construction, donde las torres y la casa club se levantan desde el suelo. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c101.mp4"
+ },
+ {
+  "id": "es_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "Nexora sigue cada hito con imágenes de dron, control de facturas y registros fotográficos. ¿Le llevo a la fase de Construction?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c102.mp4"
+ },
+ {
+  "id": "es_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "La fase cuatro es Fit-Out and Handover, cuando se terminan los interiores. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c103.mp4"
+ },
+ {
+  "id": "es_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "Cada vivienda se revisa en más de 200 puntos de calidad, y las llaves se entregan tras una visita final. ¿Le abro Fit-Out and Handover?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c104.mp4"
+ },
+ {
+  "id": "es_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "La fase cinco es Ready to Move In, cuando los residentes se instalan. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c105.mp4"
+ },
+ {
+  "id": "es_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "La app de residentes gestiona reservas de instalaciones, visitas, seguridad y mantenimiento. ¿Le gustaría ver Ready to Move In?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c106.mp4"
+ },
+ {
+  "id": "es_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "El recorrido virtual le permite explorar nuestra villa de lujo de ejemplo en 3D. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c107.mp4"
+ },
+ {
+  "id": "es_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "Puede recorrer el jardín, la casa club y la piscina, el pabellón de estar y la suite principal. ¿Inicio el recorrido virtual para usted?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c108.mp4"
+ },
+ {
+  "id": "es_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "La web cuenta la historia de Nexora en cinco fases, más un recorrido virtual. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c109.mp4"
+ },
+ {
+  "id": "es_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, y Ready to Move In. ¿Empezamos por el principio, con Site Evaluation?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c110.mp4"
+ },
+ {
+  "id": "es_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "Nexora tiene planes de suscripción para constructores de todos los tamaños. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c111.mp4"
+ },
+ {
+  "id": "es_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "Los precios no están publicados, así que el equipo le indica el precio de su proyecto en una demostración. ¿Le abro el formulario de reserva?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c112.mp4"
+ },
+ {
+  "id": "es_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "Lo siento, la villa que ve aquí es un ejemplo, no una vivienda en venta. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c113.mp4"
+ },
+ {
+  "id": "es_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "Por eso no hay precios ni ubicaciones, pero el recorrido virtual muestra cómo los compradores exploran un proyecto. ¿Le gustaría ver el recorrido virtual?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c114.mp4"
+ },
+ {
+  "id": "es_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "Con mucho gusto le ayudo a reservar una demostración gratuita. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c115.mp4"
+ },
+ {
+  "id": "es_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "Nos cuenta un poco sobre su proyecto, y el equipo le contacta para una presentación personalizada. ¿Le abro el formulario ahora?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c116.mp4"
+ },
+ {
+  "id": "es_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "Puede escribir al equipo a contact arroba jattamkommerce punto com. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c117.mp4"
+ },
+ {
+  "id": "es_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "O use el formulario Book a Demo, y le responderán. ¿Le abro el formulario Book a Demo?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c118.mp4"
+ },
+ {
+  "id": "es_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "Nexora es un producto de Jatta M Kommerce. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c119.mp4"
+ },
+ {
+  "id": "es_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "El equipo puede darle más detalles en contact arroba jattamkommerce punto com. ¿Le gustaría saber qué hace Nexora?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c120.mp4"
+ },
+ {
+  "id": "es_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "Nexora se conecta con herramientas como Salesforce, HubSpot y los ERP de constructoras. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c121.mp4"
+ },
+ {
+  "id": "es_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "También hay webhooks, API REST y conectores para SAP y los portales RERA. ¿Le abro el formulario, para que el equipo confirme qué encaja con su sistema?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c122.mp4"
+ },
+ {
+  "id": "es_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "La sostenibilidad está presente en todo el proyecto de ejemplo. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c123.mp4"
+ },
+ {
+  "id": "es_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "Paneles solares en la cubierta, recogida de agua de lluvia, reciclaje de aguas grises, carga de vehículos eléctricos y seguimiento de edificación verde. ¿Empezamos por Site Evaluation, donde comienza esta planificación?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c124.mp4"
+ },
+ {
+  "id": "es_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "Las cuentas de Nexora aún se están preparando, así que el acceso todavía no está conectado. ¿Le abro el formulario, para que el equipo le dé acceso?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c125.mp4"
+ },
+ {
+  "id": "es_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "Es muy sencillo: solo desplácese para pasar de una fase a otra. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c126.mp4"
+ },
+ {
+  "id": "es_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "El menú de arriba a la derecha muestra todas las fases, y Book a Demo está en la parte superior de la página. ¿Le llevo ahora a la web?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c127.mp4"
+ },
+ {
+  "id": "es_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "Esta web no guarda nuestra conversación. ¿Le gustaría saber más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c128.mp4"
+ },
+ {
+  "id": "es_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "Cuando habla, su navegador convierte su voz en texto, así que no comparta aquí datos sensibles. ¿Hay algo más de Nexora en lo que pueda ayudarle?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c129.mp4"
+ },
+ {
+  "id": "es_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "Estupendo, entonces Nexora está hecho para usted. ¿Le gustaría ver los cinco módulos, o le ayudo a reservar una demostración?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c130.mp4"
+ },
+ {
+  "id": "es_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "¡Estupendo! Con Nexora puede ver las viviendas en 3D antes de que se construyan. ¿Inicio el recorrido virtual para usted?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c131.mp4"
+ },
+ {
+  "id": "es_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "No se preocupe, tómese su tiempo. ¿Le muestro todo, empezando por la primera fase?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c132.mp4"
+ },
+ {
+  "id": "es_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "¡Hola! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c133.mp4"
+ },
+ {
+  "id": "es_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "¡Hola! Qué bien tenerle por aquí. ¿Es usted promotor, comprador de vivienda, o solo está mirando?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c134.mp4"
+ },
+ {
+  "id": "es_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "¡Muy bien, gracias! ¿En qué puedo ayudarle hoy?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c135.mp4"
+ },
+ {
+  "id": "es_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "¡Estupendamente, gracias por preguntar! ¿Qué le gustaría saber sobre Nexora?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c136.mp4"
+ },
+ {
+  "id": "es_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "Soy Hannah, la recepcionista virtual de Nexora, y estoy aquí para guiarle. ¿Qué le gustaría saber?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c137.mp4"
+ },
+ {
+  "id": "es_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "Estoy aquí para darle la bienvenida, responder sus preguntas y enseñarle Nexora. ¿Qué le gustaría saber?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c138.mp4"
+ },
+ {
+  "id": "es_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "Soy una recepcionista con inteligencia artificial, pero estoy aquí para ayudarle igual. ¿Qué le gustaría saber?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c139.mp4"
+ },
+ {
+  "id": "es_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "¡De nada! ¿Puedo ayudarle en algo más?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c034.mp4"
+ },
+ {
+  "id": "es_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "¡Un placer! ¿Le gustaría saber algo más sobre Nexora?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c035.mp4"
+ },
+ {
+  "id": "es_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "¡Gracias por visitar Nexora! Si me necesita, siempre estoy en el menú. ¡Que tenga un buen día!",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c140.mp4"
+ },
+ {
+  "id": "es_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "Puedo explicarle Nexora, enseñarle la web y ayudarle a reservar una demostración. ¿Por dónde empezamos?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c141.mp4"
+ },
+ {
+  "id": "es_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "Eso se sale un poco de lo mío, pero me encantaría enseñarle Nexora. ¿Le hago un recorrido rápido?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c142.mp4"
+ },
+ {
+  "id": "es_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "Lo siento, con eso no puedo ayudarle. Pero sí puedo enseñarle Nexora. ¿Hacemos un recorrido rápido?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c143.mp4"
+ },
+ {
+  "id": "es_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "¡Ojalá pudiera ayudarle con eso! Lo mío es enseñar Nexora. ¿Le apetece un recorrido rápido?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c144.mp4"
+ },
+ {
+  "id": "es_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "No pasa nada, se lo explico de forma sencilla. Nexora ayuda a los constructores a mostrar viviendas en 3D antes de construirlas. ¿Se lo enseño?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c145.mp4"
+ },
+ {
+  "id": "es_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "Tranquilo. La forma más fácil de entender Nexora es un recorrido rápido. ¿Se lo enseño?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c146.mp4"
+ },
+ {
+  "id": "es_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "Lo siento, no tengo ese dato aquí. Nuestro equipo puede responderle en una demostración. ¿Le abro el formulario?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c147.mp4"
+ },
+ {
+  "id": "es_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "¡Buena pregunta! No tengo la respuesta aquí, pero el equipo sí, en una demostración. ¿Le abro el formulario?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c148.mp4"
+ },
+ {
+  "id": "es_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "Perdone, no le he entendido bien. ¿Podría decirlo de otra manera?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c149.mp4"
+ },
+ {
+  "id": "es_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "Perdone, no le he entendido. Puede preguntarme qué es Nexora, o pedirme un recorrido.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c150.mp4"
+ },
+ {
+  "id": "es_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "No pasa nada. ¿Qué le gustaría saber entonces?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c048.mp4"
+ },
+ {
+  "id": "es_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "De acuerdo. ¿Hay algo más de Nexora en lo que pueda ayudarle?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c049.mp4"
+ },
+ {
+  "id": "es_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "¡Estupendo! Puedo explicarle Nexora, enseñarle todo, o ayudarle a reservar una demostración. ¿Qué prefiere?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c151.mp4"
+ },
+ {
+  "id": "es_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "Lo siento, no entiendo su idioma. Por favor, elija uno de mis idiomas para que podamos hablar.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c152.mp4"
+ },
+ {
+  "id": "es_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "Por supuesto, sigamos en español. ¿En qué puedo ayudarle?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c185.mp4"
+ },
+ {
+  "id": "es_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "Por supuesto, le llevo ahora a Site Evaluation.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c153.mp4"
+ },
+ {
+  "id": "es_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "Por supuesto, le llevo ahora a Master Planning.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c154.mp4"
+ },
+ {
+  "id": "es_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "Por supuesto, le llevo ahora a Construction.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c155.mp4"
+ },
+ {
+  "id": "es_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "Por supuesto, le llevo ahora a Fit-Out and Handover.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c156.mp4"
+ },
+ {
+  "id": "es_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "Por supuesto, le llevo ahora a Ready to Move In.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c157.mp4"
+ },
+ {
+  "id": "es_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "Por supuesto, le llevo ahora al recorrido virtual.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c158.mp4"
+ },
+ {
+  "id": "es_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "Por supuesto, le abro el formulario de demostración.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c159.mp4"
+ },
+ {
+  "id": "es_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "Por supuesto, le llevo ahora a la web. Si me necesita, estoy en el menú.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c160.mp4"
+ },
+ {
+  "id": "es_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "Perdone, no he entendido su nombre. ¿Podría escribir solo su nombre de pila?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c161.mp4"
+ },
+ {
+  "id": "es_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "¡No pasa nada! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c162.mp4"
+ },
+ {
+  "id": "es_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "¡encantada de conocerle! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c163.mp4"
+ },
+ {
+  "id": "es_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "¡Estupendo! ¿En qué empresa trabaja, y cuál es su cargo?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c164.mp4"
+ },
+ {
+  "id": "es_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "¡gracias! ¿Le hago un breve recorrido guiado por Nexora?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c165.mp4"
+ },
+ {
+  "id": "es_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "¡Estupendo! Con Nexora puede ver las viviendas en 3D antes de que se construyan. ¿Le hago un breve recorrido guiado?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c166.mp4"
+ },
+ {
+  "id": "es_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "No se preocupe, tómese su tiempo. ¿Le hago un breve recorrido guiado?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c167.mp4"
+ },
+ {
+  "id": "es_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "No pasa nada. Puede preguntarme lo que quiera, o explorar la web a su ritmo.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c168.mp4"
+ },
+ {
+  "id": "es_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "¡Empecemos! Esto es Site Evaluation, donde el promotor analiza el terreno antes de construir. ¿Seguimos?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c169.mp4"
+ },
+ {
+  "id": "es_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "Esto es Master Planning. Se definen los planos de las villas, y el gemelo 3D se publica para los compradores. ¿Seguimos?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c170.mp4"
+ },
+ {
+  "id": "es_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "Aquí está Construction. Nexora sigue cada hito con imágenes de dron y registros fotográficos. ¿Seguimos?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c171.mp4"
+ },
+ {
+  "id": "es_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "Esto es Fit-Out and Handover. Cada vivienda pasa un control de calidad antes de entregar las llaves. ¿Seguimos?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c172.mp4"
+ },
+ {
+  "id": "es_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "Bienvenido a Ready to Move In. La app de residentes gestiona reservas, visitas y mantenimiento. ¿Vemos la villa?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c173.mp4"
+ },
+ {
+  "id": "es_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "Este es el recorrido virtual de nuestra villa de ejemplo. Tómese su tiempo y explore.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c174.mp4"
+ },
+ {
+  "id": "es_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "¡ese fue el recorrido! ¿Le gustaría una demostración personalizada para su propio proyecto?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c175.mp4"
+ },
+ {
+  "id": "es_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "No pasa nada, lo dejamos aquí. Si me necesita, siempre estoy en el menú.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c176.mp4"
+ },
+ {
+  "id": "es_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "¡Con gusto le organizo una demostración gratuita! ¿Cuál es el mejor número de teléfono para contactarle?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c177.mp4"
+ },
+ {
+  "id": "es_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "¡Con gusto le organizo una demostración gratuita! ¿Me dice primero su nombre?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c178.mp4"
+ },
+ {
+  "id": "es_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "¡Gracias! ¿Cuál es el mejor número de teléfono para contactarle?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c179.mp4"
+ },
+ {
+  "id": "es_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "Mmm, ese número no parece correcto. ¿Podría escribirlo de nuevo, con el prefijo de su país?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c180.mp4"
+ },
+ {
+  "id": "es_c181",
+  "key": "Thank you. And your email address?",
+  "say": "Gracias. ¿Y su correo electrónico?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c181.mp4"
+ },
+ {
+  "id": "es_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "Ese correo no parece correcto. ¿Podría escribirlo de nuevo?",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c182.mp4"
+ },
+ {
+  "id": "es_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "¡gracias! Nuestro equipo le contactará pronto. Le abro el formulario para que elija una fecha.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c183.mp4"
+ },
+ {
+  "id": "es_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "No pasa nada. El botón Book a Demo está arriba, cuando quiera.",
+  "engine": "kokoro",
+  "voice": "ef_dora",
+  "lang": "e",
+  "file": "es/c184.mp4"
+ }
+]

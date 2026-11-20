@@ -24,6 +24,6 @@ export default defineConfig({
     target: 'es2020',
     chunkSizeWarningLimit: 1500
   },
-  server: { port: 5173 },
-  preview: { port: 4173 }
+  server: { port: 5174, host: true },
+  preview: { port: 4174, host: true }
 });

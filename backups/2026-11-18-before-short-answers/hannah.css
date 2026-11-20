@@ -1,0 +1,563 @@
+/*
+ * Hannah, Nexora's virtual receptionist: the full-screen welcome layer (see hannah.js).
+ *
+ * The site's own styles size everything in rem against a viewport-based root font size and set
+ * body { font-size: 0 }, so this layer uses px and its own font size and inherits nothing.
+ *
+ *  1. Before the layer is built: keep the site hidden (no flash of the homepage)
+ *  2. Layer, background, top bar
+ *  3. The call: Hannah's video card and its controls
+ *  4. Conversation: message bubbles, live transcript
+ *  5. Ask bar: microphone, text, send
+ *  6. Smaller screens
+ *  7. "Talk to Hannah" in the site menu
+ *  8. Reduced motion
+ */
+
+/* 1. Before the layer is built ------------------------------------------------------------------ */
+
+html.nx-hannah,
+html.nx-hannah body {
+  background: #fbfaf7 !important;
+  overflow: hidden !important;
+}
+html.nx-hannah body > :not(.hn) { visibility: hidden !important; }
+
+/* 2. Layer, background, top bar ----------------------------------------------------------------- */
+
+.hn {
+  --hn-paper: #fbfaf7;
+  --hn-card: #ffffff;
+  --hn-ink: #1f1a1f;
+  --hn-ink-soft: rgba(31, 26, 31, 0.68);
+  --hn-ink-faint: rgba(31, 26, 31, 0.5);
+  --hn-line: rgba(31, 26, 31, 0.1);
+  --hn-bubble: #f2f2f1;
+  --hn-yellow: #ffc81e;
+  --hn-yellow-deep: #f5b800;
+  --hn-ok: #2fd158;
+  --hn-red: #f23d3d;
+  --hn-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --hn-gutter: clamp(16px, 3.6vw, 60px);
+  --hn-w: min(940px, 100%, calc((100svh - 440px) * 16 / 9));
+
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: var(--hn-paper);
+  color: var(--hn-ink);
+  font-family: Riegla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  transition: opacity 0.7s var(--hn-ease);
+}
+.hn *, .hn *::before, .hn *::after { box-sizing: border-box; }
+.hn.is-in { opacity: 1; }
+.hn.is-leaving { opacity: 0; pointer-events: none; transition-duration: 0.6s; }
+.hn:focus { outline: none; }
+.hn button { font-family: inherit; -webkit-appearance: none; appearance: none; margin: 0; cursor: pointer; }
+.hn button[hidden], .hn [hidden] { display: none !important; }
+.hn :focus-visible { outline: 3px solid var(--hn-ink); outline-offset: 3px; }
+.hn p { margin: 0; }
+
+.hn__bg { position: fixed; inset: 0; pointer-events: none; }
+.hn__waves { position: absolute; inset: 0; width: 100%; height: 100%; filter: blur(2px); }
+
+.hn__inner {
+  position: relative;
+  min-height: 100%;
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 0 var(--hn-gutter);
+  display: flex;
+  flex-direction: column;
+}
+
+.hn__bar {
+  flex: none;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hn__brand { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.hn__brand svg { width: 56px; height: 38px; flex: none; }
+.hn__brandText { display: flex; flex-direction: column; min-width: 0; }
+.hn__brandName { font-size: 30px; font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; }
+.hn__brandSub {
+  margin-top: 4px;
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hn-ink-soft);
+  white-space: nowrap;
+}
+
+.hn__skip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 54px;
+  padding: 0 22px 0 26px;
+  border: 1px solid var(--hn-line);
+  border-radius: 999px;
+  background: var(--hn-card);
+  color: var(--hn-ink);
+  font-size: 17px;
+  font-weight: 500;
+  box-shadow: 0 6px 22px rgba(31, 26, 31, 0.07);
+  transition: box-shadow 0.25s var(--hn-ease), transform 0.25s var(--hn-ease);
+}
+.hn__skip svg { width: 22px; height: 22px; color: var(--hn-yellow-deep); }
+.hn__skip:hover { box-shadow: 0 10px 28px rgba(31, 26, 31, 0.12); transform: translateY(-1px); }
+
+.hn__main {
+  flex: 1;
+  width: var(--hn-w);
+  margin: 0 auto;
+  padding: 8px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* 3. The call ------------------------------------------------------------------------------------ */
+
+.hn__call {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #d9d1c5;
+  box-shadow: 0 24px 60px rgba(60, 44, 20, 0.16), 0 3px 10px rgba(60, 44, 20, 0.08);
+  isolation: isolate;
+}
+.hn__call:fullscreen { border-radius: 0; aspect-ratio: auto; width: 100%; height: 100%; }
+.hn__call:-webkit-full-screen { border-radius: 0; width: 100%; height: 100%; }
+
+.hn__video { position: absolute; inset: 0; z-index: 0; cursor: default; }
+.hnf__poster, .hnf__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hnf__poster { object-fit: cover; }
+.hnf__canvas { opacity: 0; transition: opacity 0.4s var(--hn-ease); }
+.hnf.is-live .hnf__canvas { opacity: 1; }
+
+/* soft shading so the white controls read on any part of the picture */
+.hn__call::before,
+.hn__call::after { content: ""; position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
+.hn__call::before { top: 0; height: 32%; background: linear-gradient(rgba(20, 14, 10, 0.34), rgba(20, 14, 10, 0)); }
+.hn__call::after { bottom: 0; height: 30%; background: linear-gradient(rgba(20, 14, 10, 0), rgba(20, 14, 10, 0.22)); }
+
+.hn__tag {
+  position: absolute;
+  z-index: 2;
+  top: 22px;
+  left: 26px;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+.hn__name { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 600; line-height: 1.2; }
+.hn__name svg { width: 13px; height: 13px; }
+.hn__role { display: flex; align-items: center; gap: 10px; margin-top: 4px; font-size: 15.5px; line-height: 1.3; }
+.hn__role i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--hn-ok);
+  box-shadow: 0 0 0 0 rgba(47, 209, 88, 0.6);
+  flex: none;
+}
+.hn__role[data-state="listening"] i { animation: hn-pulse 1.4s infinite; }
+.hn__role[data-state="thinking"] i { background: #ffc81e; }
+.hn__role[data-state="speaking"] i { animation: hn-pulse 1.8s infinite; }
+.hn__state { opacity: 0.92; }
+@keyframes hn-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(47, 209, 88, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(47, 209, 88, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(47, 209, 88, 0); }
+}
+
+.hn__icon {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: #fff;
+  background: rgba(30, 24, 20, 0.42);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background 0.2s var(--hn-ease);
+}
+.hn__icon:hover { background: rgba(30, 24, 20, 0.6); }
+.hn__icon svg { width: 20px; height: 20px; }
+.hn__expand { top: 20px; right: 20px; width: 40px; height: 40px; border-radius: 9px; }
+.hn__more { right: 22px; bottom: 26px; width: 46px; height: 46px; border-radius: 50%; }
+
+.hn__callBtns {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 22px;
+}
+.hn__round {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 0;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s var(--hn-ease), background 0.2s var(--hn-ease), color 0.2s var(--hn-ease);
+}
+.hn__round:hover { transform: translateY(-2px); }
+.hn__round svg { width: 26px; height: 26px; }
+.hn__callMic { background: #fff; color: var(--hn-ink); }
+.hn__callMic.is-on { background: var(--hn-ok); color: #fff; animation: hn-ring 1.6s infinite; }
+.hn__end { background: var(--hn-red); color: #fff; }
+.hn__end svg { width: 30px; height: 30px; }
+@keyframes hn-ring {
+  0% { box-shadow: 0 0 0 0 rgba(47, 209, 88, 0.5), 0 8px 22px rgba(0, 0, 0, 0.22); }
+  70% { box-shadow: 0 0 0 14px rgba(47, 209, 88, 0), 0 8px 22px rgba(0, 0, 0, 0.22); }
+  100% { box-shadow: 0 0 0 0 rgba(47, 209, 88, 0), 0 8px 22px rgba(0, 0, 0, 0.22); }
+}
+
+.hn__menu {
+  position: absolute;
+  z-index: 4;
+  right: 22px;
+  bottom: 82px;
+  min-width: 220px;
+  padding: 6px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+.hn__menu button {
+  display: block;
+  width: 100%;
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 9px;
+  background: none;
+  color: var(--hn-ink);
+  font-size: 15px;
+  text-align: left;
+}
+.hn__menu button:hover, .hn__menu button:focus-visible { background: #f4f2ee; outline: none; }
+
+.hn__tap {
+  position: absolute;
+  z-index: 3;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--hn-ink);
+  font-size: 14.5px;
+  font-weight: 500;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  animation: hn-float 2.4s ease-in-out infinite;
+}
+.hn__tap svg { width: 18px; height: 18px; }
+@keyframes hn-float { 50% { transform: translate(-50%, -3px); } }
+
+.hn__call.is-muted .hn__tap { display: none; }
+
+/* 4. Conversation ------------------------------------------------------------------------------ */
+
+.hn__log {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 150px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 12px 2px 4px;
+  scrollbar-width: thin;
+  /* earlier messages fade out under the top edge */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 16px);
+}
+.hn__msg { display: flex; align-items: flex-start; gap: 18px; max-width: 78%; }
+.hn__msg--user { align-self: flex-end; flex-direction: row-reverse; }
+.hn__avatar {
+  width: 58px;
+  height: 58px;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(31, 26, 31, 0.14);
+}
+.hn__msgBody { min-width: 0; }
+.hn__bubble {
+  padding: 13px 20px;
+  border-radius: 16px;
+  background: var(--hn-bubble);
+  font-size: 17px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.hn__msg--hannah .hn__bubble { border-top-left-radius: 6px; }
+.hn__msg--user .hn__bubble { background: #fff3c4; border-top-right-radius: 6px; }
+.hn__msg--user.is-live .hn__bubble { background: #fff9e3; color: var(--hn-ink-soft); font-style: italic; }
+/* the bubble grows word by word as she speaks */
+.hn__unsaid { display: none; }
+.hn__time { margin: 6px 0 0 18px; font-size: 13px; color: var(--hn-ink-faint); }
+.hn__msg--user .hn__time { text-align: right; margin: 6px 18px 0 0; }
+.hn__sr {
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* 5. Ask bar ----------------------------------------------------------------------------------- */
+
+.hn__ask {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 72px;
+  padding: 0 7px;
+  border: 1px solid var(--hn-line);
+  border-radius: 999px;
+  background: var(--hn-card);
+  box-shadow: 0 10px 34px rgba(31, 26, 31, 0.08);
+  transition: box-shadow 0.25s var(--hn-ease), border-color 0.25s var(--hn-ease);
+}
+.hn__ask:focus-within { border-color: rgba(245, 184, 0, 0.7); box-shadow: 0 10px 34px rgba(31, 26, 31, 0.1), 0 0 0 4px rgba(255, 200, 30, 0.18); }
+.hn__askMic {
+  width: 58px;
+  height: 58px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--hn-line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--hn-ink);
+  box-shadow: 0 3px 10px rgba(31, 26, 31, 0.08);
+}
+.hn__askMic svg { width: 25px; height: 25px; }
+.hn__askMic.is-on { background: var(--hn-ok); border-color: var(--hn-ok); color: #fff; }
+.hn__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: none;
+  color: var(--hn-ink);
+  font: inherit;
+  font-size: 17px;
+  outline: none;
+}
+.hn__input::placeholder { color: rgba(31, 26, 31, 0.5); }
+.hn .hn__input:focus-visible { outline: none; }
+.hn__send {
+  width: 60px;
+  height: 60px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--hn-yellow);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(245, 184, 0, 0.35);
+  transition: transform 0.2s var(--hn-ease), background 0.2s var(--hn-ease);
+}
+.hn__send:hover { background: var(--hn-yellow-deep); transform: translateY(-1px); }
+.hn__send svg { width: 26px; height: 26px; transform: rotate(10deg); }
+
+.hn__note { margin-top: -10px; text-align: center; font-size: 14px; color: var(--hn-ink-soft); }
+
+/* 6. Smaller screens --------------------------------------------------------------------------- */
+
+@media (max-height: 820px) {
+  .hn { --hn-w: min(940px, 100%, calc((100svh - 370px) * 16 / 9)); }
+  .hn__bar { height: 80px; }
+  .hn__main { gap: 14px; padding-bottom: 16px; }
+  .hn__log { height: 124px; }
+  .hn__ask { height: 64px; }
+  .hn__askMic { width: 50px; height: 50px; }
+  .hn__send { width: 52px; height: 52px; }
+}
+
+@media (max-width: 760px) {
+  .hn { --hn-w: 100%; }
+  .hn__bar { height: 70px; }
+  .hn__brand { gap: 10px; }
+  .hn__brand svg { width: 42px; height: 28px; }
+  .hn__brandName { font-size: 21px; }
+  .hn__brandSub { font-size: 9.5px; letter-spacing: 0.12em; }
+  .hn__skip { height: 42px; padding: 0 14px 0 16px; gap: 8px; font-size: 14px; }
+  .hn__skip svg { width: 18px; height: 18px; }
+  /* one screen tall: the conversation scrolls between the call and the ask bar */
+  .hn__inner { height: 100svh; min-height: 0; }
+  .hn__main { flex: 1 1 auto; min-height: 0; gap: 12px; padding: 0 0 calc(12px + env(safe-area-inset-bottom)); }
+  .hn__call, .hn__ask { flex: none; }
+  .hn__call { aspect-ratio: auto; height: min(56svh, 125vw); border-radius: 18px; }
+  .hn__tag { top: 16px; left: 18px; }
+  .hn__name { font-size: 19px; }
+  .hn__role { font-size: 13.5px; }
+  .hn__expand { top: 14px; right: 14px; width: 36px; height: 36px; }
+  .hn__callBtns { bottom: 16px; gap: 18px; }
+  .hn__round { width: 52px; height: 52px; }
+  .hn__more { right: 14px; bottom: 19px; width: 40px; height: 40px; }
+  .hn__menu { right: 14px; bottom: 68px; }
+  .hn__log { flex: 1 1 0; height: auto; min-height: 0; }
+  .hn__msg { max-width: 92%; gap: 12px; }
+  .hn__avatar { width: 42px; height: 42px; border-width: 2px; }
+  .hn__bubble { font-size: 15.5px; padding: 11px 15px; }
+  .hn__time { font-size: 12px; margin-left: 12px; }
+  .hn__ask { height: 60px; gap: 8px; padding: 0 6px; }
+  .hn__askMic { width: 46px; height: 46px; }
+  .hn__askMic svg { width: 22px; height: 22px; }
+  .hn__input { font-size: 16px; }
+  .hn__send { width: 48px; height: 48px; }
+  .hn__send svg { width: 22px; height: 22px; }
+}
+@media (max-width: 480px) {
+  .hn__brandSub { display: none; }
+}
+/* phones on their side: the call fills the short screen; the conversation scrolls below it */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hn { --hn-w: min(100%, calc((100svh - 90px) * 16 / 9)); }
+  .hn__bar { height: 60px; }
+  .hn__call { aspect-ratio: 16 / 9; height: auto; }
+  .hn__log { height: auto; min-height: 120px; }
+}
+
+/* 7. "Talk to Hannah" in the site menu --------------------------------------------------------- */
+
+/* The menu ends with Log in / Sign up; Talk to Hannah sits under it. */
+.nav__menuContact {
+  flex-direction: column !important;
+  row-gap: 1rem;
+  height: auto !important;
+  padding: 1.6rem 0;
+}
+#menu-hannah { margin: 0 auto !important; }
+
+/* 8. Reduced motion ---------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hn, .hn__skip, .hn__round, .hn__send { transition-duration: 0.01s !important; transition-delay: 0s !important; }
+  .hn__role i, .hn__callMic.is-on, .hn__tap { animation: none !important; }
+}
+
+/* 9. Her talking videos (hannah-video.js) -------------------------------------------------------- */
+
+.hnv__poster, .hnv__idle, .hnv__talk {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border: 0;
+}
+.hnv__idle { opacity: 0; transition: opacity 0.4s var(--hn-ease); }
+.hnv.is-live .hnv__idle { opacity: 1; }
+/* the talking clip fades over the idle loop; both start and end in her resting pose */
+.hnv__talk { opacity: 0; transition: opacity 0.16s linear; }
+.hnv.is-talking .hnv__talk { opacity: 1; }
+
+/* 10. The guided tour: Hannah in a small window while the website shows each phase ---------------- */
+
+.hn__pip { display: none; }
+.hn.is-pip {
+  background: transparent;
+  pointer-events: none;
+  overflow: visible;
+}
+.hn.is-pip .hn__bg,
+.hn.is-pip .hn__bar,
+.hn.is-pip .hn__log,
+.hn.is-pip .hn__ask,
+.hn.is-pip .hn__note,
+.hn.is-pip .hn__menu,
+.hn.is-pip .hn__more,
+.hn.is-pip .hn__expand,
+.hn.is-pip .hn__callBtns,
+.hn.is-pip .hn__tap { display: none !important; }
+.hn.is-pip .hn__main {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: min(380px, calc(100vw - 32px));
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  pointer-events: auto;
+  background: var(--hn-card);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(20, 14, 10, 0.3), 0 3px 10px rgba(20, 14, 10, 0.12);
+  animation: hn-pip-in 0.45s var(--hn-ease);
+}
+@keyframes hn-pip-in { from { opacity: 0; transform: translateY(16px) scale(0.96); } to { opacity: 1; transform: none; } }
+.hn.is-pip .hn__call { border-radius: 0; box-shadow: none; }
+.hn.is-pip .hn__tag { top: 10px; left: 12px; transform: scale(0.78); transform-origin: top left; }
+.hn.is-pip .hn__pip { display: block; padding: 12px 14px 14px; }
+.hn__pipCap {
+  margin: 0 0 10px;
+  max-height: 6.4em;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--hn-ink);
+}
+.hn__pipBtns { display: flex; gap: 8px; justify-content: flex-end; }
+.hn__pipBtn {
+  height: 38px;
+  padding: 0 18px;
+  border: 1px solid var(--hn-line);
+  border-radius: 999px;
+  background: var(--hn-card);
+  color: var(--hn-ink);
+  font-size: 14px;
+  font-weight: 500;
+}
+.hn__pipNext { background: var(--hn-yellow); border-color: transparent; }
+.hn__pipNext.is-ready { animation: hn-pip-pulse 1.6s ease-in-out infinite; }
+@keyframes hn-pip-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 200, 30, 0.55); } 50% { box-shadow: 0 0 0 7px rgba(255, 200, 30, 0); } }
+@media (max-width: 560px) {
+  .hn.is-pip .hn__main { left: 12px; bottom: 12px; width: min(300px, calc(100vw - 24px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hn.is-pip .hn__main, .hn__pipNext.is-ready { animation: none; }
+}
