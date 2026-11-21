@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Nexora | 3D Rotunda Entrance Gallery</title>
-    <meta name="description" content="Immersive 3D curved rotunda entrance gallery and clickable exhibition wall for the Nexora digital twin platform." />
+    <title>Nexora | 3D Palace Passage & Rotunda Gallery</title>
+    <meta name="description" content="Integrated 3D classical palace passage from Nomadiic Horse and curved rotunda exhibition wall with clickable fine art paintings." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,13 +25,24 @@
         </svg>
         <div class="gallery-nav__titles">
           <span class="gallery-nav__name">NEXORA</span>
-          <span class="gallery-nav__sub">3D Rotunda Entrance Gallery</span>
+          <span class="gallery-nav__sub" id="nav-sub-title">Palace Colonnade & Rotunda Wall</span>
         </div>
       </div>
 
-      <div class="gallery-nav__status">
-        <span class="status-indicator"></span>
-        <span id="nav-status-text">Curved Exhibition Rotunda</span>
+      <!-- Integrated Scene Mode Switcher -->
+      <div class="scene-mode-pill" role="group" aria-label="Experience Mode">
+        <button type="button" class="mode-pill-btn is-active" id="mode-palace-btn">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
+            <path d="M10 2 2 7v2h16V7L10 2zm-6 9v5h3v-5H4zm5 0v5h2v-5H9zm4 0v5h3v-5h-3zM2 18h16v2H2v-2z"/>
+          </svg>
+          <span>PALACE PASSAGE</span>
+        </button>
+        <button type="button" class="mode-pill-btn" id="mode-rotunda-btn">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
+            <path d="M4 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4zm0 2h12v7.5l-3.5-3.5-3 3-2-2L4 13.5V5z"/>
+          </svg>
+          <span>ROTUNDA WALL</span>
+        </button>
       </div>
 
       <div class="gallery-nav__actions">
@@ -41,22 +52,51 @@
       </div>
     </header>
 
-    <!-- 3D WebGL Canvas Container -->
-    <div id="canvas-container" role="region" aria-label="3D Rotunda Gallery"></div>
+    <!-- Stage 1: Nomadiic Horse Classical Palace Walk (Starting from Pool) -->
+    <div id="palace-container" class="scene-stage is-active" role="region" aria-label="3D Palace Walk"></div>
 
-    <!-- Floating Cursor Tip (Follows Pointer, Shutabug Style) -->
-    <div class="cursor-tip" id="cursor-tip" aria-hidden="true">
-      <span class="cursor-tip-pill" id="cursor-tip-pill">LOOK CLOSER</span>
+    <!-- Doorway Portal Prompt in Palace Showroom (Screenshot 3) -->
+    <div class="palace-door-portal" id="palace-door-portal" aria-hidden="true">
+      <div class="portal-badge">PORTAL READY · END OF PASSAGE</div>
+      <h2 class="portal-heading">Curved Exhibition Rotunda</h2>
+      <p class="portal-sub">Pass through the illuminated doorway to explore 64 clickable fine art paintings on the 360° circular wall.</p>
+      <button type="button" class="portal-action-btn" id="enter-rotunda-door-btn">
+        <span>STEP THROUGH DOORWAY</span>
+        <svg viewBox="0 0 20 20" fill="none" width="18" height="18" aria-hidden="true">
+          <path d="M4 10h11M11 5.5 15.5 10 11 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
 
-    <!-- Bottom-Left Room Caption (Shutabug Style) -->
+    <!-- Stage 2: Shutabug Curved Rotunda Gallery with Clickable Wall Paintings -->
+    <div id="canvas-container" class="scene-stage" role="region" aria-label="3D Rotunda Gallery"></div>
+
+    <!-- Rotunda Central Door Portal (Step back to Palace Passage & Pool) -->
+    <div class="rotunda-center-portal" id="rotunda-center-portal">
+      <button type="button" class="rotunda-door-btn" id="return-palace-btn" aria-label="Return to Palace & Pool">
+        <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
+          <path d="M16 10H5M9 5.5 4.5 10 9 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>RETURN TO PALACE PASSAGE & POOL</span>
+      </button>
+    </div>
+
+    <!-- Cinematic Portal Transition Flash -->
+    <div class="portal-flash" id="portal-flash" aria-hidden="true"></div>
+
+    <!-- Floating Cursor Tip (Follows Pointer in Rotunda Gallery) -->
+    <div class="cursor-tip" id="cursor-tip" aria-hidden="true">
+      <span class="cursor-tip-pill" id="cursor-tip-pill">CLICK TO VIEW</span>
+    </div>
+
+    <!-- Bottom-Left Room Caption (Rotunda Gallery) -->
     <div class="room-caption" id="room-caption">
       <p class="room-kicker">YOU ARE WALKING PAST</p>
-      <h2 class="room-title" id="room-title">The Meridian Spire</h2>
-      <a href="#explore" class="room-more" id="room-more">ENTER THE EXHIBIT →</a>
+      <h2 class="room-title" id="room-title">Curved Exhibition Rotunda</h2>
+      <a href="#explore" class="room-more" id="room-more">EXPLORE COLLECTION →</a>
     </div>
 
-    <!-- Bottom-Right Room Navigation & Walk Hint (Shutabug Style) -->
+    <!-- Bottom-Right Room Navigation & Walk Hint (Rotunda Gallery) -->
     <div class="room-nav" id="room-nav">
       <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous exhibit">←</button>
       <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next exhibit">→</button>
@@ -64,10 +104,10 @@
 
     <p class="walk-hint" id="walk-hint" aria-live="polite">
       <span id="hint-line-1">Scroll or drag to walk round</span>
-      <span id="hint-line-2">Click a painting to look closer</span>
+      <span id="hint-line-2">Click any painting to look closer</span>
     </p>
 
-    <!-- Bottom Center View Mode Toggle (Shutabug Style: GALLERY | LIST) -->
+    <!-- Bottom Center View Mode Toggle (Rotunda Gallery: GALLERY | LIST) -->
     <div class="view-toggle" role="group" aria-label="View Mode">
       <button type="button" class="view-btn is-active" id="view-gallery-btn">
         <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
@@ -83,7 +123,7 @@
       </button>
     </div>
 
-    <!-- Slide-Out Architectural Inspection Drawer (Shutabug Style) -->
+    <!-- Slide-Out Architectural Inspection Drawer -->
     <div class="drawer-overlay" id="drawer-overlay"></div>
     <aside class="drawer" id="drawer" aria-hidden="true">
       <button class="drawer__close" id="drawer-close" aria-label="Close Inspector">✕</button>

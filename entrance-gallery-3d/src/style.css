@@ -34,12 +34,27 @@ html, body {
   user-select: none;
 }
 
-#canvas-container {
+/* ------------------------------------------------ Dual Scene Stages */
+.scene-stage {
   position: absolute;
   inset: 0;
   width: 100vw;
   height: 100vh;
   z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.85s var(--ease), visibility 0.85s;
+}
+
+.scene-stage.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+#canvas-container {
   cursor: grab;
   touch-action: none;
 }
@@ -58,7 +73,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 36px;
+  padding: 20px 36px;
   pointer-events: none;
 }
 
@@ -82,84 +97,245 @@ html, body {
 
 .gallery-nav__name {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   color: #fff;
 }
 
 .gallery-nav__sub {
-  font-size: 11px;
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
   color: var(--dim);
-  letter-spacing: 0.05em;
 }
 
-.gallery-nav__status {
+/* Mode Switcher Pill in Header */
+.scene-mode-pill {
+  display: flex;
+  align-items: center;
+  background: rgba(18, 22, 32, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+  pointer-events: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.mode-pill-btn {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
-  border: 1px solid var(--line);
+  padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(18, 22, 32, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  font-size: 12px;
+  background: transparent;
+  border: none;
   color: var(--dim);
-  letter-spacing: 0.04em;
-  pointer-events: auto;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
 }
 
-.status-indicator {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #6fe45d;
-  box-shadow: 0 0 8px #6fe45d;
+.mode-pill-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mode-pill-btn.is-active {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-nav__actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   pointer-events: auto;
 }
 
 .gallery-nav__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 18px;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  background: rgba(18, 22, 32, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
   color: #fff;
-  font-size: 12px;
-  font-weight: 500;
   text-decoration: none;
-  letter-spacing: 0.03em;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
   transition: all 0.25s var(--ease);
 }
 
 .gallery-nav__link:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-1px);
 }
 
-/* ------------------------------------------------ Floating Cursor Tip (Follows Mouse, Shutabug) */
+/* ------------------------------------------------ Palace Doorway Portal Prompt (Screenshot 3) */
+.palace-door-portal {
+  position: fixed;
+  bottom: 6.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(24px);
+  z-index: 40;
+  background: rgba(14, 18, 28, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 210, 0, 0.35);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 210, 0, 0.18);
+  border-radius: 20px;
+  padding: 24px 34px;
+  max-width: 540px;
+  width: calc(100vw - 48px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), visibility 0.6s;
+}
+
+.palace-door-portal.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.portal-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  background: rgba(255, 210, 0, 0.12);
+  border: 1px solid rgba(255, 210, 0, 0.3);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.portal-heading {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.portal-sub {
+  font-size: 13px;
+  color: #c4c3be;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.portal-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f2822f, #ffd200);
+  color: #111;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  box-shadow: 0 4px 20px rgba(242, 130, 47, 0.45);
+}
+
+.portal-action-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(242, 130, 47, 0.65);
+}
+
+/* ------------------------------------------------ Rotunda Central Door Portal (Return outside) */
+.rotunda-center-portal {
+  position: fixed;
+  top: 86px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.5s var(--ease);
+}
+
+.rotunda-center-portal.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.rotunda-door-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(18, 22, 32, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ecebe6;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.rotunda-door-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------ Cinematic Portal Flash */
+.portal-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: radial-gradient(circle at center, rgba(255, 240, 210, 1) 0%, rgba(18, 22, 32, 1) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portal-flash.is-flashing {
+  opacity: 1;
+}
+
+/* ------------------------------------------------ Cursor Tip (Rotunda Gallery) */
 .cursor-tip {
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
   z-index: 60;
+  transform: translate3d(-100px, -100px, 0);
   opacity: 0;
   transition: opacity 0.2s var(--ease);
-  will-change: transform;
 }
 
 .cursor-tip.is-on {
@@ -168,166 +344,153 @@ html, body {
 
 .cursor-tip-pill {
   display: inline-block;
-  background: rgba(18, 22, 30, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 999px;
-  color: #fff;
+  transform: translate(-50%, -150%);
   padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transform: translate(16px, 16px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* ------------------------------------------------ Bottom-Left Room Caption (Shutabug Style) */
+/* ------------------------------------------------ Bottom-Left Room Caption */
 .room-caption {
   position: fixed;
-  bottom: 5.2rem;
+  bottom: 36px;
   left: 36px;
-  max-width: min(34rem, 68vw);
-  z-index: 40;
-  pointer-events: none;
-  display: grid;
-  gap: 0.5rem;
-  transition: opacity 0.4s var(--ease);
+  z-index: 30;
+  pointer-events: auto;
+  max-width: 440px;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
 }
 
 .room-caption.is-hidden {
   opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
 }
 
 .room-kicker {
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.16em;
   color: var(--dim);
-  margin: 0;
+  margin-bottom: 8px;
 }
 
 .room-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+  font-size: clamp(28px, 3.4vw, 44px);
   font-weight: 400;
-  text-transform: uppercase;
-  line-height: 0.95;
-  color: var(--ink);
-  margin: 0;
+  line-height: 1.05;
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
 }
 
 .room-more {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  pointer-events: auto;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 4px;
-  transition: color 0.2s;
-  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-decoration: none;
+  transition: transform 0.2s var(--ease);
 }
 
 .room-more:hover {
-  color: #fff;
-  text-decoration: underline;
+  transform: translateX(4px);
 }
 
-/* ------------------------------------------------ Bottom-Right Round Nav & Walk Hint (Shutabug Style) */
+/* ------------------------------------------------ Bottom-Right Round Navigation & Hint */
 .room-nav {
   position: fixed;
+  bottom: 36px;
   right: 36px;
-  bottom: 7.2rem;
+  z-index: 30;
   display: flex;
-  gap: 0.6rem;
-  z-index: 40;
+  gap: 10px;
 }
 
 .round-nav-btn {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--line-strong);
-  background: rgba(18, 22, 32, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
   color: #fff;
-  display: grid;
-  place-items: center;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 16px;
-  transition: all 0.22s var(--ease);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s var(--ease);
 }
 
 .round-nav-btn:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: #fff;
-  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.06);
 }
 
 .walk-hint {
   position: fixed;
+  bottom: 96px;
   right: 36px;
-  bottom: 5.2rem;
-  color: var(--dim);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  pointer-events: none;
-  z-index: 40;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
+  z-index: 30;
   text-align: right;
-  transition: color 0.3s var(--ease);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  pointer-events: none;
+  transition: color 0.3s;
 }
 
 .walk-hint.is-lit {
-  color: #fff;
+  color: var(--accent);
 }
 
-/* ------------------------------------------------ Bottom Center View Mode Toggle (GALLERY | LIST) */
+.walk-hint span {
+  display: block;
+}
+
+/* ------------------------------------------------ View Mode Toggle */
 .view-toggle {
   position: fixed;
-  bottom: 1.4rem;
+  bottom: 36px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 50;
+  z-index: 30;
   display: flex;
-  gap: 0.25rem;
-  padding: 4px;
-  border: 1px solid var(--line-strong);
+  background: rgba(18, 22, 32, 0.85);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(18, 22, 32, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  padding: 4px;
+  backdrop-filter: blur(16px);
 }
 
 .view-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 7px 16px;
-  border: none;
+  gap: 8px;
+  padding: 8px 18px;
   border-radius: 999px;
   background: transparent;
+  border: none;
   color: var(--dim);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   cursor: pointer;
-  transition: all 0.22s var(--ease);
+  transition: all 0.25s var(--ease);
 }
 
 .view-btn:hover {
@@ -335,26 +498,25 @@ html, body {
 }
 
 .view-btn.is-active {
-  background: var(--ink);
-  color: #111;
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
 }
 
-/* ------------------------------------------------ Slide-Out Architectural Inspection Drawer */
+/* ------------------------------------------------ Slide-Out Inspector Drawer */
 .drawer-overlay {
   position: fixed;
   inset: 0;
-  z-index: 70;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
+  z-index: 100;
+  background: rgba(6, 8, 12, 0.65);
+  backdrop-filter: blur(8px);
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s var(--ease);
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease), visibility 0.4s;
 }
 
 .drawer-overlay.is-open {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
 }
 
 .drawer {
@@ -363,15 +525,14 @@ html, body {
   right: 0;
   bottom: 0;
   width: min(520px, 92vw);
-  z-index: 80;
-  background: var(--panel);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
+  z-index: 101;
+  background: rgba(18, 22, 32, 0.95);
   border-left: 1px solid var(--line-strong);
+  backdrop-filter: blur(28px);
+  padding: 44px 36px 36px;
   transform: translateX(100%);
-  transition: transform 0.45s var(--ease);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
-  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.65);
 }
 
 .drawer.is-open {
@@ -382,63 +543,49 @@ html, body {
   position: absolute;
   top: 24px;
   right: 24px;
-  z-index: 2;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--line-strong);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
   color: #fff;
-  font-size: 14px;
-  display: grid;
-  place-items: center;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: all 0.2s var(--ease);
+  transition: background 0.2s;
 }
 
 .drawer__close:hover {
   background: rgba(255, 255, 255, 0.18);
-  border-color: #fff;
-  transform: scale(1.05);
 }
 
 .drawer__content {
-  padding: 38px 36px 60px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
 }
 
 .drawer__preview-wrap {
-  position: relative;
   width: 100%;
-  height: 280px;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--line-strong);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   background: #000;
+  border: 1px solid var(--line);
 }
 
 .drawer__preview-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 .drawer__tag {
-  display: inline-block;
-  align-self: flex-start;
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 700;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--accent);
-  background: rgba(255, 210, 0, 0.1);
-  border: 1px solid rgba(255, 210, 0, 0.25);
-  padding: 4px 12px;
-  border-radius: 999px;
 }
 
 .drawer__title {
@@ -450,19 +597,18 @@ html, body {
 }
 
 .drawer__desc {
-  font-size: 14px;
-  line-height: 1.65;
-  color: var(--dim);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #c4c3be;
 }
 
 .drawer__specs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  padding: 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .spec-item {
@@ -474,61 +620,56 @@ html, body {
 .spec-item__label {
   font-family: var(--font-mono);
   font-size: 10px;
-  font-weight: 600;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--dim);
 }
 
 .spec-item__value {
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 600;
   color: #fff;
 }
 
 .drawer__cta-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 100%;
-  padding: 15px 24px;
-  border: none;
+  padding: 14px 24px;
   border-radius: 999px;
-  background: var(--accent);
+  background: linear-gradient(135deg, #ffd200, #ffae00);
   color: #111;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 8px 24px var(--accent-glow);
-  transition: all 0.25s var(--ease);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  box-shadow: 0 4px 20px var(--accent-glow);
 }
 
 .drawer__cta-btn:hover {
-  background: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 30px var(--accent-glow);
 }
 
-/* ------------------------------------------------ 2D Catalogue List View Overlay */
+/* ------------------------------------------------ Architectural List View Overlay */
 .list-view {
   position: fixed;
   inset: 0;
-  z-index: 45;
-  background: var(--bg);
+  z-index: 25;
+  background: rgba(14, 18, 26, 0.96);
+  backdrop-filter: blur(32px);
+  padding: 100px 36px 60px;
   overflow-y: auto;
-  padding: 110px 48px 100px;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s var(--ease);
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease), visibility 0.4s;
 }
 
 .list-view.is-visible {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
 }
 
 .list-view__inner {
@@ -537,46 +678,46 @@ html, body {
 }
 
 .list-view__header {
-  margin-bottom: 44px;
+  margin-bottom: 36px;
 }
 
 .list-view__header h2 {
   font-family: var(--font-serif);
-  font-size: 42px;
-  font-weight: 500;
-  margin-bottom: 8px;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
   color: #fff;
+  margin-bottom: 10px;
 }
 
 .list-view__header p {
-  font-size: 15px;
   color: var(--dim);
+  font-size: 14px;
 }
 
 .list-view__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 26px;
+  gap: 24px;
 }
 
 .list-card {
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.02);
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s var(--ease);
 }
 
 .list-card:hover {
-  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 }
 
 .list-card__media {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #000;
 }
@@ -620,10 +761,14 @@ html, body {
 
 @media (max-width: 768px) {
   .gallery-nav {
-    padding: 18px 20px;
+    padding: 16px 20px;
   }
-  .gallery-nav__status {
-    display: none;
+  .scene-mode-pill {
+    padding: 3px;
+  }
+  .mode-pill-btn {
+    padding: 6px 12px;
+    font-size: 10px;
   }
   .room-caption {
     left: 20px;

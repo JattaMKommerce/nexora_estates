@@ -1,7 +1,9 @@
 import * as THREE from 'three';
+import { mount as mountPalace } from './nomadiic-rt.js';
 
-// ------------------------------------------------ 1. Curated 64 Fine Art Paintings Data
-// All images are downloaded locally in /paintings/sb_01.webp through sb_64.webp
+// ============================================================================
+// 1. CURATED 64 FINE ART PAINTINGS DATA (MAYOWA ALABI / SHUTABUG COLLECTION)
+// ============================================================================
 const RAW_METADATA = [
   // Collection 1: From Lagos, with love (Stations 0-7)
   { id: 'sb_01', title: 'Before the day i die', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.38 },
@@ -104,15 +106,13 @@ export const ALL_ITEMS = RAW_METADATA.map((raw, idx) => {
   };
 });
 
-// ------------------------------------------------ 2. 32 Continuous Stations Across Full 360°
+// 32 Continuous Stations Across Full 360°
 const NUM_STATIONS = 32;
-const ANGLE_STEP = (Math.PI * 2) / NUM_STATIONS; // Full 360° circle
+const ANGLE_STEP = (Math.PI * 2) / NUM_STATIONS;
 const OUTER_RADIUS = 11.97;
 const INNER_RADIUS = 7.43;
-const ROTUNDA_TRACK_R = 9.7; // Walking track radius
+const ROTUNDA_TRACK_R = 9.7;
 
-// Outer stations: 32 items (ALL_ITEMS[0..31])
-// Inner stations: 32 items (ALL_ITEMS[32..63])
 const STATIONS = [];
 for (let i = 0; i < NUM_STATIONS; i++) {
   const colIdx = Math.floor(i / 8);
@@ -125,60 +125,107 @@ for (let i = 0; i < NUM_STATIONS; i++) {
   });
 }
 
-// ------------------------------------------------ 3. High-Performance Three.js Scene Setup (60-120 FPS)
-const container = document.getElementById('canvas-container');
-const scene = new THREE.Scene();
+// ============================================================================
+// 2. DOM ELEMENT REFERENCES
+// ============================================================================
+const palaceContainer = document.getElementById('palace-container');
+const canvasContainer = document.getElementById('canvas-container');
+const modePalaceBtn = document.getElementById('mode-palace-btn');
+const modeRotundaBtn = document.getElementById('mode-rotunda-btn');
+const palaceDoorPortal = document.getElementById('palace-door-portal');
+const enterRotundaDoorBtn = document.getElementById('enter-rotunda-door-btn');
+const rotundaCenterPortal = document.getElementById('rotunda-center-portal');
+const returnPalaceBtn = document.getElementById('return-palace-btn');
+const portalFlash = document.getElementById('portal-flash');
+const navSubTitle = document.getElementById('nav-sub-title');
 
-const BG_COLOR = 0x11151f; // Deep dark gallery environment (Shutabug)
-scene.background = new THREE.Color(BG_COLOR);
-scene.fog = new THREE.Fog(BG_COLOR, 8, 26);
+// Rotunda UI References
+const cursorTip = document.getElementById('cursor-tip');
+const cursorTipPill = document.getElementById('cursor-tip-pill');
+const roomCaption = document.getElementById('room-caption');
+const roomTitle = document.getElementById('room-title');
+const roomMore = document.getElementById('room-more');
+const walkHint = document.getElementById('walk-hint');
+const hintLine1 = document.getElementById('hint-line-1');
+const hintLine2 = document.getElementById('hint-line-2');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const viewGalleryBtn = document.getElementById('view-gallery-btn');
+const viewListBtn = document.getElementById('view-list-btn');
+const listView = document.getElementById('list-view');
+const listViewGrid = document.getElementById('list-view-grid');
+const drawer = document.getElementById('drawer');
+const drawerOverlay = document.getElementById('drawer-overlay');
+const drawerClose = document.getElementById('drawer-close');
+const drawerContent = document.getElementById('drawer-content');
 
-const camera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 60);
+let currentActiveMode = 'palace'; // 'palace' | 'rotunda'
+let palaceInstance = null;
 
-// Hardware-accelerated WebGLRenderer optimized for high framerate
-const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-renderer.setSize(window.innerWidth, window.innerHeight);
-// Clamping DPR to 1.5 ensures razor-sharp visuals while saving >50% fill-rate GPU overhead on Retina screens
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.05;
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-container.appendChild(renderer.domElement);
+// ============================================================================
+// 3. STEP 2: MOUNT NOMADIIC HORSE PALACE WALK (STARTING FROM POOL)
+// ============================================================================
+function initPalaceScene() {
+  if (!palaceContainer) return;
+
+  palaceInstance = mountPalace(palaceContainer, {
+    exposure: 1.15,
+    intro: 'storm',
+    base: 'https://aniketh-ani.github.io/nomadiic-cdn/palace/assets/',
+    onProgressUpdate: (progress, targetProgress) => {
+      // Progress thresholds based on Nomadiic Horse waypoints:
+      // Fs (~0.13): In front of Reflecting Pool (Screenshot 1)
+      // ~0.45: Inside Colonnade Passage (Screenshot 2)
+      // ~0.50+: Inside Showroom facing machine (Screenshot 3)
+      if (progress >= 0.48) {
+        palaceDoorPortal?.classList.add('is-visible');
+      } else {
+        palaceDoorPortal?.classList.remove('is-visible');
+      }
+    }
+  });
+
+  window.__palace = palaceInstance;
+}
+
+// ============================================================================
+// 4. STEP 3: CURVED ROTUNDA GALLERY WITH CLICKABLE WALL PAINTINGS (SHUTABUG)
+// ============================================================================
+const rotundaScene = new THREE.Scene();
+const BG_COLOR = 0x11151f;
+rotundaScene.background = new THREE.Color(BG_COLOR);
+rotundaScene.fog = new THREE.Fog(BG_COLOR, 8, 26);
+
+const rotundaCamera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 60);
+
+const rotundaRenderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+rotundaRenderer.setSize(window.innerWidth, window.innerHeight);
+rotundaRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+rotundaRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+rotundaRenderer.toneMappingExposure = 1.05;
+rotundaRenderer.outputColorSpace = THREE.SRGBColorSpace;
+canvasContainer.appendChild(rotundaRenderer.domElement);
 
 const textureLoader = new THREE.TextureLoader();
 textureLoader.crossOrigin = 'anonymous';
 
-// ------------------------------------------------ 4. Architectural Geometry (Pure MeshBasicMaterial - Zero GPU Lighting Bottlenecks)
-// Floor Ring Geometry [7.2, 12.2, 120]
-const floorMat = new THREE.MeshBasicMaterial({
-  color: 0x222327
-});
+// Architectural Surfaces (MeshBasicMaterial for 60-120 FPS)
+const floorMat = new THREE.MeshBasicMaterial({ color: 0x222327 });
 const floorMesh = new THREE.Mesh(new THREE.RingGeometry(7.2, 12.2, 120), floorMat);
 floorMesh.rotation.x = -Math.PI / 2;
-floorMesh.position.set(0, 0, 0);
-scene.add(floorMesh);
+rotundaScene.add(floorMesh);
 
-// Outer Curved Cylindrical Wall: Radius 12.0, Height 3.6
-const outerWallMat = new THREE.MeshBasicMaterial({
-  color: 0xeae8e2,
-  side: THREE.BackSide
-});
+const outerWallMat = new THREE.MeshBasicMaterial({ color: 0xeae8e2, side: THREE.BackSide });
 const outerWall = new THREE.Mesh(new THREE.CylinderGeometry(12.0, 12.0, 3.6, 120, 1, true), outerWallMat);
 outerWall.position.set(0, 1.8, 0);
-scene.add(outerWall);
+rotundaScene.add(outerWall);
 
-// Inner Curved Cylindrical Wall: Radius 7.4, Height 3.6
-const innerWallMat = new THREE.MeshBasicMaterial({
-  color: 0xdfdcd5,
-  side: THREE.FrontSide,
-  transparent: true,
-  opacity: 1.0
-});
+const innerWallMat = new THREE.MeshBasicMaterial({ color: 0xdfdcd5, side: THREE.FrontSide, transparent: true, opacity: 1.0 });
 const innerWall = new THREE.Mesh(new THREE.CylinderGeometry(7.4, 7.4, 3.6, 96, 1, true), innerWallMat);
 innerWall.position.set(0, 1.8, 0);
-scene.add(innerWall);
+rotundaScene.add(innerWall);
 
-// Soft Warm Atmospheric Radial Glows (Shutabug Technique - Additive Radial Canvases with 0 Lights)
+// Radial Glow Textures for Warm Museum Lighting (Zero GPU Lights)
 function createGlowTexture(colorStart, colorMid, colorEnd) {
   const c = document.createElement('canvas');
   c.width = 256;
@@ -195,7 +242,6 @@ function createGlowTexture(colorStart, colorMid, colorEnd) {
   return tex;
 }
 
-// Floor Warm Glow Pool Under Station
 const poolGlowTex = createGlowTexture('rgba(255, 235, 195, 0.42)', 'rgba(255, 220, 160, 0.18)', 'rgba(255, 210, 140, 0)');
 const poolMat = new THREE.MeshBasicMaterial({
   color: 0xffe8c2,
@@ -206,7 +252,6 @@ const poolMat = new THREE.MeshBasicMaterial({
   depthWrite: false
 });
 
-// Inner Wall Warm Backlight Glow
 const lampGlowTex = createGlowTexture('rgba(255, 241, 214, 0.8)', 'rgba(255, 232, 190, 0.35)', 'rgba(255, 220, 160, 0)');
 const innerLampMat = new THREE.MeshBasicMaterial({
   color: 0xfff1d6,
@@ -217,7 +262,6 @@ const innerLampMat = new THREE.MeshBasicMaterial({
   depthWrite: false
 });
 
-// Outer Wall Soft Downward Gallery Beam Glow
 const outerGlowTex = createGlowTexture('rgba(255, 248, 230, 0.45)', 'rgba(255, 235, 200, 0.15)', 'rgba(255, 225, 175, 0)');
 const outerLampMat = new THREE.MeshBasicMaterial({
   color: 0xfff4e0,
@@ -228,9 +272,8 @@ const outerLampMat = new THREE.MeshBasicMaterial({
   depthWrite: false
 });
 
-// ------------------------------------------------ 5. Mount All 64 Fine Art Paintings (NO TAGS BELOW!)
-const interactiveObjects = []; // Meshes clickable for raycasting (both canvas & frame)
-const allArtworkMeshes = [];
+// Mount All 64 Fine Art Paintings (NO TAGS BELOW!)
+const interactiveObjects = [];
 
 STATIONS.forEach((station, i) => {
   const angle = i * ANGLE_STEP;
@@ -245,13 +288,13 @@ STATIONS.forEach((station, i) => {
   outerGroup.position.set(outerX, 0, outerZ);
   outerGroup.rotation.y = outerRotY;
 
-  // Floor pool light underneath outer station
+  // Floor pool light
   const poolMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 2.0), poolMat);
   poolMesh.rotation.x = -Math.PI / 2;
   poolMesh.position.set(0, 0.02, 1.1);
   outerGroup.add(poolMesh);
 
-  // Soft museum beam glow behind painting on outer wall
+  // Soft museum beam glow behind painting
   const outerBeamMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.8, 3.0), outerLampMat);
   outerBeamMesh.position.set(0, 1.85, 0.008);
   outerGroup.add(outerBeamMesh);
@@ -273,11 +316,8 @@ STATIONS.forEach((station, i) => {
   frameMesh.position.set(0, 1.6, 0.015);
   outerGroup.add(frameMesh);
 
-  // High quality artwork canvas (MeshBasicMaterial: 100% smooth, full-color reproduction)
-  const artMat = new THREE.MeshBasicMaterial({
-    map: tex,
-    side: THREE.DoubleSide
-  });
+  // Artwork canvas (MeshBasicMaterial)
+  const artMat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide });
   const artMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW, pH), artMat);
   artMesh.position.set(0, 1.6, 0.03);
 
@@ -288,9 +328,7 @@ STATIONS.forEach((station, i) => {
   outerGroup.add(artMesh);
   interactiveObjects.push(artMesh);
   interactiveObjects.push(frameMesh);
-  allArtworkMeshes.push(artMesh);
 
-  // NOTE: TAG/PLACARD BELOW IS COMPLETELY REMOVED PER USER INSTRUCTION!
   stationGroup.add(outerGroup);
 
   // ---------------- Inner Wall Painting (Facing Outward)
@@ -303,13 +341,13 @@ STATIONS.forEach((station, i) => {
   innerGroup.position.set(innerX, 0, innerZ);
   innerGroup.rotation.y = innerRotY;
 
-  // Wall Lamp behind inner painting
+  // Wall lamp behind inner painting
   const lampMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.8), innerLampMat);
   lampMesh.position.set(0, 1.8, 0.01);
   innerGroup.add(lampMesh);
 
   const iRatio = THREE.MathUtils.clamp(innerItem.ratio || 1.0, 0.65, 1.78);
-  const wLimit = 2.5 / 12 * 14.8 - 0.7; // ~2.38
+  const wLimit = 2.5 / 12 * 14.8 - 0.7;
   const iHeight = Math.min(1.305, wLimit / iRatio);
   const iWidth = iHeight * iRatio;
 
@@ -318,16 +356,12 @@ STATIONS.forEach((station, i) => {
   iTex.generateMipmaps = true;
   iTex.minFilter = THREE.LinearMipmapLinearFilter;
 
-  // Slim frame
   const iFrameMat = new THREE.MeshBasicMaterial({ color: 0x14161c, side: THREE.DoubleSide });
   const iFrameMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth + 0.08, iHeight + 0.08), iFrameMat);
   iFrameMesh.position.set(0, 1.6, 0.015);
   innerGroup.add(iFrameMesh);
 
-  const iArtMat = new THREE.MeshBasicMaterial({
-    map: iTex,
-    side: THREE.DoubleSide
-  });
+  const iArtMat = new THREE.MeshBasicMaterial({ map: iTex, side: THREE.DoubleSide });
   const iArtMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth, iHeight), iArtMat);
   iArtMesh.position.set(0, 1.6, 0.03);
 
@@ -338,26 +372,40 @@ STATIONS.forEach((station, i) => {
   innerGroup.add(iArtMesh);
   interactiveObjects.push(iArtMesh);
   interactiveObjects.push(iFrameMesh);
-  allArtworkMeshes.push(iArtMesh);
 
-  // NOTE: TAG/PLACARD BELOW IS COMPLETELY REMOVED PER USER INSTRUCTION!
   stationGroup.add(innerGroup);
-  scene.add(stationGroup);
+  rotundaScene.add(stationGroup);
 });
 
-// ------------------------------------------------ 6. Camera Motion & Interaction State
+// ------------------------------------------------ Rotunda Interactive 3D Central Door Portal
+// In the center of the rotunda, a classical door portal allows returning to palace passage & pool
+const centerDoorGroup = new THREE.Group();
+centerDoorGroup.position.set(0, 0, 0);
+
+const doorArchMat = new THREE.MeshBasicMaterial({ color: 0x2e323e, side: THREE.DoubleSide });
+const doorArchMesh = new THREE.Mesh(new THREE.BoxGeometry(2.4, 3.4, 0.3), doorArchMat);
+doorArchMesh.position.set(0, 1.7, 0);
+centerDoorGroup.add(doorArchMesh);
+
+const doorOpeningMat = new THREE.MeshBasicMaterial({
+  color: 0xffd89b,
+  transparent: true,
+  opacity: 0.85,
+  side: THREE.DoubleSide
+});
+const doorOpeningMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 2.8), doorOpeningMat);
+doorOpeningMesh.position.set(0, 1.5, 0.16);
+doorOpeningMesh.userData = { isPortalDoor: true };
+centerDoorGroup.add(doorOpeningMesh);
+interactiveObjects.push(doorOpeningMesh);
+
+rotundaScene.add(centerDoorGroup);
+
+// Rotunda Camera Motion & Interaction State
 const walkState = {
   angle: 0.0,
   targetAngle: 0.0,
   lastMoved: performance.now()
-};
-
-const entranceState = {
-  phase: 'wait',
-  startTime: performance.now(),
-  fromAngle: -4.5,
-  toAngle: 0.0,
-  durationMs: 3800
 };
 
 const currentEye = new THREE.Vector3();
@@ -377,49 +425,6 @@ const raycaster = new THREE.Raycaster();
 let hoveredMesh = null;
 let currentCollectionIdx = 0;
 
-// UI References
-const cursorTip = document.getElementById('cursor-tip');
-const cursorTipPill = document.getElementById('cursor-tip-pill');
-const roomCaption = document.getElementById('room-caption');
-const roomTitle = document.getElementById('room-title');
-const roomMore = document.getElementById('room-more');
-const walkHint = document.getElementById('walk-hint');
-const hintLine1 = document.getElementById('hint-line-1');
-const hintLine2 = document.getElementById('hint-line-2');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const viewGalleryBtn = document.getElementById('view-gallery-btn');
-const viewListBtn = document.getElementById('view-list-btn');
-const listView = document.getElementById('list-view');
-const listViewGrid = document.getElementById('list-view-grid');
-const drawer = document.getElementById('drawer');
-const drawerOverlay = document.getElementById('drawer-overlay');
-const drawerClose = document.getElementById('drawer-close');
-const drawerContent = document.getElementById('drawer-content');
-
-// Initial camera position at threshold
-function setupEntranceThreshold() {
-  const a = walkState.angle;
-  const c = a + 0.32;
-  const entranceR = ROTUNDA_TRACK_R / Math.sqrt(10); // ~3.067m
-  const entranceAngleOffset = Math.atan(3); // ~1.249 rad
-
-  currentEye.set(
-    Math.sin(a - entranceAngleOffset) * entranceR,
-    1.55,
-    Math.cos(a - entranceAngleOffset) * entranceR
-  );
-  currentLookAt.set(
-    Math.sin(c - entranceAngleOffset) * entranceR,
-    1.5,
-    Math.cos(c - entranceAngleOffset) * entranceR
-  );
-  camera.position.copy(currentEye);
-  camera.lookAt(currentLookAt);
-}
-setupEntranceThreshold();
-
-// Update UI hints
 function updateWalkHint() {
   if (isInspecting) {
     if (hintLine1) hintLine1.textContent = 'Click away or Esc to step back';
@@ -436,16 +441,12 @@ function updateCaption(colIdx, item) {
   if (colIdx !== currentCollectionIdx || item) {
     currentCollectionIdx = colIdx;
     const col = COLLECTIONS_INFO[colIdx] || COLLECTIONS_INFO[0];
-    if (roomTitle) {
-      roomTitle.textContent = item ? item.title : col.title;
-    }
-    if (roomMore) {
-      roomMore.textContent = item ? 'VIEW PAINTING DETAILS →' : 'EXPLORE COLLECTION →';
-    }
+    if (roomTitle) roomTitle.textContent = item ? item.title : col.title;
+    if (roomMore) roomMore.textContent = item ? 'VIEW PAINTING DETAILS →' : 'EXPLORE COLLECTION →';
   }
 }
 
-// ------------------------------------------------ 7. ZOOM IN & INSPECT DRAWER ACTIONS (100% Reliable Click)
+// Zoom in and inspect artwork
 function lookCloserAt(mesh) {
   inspectedMesh = mesh;
   isInspecting = true;
@@ -454,7 +455,6 @@ function lookCloserAt(mesh) {
   mesh.getWorldPosition(scratchWorldPos);
   mesh.getWorldDirection(scratchFacingDir);
 
-  // Stand 2.2m directly facing the artwork at eye level
   targetEye.copy(scratchWorldPos).addScaledVector(scratchFacingDir, 2.2);
   targetEye.y = 1.6;
 
@@ -531,32 +531,23 @@ window.addEventListener('keydown', (e) => {
     stepBack();
   } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
     if (isInspecting) stepBack();
-    if (entranceState.phase !== 'done') entranceState.phase = 'done';
     walkState.targetAngle += 2 * ANGLE_STEP;
     walkState.lastMoved = performance.now();
   } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
     if (isInspecting) stepBack();
-    if (entranceState.phase !== 'done') entranceState.phase = 'done';
     walkState.targetAngle -= 2 * ANGLE_STEP;
     walkState.lastMoved = performance.now();
   }
 });
 
-// ------------------------------------------------ 8. FLUID, STUTTER-FREE SCROLL & DRAG SYSTEM
-// Wheel scroll: Instant cancellation of auto-entrance + smooth normalized delta (NO LAG, NO STICKING!)
+// Wheel scroll walks round inside Rotunda
 window.addEventListener('wheel', (e) => {
-  if (drawer.classList.contains('is-open')) return;
+  if (currentActiveMode !== 'rotunda' || drawer.classList.contains('is-open')) return;
   e.preventDefault();
 
   if (isInspecting) {
     stepBack();
     return;
-  }
-
-  // Cancel entrance animation instantly if user touches scroll, giving 100% immediate control!
-  if (entranceState.phase !== 'done') {
-    entranceState.phase = 'done';
-    walkState.targetAngle = walkState.angle;
   }
 
   const rawDelta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
@@ -575,25 +566,31 @@ let pointerLastX = 0;
 let pointerVelocity = 0;
 let pointerTimestamp = 0;
 
-// Golden accent on hover for instant feedback with zero lighting cost
 function highlightArtwork(mesh) {
+  if (mesh.userData.isPortalDoor) {
+    mesh.material.color.setHex(0xffffff);
+    return;
+  }
   const frame = mesh.userData.frameMesh;
   if (frame && frame.material) {
-    frame.material.color.setHex(0xe5b869); // Elegant museum gold frame
+    frame.material.color.setHex(0xe5b869);
   }
 }
 
 function unhighlightArtwork(mesh) {
+  if (mesh.userData.isPortalDoor) {
+    mesh.material.color.setHex(0xffd89b);
+    return;
+  }
   const frame = mesh.userData.frameMesh;
   if (frame && frame.material) {
-    frame.material.color.setHex(0x14161c); // Original deep dark frame
+    frame.material.color.setHex(0x14161c);
   }
 }
 
-// Throttled hover check running inside the animation loop (prevents 120Hz CPU raycasting overload)
 let lastHoverCheck = 0;
 function checkHover(now) {
-  if (isDraggingCamera || drawer.classList.contains('is-open') || pointer.x === -999) {
+  if (currentActiveMode !== 'rotunda' || isDraggingCamera || drawer.classList.contains('is-open') || pointer.x === -999) {
     if (hoveredMesh) {
       unhighlightArtwork(hoveredMesh);
       hoveredMesh = null;
@@ -602,10 +599,10 @@ function checkHover(now) {
     return;
   }
 
-  if (now - lastHoverCheck < 32) return; // ~30 FPS check is imperceptible to eye but saves massive CPU
+  if (now - lastHoverCheck < 32) return;
   lastHoverCheck = now;
 
-  raycaster.setFromCamera(pointer, camera);
+  raycaster.setFromCamera(pointer, rotundaCamera);
   const hits = raycaster.intersectObjects(interactiveObjects, false);
 
   if (hits.length > 0) {
@@ -614,21 +611,23 @@ function checkHover(now) {
       if (hoveredMesh) unhighlightArtwork(hoveredMesh);
       hoveredMesh = mesh;
       highlightArtwork(hoveredMesh);
-      container.style.cursor = 'pointer';
+      canvasContainer.style.cursor = 'pointer';
       cursorTip?.classList.add('is-on');
-      if (cursorTipPill) cursorTipPill.textContent = 'CLICK TO VIEW';
+      if (cursorTipPill) {
+        cursorTipPill.textContent = mesh.userData.isPortalDoor ? 'RETURN TO PALACE' : 'CLICK TO VIEW';
+      }
     }
   } else {
     if (hoveredMesh) {
       unhighlightArtwork(hoveredMesh);
       hoveredMesh = null;
-      container.style.cursor = 'grab';
+      canvasContainer.style.cursor = 'grab';
       cursorTip?.classList.remove('is-on');
     }
   }
 }
 
-container.addEventListener('pointerdown', (e) => {
+canvasContainer.addEventListener('pointerdown', (e) => {
   if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav')) return;
 
   pointerDownX = e.clientX;
@@ -638,14 +637,9 @@ container.addEventListener('pointerdown', (e) => {
   pointerLastX = e.clientX;
   pointerTimestamp = performance.now();
   pointerVelocity = 0;
-
-  if (entranceState.phase !== 'done') {
-    entranceState.phase = 'done';
-    walkState.targetAngle = walkState.angle;
-  }
 });
 
-container.addEventListener('pointermove', (e) => {
+canvasContainer.addEventListener('pointermove', (e) => {
   pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
   pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
   mouseParallax.x = pointer.x;
@@ -671,12 +665,11 @@ container.addEventListener('pointermove', (e) => {
   }
 });
 
-container.addEventListener('pointerup', (e) => {
+canvasContainer.addEventListener('pointerup', (e) => {
   const totalMove = Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY);
   const duration = performance.now() - pointerDownTime;
   isDraggingCamera = false;
 
-  // Fling momentum when released with speed
   if (totalMove > 14 && Math.abs(pointerVelocity) > 0.08) {
     const clampedV = Math.max(-2.5, Math.min(2.5, pointerVelocity));
     walkState.targetAngle -= 180 * clampedV * 0.0022;
@@ -684,8 +677,6 @@ container.addEventListener('pointerup', (e) => {
     return;
   }
 
-  // GUARANTEED CLICK TRIGGER:
-  // If pointer moved less than 12px within 600ms, it is a deliberate click!
   if (totalMove < 12 && duration < 600) {
     handleDirectArtworkClick(e.clientX, e.clientY);
   }
@@ -694,30 +685,31 @@ container.addEventListener('pointerup', (e) => {
 function handleDirectArtworkClick(clientX, clientY) {
   pointer.x = (clientX / window.innerWidth) * 2 - 1;
   pointer.y = -(clientY / window.innerHeight) * 2 + 1;
-  raycaster.setFromCamera(pointer, camera);
+  raycaster.setFromCamera(pointer, rotundaCamera);
 
   const hits = raycaster.intersectObjects(interactiveObjects, false);
   if (hits.length > 0) {
     const mesh = hits[0].object;
+    if (mesh.userData.isPortalDoor) {
+      // Step back out into Palace Passage & Pool
+      transitionTo('palace');
+      return;
+    }
     const item = mesh.userData.item;
     if (item) {
-      // 1. Smoothly fly camera to face artwork
       lookCloserAt(mesh);
-      // 2. Open inspector drawer with full specs and high-res image
       openInspector(item);
     }
   } else {
-    // Clicked floor or background: step back if inspecting
     if (isInspecting || drawer.classList.contains('is-open')) {
       stepBack();
     }
   }
 }
 
-// Room navigation buttons (← and →)
+// Round navigation buttons (← and →)
 prevBtn?.addEventListener('click', () => {
   stepBack();
-  if (entranceState.phase !== 'done') entranceState.phase = 'done';
   let currentTargetStation = Math.round(walkState.targetAngle / ANGLE_STEP);
   let col = STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx;
   do {
@@ -729,7 +721,6 @@ prevBtn?.addEventListener('click', () => {
 
 nextBtn?.addEventListener('click', () => {
   stepBack();
-  if (entranceState.phase !== 'done') entranceState.phase = 'done';
   let currentTargetStation = Math.round(walkState.targetAngle / ANGLE_STEP);
   let col = STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx;
   do {
@@ -782,44 +773,29 @@ function renderListView() {
   });
 }
 
-// ------------------------------------------------ 9. Silky Smooth 60-120 FPS Render Loop
+// Rotunda 60-120 FPS Render Animation Loop
 const clock = new THREE.Clock();
 
-function animate() {
-  requestAnimationFrame(animate);
+function animateRotunda() {
+  requestAnimationFrame(animateRotunda);
+
+  // When palace mode is active, rotunda rendering is paused to conserve GPU
+  if (currentActiveMode !== 'rotunda') return;
 
   const delta = Math.min(clock.getDelta(), 0.05);
   const elapsedTime = clock.getElapsedTime();
   const now = performance.now();
 
-  // Entrance walk-in animation
-  if (entranceState.phase === 'wait') {
-    if (now - entranceState.startTime > 500) {
-      entranceState.phase = 'run';
-      entranceState.startTime = now;
+  // Subtle idle drift when not interacting and drawer closed
+  if (!isDraggingCamera && !isInspecting && !drawer.classList.contains('is-open')) {
+    if (now - walkState.lastMoved > 3000) {
+      walkState.targetAngle += 0.005 * delta;
     }
-  } else if (entranceState.phase === 'run') {
-    const elapsed = now - entranceState.startTime;
-    const progress = Math.min(1.0, elapsed / entranceState.durationMs);
-    const easeProgress = 1 - Math.pow(1 - progress, 3);
-    walkState.angle = entranceState.fromAngle + (entranceState.toAngle - entranceState.fromAngle) * easeProgress;
-    walkState.targetAngle = walkState.angle;
-
-    if (progress >= 1.0) {
-      entranceState.phase = 'done';
-      walkState.lastMoved = now;
-    }
-  } else {
-    // Subtle idle drift when not interacting and drawer closed
-    if (!isDraggingCamera && !isInspecting && !drawer.classList.contains('is-open')) {
-      if (now - walkState.lastMoved > 3000) {
-        walkState.targetAngle += 0.005 * delta;
-      }
-    }
-    // Exponential decay damping: butter-smooth, frame-rate independent
-    const damping = 1 - Math.exp(-8.5 * delta);
-    walkState.angle += (walkState.targetAngle - walkState.angle) * damping;
   }
+
+  // Exponential decay damping: butter-smooth, frame-rate independent
+  const damping = 1 - Math.exp(-8.5 * delta);
+  walkState.angle += (walkState.targetAngle - walkState.angle) * damping;
 
   // Camera positioning
   if (isInspecting && inspectedMesh) {
@@ -833,45 +809,29 @@ function animate() {
     const eyeY = 1.55 + 0.008 * Math.sin(1.1 * elapsedTime);
     const lookY = 1.5 + 0.14 * mouseParallax.y;
 
-    if (entranceState.phase === 'wait') {
-      const entranceR = ROTUNDA_TRACK_R / Math.sqrt(10);
-      const entranceAngleOffset = Math.atan(3);
-      currentEye.set(
-        Math.sin(a - entranceAngleOffset) * entranceR,
-        1.55,
-        Math.cos(a - entranceAngleOffset) * entranceR
-      );
-      currentLookAt.set(
-        Math.sin(lookAngle - entranceAngleOffset) * entranceR,
-        lookY,
-        Math.cos(lookAngle - entranceAngleOffset) * entranceR
-      );
-    } else {
-      // Direct positioning from smoothly damped angle: eliminates sluggish double-lerp
-      currentEye.set(
-        ROTUNDA_TRACK_R * Math.sin(a),
-        eyeY,
-        ROTUNDA_TRACK_R * Math.cos(a)
-      );
-      currentLookAt.set(
-        ROTUNDA_TRACK_R * Math.sin(lookAngle),
-        lookY,
-        ROTUNDA_TRACK_R * Math.cos(lookAngle)
-      );
-    }
+    currentEye.set(
+      ROTUNDA_TRACK_R * Math.sin(a),
+      eyeY,
+      ROTUNDA_TRACK_R * Math.cos(a)
+    );
+    currentLookAt.set(
+      ROTUNDA_TRACK_R * Math.sin(lookAngle),
+      lookY,
+      ROTUNDA_TRACK_R * Math.cos(lookAngle)
+    );
   }
 
-  camera.position.copy(currentEye);
-  camera.lookAt(currentLookAt);
+  rotundaCamera.position.copy(currentEye);
+  rotundaCamera.lookAt(currentLookAt);
 
-  // Inner wall distance fade (Shutabug style)
-  const camDist = Math.hypot(camera.position.x, camera.position.z);
+  // Inner wall distance fade
+  const camDist = Math.hypot(rotundaCamera.position.x, rotundaCamera.position.z);
   const innerWallOpacity = THREE.MathUtils.smoothstep(camDist, 7.4 + 0.2, 7.4 + 1.8);
   innerWallMat.opacity = innerWallOpacity;
   innerLampMat.opacity = 0.55 * innerWallOpacity;
 
   // Update room caption
-  if (!isInspecting && entranceState.phase !== 'wait') {
+  if (!isInspecting) {
     const stationIndex = THREE.MathUtils.euclideanModulo(
       Math.round((walkState.angle + 0.25) / ANGLE_STEP),
       NUM_STATIONS
@@ -882,18 +842,62 @@ function animate() {
     }
   }
 
-  // Throttled raycasting hover check
   checkHover(now);
-
-  renderer.render(scene, camera);
+  rotundaRenderer.render(rotundaScene, rotundaCamera);
 }
 
-animate();
-
-// Resize handler
+// Window resize
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  rotundaCamera.aspect = window.innerWidth / window.innerHeight;
+  rotundaCamera.updateProjectionMatrix();
+  rotundaRenderer.setSize(window.innerWidth, window.innerHeight);
+  rotundaRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 });
+
+// ============================================================================
+// 5. SEAMLESS DOOR PORTAL TRANSITION BETWEEN PALACE & ROTUNDA
+// ============================================================================
+function transitionTo(mode) {
+  if (currentActiveMode === mode) return;
+
+  // Trigger cinematic portal bloom flash
+  if (portalFlash) {
+    portalFlash.classList.add('is-flashing');
+  }
+
+  setTimeout(() => {
+    currentActiveMode = mode;
+
+    if (mode === 'rotunda') {
+      palaceContainer?.classList.remove('is-active');
+      canvasContainer?.classList.add('is-active');
+      modePalaceBtn?.classList.remove('is-active');
+      modeRotundaBtn?.classList.add('is-active');
+      rotundaCenterPortal?.classList.add('is-visible');
+      palaceDoorPortal?.classList.remove('is-visible');
+      if (navSubTitle) navSubTitle.textContent = 'Curved Exhibition Rotunda Wall';
+      walkState.lastMoved = performance.now();
+    } else {
+      canvasContainer?.classList.remove('is-active');
+      palaceContainer?.classList.add('is-active');
+      modeRotundaBtn?.classList.remove('is-active');
+      modePalaceBtn?.classList.add('is-active');
+      rotundaCenterPortal?.classList.remove('is-visible');
+      if (navSubTitle) navSubTitle.textContent = 'Palace Colonnade & Reflecting Pool';
+    }
+
+    setTimeout(() => {
+      portalFlash?.classList.remove('is-flashing');
+    }, 350);
+  }, 400);
+}
+
+// Event Listeners for Door Portals & Mode Switchers
+modePalaceBtn?.addEventListener('click', () => transitionTo('palace'));
+modeRotundaBtn?.addEventListener('click', () => transitionTo('rotunda'));
+enterRotundaDoorBtn?.addEventListener('click', () => transitionTo('rotunda'));
+returnPalaceBtn?.addEventListener('click', () => transitionTo('palace'));
+
+// Initialize both scenes
+initPalaceScene();
+animateRotunda();
