@@ -1,4 +1,329 @@
 import * as THREE from 'three';
+window.THREE = THREE;
+
+// ------------------------------------------------ Day & Night Linear Gradient Controller State
+const dayNightState = {
+  factor: 0.0, // 0.0 = Day, 0.5 = Sunset, 1.0 = Night
+  sliderEl: null,
+  badgeEl: null
+};
+
+let buildingWindowGlowMat = null;
+let twinBuildingsGroup = null;
+
+function setupDayNightController() {
+  const slider = document.getElementById('daynight-slider');
+  const badge = document.getElementById('daynight-badge');
+  dayNightState.sliderEl = slider;
+  dayNightState.badgeEl = badge;
+
+  if (slider) {
+    slider.addEventListener('input', (e) => {
+      setDayNightFactor(parseFloat(e.target.value) / 100.0);
+    });
+  }
+}
+
+function setDayNightFactor(factor) {
+  dayNightState.factor = Math.max(0.0, Math.min(1.0, factor));
+  const t = dayNightState.factor;
+
+  if (nomadiic && nomadiic.postUniforms) {
+    const u = nomadiic.postUniforms;
+    if (u.uNight) u.uNight.value = t;
+    if (u.uWarm) u.uWarm.value = (1 - t) * 0.22 + Math.sin(t * Math.PI) * 0.42 - t * 0.32;
+    if (u.uSat) u.uSat.value = 1.15 + Math.sin(t * Math.PI) * 0.15 - t * 0.15;
+    if (u.toneMappingExposure) u.toneMappingExposure.value = THREE.MathUtils.lerp(1.15, 0.85, t);
+  }
+
+  if (window.__bldgMats) {
+    const { marbleMat, slabMat, shadowMat, glassMat, roofMat } = window.__bldgMats;
+    // Classical limestone & marble color grading across time of day:
+    if (marbleMat) {
+      if (t < 0.5) {
+        marbleMat.color.lerpColors(new THREE.Color(0xf0ede6), new THREE.Color(0xebd5be), t / 0.5);
+      } else {
+        marbleMat.color.lerpColors(new THREE.Color(0xebd5be), new THREE.Color(0x323c4d), (t - 0.5) / 0.5);
+      }
+    }
+    if (slabMat) {
+      if (t < 0.5) {
+        slabMat.color.lerpColors(new THREE.Color(0xf8f6f0), new THREE.Color(0xf2e0ce), t / 0.5);
+      } else {
+        slabMat.color.lerpColors(new THREE.Color(0xf2e0ce), new THREE.Color(0x424e63), (t - 0.5) / 0.5);
+      }
+    }
+    if (shadowMat) {
+      if (t < 0.5) {
+        shadowMat.color.lerpColors(new THREE.Color(0xdad5c8), new THREE.Color(0xccb8a0), t / 0.5);
+      } else {
+        shadowMat.color.lerpColors(new THREE.Color(0xccb8a0), new THREE.Color(0x242c38), (t - 0.5) / 0.5);
+      }
+    }
+    if (roofMat) {
+      if (t < 0.5) {
+        roofMat.color.lerpColors(new THREE.Color(0xe6e1d6), new THREE.Color(0xd8c2ad), t / 0.5);
+      } else {
+        roofMat.color.lerpColors(new THREE.Color(0xd8c2ad), new THREE.Color(0x2a3340), (t - 0.5) / 0.5);
+      }
+    }
+    // High-rise windows: Day tinted glass (0x1c293a) -> Sunset bronze (0x9a5e2d) -> Night illuminated warm gold (0xffd580)
+    if (glassMat) {
+      if (t < 0.5) {
+        glassMat.color.lerpColors(new THREE.Color(0x1c293a), new THREE.Color(0x9a5e2d), t / 0.5);
+      } else {
+        glassMat.color.lerpColors(new THREE.Color(0x9a5e2d), new THREE.Color(0xffd580), (t - 0.5) / 0.5);
+      }
+    }
+  }
+
+  if (dayNightState.badgeEl) {
+    if (t < 0.15) {
+      dayNightState.badgeEl.textContent = 'DAY 12:00 PM';
+    } else if (t < 0.40) {
+      dayNightState.badgeEl.textContent = 'AFTERNOON 3:30 PM';
+    } else if (t < 0.65) {
+      dayNightState.badgeEl.textContent = 'GOLDEN HOUR 6:15 PM';
+    } else if (t < 0.85) {
+      dayNightState.badgeEl.textContent = 'SUNSET 7:45 PM';
+    } else {
+      dayNightState.badgeEl.textContent = 'NIGHT 11:30 PM';
+    }
+  }
+
+  if (dayNightState.sliderEl) {
+    dayNightState.sliderEl.value = String(Math.round(t * 100));
+  }
+}
+
+window.setDayNight = setDayNightFactor;
+
+// ------------------------------------------------ 15-Floor Neoclassical Clean Twin Buildings
+function setupNeoclassical15FloorTowers(nomadiicInstance) {
+  if (!nomadiicInstance || !nomadiicInstance.scene) return;
+  const scene = nomadiicInstance.scene;
+
+  // 1. Flatten the old 1-story side colonnades from palace mesh to ground level
+  const palaceMesh = scene.children.find(c => c.isMesh && c.geometry?.attributes?.position?.count > 50000);
+  if (palaceMesh && palaceMesh.geometry) {
+    palaceMesh.frustumCulled = false;
+    const pos = palaceMesh.geometry.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      const x = pos.getX(i);
+      const y = pos.getY(i);
+      const z = pos.getZ(i);
+      if (Math.abs(x) >= 11.2 && Math.abs(x) <= 26.0 && z >= 17.0 && z <= 80.0 && y > 0.4) {
+        pos.setY(i, 0.05);
+      }
+    }
+    pos.needsUpdate = true;
+    palaceMesh.geometry.computeBoundingBox();
+    palaceMesh.geometry.computeBoundingSphere();
+  }
+
+  // 2. Materials matching the classical limestone/marble of the temple
+  const marbleMat = new THREE.MeshBasicMaterial({ color: 0xf0ede6 });
+  const slabMat = new THREE.MeshBasicMaterial({ color: 0xf8f6f0 });
+  const shadowMat = new THREE.MeshBasicMaterial({ color: 0xdad5c8 });
+  const glassMat = new THREE.MeshBasicMaterial({ color: 0x1c293a });
+  const roofMat = new THREE.MeshBasicMaterial({ color: 0xe6e1d6 });
+
+  window.__bldgMats = { marbleMat, slabMat, shadowMat, glassMat, roofMat };
+
+  const FLOORS = 15;
+  const FLOOR_H = 2.85;
+  const TOTAL_H = FLOORS * FLOOR_H; // ~42.75m
+  const UNITS_PER_FLOOR = 10;
+  const BLDG_LEN = 53.5;
+  const BLDG_W = 10.5;
+  const UNIT_W = BLDG_LEN / UNITS_PER_FLOOR;
+
+  function create15FloorTower(side) {
+    const group = new THREE.Group();
+    const sign = side === 'left' ? -1 : 1;
+    const centerX = sign * 18.2;
+    const centerZ = 48.0;
+
+    // Building Main Core Body
+    const coreGeo = new THREE.BoxGeometry(BLDG_W - 0.6, TOTAL_H, BLDG_LEN - 0.6);
+    const core = new THREE.Mesh(coreGeo, shadowMat);
+    core.position.set(centerX, TOTAL_H / 2, centerZ);
+    group.add(core);
+
+    const facadeX = centerX - sign * (BLDG_W / 2 + 0.08);
+    const frontZ = centerZ + BLDG_LEN / 2 + 0.08;
+
+    // Build 15 Equal Floors
+    for (let f = 0; f < FLOORS; f++) {
+      const floorY = f * FLOOR_H;
+
+      // Horizontal Floor Cornice Slab
+      const slabGeo = new THREE.BoxGeometry(BLDG_W + 0.6, 0.36, BLDG_LEN + 0.6);
+      const slab = new THREE.Mesh(slabGeo, slabMat);
+      slab.position.set(centerX, floorY + 0.18, centerZ);
+      group.add(slab);
+
+      // Floor decorative molding band
+      const bandGeo = new THREE.BoxGeometry(BLDG_W + 0.8, 0.14, BLDG_LEN + 0.8);
+      const band = new THREE.Mesh(bandGeo, slabMat);
+      band.position.set(centerX, floorY + 0.35, centerZ);
+      group.add(band);
+
+      // ================= POOL-FACING ELEVATION (10 Equal Units) =================
+      for (let u = 0; u < UNITS_PER_FLOOR; u++) {
+        const unitZ = (centerZ - BLDG_LEN / 2 + UNIT_W / 2) + u * UNIT_W;
+
+        if (f === 0) {
+          // Ground Floor: Monumental Classical Colonnade
+          const colGeo = new THREE.CylinderGeometry(0.32, 0.32, FLOOR_H - 0.45, 16);
+          const col = new THREE.Mesh(colGeo, marbleMat);
+          col.position.set(facadeX - sign * 0.25, floorY + FLOOR_H / 2 + 0.2, unitZ - UNIT_W / 2);
+          group.add(col);
+
+          if (u === UNITS_PER_FLOOR - 1) {
+            const endCol = new THREE.Mesh(colGeo, marbleMat);
+            endCol.position.set(facadeX - sign * 0.25, floorY + FLOOR_H / 2 + 0.2, unitZ + UNIT_W / 2);
+            group.add(endCol);
+          }
+        } else {
+          // Floors 2 to 15: Clean Equal Units with Windows, Balconies, and Classical Pilasters
+          const winGeo = new THREE.PlaneGeometry(UNIT_W - 1.2, FLOOR_H - 0.75);
+          const win = new THREE.Mesh(winGeo, glassMat);
+          win.position.set(facadeX, floorY + FLOOR_H / 2 + 0.2, unitZ);
+          win.rotation.y = sign > 0 ? -Math.PI / 2 : Math.PI / 2;
+          group.add(win);
+
+          // Cantilevered Balcony Slab
+          const balcSlabGeo = new THREE.BoxGeometry(1.2, 0.18, UNIT_W - 1.0);
+          const balcSlab = new THREE.Mesh(balcSlabGeo, slabMat);
+          balcSlab.position.set(facadeX - sign * 0.6, floorY + 0.45, unitZ);
+          group.add(balcSlab);
+
+          // Balcony Classical Railing
+          const railGeo = new THREE.BoxGeometry(0.08, 0.82, UNIT_W - 1.0);
+          const rail = new THREE.Mesh(railGeo, slabMat);
+          rail.position.set(facadeX - sign * 1.16, floorY + 0.95, unitZ);
+          group.add(rail);
+
+          // Classical Fluted Pilasters between each unit
+          const pilasterGeo = new THREE.CylinderGeometry(0.22, 0.22, FLOOR_H - 0.45, 16);
+          const pilaster = new THREE.Mesh(pilasterGeo, marbleMat);
+          pilaster.position.set(facadeX - sign * 0.15, floorY + FLOOR_H / 2 + 0.2, unitZ - UNIT_W / 2);
+          group.add(pilaster);
+
+          if (u === UNITS_PER_FLOOR - 1) {
+            const endPilaster = new THREE.Mesh(pilasterGeo, marbleMat);
+            endPilaster.position.set(facadeX - sign * 0.15, floorY + FLOOR_H / 2 + 0.2, unitZ + UNIT_W / 2);
+            group.add(endPilaster);
+          }
+        }
+      }
+
+      // ================= FRONT-FACING ELEVATION (3 Equal Bays facing Viewer) =================
+      const FRONT_BAYS = 3;
+      const BAY_W = (BLDG_W - 1.0) / FRONT_BAYS; // ~3.16m
+      const bayOffsets = [-BAY_W, 0, BAY_W];
+
+      if (f === 0) {
+        // Ground Floor Monumental Front Entrance Portico
+        for (let b = 0; b <= FRONT_BAYS; b++) {
+          const colX = centerX - (BLDG_W - 1.0) / 2 + b * BAY_W;
+          const colGeo = new THREE.CylinderGeometry(0.32, 0.32, FLOOR_H - 0.45, 16);
+          const col = new THREE.Mesh(colGeo, marbleMat);
+          col.position.set(colX, floorY + FLOOR_H / 2 + 0.2, frontZ + 0.35);
+          group.add(col);
+        }
+      } else {
+        // Floors 2 to 15: Symmetrical 3 Equal Units on the Front Elevation
+        for (let b = 0; b < FRONT_BAYS; b++) {
+          const bayX = centerX + bayOffsets[b];
+          const isCenter = b === 1;
+
+          // Window
+          const winW = isCenter ? 2.5 : 2.1;
+          const winGeo = new THREE.PlaneGeometry(winW, FLOOR_H - 0.75);
+          const win = new THREE.Mesh(winGeo, glassMat);
+          win.position.set(bayX, floorY + FLOOR_H / 2 + 0.2, frontZ);
+          group.add(win);
+
+          // Balcony Slab
+          const balcW = isCenter ? 2.7 : 2.3;
+          const balcSlabGeo = new THREE.BoxGeometry(balcW, 0.18, 1.0);
+          const balcSlab = new THREE.Mesh(balcSlabGeo, slabMat);
+          balcSlab.position.set(bayX, floorY + 0.45, frontZ + 0.5);
+          group.add(balcSlab);
+
+          // Balcony Railing
+          const railGeo = new THREE.BoxGeometry(balcW, 0.82, 0.08);
+          const rail = new THREE.Mesh(railGeo, slabMat);
+          rail.position.set(bayX, floorY + 0.95, frontZ + 0.96);
+          group.add(rail);
+        }
+
+        // 4 Classical Pilasters dividing the 3 front bays
+        for (let p = 0; p <= FRONT_BAYS; p++) {
+          const px = centerX - (BLDG_W - 1.0) / 2 + p * BAY_W;
+          const pilGeo = new THREE.CylinderGeometry(0.20, 0.20, FLOOR_H - 0.45, 16);
+          const pil = new THREE.Mesh(pilGeo, marbleMat);
+          pil.position.set(px, floorY + FLOOR_H / 2 + 0.2, frontZ + 0.08);
+          group.add(pil);
+        }
+      }
+    }
+
+    // ================= FLOOR 15 ROOFTOP CROWN & CLASSICAL PEDIMENT TEMPLE ROOF =================
+    // Classical Dentil Entablature Slab
+    const crownGeo = new THREE.BoxGeometry(BLDG_W + 1.2, 0.8, BLDG_LEN + 1.2);
+    const crown = new THREE.Mesh(crownGeo, slabMat);
+    crown.position.set(centerX, TOTAL_H + 0.4, centerZ);
+    group.add(crown);
+
+    // Classical Triangular Greek Pediment Roof running the entire length
+    const halfW = (BLDG_W + 1.0) / 2;
+    const pedH = 3.2;
+    const pedShape = new THREE.Shape();
+    pedShape.moveTo(-halfW, 0);
+    pedShape.lineTo(0, pedH);
+    pedShape.lineTo(halfW, 0);
+    pedShape.closePath();
+
+    const extrudeSettings = {
+      depth: BLDG_LEN + 1.0,
+      bevelEnabled: true,
+      bevelSegments: 2,
+      steps: 1,
+      bevelSize: 0.3,
+      bevelThickness: 0.3
+    };
+    const pedGeo = new THREE.ExtrudeGeometry(pedShape, extrudeSettings);
+    const pedRoof = new THREE.Mesh(pedGeo, roofMat);
+    pedRoof.position.set(centerX, TOTAL_H + 0.8, centerZ - (BLDG_LEN + 1.0) / 2);
+    group.add(pedRoof);
+
+    // Front Pediment Tympanum Trim molding
+    const tympanumGeo = new THREE.BoxGeometry(BLDG_W + 0.8, 0.2, 0.4);
+    const tympanum = new THREE.Mesh(tympanumGeo, marbleMat);
+    tympanum.position.set(centerX, TOTAL_H + 0.9, frontZ + 0.2);
+    group.add(tympanum);
+
+    group.traverse(obj => {
+      if (obj.isMesh) obj.frustumCulled = false;
+    });
+
+    return group;
+  }
+
+  const leftTower = create15FloorTower('left');
+  const rightTower = create15FloorTower('right');
+
+  twinBuildingsGroup = new THREE.Group();
+  twinBuildingsGroup.name = 'neoclassical-15floor-towers';
+  twinBuildingsGroup.add(leftTower);
+  twinBuildingsGroup.add(rightTower);
+  scene.add(twinBuildingsGroup);
+
+  window.__twinBuildings = twinBuildingsGroup;
+}
 
 async function getMountNomadiic() {
   if (window.__mountNomadiicPromise) return await window.__mountNomadiicPromise;
@@ -531,6 +856,14 @@ async function initNomadiicStage() {
     // Preload Mithraki showroom slice immediately
     if (nomadiic && nomadiic.loadSlice) {
       await nomadiic.loadSlice(0);
+    }
+
+    // Setup Day/Night linear gradient slider controller
+    setupDayNightController();
+
+    // Build 15-Floor Neoclassical Clean Twin Buildings replacing side structures
+    if (nomadiic && nomadiic.scene) {
+      setupNeoclassical15FloorTowers(nomadiic);
     }
 
     // Set camera to initial journey progress
