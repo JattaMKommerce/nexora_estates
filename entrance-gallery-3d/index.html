@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Nexora — 3D Twin Building Entrance Gallery</title>
-    <meta name="description" content="Immersive 3D curved rotunda entrance gallery for the Nexora digital twin building." />
+    <title>Nexora | 3D Rotunda Entrance Gallery</title>
+    <meta name="description" content="Immersive 3D curved rotunda entrance gallery and clickable exhibition wall for the Nexora digital twin platform." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,7 +15,7 @@
   </head>
   <body>
     <!-- Top Header Navigation -->
-    <header class="gallery-nav">
+    <header class="gallery-nav" id="gallery-nav">
       <div class="gallery-nav__brand">
         <svg class="gallery-nav__logo" viewBox="0 0 53 36" fill="none" aria-hidden="true">
           <path d="M5 30V6H11L24 23.5V6H30V30H24L11 12.5V30H5Z" fill="#f3eee6" />
@@ -25,22 +25,16 @@
         </svg>
         <div class="gallery-nav__titles">
           <span class="gallery-nav__name">NEXORA</span>
-          <span class="gallery-nav__sub" id="nav-mode-sub">3D Entrance Passage & Rotunda</span>
+          <span class="gallery-nav__sub">3D Rotunda Entrance Gallery</span>
         </div>
       </div>
 
       <div class="gallery-nav__status">
         <span class="status-indicator"></span>
-        <span id="nav-status-text">Entrance Art Passage</span>
+        <span id="nav-status-text">Curved Exhibition Rotunda</span>
       </div>
 
       <div class="gallery-nav__actions">
-        <button type="button" class="passage-nav-btn" id="nav-walk-btn">
-          <span>WALK TO ROTUNDA</span>
-          <svg viewBox="0 0 16 16" fill="none" width="12" height="12" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
         <a href="http://localhost:5174/" class="gallery-nav__link" target="_blank" rel="noopener">
           Main 3D Twin Platform ↗
         </a>
@@ -48,32 +42,32 @@
     </header>
 
     <!-- 3D WebGL Canvas Container -->
-    <div id="canvas-container"></div>
+    <div id="canvas-container" role="region" aria-label="3D Rotunda Gallery"></div>
 
-    <!-- Floating Passage / Rotunda Walk Controller -->
-    <div class="walk-hud" id="walk-hud">
-      <button type="button" class="walk-hud__btn" id="walk-hud-btn">
-        <span class="walk-hud__label" id="walk-hud-label">WALK INTO ROTUNDA</span>
-        <span class="walk-hud__arrow" id="walk-hud-arrow">→</span>
-      </button>
+    <!-- Floating Cursor Tip (Follows Pointer, Shutabug Style) -->
+    <div class="cursor-tip" id="cursor-tip" aria-hidden="true">
+      <span class="cursor-tip-pill" id="cursor-tip-pill">LOOK CLOSER</span>
     </div>
 
-    <!-- Drag / Scroll Interaction Prompt -->
-    <div class="interaction-cue" id="drag-cue">
-      <span class="cue-icon" id="cue-icon">↑</span>
-      <span class="cue-text" id="cue-text">SCROLL OR CLICK TO WALK DOWN 3D ART PASSAGE</span>
+    <!-- Bottom-Left Room Caption (Shutabug Style) -->
+    <div class="room-caption" id="room-caption">
+      <p class="room-kicker">YOU ARE WALKING PAST</p>
+      <h2 class="room-title" id="room-title">The Meridian Spire</h2>
+      <a href="#explore" class="room-more" id="room-more">ENTER THE EXHIBIT →</a>
     </div>
 
-    <!-- Slide-Out Architectural Inspection Drawer (Shutabug Style) -->
-    <div class="drawer-overlay" id="drawer-overlay"></div>
-    <aside class="drawer" id="drawer" aria-hidden="true">
-      <button class="drawer__close" id="drawer-close" aria-label="Close Inspector">✕</button>
-      <div class="drawer__content" id="drawer-content">
-        <!-- Injected via JavaScript -->
-      </div>
-    </aside>
+    <!-- Bottom-Right Room Navigation & Walk Hint (Shutabug Style) -->
+    <div class="room-nav" id="room-nav">
+      <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous exhibit">←</button>
+      <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next exhibit">→</button>
+    </div>
 
-    <!-- Bottom View Mode Toggle (Shutabug Style: GALLERY | LIST) -->
+    <p class="walk-hint" id="walk-hint" aria-live="polite">
+      <span id="hint-line-1">Scroll or drag to walk round</span>
+      <span id="hint-line-2">Click a painting to look closer</span>
+    </p>
+
+    <!-- Bottom Center View Mode Toggle (Shutabug Style: GALLERY | LIST) -->
     <div class="view-toggle" role="group" aria-label="View Mode">
       <button type="button" class="view-btn is-active" id="view-gallery-btn">
         <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
@@ -89,15 +83,24 @@
       </button>
     </div>
 
+    <!-- Slide-Out Architectural Inspection Drawer (Shutabug Style) -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <button class="drawer__close" id="drawer-close" aria-label="Close Inspector">✕</button>
+      <div class="drawer__content" id="drawer-content">
+        <!-- Injected dynamically via JavaScript -->
+      </div>
+    </aside>
+
     <!-- Architectural List View Overlay (shown when LIST is selected) -->
     <section class="list-view" id="list-view" aria-hidden="true">
       <div class="list-view__inner">
         <div class="list-view__header">
-          <h2>Entrance Gallery Index</h2>
-          <p>Complete catalogue of architectural exhibits & twin building designs.</p>
+          <h2>Rotunda Gallery Catalogue</h2>
+          <p>Complete index of fine art paintings, architectural exhibits & digital twin structures.</p>
         </div>
         <div class="list-view__grid" id="list-view-grid">
-          <!-- Injected via JavaScript -->
+          <!-- Injected dynamically via JavaScript -->
         </div>
       </div>
     </section>
@@ -105,4 +108,3 @@
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
-

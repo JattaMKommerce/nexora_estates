@@ -6,8 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:entrance": "vite entrance-gallery-3d --port 5175",
     "build": "vite build",
+    "build:entrance": "vite build entrance-gallery-3d --config entrance-gallery-3d/vite.config.js",
     "preview": "vite preview",
+    "preview:entrance": "vite preview entrance-gallery-3d --port 5175",
     "dev:2d": "vite --config v2/vite.config.js",
     "build:2d": "vite build --config v2/vite.config.js",
     "preview:2d": "vite preview --config v2/vite.config.js",

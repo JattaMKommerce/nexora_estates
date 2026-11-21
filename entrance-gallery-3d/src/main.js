@@ -1,833 +1,678 @@
 import * as THREE from 'three';
 
-// ------------------------------------------------ 8 Fine Art Paintings on Entrance Passage
-export const PASSAGE_PAINTINGS = [
+// ------------------------------------------------ 1. Curated Fine Art Collections Data (Shutabug Masterpieces)
+export const COLLECTIONS = [
   {
-    id: 'p01',
-    num: '01',
-    title: 'Lagos Sun & Indigo',
-    artist: 'Nexora Contemporary Collection',
-    image: '/paintings/p01.jpg',
-    wall: 'left',
-    z: -20.5
+    id: 'lagos-love',
+    title: 'From Lagos, with love',
+    subtitle: 'Contemporary Solar Pigments & Nostalgia · Mayowa Alabi',
+    desc: 'An exploration of urban rhythm, coastal twilight reflections, and early music television iconography celebrating Black and African diaspora culture.',
+    outerItems: [
+      { id: 'sb_01', title: 'Before the day i die', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_01.webp', ratio: 1.38 },
+      { id: 'sb_02', title: 'Check up on it', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_02.webp', ratio: 1.38 },
+      { id: 'sb_03', title: 'Crank Dat', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_03.webp', ratio: 1.40 },
+      { id: 'sb_04', title: 'Do you remember the time?', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_04.webp', ratio: 1.39 },
+      { id: 'sb_05', title: 'Heyah!', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_05.webp', ratio: 1.38 },
+      { id: 'sb_06', title: 'I’ve got 5 passports i’m never going to jail', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_06.webp', ratio: 1.38 },
+      { id: 'sb_07', title: 'Intl’ Playas Anthem', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_07.webp', ratio: 1.39 }
+    ],
+    innerItems: [
+      { id: 'sb_08', title: 'O', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_08.webp', ratio: 1.37 },
+      { id: 'p01', title: 'Lagos Sun & Indigo', artist: 'Nexora Atelier Collection', category: 'From Lagos, with love', image: '/paintings/p01.jpg', ratio: 0.8 },
+      { id: 'sb_09', title: '‏  (كورة)', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_09.webp', ratio: 0.72 },
+      { id: 'sb_10', title: 'Al-Maghrib', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_10.webp', ratio: 0.73 },
+      { id: 'sb_11', title: 'bɔɔlbɔ', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_11.webp', ratio: 0.73 },
+      { id: 'sb_12', title: 'Burkina Faso', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_12.webp', ratio: 0.73 },
+      { id: 'sb_13', title: 'Cabo Verde', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_13.webp', ratio: 0.73 },
+      { id: 'sb_14', title: 'Cameroun', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_14.webp', ratio: 0.73 }
+    ]
   },
   {
-    id: 'p02',
-    num: '02',
-    title: 'Terra Incognita',
-    artist: 'Atelier Alabi Tribute',
-    image: '/paintings/p02.jpg',
-    wall: 'left',
-    z: -15.5
+    id: 'blck-bourgie',
+    title: 'BLCK & Bourgie',
+    subtitle: 'Regal Figurative Portraits & Gold Tones',
+    desc: 'Intimate, majestic portraiture celebrating identity, cultural lineage, and quiet elegance with rich black velour and shimmering gold leaf accents.',
+    outerItems: [
+      { id: 'sb_15', title: 'Côte d’Ivoire', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_15.webp', ratio: 0.72 },
+      { id: 'sb_16', title: 'Dzayer', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_16.webp', ratio: 0.73 },
+      { id: 'sb_17', title: 'Ojude Oba', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_17.webp', ratio: 0.73 },
+      { id: 'sb_18', title: 'Abiamo Ode Orun', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_18.webp', ratio: 0.56 },
+      { id: 'sb_19', title: 'Bam', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_19.webp', ratio: 1.38 },
+      { id: 'sb_20', title: 'Blood of Jesus', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_20.webp', ratio: 1.38 },
+      { id: 'sb_21', title: 'Fire Drill', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_21.webp', ratio: 1.38 }
+    ],
+    innerItems: [
+      { id: 'p02', title: 'Terra Incognita', artist: 'Atelier Alabi Tribute', category: 'BLCK & Bourgie', image: '/paintings/p02.jpg', ratio: 0.8 },
+      { id: 'sb_22', title: 'Friday Night', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_22.webp', ratio: 0.73 },
+      { id: 'sb_23', title: 'Go Slow', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_23.webp', ratio: 0.75 },
+      { id: 'sb_24', title: 'Isale Eko', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_24.webp', ratio: 0.60 },
+      { id: 'sb_25', title: 'Friday in the City', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_25.webp', ratio: 0.73 },
+      { id: 'sb_26', title: 'Rye Lane', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_26.webp', ratio: 1.38 },
+      { id: 'sb_27', title: 'Boy n da Hood', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_27.webp', ratio: 0.73 },
+      { id: 'sb_28', title: 'Odyssey', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_28.webp', ratio: 1.38 }
+    ]
   },
   {
-    id: 'p03',
-    num: '03',
-    title: 'Emerald Horizon & Gold',
-    artist: 'Heritage Series',
-    image: '/paintings/p03.jpg',
-    wall: 'left',
-    z: -10.5
+    id: 'dnce-carnaval',
+    title: 'DNCE & Carnaval',
+    subtitle: 'Kinetic Movement & Festival Chromatics',
+    desc: 'Dynamic compositions capturing the electric pulse of festival parades, celebratory dances, and nocturnal street masquerades across Lagos and the diaspora.',
+    outerItems: [
+      { id: 'sb_29', title: 'Sunday Freestyle', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_29.webp', ratio: 0.73 },
+      { id: 'sb_30', title: 'Let it all Work out', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_30.webp', ratio: 1.38 },
+      { id: 'sb_31', title: 'Match week 1', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_31.webp', ratio: 1.38 },
+      { id: 'sb_32', title: 'Rye Lane High', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_32.webp', ratio: 1.37 },
+      { id: 'sb_33', title: 'The Gardner', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_33.webp', ratio: 0.72 },
+      { id: 'sb_34', title: 'These Streets Are our Own', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_34.webp', ratio: 1.38 },
+      { id: 'sb_35', title: 'Dap of Champions', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_35.webp', ratio: 0.73 }
+    ],
+    innerItems: [
+      { id: 'p03', title: 'Emerald Horizon & Gold', artist: 'Heritage Series', category: 'DNCE & Carnaval', image: '/paintings/p03.jpg', ratio: 0.8 },
+      { id: 'sb_36', title: 'Suffering from success', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_36.webp', ratio: 0.73 },
+      { id: 'sb_37', title: 'Case 022', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_37.webp', ratio: 0.73 },
+      { id: 'sb_38', title: 'Case 023', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_38.webp', ratio: 0.73 },
+      { id: 'sb_39', title: 'Case 024', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_39.webp', ratio: 0.73 },
+      { id: 'sb_40', title: 'Case 025', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_40.webp', ratio: 0.73 },
+      { id: 'p04', title: 'Symphony of Vanguard', artist: 'Modern Diaspora Study', category: 'DNCE & Carnaval', image: '/paintings/p04.jpg', ratio: 0.8 },
+      { id: 'p05', title: 'The Golden Passage', artist: 'Kinetic Expressionism', category: 'DNCE & Carnaval', image: '/paintings/p05.jpg', ratio: 0.8 }
+    ]
   },
   {
-    id: 'p04',
-    num: '04',
-    title: 'Symphony of the Vanguard',
-    artist: 'Modern Diaspora Study',
-    image: '/paintings/p04.jpg',
-    wall: 'left',
-    z: -5.5
-  },
-  {
-    id: 'p05',
-    num: '05',
-    title: 'The Golden Passage',
-    artist: 'Kinetic Expressionism',
-    image: '/paintings/p05.jpg',
-    wall: 'right',
-    z: -20.5
-  },
-  {
-    id: 'p06',
-    num: '06',
-    title: 'Cobalt Odyssey',
-    artist: 'Maritime Contemporary',
-    image: '/paintings/p06.jpg',
-    wall: 'right',
-    z: -15.5
-  },
-  {
-    id: 'p07',
-    num: '07',
-    title: 'Ochre & Basalt',
-    artist: 'Architectural Elements',
-    image: '/paintings/p07.jpg',
-    wall: 'right',
-    z: -10.5
-  },
-  {
-    id: 'p08',
-    num: '08',
-    title: 'Elysian Pulse',
-    artist: 'Crown Collection',
-    image: '/paintings/p08.jpg',
-    wall: 'right',
-    z: -5.5
+    id: 'adumadan-heritage',
+    title: 'Adumadan & Heritage',
+    subtitle: 'Sculptural Mineral Pigments & Modern Ancestry',
+    desc: 'Geometric planes, deep terracotta ochres, and basalt textures blending ancient West African sculpture with contemporary digital museum art.',
+    outerItems: [
+      { id: 'sb_41', title: 'Case 027', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_41.webp', ratio: 0.73 },
+      { id: 'sb_42', title: 'Case 028', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_42.webp', ratio: 0.73 },
+      { id: 'sb_43', title: 'Case 001', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_43.webp', ratio: 0.73 },
+      { id: 'sb_44', title: 'Case 002', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_44.webp', ratio: 0.73 },
+      { id: 'sb_45', title: 'BSHP', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_45.webp', ratio: 0.73 },
+      { id: 'sb_46', title: 'Catty', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_46.webp', ratio: 0.73 },
+      { id: 'sb_47', title: 'Day Walker', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_47.webp', ratio: 0.73 }
+    ],
+    innerItems: [
+      { id: 'p06', title: 'Cobalt Odyssey', artist: 'Maritime Contemporary', category: 'Adumadan & Heritage', image: '/paintings/p06.jpg', ratio: 0.8 },
+      { id: 'sb_48', title: 'Electric', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_48.webp', ratio: 0.73 },
+      { id: 'sb_49', title: 'Invincible', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_49.webp', ratio: 0.73 },
+      { id: 'sb_50', title: 'Lightening', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_50.webp', ratio: 0.73 },
+      { id: 'sb_51', title: 'pUNk', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_51.webp', ratio: 0.73 },
+      { id: 'sb_52', title: 'Samurai', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_52.webp', ratio: 0.73 },
+      { id: 'p07', title: 'Ochre & Basalt', artist: 'Architectural Elements', category: 'Adumadan & Heritage', image: '/paintings/p07.jpg', ratio: 0.8 },
+      { id: 'p08', title: 'Elysian Pulse', artist: 'Crown Collection', category: 'Adumadan & Heritage', image: '/paintings/p08.jpg', ratio: 0.8 }
+    ]
   }
 ];
 
-// ------------------------------------------------ Architectural Entrance Exhibits Data (Rotunda)
-export const BASE_EXHIBITS = [
-  {
-    id: 'meridian',
-    num: '01',
-    title: 'The Meridian Spire',
-    subtitle: 'Twin Glass & Bronze High-Rise · 48 Floors',
-    tag: 'Flagship Tower',
-    image: '/images/01_meridian.jpg',
-    desc: 'The architectural centerpiece of the development: twin towers clad in high-performance solar glazing and anodized architectural bronze, joined by an iconic sky bridge at level 32.',
-    specs: [
-      { label: 'Height', value: '184 Meters / 48 Storeys' },
-      { label: 'Units', value: '142 Luxury Residences' },
-      { label: 'Structural Core', value: 'BIM Post-Tensioned Raft' },
-      { label: 'Architect', value: 'Nexora Studio' }
-    ],
-    ctaUrl: 'http://localhost:5174/?property=meridian-residences'
-  },
-  {
-    id: 'lobby',
-    num: '02',
-    title: 'Double-Height Grand Lobby',
-    subtitle: '28-Foot Travertine Vestibule & Virtual Concierge',
-    tag: 'Arrival Experience',
-    image: '/images/02_lobby.jpg',
-    desc: 'Stepping into the building, visitors enter a magnificent 28-foot tall lobby clad in Italian silver vein-cut travertine, illuminated by warm recessed architectural linear fixtures with the Hannah AI virtual receptionist.',
-    specs: [
-      { label: 'Ceiling Height', value: '8.5m / 28 Feet' },
-      { label: 'Finish', value: 'Silver Travertine & Brushed Brass' },
-      { label: 'Reception', value: 'Hannah AI Interactive Concierge' },
-      { label: 'Access', value: 'High-Speed Destination Elevators' }
-    ],
-    ctaUrl: 'http://localhost:5174/?welcome'
-  },
-  {
-    id: 'bim-twin',
-    num: '03',
-    title: 'Digital Twin BIM Core',
-    subtitle: 'Real-Time Structural & IoT Sensor Telemetry',
-    tag: 'Platform Innovation',
-    image: '/images/03_bim_twin.jpg',
-    desc: 'The building is paired with a live 3D digital twin model. From foundation excavation to MEP services and structural strain sensors, every component is monitored in real-time.',
-    specs: [
-      { label: 'Twin Resolution', value: 'LOD 400 Parametric Mesh' },
-      { label: 'Sensor Nodes', value: '1,200+ IoT Telemetry Points' },
-      { label: 'Simulation', value: 'Thermal, Energy & Wind Dynamics' },
-      { label: 'Platform', value: 'Nexora Digital Twin Cloud' }
-    ],
-    ctaUrl: 'http://localhost:5174/'
-  },
-  {
-    id: 'halcyon',
-    num: '04',
-    title: 'Halcyon Cascading Terraces',
-    subtitle: 'Stepped Biophilic Sky Gardens & Duplexes',
-    tag: 'Residential Tower',
-    image: '/images/04_halcyon.jpg',
-    desc: 'An innovative sculpted residential form featuring staggered cantilevered garden terraces that bring private landscaped courtyards to high-altitude luxury suites.',
-    specs: [
-      { label: 'Height', value: '36 Storeys' },
-      { label: 'Terrace Area', value: 'Up to 850 sq.ft per residence' },
-      { label: 'Landscape', value: 'Indigenous Biophilic Microclimates' },
-      { label: 'Orientation', value: 'Solar-Optimized South-West' }
-    ],
-    ctaUrl: 'http://localhost:5174/?property=halcyon-heights'
-  },
-  {
-    id: 'facade',
-    num: '05',
-    title: 'Architectural Glazing & Facade',
-    subtitle: 'Triple-Glazed Acoustically Decoupled Curtain Wall',
-    tag: 'Engineering Detail',
-    image: '/images/05_facade.jpg',
-    desc: 'Engineered for exceptional acoustic silence and low-carbon thermal insulation. Floor-to-ceiling glass reveals uninterrupted 360-degree skyline and horizon views.',
-    specs: [
-      { label: 'U-Value', value: '0.78 W/m²K Low-E Glazing' },
-      { label: 'Sound Isolation', value: '46 dB Acoustic Damping' },
-      { label: 'Mullions', value: 'Concealed Structural Anodized' },
-      { label: 'Shading', value: 'Dynamic Automated Louvers' }
-    ],
-    ctaUrl: 'http://localhost:5174/'
-  },
-  {
-    id: 'floor-plan',
-    num: '06',
-    title: 'The Sky Villa Penthouse Plan',
-    subtitle: '6,400 Sq.Ft Duplex Layout with Private Pool',
-    tag: 'Floor Plan Exhibit',
-    image: '/images/06_floor_plan.jpg',
-    desc: 'The premier residence layout occupying the upper two floors. Features a 22-foot double-height living pavilion, private plunge pool, 4 en-suite bedrooms, and dedicated staff quarters.',
-    specs: [
-      { label: 'Total Area', value: '6,400 Sq.Ft / 595 m²' },
-      { label: 'Bedrooms', value: '4 En-Suite + Service Suite' },
-      { label: 'Private Amenities', value: 'Plunge Pool & Sky Terrace' },
-      { label: 'Ceilings', value: 'Double-Height 6.8m' }
-    ],
-    ctaUrl: 'http://localhost:5174/'
-  },
-  {
-    id: 'linden',
-    num: '07',
-    title: 'Linden Park Residences',
-    subtitle: 'Boutique Contemporary Heritage Living',
-    tag: 'Estate Collection',
-    image: '/images/07_linden.jpg',
-    desc: 'A collection of low-density garden villas and private boutique residences set against lush botanical woodlands, combining artisanal masonry with modern minimalism.',
-    specs: [
-      { label: 'Typology', value: '4-Storey Boutique Mansions' },
-      { label: 'Privacy', value: '2 Residences Per Floor' },
-      { label: 'Gardens', value: 'Private Ground-Floor Groves' },
-      { label: 'Status', value: 'Pre-Construction Booking' }
-    ],
-    ctaUrl: 'http://localhost:5174/?property=linden-park'
-  },
-  {
-    id: 'completion',
-    num: '08',
-    title: 'The Horizon Sky Club',
-    subtitle: 'Cantilevered Pool & 360° Panorama Observatory',
-    tag: 'Completed Masterpiece',
-    image: '/images/08_completion.jpg',
-    desc: 'Suspended 150 meters above ground, the Sky Club crowns the twin building with a heated glass-bottom infinity pool, private cigar and wine cellar, and private event dining suite.',
-    specs: [
-      { label: 'Elevation', value: 'Level 42 / 150m Above Ground' },
-      { label: 'Amenities', value: 'Heated Infinity Pool & Club Spa' },
-      { label: 'View Angle', value: 'Unobstructed 360° Horizon' },
-      { label: 'Access', value: 'Private Resident Keycard' }
-    ],
-    ctaUrl: 'http://localhost:5174/'
+// Enrich item specs & description
+COLLECTIONS.forEach(col => {
+  [...col.outerItems, ...col.innerItems].forEach(item => {
+    item.collectionTitle = col.title;
+    item.desc = item.desc || `${item.title} — a fine art digital painting from the celebrated ${col.title} series by ${item.artist}. Features premium museum-grade color pigments, deep tactile textures, and architectural framing.`;
+    item.specs = item.specs || [
+      { label: 'Medium', value: 'Original Fine Art Digital Painting' },
+      { label: 'Artist', value: item.artist },
+      { label: 'Collection', value: col.title },
+      { label: 'Aspect Ratio', value: item.ratio > 1 ? 'Landscape (16:10)' : 'Portrait (3:4)' }
+    ];
+    item.ctaUrl = item.ctaUrl || 'http://localhost:5174/';
+  });
+});
+
+// Flat array for 2D catalogue list view
+export const ALL_ITEMS = COLLECTIONS.flatMap(col => [
+  ...col.outerItems,
+  ...col.innerItems
+]);
+
+// ------------------------------------------------ 2. Build 32 Stations Around Full 360° Circle
+// 4 collections × 8 stations = 32 stations. Every single degree is filled!
+const NUM_STATIONS = 32;
+const ANGLE_STEP = (Math.PI * 2) / NUM_STATIONS; // Exact full 360-degree closure!
+const OUTER_RADIUS = 11.97;
+const INNER_RADIUS = 7.43;
+const ROTUNDA_TRACK_R = 9.7; // Walking track between outer and inner walls
+
+const STATIONS = [];
+COLLECTIONS.forEach((col, colIdx) => {
+  // Station 0 of collection: Collection Plaque on Outer Wall, Painting on Inner Wall
+  STATIONS.push({
+    stationIdx: STATIONS.length,
+    collectionIdx: colIdx,
+    collection: col,
+    outer: { kind: 'plaque', title: col.title, subtitle: `${col.outerItems.length + col.innerItems.length} Artworks`, desc: col.subtitle },
+    inner: col.innerItems[0]
+  });
+
+  // Stations 1 to 7: Fine Art Painting on Outer Wall, Painting on Inner Wall
+  for (let s = 0; s < 7; s++) {
+    STATIONS.push({
+      stationIdx: STATIONS.length,
+      collectionIdx: colIdx,
+      collection: col,
+      outer: { kind: 'artwork', item: col.outerItems[s] },
+      inner: col.innerItems[s + 1]
+    });
   }
-];
+});
 
-// Seamless circular carousel of 16 stations for the 3D rotunda
-export const EXHIBITS = [...BASE_EXHIBITS, ...BASE_EXHIBITS.map(e => ({ ...e, id: `${e.id}-b` }))];
-
-// ------------------------------------------------ 3D Scene Initialization
+// ------------------------------------------------ 3. Three.js Scene Initialization
 const container = document.getElementById('canvas-container');
 const scene = new THREE.Scene();
 
-// Deep dark museum environment
-scene.background = new THREE.Color(0x11151f);
-scene.fog = new THREE.Fog(0x11151f, 32, 75);
+const BG_COLOR = 0x11151f; // Deep dark museum environment (Shutabug)
+scene.background = new THREE.Color(BG_COLOR);
+scene.fog = new THREE.Fog(BG_COLOR, 8, 25);
 
-const camera = new THREE.PerspectiveCamera(54, window.innerWidth / window.innerHeight, 0.1, 120);
-// Start camera inside the entrance art passage
-camera.position.set(0, 0.1, -22.5);
+const camera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 60);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.2;
+renderer.toneMappingExposure = 1.18;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
 container.appendChild(renderer.domElement);
 
 const textureLoader = new THREE.TextureLoader();
+textureLoader.crossOrigin = 'anonymous';
 
-// ------------------------------------------------ Lighting
-const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+// ------------------------------------------------ 4. Architectural Geometry & Wall Surfaces
+// Circular Floor Ring Geometry [7.2, 12.2, 160]
+const floorMat = new THREE.MeshStandardMaterial({
+  color: 0x2a2a2e,
+  roughness: 0.65,
+  metalness: 0.1,
+  toneMapped: false
+});
+const floorMesh = new THREE.Mesh(new THREE.RingGeometry(7.2, 12.2, 160), floorMat);
+floorMesh.rotation.x = -Math.PI / 2;
+floorMesh.position.set(0, 0, 0);
+scene.add(floorMesh);
+
+// Outer Curved Cylindrical Wall: Radius 12.0, Height 3.6
+const outerWallMat = new THREE.MeshStandardMaterial({
+  color: 0xe9e7e1,
+  roughness: 0.76,
+  metalness: 0.02,
+  side: THREE.BackSide,
+  toneMapped: false
+});
+const outerWall = new THREE.Mesh(new THREE.CylinderGeometry(12.0, 12.0, 3.6, 160, 1, true), outerWallMat);
+outerWall.position.set(0, 1.8, 0);
+scene.add(outerWall);
+
+// Inner Curved Cylindrical Wall: Radius 7.4, Height 3.6 (with distance opacity fading)
+const innerWallMat = new THREE.MeshStandardMaterial({
+  color: 0xe2e0da,
+  roughness: 0.76,
+  metalness: 0.02,
+  side: THREE.FrontSide,
+  transparent: true,
+  opacity: 1.0,
+  toneMapped: false
+});
+const innerWall = new THREE.Mesh(new THREE.CylinderGeometry(7.4, 7.4, 3.6, 120, 1, true), innerWallMat);
+innerWall.position.set(0, 1.8, 0);
+scene.add(innerWall);
+
+// ------------------------------------------------ 5. Lighting & Radial Glow Materials
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.35);
 scene.add(ambientLight);
 
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0x1a202c, 0.85);
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0x11151f, 0.7);
 scene.add(hemiLight);
 
-// Soft central rotunda fill light
-const centerFill = new THREE.PointLight(0xfff6ec, 1.8, 45);
-centerFill.position.set(0, 2.0, 0);
-scene.add(centerFill);
+const centerLight = new THREE.PointLight(0xfff6ec, 1.4, 35);
+centerLight.position.set(0, 2.0, 0);
+scene.add(centerLight);
 
-// ------------------------------------------------ Spotlight Halo Texture Generator
-function createSpotlightHaloTexture() {
+// Glow generator
+function createGlowTexture(colorStart, colorMid, colorEnd) {
+  const c = document.createElement('canvas');
+  c.width = 256;
+  c.height = 256;
+  const ctx = c.getContext('2d');
+  const grad = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
+  grad.addColorStop(0, colorStart);
+  grad.addColorStop(0.35, colorMid);
+  grad.addColorStop(1, colorEnd);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 256, 256);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+
+const poolGlowTex = createGlowTexture('rgba(255, 232, 194, 0.45)', 'rgba(255, 220, 160, 0.22)', 'rgba(255, 210, 140, 0)');
+const poolMat = new THREE.MeshBasicMaterial({
+  color: 0xffe8c2,
+  map: poolGlowTex,
+  transparent: true,
+  opacity: 0.16,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false,
+  toneMapped: false
+});
+
+const lampGlowTex = createGlowTexture('rgba(255, 241, 214, 0.85)', 'rgba(255, 235, 195, 0.4)', 'rgba(255, 220, 160, 0)');
+const innerLampMat = new THREE.MeshBasicMaterial({
+  color: 0xfff1d6,
+  map: lampGlowTex,
+  transparent: true,
+  opacity: 0.55,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false,
+  toneMapped: false
+});
+
+// ------------------------------------------------ 6. Canvas Texture Placards & Collection Plaques
+function createPlacardTexture(artist, title, meta) {
   const c = document.createElement('canvas');
   c.width = 512;
-  c.height = 512;
+  c.height = 256;
   const ctx = c.getContext('2d');
-  const grad = ctx.createRadialGradient(256, 140, 10, 256, 256, 256);
-  grad.addColorStop(0, 'rgba(255, 238, 205, 0.85)');
-  grad.addColorStop(0.35, 'rgba(255, 222, 165, 0.45)');
-  grad.addColorStop(0.65, 'rgba(255, 210, 140, 0.15)');
-  grad.addColorStop(1, 'rgba(255, 210, 140, 0)');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, 512, 512);
-  return new THREE.CanvasTexture(c);
-}
-const haloTexture = createSpotlightHaloTexture();
 
-// ------------------------------------------------ SECTION 1: Grand Entrance Art Passage
-const passageGroup = new THREE.Group();
-scene.add(passageGroup);
-
-const PASSAGE_LEN = 24.0;
-const PASSAGE_W = 6.4;
-const PASSAGE_H = 5.4;
-const PASSAGE_MID_Z = -13.0;
-
-// 1. Passage Left Wall
-const wallMat = new THREE.MeshStandardMaterial({
-  color: 0x161a24,
-  roughness: 0.76,
-  metalness: 0.08
-});
-const pLeftWall = new THREE.Mesh(new THREE.PlaneGeometry(PASSAGE_LEN, PASSAGE_H), wallMat);
-pLeftWall.position.set(-PASSAGE_W / 2, 0.2, PASSAGE_MID_Z);
-pLeftWall.rotation.y = Math.PI / 2;
-passageGroup.add(pLeftWall);
-
-// 2. Passage Right Wall
-const pRightWall = new THREE.Mesh(new THREE.PlaneGeometry(PASSAGE_LEN, PASSAGE_H), wallMat);
-pRightWall.position.set(PASSAGE_W / 2, 0.2, PASSAGE_MID_Z);
-pRightWall.rotation.y = -Math.PI / 2;
-passageGroup.add(pRightWall);
-
-// 3. Passage Polished Dark Floor
-const pFloorMat = new THREE.MeshStandardMaterial({
-  color: 0x090c12,
-  roughness: 0.26,
-  metalness: 0.4
-});
-const pFloor = new THREE.Mesh(new THREE.PlaneGeometry(PASSAGE_W, PASSAGE_LEN), pFloorMat);
-pFloor.position.set(0, -2.5, PASSAGE_MID_Z);
-pFloor.rotation.x = -Math.PI / 2;
-passageGroup.add(pFloor);
-
-// 4. Passage Ceiling & Architectural Recessed Linear Light
-const pCeilMat = new THREE.MeshStandardMaterial({ color: 0x10131a, roughness: 0.9 });
-const pCeil = new THREE.Mesh(new THREE.PlaneGeometry(PASSAGE_W, PASSAGE_LEN), pCeilMat);
-pCeil.position.set(0, 2.9, PASSAGE_MID_Z);
-pCeil.rotation.x = Math.PI / 2;
-passageGroup.add(pCeil);
-
-// Linear ceiling warm LED runner
-const ledStripMat = new THREE.MeshBasicMaterial({ color: 0xfff3da });
-const ledStrip = new THREE.Mesh(new THREE.PlaneGeometry(0.24, PASSAGE_LEN), ledStripMat);
-ledStrip.position.set(0, 2.88, PASSAGE_MID_Z);
-ledStrip.rotation.x = Math.PI / 2;
-passageGroup.add(ledStrip);
-
-// Floor edge ambient gold guides
-const edgeMat = new THREE.MeshBasicMaterial({ color: 0xd4af37 });
-const leftEdge = new THREE.Mesh(new THREE.PlaneGeometry(0.06, PASSAGE_LEN), edgeMat);
-leftEdge.position.set(-PASSAGE_W / 2 + 0.04, -2.48, PASSAGE_MID_Z);
-leftEdge.rotation.x = -Math.PI / 2;
-passageGroup.add(leftEdge);
-
-const rightEdge = new THREE.Mesh(new THREE.PlaneGeometry(0.06, PASSAGE_LEN), edgeMat);
-rightEdge.position.set(PASSAGE_W / 2 - 0.04, -2.48, PASSAGE_MID_Z);
-rightEdge.rotation.x = -Math.PI / 2;
-passageGroup.add(rightEdge);
-
-// Passage Entry Portal Arch (at z = -25.0)
-const archMat = new THREE.MeshStandardMaterial({ color: 0x1f2430, roughness: 0.4, metalness: 0.3 });
-const entryArchTop = new THREE.Mesh(new THREE.BoxGeometry(PASSAGE_W + 0.4, 0.4, 0.3), archMat);
-entryArchTop.position.set(0, 2.9, -25.0);
-passageGroup.add(entryArchTop);
-
-// Passage Threshold Portal Arch into Rotunda (at z = -1.0)
-const rotundaPortalTop = new THREE.Mesh(new THREE.BoxGeometry(PASSAGE_W + 0.4, 0.4, 0.3), archMat);
-rotundaPortalTop.position.set(0, 2.9, -1.0);
-passageGroup.add(rotundaPortalTop);
-
-// Passage Placard Generator (non-clickable museum labels)
-function createPassagePlacardTexture(num, title, artist) {
-  const c = document.createElement('canvas');
-  c.width = 480;
-  c.height = 140;
-  const ctx = c.getContext('2d');
-  ctx.fillStyle = '#141822';
-  ctx.fillRect(0, 0, c.width, c.height);
-  ctx.strokeStyle = '#2b3445';
-  ctx.lineWidth = 3;
-  ctx.strokeRect(2, 2, c.width - 4, c.height - 4);
-
-  ctx.fillStyle = '#ffd200';
-  ctx.font = 'bold 18px "Plus Jakarta Sans", sans-serif';
-  ctx.letterSpacing = '3px';
-  ctx.fillText(`ENTRANCE GALLERY · CANVAS ${num}`, 22, 36);
-
-  ctx.fillStyle = '#ffffff';
-  ctx.font = '600 24px "Cormorant Garamond", Georgia, serif';
-  ctx.fillText(title, 22, 78);
-
-  ctx.fillStyle = '#8e96a5';
-  ctx.font = '400 16px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText(artist, 22, 114);
-
-  const t = new THREE.CanvasTexture(c);
-  t.anisotropy = renderer.capabilities.getMaxAnisotropy();
-  return t;
-}
-
-// Mount the 8 Fine Art Paintings in Passage (NOT Clickable!)
-PASSAGE_PAINTINGS.forEach((item) => {
-  const group = new THREE.Group();
-  const isLeft = item.wall === 'left';
-  const x = isLeft ? -PASSAGE_W / 2 + 0.05 : PASSAGE_W / 2 - 0.05;
-  const rotY = isLeft ? Math.PI / 2 : -Math.PI / 2;
-
-  group.position.set(x, 0.35, item.z);
-  group.rotation.y = rotY;
-
-  // Canvas Artwork
-  const pW = 1.9;
-  const pH = 2.4;
-  const tex = textureLoader.load(item.image);
-  tex.generateMipmaps = true;
-  tex.minFilter = THREE.LinearMipmapLinearFilter;
-
-  const canvasMat = new THREE.MeshStandardMaterial({
-    map: tex,
-    roughness: 0.35,
-    metalness: 0.05
-  });
-  const canvasMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW, pH), canvasMat);
-  canvasMesh.position.y = 0.35;
-  group.add(canvasMesh);
-
-  // Floating Dark Anodized Frame
-  const frameMat = new THREE.MeshBasicMaterial({ color: 0x0a0c10 });
-  const frameMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW + 0.12, pH + 0.12), frameMat);
-  frameMesh.position.set(0, 0.35, -0.01);
-  group.add(frameMesh);
-
-  // Warm Spotlight Halo on wall above painting
-  const halo = new THREE.Mesh(
-    new THREE.PlaneGeometry(3.6, 2.4),
-    new THREE.MeshBasicMaterial({
-      map: haloTexture,
-      transparent: true,
-      opacity: 0.8,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    })
-  );
-  halo.position.set(0, 1.8, -0.005);
-  group.add(halo);
-
-  // Placard underneath
-  const placardTex = createPassagePlacardTexture(item.num, item.title, item.artist);
-  const placardMesh = new THREE.Mesh(
-    new THREE.PlaneGeometry(1.4, 0.42),
-    new THREE.MeshStandardMaterial({ map: placardTex, roughness: 0.5 })
-  );
-  placardMesh.position.set(0, -1.2, 0);
-  group.add(placardMesh);
-
-  passageGroup.add(group);
-
-  // SpotLight mounted on ceiling shining down on painting
-  const spot = new THREE.SpotLight(0xfff1dc, 3.2);
-  const spotX = isLeft ? -PASSAGE_W / 2 + 1.6 : PASSAGE_W / 2 - 1.6;
-  spot.position.set(spotX, 2.6, item.z);
-  const target = new THREE.Object3D();
-  target.position.set(x, 0.35, item.z);
-  passageGroup.add(target);
-  spot.target = target;
-  spot.angle = 0.65;
-  spot.penumbra = 0.85;
-  spot.decay = 1.3;
-  spot.distance = 12;
-  passageGroup.add(spot);
-});
-
-// ------------------------------------------------ SECTION 2: Master Rotunda (Shutabug Style)
-const rotunda = new THREE.Group();
-scene.add(rotunda);
-
-const RADIUS = 22.0;
-const HEIGHT = 8.6;
-
-// Curved Cylindrical Wall
-const wallGeo = new THREE.CylinderGeometry(RADIUS, RADIUS, HEIGHT, 160, 1, true);
-const wallMatRotunda = new THREE.MeshStandardMaterial({
-  color: 0xffffff,
-  roughness: 0.82,
-  metalness: 0.02,
-  side: THREE.BackSide
-});
-const wall = new THREE.Mesh(wallGeo, wallMatRotunda);
-rotunda.add(wall);
-
-// Rotunda Floor
-const floorGeo = new THREE.CircleGeometry(RADIUS + 6.0, 64);
-const floorMat = new THREE.MeshStandardMaterial({
-  color: 0x0a0d14,
-  roughness: 0.32,
-  metalness: 0.45,
-  side: THREE.FrontSide
-});
-const floor = new THREE.Mesh(floorGeo, floorMat);
-floor.rotation.x = -Math.PI / 2;
-floor.position.y = -HEIGHT / 2;
-rotunda.add(floor);
-
-// Rotunda Placard Generator
-function createRotundaPlacardTexture(num, title, subtitle) {
-  const c = document.createElement('canvas');
-  c.width = 720;
-  c.height = 240;
-  const ctx = c.getContext('2d');
-  ctx.fillStyle = '#ffffff';
-  ctx.fillRect(0, 0, c.width, c.height);
-
+  ctx.fillStyle = '#f7f6f2';
+  ctx.fillRect(0, 0, 512, 256);
   ctx.strokeStyle = '#e2dfd9';
   ctx.lineWidth = 3;
-  ctx.strokeRect(3, 3, c.width - 6, c.height - 6);
+  ctx.strokeRect(3, 3, 506, 250);
 
-  ctx.fillStyle = '#c89d00';
-  ctx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
-  ctx.letterSpacing = '4px';
-  ctx.fillText(`EXHIBIT ${num}`, 32, 52);
+  ctx.fillStyle = '#1a1a1a';
+  ctx.textBaseline = 'top';
 
-  ctx.fillStyle = '#181b22';
-  ctx.font = '600 34px "Cormorant Garamond", Georgia, serif';
-  ctx.fillText(title, 32, 116);
+  const clampText = (str, maxW) => {
+    let t = str;
+    while (t.length > 1 && ctx.measureText(t).width > maxW) t = t.slice(0, -1);
+    return t === str ? t : `${t.trimEnd()}…`;
+  };
 
-  ctx.fillStyle = '#6b7280';
-  ctx.font = '400 22px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText(subtitle, 32, 168);
+  // Artist
+  ctx.font = '600 24px "Plus Jakarta Sans", system-ui, sans-serif';
+  ctx.fillText(clampText(artist, 450), 30, 32);
 
-  ctx.fillStyle = '#9ca3af';
-  ctx.font = '500 18px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('CLICK TO INSPECT ARCHITECTURE →', 32, 212);
+  // Artwork Title (Italic Serif)
+  ctx.font = 'italic 400 32px "Cormorant Garamond", Georgia, serif';
+  ctx.fillText(clampText(title, 450), 30, 78);
+
+  // Metadata
+  ctx.font = '600 18px ui-monospace, Menlo, Consolas, monospace';
+  ctx.globalAlpha = 0.65;
+  ctx.fillText(clampText(meta.toUpperCase(), 450), 30, 185);
+  ctx.globalAlpha = 1.0;
 
   const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
   return tex;
 }
 
-const exhibitMeshes = [];
+function createPlaqueTexture(title, subtitle) {
+  const c = document.createElement('canvas');
+  c.width = 512;
+  c.height = 640;
+  const ctx = c.getContext('2d');
+
+  ctx.fillStyle = '#efede7';
+  ctx.fillRect(0, 0, 512, 640);
+  ctx.strokeStyle = '#dcd8cf';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(4, 4, 504, 632);
+
+  ctx.fillStyle = '#1a1a1a';
+  ctx.textBaseline = 'top';
+
+  // Section badge
+  ctx.font = '700 16px ui-monospace, Menlo, Consolas, monospace';
+  ctx.letterSpacing = '3px';
+  ctx.fillStyle = '#b38200';
+  ctx.fillText('COLLECTION EXHIBIT', 45, 60);
+
+  // Title
+  ctx.fillStyle = '#1a1a1a';
+  ctx.font = '400 46px "Cormorant Garamond", Georgia, serif';
+  const words = title.toUpperCase().split(' ');
+  let line = '';
+  let y = 120;
+  for (const word of words) {
+    const testLine = line ? `${line} ${word}` : word;
+    if (ctx.measureText(testLine).width > 420 && line) {
+      ctx.fillText(line, 45, y);
+      y += 54;
+      line = word;
+    } else {
+      line = testLine;
+    }
+  }
+  if (line) ctx.fillText(line, 45, y);
+
+  // Subtitle
+  y += 65;
+  ctx.font = '600 20px ui-monospace, Menlo, monospace';
+  ctx.globalAlpha = 0.6;
+  ctx.fillText(subtitle.toUpperCase(), 45, y);
+  ctx.globalAlpha = 1.0;
+
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  return tex;
+}
+
+// ------------------------------------------------ 7. Mount All 32 Stations Around 360° Cylinder
+const interactiveObjects = [];
 const spotlights = [];
-const N = EXHIBITS.length;
-const angleStep = (Math.PI * 2) / N;
 
-EXHIBITS.forEach((item, i) => {
-  const angle = i * angleStep;
-  const exhibitGroup = new THREE.Group();
+STATIONS.forEach((station, i) => {
+  const angle = i * ANGLE_STEP;
+  const stationGroup = new THREE.Group();
 
-  const wallDist = RADIUS - 0.08;
-  const x = wallDist * Math.sin(angle);
-  const z = wallDist * Math.cos(angle);
-  exhibitGroup.position.set(x, 0, z);
-  exhibitGroup.rotation.y = angle + Math.PI;
+  // ---------------- Outer Wall Station (Facing Inward)
+  const outerX = OUTER_RADIUS * Math.sin(angle);
+  const outerZ = OUTER_RADIUS * Math.cos(angle);
+  const outerRotY = angle + Math.PI;
 
-  const frameW = 3.0;
-  const frameH = 2.2;
-  const frameGeo = new THREE.PlaneGeometry(frameW, frameH);
+  const outerGroup = new THREE.Group();
+  outerGroup.position.set(outerX, 0, outerZ);
+  outerGroup.rotation.y = outerRotY;
 
-  const texture = textureLoader.load(item.image);
-  texture.generateMipmaps = true;
-  texture.minFilter = THREE.LinearMipmapLinearFilter;
+  // Floor pool light underneath outer station
+  const poolMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 2.0), poolMat);
+  poolMesh.rotation.x = -Math.PI / 2;
+  poolMesh.position.set(0, 0.02, 1.1);
+  outerGroup.add(poolMesh);
 
-  const frameMat = new THREE.MeshStandardMaterial({
-    map: texture,
-    roughness: 0.28,
-    metalness: 0.05
-  });
+  if (station.outer.kind === 'plaque') {
+    // Collection Plaque
+    const plaqueTex = createPlaqueTexture(station.outer.title, station.outer.subtitle);
+    const plaqueMat = new THREE.MeshStandardMaterial({
+      map: plaqueTex,
+      roughness: 0.45,
+      metalness: 0.05,
+      toneMapped: false
+    });
+    const plaqueMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.15, 1.44), plaqueMat);
+    plaqueMesh.position.set(0, 1.55, 0.03);
+    plaqueMesh.userData = {
+      isPlaque: true,
+      title: station.outer.title,
+      subtitle: station.outer.subtitle,
+      desc: station.outer.desc,
+      stationIdx: i
+    };
+    outerGroup.add(plaqueMesh);
+    interactiveObjects.push(plaqueMesh);
+  } else {
+    // Outer Wall Fine Art Painting
+    const item = station.outer.item;
+    const ratio = THREE.MathUtils.clamp(item.ratio || 1.0, 0.65, 1.78);
+    const pW = 1.45 * ratio;
+    const pH = 1.45;
 
-  const frameMesh = new THREE.Mesh(frameGeo, frameMat);
-  frameMesh.position.y = 0.55;
-  frameMesh.userData = { index: i, exhibit: item };
-  exhibitGroup.add(frameMesh);
-  exhibitMeshes.push(frameMesh);
+    const tex = textureLoader.load(item.image);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.generateMipmaps = true;
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
 
-  // Thin Dark Frame Border
-  const backGeo = new THREE.PlaneGeometry(frameW + 0.12, frameH + 0.12);
-  const backMat = new THREE.MeshBasicMaterial({ color: 0x181c26 });
-  const backMesh = new THREE.Mesh(backGeo, backMat);
-  backMesh.position.set(0, 0.55, -0.012);
-  exhibitGroup.add(backMesh);
+    const artMat = new THREE.MeshStandardMaterial({
+      map: tex,
+      roughness: 0.35,
+      metalness: 0.04,
+      toneMapped: false
+    });
+    const artMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW, pH), artMat);
+    artMesh.position.set(0, 1.6, 0.03);
+    artMesh.userData = { isArtwork: true, item, stationIdx: i, wallSide: 'outer' };
+    outerGroup.add(artMesh);
+    interactiveObjects.push(artMesh);
 
-  // Placard Below
-  const placardW = 2.4;
-  const placardH = 0.82;
-  const placardGeo = new THREE.PlaneGeometry(placardW, placardH);
-  const placardTex = createRotundaPlacardTexture(item.num, item.title, item.subtitle);
-  const placardMat = new THREE.MeshStandardMaterial({
-    map: placardTex,
-    roughness: 0.5,
-    metalness: 0.0
-  });
-  const placardMesh = new THREE.Mesh(placardGeo, placardMat);
-  placardMesh.position.set(0, -1.25, 0);
-  placardMesh.userData = { index: i, exhibit: item };
-  exhibitGroup.add(placardMesh);
-  exhibitMeshes.push(placardMesh);
+    // Slim museum frame
+    const frameMat = new THREE.MeshBasicMaterial({ color: 0x14161c });
+    const frameMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW + 0.06, pH + 0.06), frameMat);
+    frameMesh.position.set(0, 1.6, 0.015);
+    outerGroup.add(frameMesh);
 
-  // Spotlight Halo on wall
-  const haloGeo = new THREE.PlaneGeometry(4.8, 3.2);
-  const haloMat = new THREE.MeshBasicMaterial({
-    map: haloTexture,
-    transparent: true,
-    opacity: 0.85,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
-  const haloMesh = new THREE.Mesh(haloGeo, haloMat);
-  haloMesh.position.set(0, 2.15, -0.005);
-  exhibitGroup.add(haloMesh);
+    // Placard Card
+    const placardTex = createPlacardTexture(item.artist, item.title, item.category);
+    const placardMat = new THREE.MeshStandardMaterial({ map: placardTex, roughness: 0.6, toneMapped: false });
+    const placardMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 0.28), placardMat);
+    placardMesh.position.set(-pW / 2 + 0.28, 1.6 - pH / 2 - 0.22, 0.03);
+    outerGroup.add(placardMesh);
+  }
 
-  rotunda.add(exhibitGroup);
-
-  // Dedicated Spotlight
-  const spot = new THREE.SpotLight(0xfff1dc, 4.2);
-  const lightR = RADIUS - 2.5;
-  const lx = lightR * Math.sin(angle);
-  const lz = lightR * Math.cos(angle);
-  spot.position.set(lx, HEIGHT / 2 - 0.2, lz);
-
+  // SpotLight on Outer Station
+  const spot = new THREE.SpotLight(0xfff1dc, 3.8);
+  spot.position.set(
+    (OUTER_RADIUS - 2.2) * Math.sin(angle),
+    3.4,
+    (OUTER_RADIUS - 2.2) * Math.cos(angle)
+  );
   const targetObj = new THREE.Object3D();
-  targetObj.position.set(x, 0.35, z);
-  rotunda.add(targetObj);
+  targetObj.position.set(outerX, 1.6, outerZ);
+  scene.add(targetObj);
   spot.target = targetObj;
-
   spot.angle = 0.65;
-  spot.penumbra = 0.9;
+  spot.penumbra = 0.85;
   spot.decay = 1.2;
-  spot.distance = 22;
-
-  rotunda.add(spot);
+  spot.distance = 16;
+  scene.add(spot);
   spotlights.push(spot);
+
+  stationGroup.add(outerGroup);
+
+  // ---------------- Inner Wall Station (Facing Outward)
+  if (station.inner) {
+    const item = station.inner;
+    const innerX = INNER_RADIUS * Math.sin(angle);
+    const innerZ = INNER_RADIUS * Math.cos(angle);
+    const innerRotY = angle;
+
+    const innerGroup = new THREE.Group();
+    innerGroup.position.set(innerX, 0, innerZ);
+    innerGroup.rotation.y = innerRotY;
+
+    // Wall Lamp behind inner painting
+    const lampMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.8), innerLampMat);
+    lampMesh.position.set(0, 1.8, 0.01);
+    innerGroup.add(lampMesh);
+
+    const ratio = THREE.MathUtils.clamp(item.ratio || 1.0, 0.65, 1.78);
+    const wLimit = 2.5 / 12 * 14.8 - 0.7; // ~2.38
+    const iHeight = Math.min(1.305, wLimit / ratio);
+    const iWidth = iHeight * ratio;
+
+    const tex = textureLoader.load(item.image);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.generateMipmaps = true;
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
+
+    const artMat = new THREE.MeshStandardMaterial({
+      map: tex,
+      roughness: 0.35,
+      metalness: 0.04,
+      toneMapped: false
+    });
+    const artMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth, iHeight), artMat);
+    artMesh.position.set(0, 1.6, 0.03);
+    artMesh.userData = { isArtwork: true, item, stationIdx: i, wallSide: 'inner' };
+    innerGroup.add(artMesh);
+    interactiveObjects.push(artMesh);
+
+    // Slim frame
+    const frameMat = new THREE.MeshBasicMaterial({ color: 0x14161c });
+    const frameMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth + 0.06, iHeight + 0.06), frameMat);
+    frameMesh.position.set(0, 1.6, 0.015);
+    innerGroup.add(frameMesh);
+
+    // Museum Label Card
+    const placardTex = createPlacardTexture(item.artist, item.title, item.category);
+    const placardMat = new THREE.MeshStandardMaterial({ map: placardTex, roughness: 0.6, toneMapped: false });
+    const placardMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 0.28), placardMat);
+    placardMesh.position.set(-iWidth / 2 + 0.28, 1.6 - iHeight / 2 - 0.22, 0.03);
+    innerGroup.add(placardMesh);
+
+    stationGroup.add(innerGroup);
+  }
+
+  scene.add(stationGroup);
 });
 
-// ------------------------------------------------ State & Camera Controls
-let currentAppMode = 'passage'; // 'passage' | 'rotunda'
-let currentRotY = 0;
-let targetRotY = 0;
-let isDragging = false;
-let startPointerX = 0;
-let lastPointerX = 0;
-let velocityX = 0;
-let hasUserInteracted = false;
+// ------------------------------------------------ 8. State, Controls & Camera Engine
+const walkState = {
+  angle: 0.0,
+  targetAngle: 0.0,
+  velocity: 0,
+  lastMoved: performance.now()
+};
 
-// Mouse parallax
-const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+const entranceState = {
+  phase: 'wait', // 'wait' -> 'run' -> 'done'
+  startTime: performance.now(),
+  fromAngle: -5.0,
+  toAngle: 0.0,
+  durationMs: 5000
+};
 
-// Inspection camera state
+const currentEye = new THREE.Vector3();
+const currentLookAt = new THREE.Vector3();
+const targetEye = new THREE.Vector3();
+const targetLookAt = new THREE.Vector3();
+const scratchWorldPos = new THREE.Vector3();
+const scratchFacingDir = new THREE.Vector3();
+
+let inspectedMesh = null;
 let isInspecting = false;
 let activeExhibit = null;
-const cameraTargetPos = new THREE.Vector3(0, 0.1, -22.5);
-const cameraLookAtTarget = new THREE.Vector3(0, 0.1, 0.0);
-const currentLookAt = new THREE.Vector3(0, 0.1, 0.0);
 
-// UI Elements
-const dragCue = document.getElementById('drag-cue');
-const cueIcon = document.getElementById('cue-icon');
-const cueText = document.getElementById('cue-text');
-const navStatusText = document.getElementById('nav-status-text');
-const navModeSub = document.getElementById('nav-mode-sub');
-const navWalkBtn = document.getElementById('nav-walk-btn');
-const walkHud = document.getElementById('walk-hud');
-const walkHudBtn = document.getElementById('walk-hud-btn');
-const walkHudLabel = document.getElementById('walk-hud-label');
-const walkHudArrow = document.getElementById('walk-hud-arrow');
-
-function updateModeUI() {
-  if (currentAppMode === 'passage') {
-    if (navStatusText) navStatusText.textContent = 'Entrance Art Passage';
-    if (navModeSub) navModeSub.textContent = '3D Walkway Passage';
-    if (navWalkBtn) navWalkBtn.innerHTML = `<span>WALK TO ROTUNDA</span><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-    if (walkHudLabel) walkHudLabel.textContent = 'WALK INTO ROTUNDA';
-    if (walkHudArrow) walkHudArrow.textContent = '→';
-    if (cueIcon) cueIcon.textContent = '↑';
-    if (cueText) cueText.textContent = 'SCROLL OR CLICK TO WALK DOWN 3D ART PASSAGE';
-    container.style.cursor = 'default';
-  } else {
-    if (navStatusText) navStatusText.textContent = 'Curved Exhibition Rotunda';
-    if (navModeSub) navModeSub.textContent = '360° Architectural Pavilion';
-    if (navWalkBtn) navWalkBtn.innerHTML = `<svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>RETURN TO PASSAGE</span>`;
-    if (walkHudLabel) walkHudLabel.textContent = '← RETURN TO ENTRANCE PASSAGE';
-    if (walkHudArrow) walkHudArrow.textContent = '';
-    if (cueIcon) cueIcon.textContent = '↔';
-    if (cueText) cueText.textContent = 'DRAG TO ROTATE ROTUNDA · CLICK TO INSPECT ARCHITECTURE';
-    container.style.cursor = 'grab';
-  }
-}
-
-export function enterRotundaMode() {
-  currentAppMode = 'rotunda';
-  cameraTargetPos.set(0, 0, 0);
-  cameraLookAtTarget.set(0, 0.35, 22.0);
-  updateModeUI();
-}
-
-export function enterPassageMode() {
-  currentAppMode = 'passage';
-  closeDrawer();
-  cameraTargetPos.set(0, 0.1, -22.5);
-  cameraLookAtTarget.set(0, 0.1, 0.0);
-  updateModeUI();
-}
-
-navWalkBtn?.addEventListener('click', () => {
-  if (currentAppMode === 'passage') {
-    enterRotundaMode();
-  } else {
-    enterPassageMode();
-  }
-});
-
-walkHudBtn?.addEventListener('click', () => {
-  if (currentAppMode === 'passage') {
-    enterRotundaMode();
-  } else {
-    enterPassageMode();
-  }
-});
-
-function hideCue() {
-  if (!hasUserInteracted) {
-    hasUserInteracted = true;
-    dragCue?.classList.add('is-hidden');
-  }
-}
-
-// ------------------------------------------------ Input Handlers
-window.addEventListener('pointerdown', (e) => {
-  if (isInspecting) return;
-  if (e.target.closest('.gallery-nav') || e.target.closest('.view-toggle') || e.target.closest('.drawer') || e.target.closest('.walk-hud')) return;
-
-  isDragging = true;
-  startPointerX = e.clientX;
-  lastPointerX = e.clientX;
-  velocityX = 0;
-});
-
-window.addEventListener('pointermove', (e) => {
-  mouse.targetX = (e.clientX / window.innerWidth) * 2 - 1;
-  mouse.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
-
-  if (currentAppMode === 'rotunda') {
-    if (!isDragging || isInspecting) return;
-    const deltaX = e.clientX - lastPointerX;
-    lastPointerX = e.clientX;
-    velocityX = deltaX;
-    targetRotY += deltaX * 0.0022;
-    hideCue();
-  }
-});
-
-window.addEventListener('pointerup', () => {
-  if (!isDragging) return;
-  isDragging = false;
-  if (currentAppMode === 'rotunda') {
-    targetRotY += velocityX * 0.012;
-    velocityX = 0;
-  }
-});
-
-// Wheel Scroll (walks along passage when in passage mode; rotates rotunda when in rotunda mode)
-window.addEventListener('wheel', (e) => {
-  if (isInspecting) return;
-  hideCue();
-
-  if (currentAppMode === 'passage') {
-    const forwardStep = e.deltaY > 0 ? 1.6 : -1.6;
-    cameraTargetPos.z = Math.min(0.0, Math.max(-23.0, cameraTargetPos.z + forwardStep));
-    if (cameraTargetPos.z >= -1.5) {
-      enterRotundaMode();
-    }
-  } else {
-    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    targetRotY -= delta * 0.0012;
-  }
-}, { passive: true });
-
-// ------------------------------------------------ Raycasting & Hover / Click
-const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
+const mouseParallax = { x: 0, y: 0 };
+let isPointerDown = false;
+let pointerStartX = 0;
+let pointerStartY = 0;
+let pointerLastX = 0;
+let pointerTimestamp = 0;
+let pointerVelocity = 0;
+let hasDragged = false;
+
+const raycaster = new THREE.Raycaster();
 let hoveredMesh = null;
+let currentCollectionIdx = 0;
 
-window.addEventListener('pointermove', (e) => {
-  if (isInspecting) return;
-
-  // In passage mode, paintings are NOT clickable!
-  if (currentAppMode === 'passage') {
-    container.style.cursor = 'default';
-    return;
-  }
-
-  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-
-  raycaster.setFromCamera(pointer, camera);
-  const intersects = raycaster.intersectObjects(exhibitMeshes, false);
-
-  if (intersects.length > 0) {
-    const mesh = intersects[0].object;
-    if (hoveredMesh !== mesh) {
-      hoveredMesh = mesh;
-      container.style.cursor = 'pointer';
-      const idx = mesh.userData.index;
-      if (spotlights[idx]) spotlights[idx].intensity = 5.2;
-    }
-  } else {
-    if (hoveredMesh) {
-      const idx = hoveredMesh.userData.index;
-      if (spotlights[idx]) spotlights[idx].intensity = 4.2;
-      hoveredMesh = null;
-      container.style.cursor = isDragging ? 'grabbing' : 'grab';
-    }
-  }
-});
-
-// Click Interaction
-window.addEventListener('click', (e) => {
-  if (isDragging) return;
-  if (Math.abs(e.clientX - startPointerX) > 8) return;
-  if (e.target.closest('.gallery-nav') || e.target.closest('.view-toggle') || e.target.closest('.drawer') || e.target.closest('.walk-hud')) return;
-
-  // In passage mode: clicking anywhere walks forward towards rotunda
-  if (currentAppMode === 'passage') {
-    cameraTargetPos.z = Math.min(0.0, cameraTargetPos.z + 5.5);
-    if (cameraTargetPos.z >= -2.0) {
-      enterRotundaMode();
-    }
-    return;
-  }
-
-  // In rotunda mode: click to inspect
-  if (isInspecting) {
-    closeDrawer();
-    return;
-  }
-
-  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-  raycaster.setFromCamera(pointer, camera);
-  const intersects = raycaster.intersectObjects(exhibitMeshes, false);
-
-  if (intersects.length > 0) {
-    const item = intersects[0].object.userData.exhibit;
-    const index = intersects[0].object.userData.index;
-    openInspection(item, index);
-  }
-});
-
-// ------------------------------------------------ Drawer & Inspection Logic
+// UI References
+const cursorTip = document.getElementById('cursor-tip');
+const cursorTipPill = document.getElementById('cursor-tip-pill');
+const roomCaption = document.getElementById('room-caption');
+const roomTitle = document.getElementById('room-title');
+const roomMore = document.getElementById('room-more');
+const walkHint = document.getElementById('walk-hint');
+const hintLine1 = document.getElementById('hint-line-1');
+const hintLine2 = document.getElementById('hint-line-2');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const viewGalleryBtn = document.getElementById('view-gallery-btn');
+const viewListBtn = document.getElementById('view-list-btn');
+const listView = document.getElementById('list-view');
+const listViewGrid = document.getElementById('list-view-grid');
 const drawer = document.getElementById('drawer');
 const drawerOverlay = document.getElementById('drawer-overlay');
 const drawerClose = document.getElementById('drawer-close');
 const drawerContent = document.getElementById('drawer-content');
 
-function openInspection(exhibit, index) {
+// Initial camera at entrance threshold
+function setupEntranceThreshold() {
+  const a = walkState.angle;
+  const c = a + 0.32;
+  const entranceR = ROTUNDA_TRACK_R / Math.sqrt(10); // ~3.067m
+  const entranceAngleOffset = Math.atan(3); // ~1.249 rad
+
+  currentEye.set(
+    Math.sin(a - entranceAngleOffset) * entranceR,
+    1.55,
+    Math.cos(a - entranceAngleOffset) * entranceR
+  );
+  currentLookAt.set(
+    Math.sin(c - entranceAngleOffset) * entranceR,
+    1.5,
+    Math.cos(c - entranceAngleOffset) * entranceR
+  );
+  camera.position.copy(currentEye);
+  camera.lookAt(currentLookAt);
+}
+setupEntranceThreshold();
+
+// Update UI cues
+function updateWalkHint() {
+  if (isInspecting) {
+    if (hintLine1) hintLine1.textContent = 'Click the painting to open it';
+    if (hintLine2) hintLine2.textContent = 'Esc or click away to step back';
+    walkHint?.classList.add('is-lit');
+  } else {
+    if (hintLine1) hintLine1.textContent = 'Scroll or drag to walk round';
+    if (hintLine2) hintLine2.textContent = 'Click a painting to look closer';
+    walkHint?.classList.remove('is-lit');
+  }
+}
+
+function updateCaption(colIdx, item) {
+  if (colIdx !== currentCollectionIdx || item) {
+    currentCollectionIdx = colIdx;
+    const col = COLLECTIONS[colIdx] || COLLECTIONS[0];
+    if (roomTitle) {
+      roomTitle.textContent = item ? item.title : col.title;
+    }
+    if (roomMore) {
+      roomMore.textContent = item ? 'VIEW PAINTING DETAILS →' : 'ENTER THE COLLECTION →';
+    }
+  }
+}
+
+// ------------------------------------------------ 9. Zoom-In / Inspection Actions
+function lookCloserAt(mesh) {
+  inspectedMesh = mesh;
   isInspecting = true;
+  walkState.lastMoved = performance.now();
+
+  mesh.getWorldPosition(scratchWorldPos);
+  mesh.getWorldDirection(scratchFacingDir);
+
+  // Stand 2.2m directly facing the artwork at eye level
+  targetEye.copy(scratchWorldPos).addScaledVector(scratchFacingDir, 2.2);
+  targetEye.y = 1.6;
+
+  targetLookAt.copy(scratchWorldPos);
+  targetLookAt.y -= 0.12;
+
+  updateWalkHint();
+  if (cursorTipPill) cursorTipPill.textContent = 'OPEN THE EXHIBIT';
+
+  const item = mesh.userData.item;
+  if (item) {
+    activeExhibit = item;
+    const colIdx = mesh.userData.stationIdx !== undefined ? STATIONS[mesh.userData.stationIdx].collectionIdx : 0;
+    updateCaption(colIdx, item);
+  }
+}
+
+function stepBack() {
+  if (!isInspecting && !drawer.classList.contains('is-open')) return;
+  inspectedMesh = null;
+  isInspecting = false;
+  closeDrawer();
+  updateWalkHint();
+  if (cursorTipPill) cursorTipPill.textContent = 'LOOK CLOSER';
+}
+
+function openInspector(exhibit) {
+  if (!exhibit) return;
   activeExhibit = exhibit;
-  hideCue();
 
   drawerContent.innerHTML = `
     <div class="drawer__preview-wrap">
       <img class="drawer__preview-img" src="${exhibit.image}" alt="${exhibit.title}" />
     </div>
 
-    <span class="drawer__tag">${exhibit.tag}</span>
+    <span class="drawer__tag">${exhibit.category || 'Fine Art Painting'}</span>
 
     <div>
       <h2 class="drawer__title">${exhibit.title}</h2>
@@ -835,7 +680,7 @@ function openInspection(exhibit, index) {
     </div>
 
     <div class="drawer__specs-grid">
-      ${exhibit.specs.map(s => `
+      ${(exhibit.specs || []).map(s => `
         <div class="spec-item">
           <span class="spec-item__label">${s.label}</span>
           <span class="spec-item__value">${s.value}</span>
@@ -843,7 +688,7 @@ function openInspection(exhibit, index) {
       `).join('')}
     </div>
 
-    <a href="${exhibit.ctaUrl}" class="drawer__cta-btn" target="_blank" rel="noopener">
+    <a href="${exhibit.ctaUrl || 'http://localhost:5174/'}" class="drawer__cta-btn" target="_blank" rel="noopener">
       <span>ENTER 3D DIGITAL TWIN</span>
       <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
         <path d="M4 10h11M11 5.5 15.5 10 11 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -851,146 +696,347 @@ function openInspection(exhibit, index) {
     </a>
   `;
 
-  drawer.classList.add('is-open');
-  drawer.setAttribute('aria-hidden', 'false');
-  drawerOverlay.classList.add('is-open');
-
-  const targetAngle = -index * angleStep;
-  targetRotY = targetAngle;
-
-  cameraTargetPos.set(-1.6, 0.2, 11.2);
+  drawerOverlay?.classList.add('is-open');
+  drawer?.classList.add('is-open');
 }
 
 function closeDrawer() {
-  isInspecting = false;
-  activeExhibit = null;
-  drawer.classList.remove('is-open');
-  drawer.setAttribute('aria-hidden', 'true');
-  drawerOverlay.classList.remove('is-open');
-
-  if (currentAppMode === 'rotunda') {
-    cameraTargetPos.set(0, 0, 0);
-    cameraLookAtTarget.set(0, 0.35, 22.0);
-  }
+  drawerOverlay?.classList.remove('is-open');
+  drawer?.classList.remove('is-open');
 }
 
 drawerClose?.addEventListener('click', closeDrawer);
 drawerOverlay?.addEventListener('click', closeDrawer);
 
-// ------------------------------------------------ View Mode Toggle (GALLERY vs LIST)
-const viewGalleryBtn = document.getElementById('view-gallery-btn');
-const viewListBtn = document.getElementById('view-list-btn');
-const listView = document.getElementById('list-view');
-const listViewGrid = document.getElementById('list-view-grid');
-
-listViewGrid.innerHTML = BASE_EXHIBITS.map((item, i) => `
-  <article class="list-card" data-index="${i}">
-    <div class="list-card__media">
-      <img src="${item.image}" alt="${item.title}" loading="lazy" />
-    </div>
-    <div class="list-card__body">
-      <div class="list-card__num">EXHIBIT ${item.num} · ${item.tag.toUpperCase()}</div>
-      <h3 class="list-card__title">${item.title}</h3>
-      <p class="list-card__sub">${item.subtitle}</p>
-    </div>
-  </article>
-`).join('');
-
-listViewGrid.querySelectorAll('.list-card').forEach((card) => {
-  card.addEventListener('click', () => {
-    const idx = Number(card.getAttribute('data-index'));
-    setMode('gallery');
-    if (currentAppMode === 'passage') {
-      enterRotundaMode();
-    }
-    setTimeout(() => {
-      openInspection(BASE_EXHIBITS[idx], idx);
-    }, 350);
-  });
+// ------------------------------------------------ 10. User Controls (Wheel, Drag, Keyboard)
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    stepBack();
+  } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    if (isInspecting) stepBack();
+    walkState.targetAngle += 2 * ANGLE_STEP;
+    walkState.lastMoved = performance.now();
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    if (isInspecting) stepBack();
+    walkState.targetAngle -= 2 * ANGLE_STEP;
+    walkState.lastMoved = performance.now();
+  }
 });
 
-function setMode(mode) {
-  if (mode === 'list') {
-    viewListBtn.classList.add('is-active');
-    viewGalleryBtn.classList.remove('is-active');
-    listView.classList.add('is-visible');
-    listView.setAttribute('aria-hidden', 'false');
-    closeDrawer();
+window.addEventListener('wheel', (e) => {
+  if (drawer.classList.contains('is-open')) return;
+  e.preventDefault();
+  if (isInspecting) {
+    stepBack();
+    return;
+  }
+  if (entranceState.phase === 'wait') {
+    entranceState.phase = 'run';
+    entranceState.startTime = performance.now();
+  }
+
+  const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+  const clampedDelta = Math.max(-120, Math.min(120, delta));
+  walkState.targetAngle += 0.0009 * clampedDelta;
+  walkState.lastMoved = performance.now();
+}, { passive: false });
+
+window.addEventListener('pointerdown', (e) => {
+  if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav')) return;
+
+  isPointerDown = true;
+  hasDragged = false;
+  pointerStartX = e.clientX;
+  pointerStartY = e.clientY;
+  pointerLastX = e.clientX;
+  pointerTimestamp = performance.now();
+  pointerVelocity = 0;
+
+  if (entranceState.phase === 'wait') {
+    entranceState.phase = 'run';
+    entranceState.startTime = performance.now();
+  }
+});
+
+window.addEventListener('pointermove', (e) => {
+  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+  mouseParallax.x = pointer.x;
+  mouseParallax.y = pointer.y;
+
+  if (cursorTip) {
+    cursorTip.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+  }
+
+  if (isPointerDown && !drawer.classList.contains('is-open')) {
+    const deltaX = e.clientX - pointerLastX;
+    const totalDist = Math.hypot(e.clientX - pointerStartX, e.clientY - pointerStartY);
+    if (totalDist > 4) {
+      hasDragged = true;
+      if (isInspecting) stepBack();
+    }
+
+    walkState.targetAngle -= 0.0022 * deltaX;
+    walkState.lastMoved = performance.now();
+
+    const dt = Math.max(1, performance.now() - pointerTimestamp);
+    pointerVelocity = 0.6 * pointerVelocity + (deltaX / dt) * 0.4;
+    pointerTimestamp = performance.now();
+    pointerLastX = e.clientX;
+  }
+
+  // Hover raycasting
+  if (!isPointerDown && !isInspecting && !drawer.classList.contains('is-open')) {
+    raycaster.setFromCamera(pointer, camera);
+    const hits = raycaster.intersectObjects(interactiveObjects, false);
+
+    if (hits.length > 0) {
+      const mesh = hits[0].object;
+      if (hoveredMesh !== mesh) {
+        if (hoveredMesh) {
+          const oldSpot = spotlights[hoveredMesh.userData.stationIdx];
+          if (oldSpot) oldSpot.intensity = 3.8;
+        }
+        hoveredMesh = mesh;
+        container.style.cursor = 'pointer';
+        cursorTip?.classList.add('is-on');
+
+        if (cursorTipPill) {
+          cursorTipPill.textContent = mesh.userData.isPlaque ? 'VIEW COLLECTION' : 'LOOK CLOSER';
+        }
+
+        const spot = spotlights[mesh.userData.stationIdx];
+        if (spot) spot.intensity = 5.4;
+      }
+    } else {
+      if (hoveredMesh) {
+        const spot = spotlights[hoveredMesh.userData.stationIdx];
+        if (spot) spot.intensity = 3.8;
+        hoveredMesh = null;
+        container.style.cursor = 'grab';
+        cursorTip?.classList.remove('is-on');
+      }
+    }
+  }
+});
+
+window.addEventListener('pointerup', () => {
+  if (!isPointerDown) return;
+  isPointerDown = false;
+
+  if (hasDragged && Math.abs(pointerVelocity) > 0.05) {
+    const clampedV = Math.max(-3, Math.min(3, pointerVelocity));
+    walkState.targetAngle -= 220 * clampedV * 0.0022;
+    walkState.lastMoved = performance.now();
+  }
+});
+
+window.addEventListener('click', (e) => {
+  if (hasDragged) return;
+  if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav') || e.target.closest('#room-caption')) return;
+
+  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const hits = raycaster.intersectObjects(interactiveObjects, false);
+
+  if (hits.length > 0) {
+    const mesh = hits[0].object;
+    if (isInspecting) {
+      if (inspectedMesh === mesh) {
+        if (mesh.userData.isArtwork) {
+          openInspector(mesh.userData.item);
+        } else if (mesh.userData.isPlaque) {
+          walkState.targetAngle = mesh.userData.stationIdx * ANGLE_STEP;
+          stepBack();
+        }
+      } else {
+        lookCloserAt(mesh);
+      }
+    } else {
+      lookCloserAt(mesh);
+    }
   } else {
-    viewGalleryBtn.classList.add('is-active');
-    viewListBtn.classList.remove('is-active');
-    listView.classList.remove('is-visible');
-    listView.setAttribute('aria-hidden', 'true');
+    if (isInspecting) stepBack();
+  }
+});
+
+// Collection round navigation buttons
+prevBtn?.addEventListener('click', () => {
+  stepBack();
+  let currentTargetStation = Math.round(walkState.targetAngle / ANGLE_STEP);
+  let col = STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx;
+  do {
+    currentTargetStation -= 1;
+  } while (STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx === col);
+  walkState.targetAngle = currentTargetStation * ANGLE_STEP;
+  walkState.lastMoved = performance.now();
+});
+
+nextBtn?.addEventListener('click', () => {
+  stepBack();
+  let currentTargetStation = Math.round(walkState.targetAngle / ANGLE_STEP);
+  let col = STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx;
+  do {
+    currentTargetStation += 1;
+  } while (STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx === col);
+  walkState.targetAngle = currentTargetStation * ANGLE_STEP;
+  walkState.lastMoved = performance.now();
+});
+
+// View mode switcher
+function setViewMode(mode) {
+  if (mode === 'list') {
+    viewGalleryBtn?.classList.remove('is-active');
+    viewListBtn?.classList.add('is-active');
+    renderListView();
+    listView?.classList.add('is-visible');
+    roomCaption?.classList.add('is-hidden');
+  } else {
+    viewListBtn?.classList.remove('is-active');
+    viewGalleryBtn?.classList.add('is-active');
+    listView?.classList.remove('is-visible');
+    roomCaption?.classList.remove('is-hidden');
   }
 }
 
-viewGalleryBtn?.addEventListener('click', () => setMode('gallery'));
-viewListBtn?.addEventListener('click', () => setMode('list'));
+viewGalleryBtn?.addEventListener('click', () => setViewMode('gallery'));
+viewListBtn?.addEventListener('click', () => setViewMode('list'));
 
-// ------------------------------------------------ Window Resize
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-});
+function renderListView() {
+  if (!listViewGrid) return;
+  listViewGrid.innerHTML = ALL_ITEMS.map((item, idx) => `
+    <article class="list-card" data-idx="${idx}">
+      <div class="list-card__media">
+        <img src="${item.image}" alt="${item.title}" loading="lazy" />
+      </div>
+      <div class="list-card__body">
+        <div class="list-card__num">${item.category || 'FINE ART'}</div>
+        <h3 class="list-card__title">${item.title}</h3>
+        <p class="list-card__sub">${item.artist}</p>
+      </div>
+    </article>
+  `).join('');
 
-// ------------------------------------------------ Animation Loop
+  listViewGrid.querySelectorAll('.list-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = parseInt(card.dataset.idx, 10);
+      const exhibit = ALL_ITEMS[idx];
+      if (exhibit) openInspector(exhibit);
+    });
+  });
+}
+
+// ------------------------------------------------ 11. Render Animation Loop
 const clock = new THREE.Clock();
 
 function animate() {
   requestAnimationFrame(animate);
-  const dt = Math.min(clock.getDelta(), 0.05);
 
-  // Smooth rotation damping in rotunda
-  if (currentAppMode === 'rotunda') {
-    currentRotY += (targetRotY - currentRotY) * (1 - Math.exp(-dt * 9.0));
-    rotunda.rotation.y = currentRotY;
-  }
+  const delta = Math.min(clock.getDelta(), 0.05);
+  const elapsedTime = clock.getElapsedTime();
+  const now = performance.now();
 
-  // Smooth mouse parallax
-  mouse.x += (mouse.targetX - mouse.x) * 0.05;
-  mouse.y += (mouse.targetY - mouse.y) * 0.05;
+  // Entrance walk-in animation (Shutabug Style)
+  if (entranceState.phase === 'wait') {
+    if (now - entranceState.startTime > 800) {
+      entranceState.phase = 'run';
+      entranceState.startTime = now;
+    }
+  } else if (entranceState.phase === 'run') {
+    const elapsed = now - entranceState.startTime;
+    const progress = Math.min(1.0, elapsed / entranceState.durationMs);
+    const easeProgress = 1 - Math.pow(1 - progress, 3);
+    walkState.angle = entranceState.fromAngle + (entranceState.toAngle - entranceState.fromAngle) * easeProgress;
 
-  // Smooth camera position interpolation
-  camera.position.lerp(cameraTargetPos, 0.06);
-
-  // Dynamic Look-At Direction based on mode
-  if (currentAppMode === 'passage') {
-    // Look straight forward down the passage corridor into the glowing rotunda
-    cameraLookAtTarget.set(
-      mouse.x * 0.6,
-      0.1 + mouse.y * 0.4,
-      camera.position.z + 18.0
-    );
-  } else if (!isInspecting) {
-    // In rotunda: face forward into the circular curved wall
-    cameraLookAtTarget.set(
-      mouse.x * 1.8,
-      mouse.y * 1.0,
-      22.0
-    );
+    if (progress >= 1.0) {
+      entranceState.phase = 'done';
+      walkState.targetAngle = entranceState.toAngle;
+      walkState.lastMoved = now;
+    }
   } else {
-    // When inspecting: camera focused slightly left on the inspected piece
-    cameraLookAtTarget.set(-1.6, 0.35, 22.0);
+    // Subtle idle drift
+    if (!isPointerDown && !isInspecting && !drawer.classList.contains('is-open')) {
+      if (now - walkState.lastMoved > 2500) {
+        walkState.targetAngle += 0.0075 * delta;
+      }
+    }
+    walkState.angle += (walkState.targetAngle - walkState.angle) * Math.min(1.0, 2.4 * delta);
   }
 
-  currentLookAt.lerp(cameraLookAtTarget, 0.08);
+  // Camera positioning
+  if (isInspecting && inspectedMesh) {
+    currentEye.lerp(targetEye, Math.min(1.0, 4.0 * delta));
+    currentLookAt.lerp(targetLookAt, Math.min(1.0, 4.0 * delta));
+  } else {
+    const a = walkState.angle;
+    const lookAngle = a + 0.32 + 0.22 * mouseParallax.x;
+
+    const eyeY = 1.55 + 0.012 * Math.sin(1.4 * elapsedTime);
+    const lookY = 1.5 + 0.22 * mouseParallax.y;
+
+    targetEye.set(
+      ROTUNDA_TRACK_R * Math.sin(a),
+      eyeY,
+      ROTUNDA_TRACK_R * Math.cos(a)
+    );
+    targetLookAt.set(
+      ROTUNDA_TRACK_R * Math.sin(lookAngle),
+      lookY,
+      ROTUNDA_TRACK_R * Math.cos(lookAngle)
+    );
+
+    if (entranceState.phase === 'wait') {
+      const entranceR = ROTUNDA_TRACK_R / Math.sqrt(10);
+      const entranceAngleOffset = Math.atan(3);
+      currentEye.set(
+        Math.sin(a - entranceAngleOffset) * entranceR,
+        1.55,
+        Math.cos(a - entranceAngleOffset) * entranceR
+      );
+      currentLookAt.set(
+        Math.sin(lookAngle - entranceAngleOffset) * entranceR,
+        lookY,
+        Math.cos(lookAngle - entranceAngleOffset) * entranceR
+      );
+    } else {
+      const lerpSpeed = entranceState.phase === 'run' ? 2.5 : 3.5;
+      currentEye.lerp(targetEye, Math.min(1.0, lerpSpeed * delta));
+      currentLookAt.lerp(targetLookAt, Math.min(1.0, lerpSpeed * delta));
+    }
+  }
+
+  camera.position.copy(currentEye);
   camera.lookAt(currentLookAt);
+
+  // Inner wall distance fade
+  const camDist = Math.hypot(camera.position.x, camera.position.z);
+  const innerWallOpacity = THREE.MathUtils.smoothstep(camDist, 7.4 + 0.2, 7.4 + 1.8);
+  innerWallMat.opacity = innerWallOpacity;
+  innerLampMat.opacity = 0.55 * innerWallOpacity;
+
+  // Update room caption
+  if (!isInspecting && entranceState.phase !== 'wait') {
+    const stationIndex = THREE.MathUtils.euclideanModulo(
+      Math.round((walkState.angle + 0.25) / ANGLE_STEP),
+      NUM_STATIONS
+    );
+    const activeStation = STATIONS[stationIndex];
+    if (activeStation) {
+      updateCaption(activeStation.collectionIdx, activeStation.outer.item || null);
+    }
+  }
 
   renderer.render(scene, camera);
 }
 
 animate();
 
-// Expose on window for debugging & tests
-window.THREE = THREE;
-window.__scene = scene;
-window.__camera = camera;
-window.__renderer = renderer;
-window.__rotunda = rotunda;
-window.__passageGroup = passageGroup;
-window.__exhibitMeshes = exhibitMeshes;
-window.__spotlights = spotlights;
-window.__enterRotundaMode = enterRotundaMode;
-window.__enterPassageMode = enterPassageMode;
+// Resize handler
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+});

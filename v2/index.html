@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="/style.css?v=3">
         <link rel="stylesheet" type="text/css" href="/nexora/nexora.css?v=1">
         <link rel="stylesheet" type="text/css" href="/nexora/hannah.css?v=18">
+        <link rel="stylesheet" type="text/css" href="/nexora/nexora-twin.css?v=2">
         <script>
             /* Hannah, the virtual receptionist (nexora/hannah.js), greets the first page view of each
                browser session. Decided here, before the first paint, so the homepage never flashes.
@@ -72,6 +73,9 @@ var dataLayerInternal = {};
                     </div>
                 </div>
                 <div class="nav__cta" id="nav-cta">
+                    <a href="http://localhost:5175/" target="_blank" rel="noopener" class="nav__ctaBtn nav__entranceBtn tabme" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-right:8px; background:rgba(255,210,0,0.14); border:1px solid rgba(255,210,0,0.38); color:#ffd200; font-size:12px; font-weight:600; padding:8px 14px; border-radius:999px;">
+                        <span>3D Entrance Gallery ↗</span>
+                    </a>
                     <button type="button" class="nav__ctaBtn nav__demo tabme" id="nav-demo" data-nx-open="Contact">
                         <span><span class="nav__demoLong">Book a </span>Demo</span>
                     </button>
@@ -293,6 +297,7 @@ var dataLayerInternal = {};
         </div>
 
         <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+        <script src="/nexora/nexora-twin.js?v=2"></script>
         <script src="/nexora/nexora.js?v=1"></script>
         <script src="/nexora/hannah-face.js?v=18"></script>
         <script src="/nexora/hannah-voice.js?v=18"></script>

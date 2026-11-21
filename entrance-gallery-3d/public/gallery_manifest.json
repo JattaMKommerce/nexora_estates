@@ -1,0 +1,930 @@
+[
+  {
+    "id": "lagos-love",
+    "title": "From Lagos, with love",
+    "subtitle": "Contemporary Solar Pigments & Nostalgia · Mayowa Alabi",
+    "desc": "An exploration of urban rhythm, coastal twilight reflections, and early music television iconography celebrating Black and African diaspora culture.",
+    "items": [
+      {
+        "id": "art-1",
+        "title": "Before the day i die",
+        "artist": "Mayowa Alabi",
+        "category": "From Lagos, with love",
+        "image": "/paintings/sb_01.webp",
+        "ratio": 1.3822894168466522,
+        "desc": "Before the day i die — from the celebrated From Lagos, with love series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-2",
+        "title": "Check up on it",
+        "artist": "Mayowa Alabi",
+        "category": "From Lagos, with love",
+        "image": "/paintings/sb_02.webp",
+        "ratio": 1.3803019410496047,
+        "desc": "Check up on it — from the celebrated From Lagos, with love series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-3",
+        "title": "Crank Dat",
+        "artist": "Mayowa Alabi",
+        "category": "From Lagos, with love",
+        "image": "/paintings/sb_03.webp",
+        "ratio": 1.3953488372093024,
+        "desc": "Crank Dat — from the celebrated From Lagos, with love series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-4",
+        "title": "Do you remember the time?",
+        "artist": "Mayowa Alabi",
+        "category": "From Lagos, with love",
+        "image": "/paintings/sb_04.webp",
+        "ratio": 1.3852813852813852,
+        "desc": "Do you remember the time? — from the celebrated From Lagos, with love series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-5",
+        "title": "Heyah!",
+        "artist": "Mayowa Alabi",
+        "category": "From Lagos, with love",
+        "image": "/paintings/sb_05.webp",
+        "ratio": 1.3822894168466522,
+        "desc": "Heyah! — from the celebrated From Lagos, with love series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-6",
+        "title": "I've got 5 passports i'm never going to jail.",
+        "artist": "Mayowa Alabi",
+        "category": "From Lagos, with love",
+        "image": "/paintings/sb_06.webp",
+        "ratio": 1.3763440860215055,
+        "desc": "I've got 5 passports i'm never going to jail. — from the celebrated From Lagos, with love series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-7",
+        "title": "Intl' Playas Anthem",
+        "artist": "Mayowa Alabi",
+        "category": "From Lagos, with love",
+        "image": "/paintings/sb_07.webp",
+        "ratio": 1.3872832369942196,
+        "desc": "Intl' Playas Anthem — from the celebrated From Lagos, with love series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-8",
+        "title": "O",
+        "artist": "Mayowa Alabi",
+        "category": "From Lagos, with love",
+        "image": "/paintings/sb_08.webp",
+        "ratio": 1.3743736578382248,
+        "desc": "O — from the celebrated From Lagos, with love series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      }
+    ]
+  },
+  {
+    "id": "blck-bourgie",
+    "title": "BLCK & Bourgie",
+    "subtitle": "Regal Figurative Portraits & Gold Tones",
+    "desc": "Intimate, majestic portraiture celebrating identity, cultural lineage, and quiet elegance with rich black velour and gold leaf accents.",
+    "items": [
+      {
+        "id": "art-9",
+        "title": "‏  (كورة)",
+        "artist": "Mayowa Alabi",
+        "category": "BLCK & Bourgie",
+        "image": "/paintings/sb_09.webp",
+        "ratio": 0.7208333333333333,
+        "desc": "‏  (كورة) — from the celebrated BLCK & Bourgie series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-10",
+        "title": "Al-Maghrib",
+        "artist": "Mayowa Alabi",
+        "category": "BLCK & Bourgie",
+        "image": "/paintings/sb_10.webp",
+        "ratio": 0.7260416666666667,
+        "desc": "Al-Maghrib — from the celebrated BLCK & Bourgie series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-11",
+        "title": "bɔɔlbɔ",
+        "artist": "Mayowa Alabi",
+        "category": "BLCK & Bourgie",
+        "image": "/paintings/sb_11.webp",
+        "ratio": 0.7270833333333333,
+        "desc": "bɔɔlbɔ — from the celebrated BLCK & Bourgie series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-12",
+        "title": "Burkina Faso",
+        "artist": "Mayowa Alabi",
+        "category": "BLCK & Bourgie",
+        "image": "/paintings/sb_12.webp",
+        "ratio": 0.7255208333333333,
+        "desc": "Burkina Faso — from the celebrated BLCK & Bourgie series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-13",
+        "title": "Cabo Verde",
+        "artist": "Mayowa Alabi",
+        "category": "BLCK & Bourgie",
+        "image": "/paintings/sb_13.webp",
+        "ratio": 0.7260416666666667,
+        "desc": "Cabo Verde — from the celebrated BLCK & Bourgie series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-14",
+        "title": "Cameroun",
+        "artist": "Mayowa Alabi",
+        "category": "BLCK & Bourgie",
+        "image": "/paintings/sb_14.webp",
+        "ratio": 0.7276041666666667,
+        "desc": "Cameroun — from the celebrated BLCK & Bourgie series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-15",
+        "title": "Côte d'Ivoire",
+        "artist": "Mayowa Alabi",
+        "category": "BLCK & Bourgie",
+        "image": "/paintings/sb_15.webp",
+        "ratio": 0.7234375,
+        "desc": "Côte d'Ivoire — from the celebrated BLCK & Bourgie series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-16",
+        "title": "Dzayer",
+        "artist": "Mayowa Alabi",
+        "category": "BLCK & Bourgie",
+        "image": "/paintings/sb_16.webp",
+        "ratio": 0.7276041666666667,
+        "desc": "Dzayer — from the celebrated BLCK & Bourgie series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      }
+    ]
+  },
+  {
+    "id": "dnce-carnaval",
+    "title": "DNCE & Carnaval",
+    "subtitle": "Kinetic Movement & Festival Chromatics",
+    "desc": "Dynamic compositions capturing the electric energy of festival parades, celebratory dances, and nocturnal street celebrations.",
+    "items": [
+      {
+        "id": "art-17",
+        "title": "Ojude Oba",
+        "artist": "Mayowa Alabi",
+        "category": "DNCE & Carnaval",
+        "image": "/paintings/sb_17.webp",
+        "ratio": 0.7270833333333333,
+        "desc": "Ojude Oba — from the celebrated DNCE & Carnaval series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-18",
+        "title": "Abiamo Ode Orun",
+        "artist": "Mayowa Alabi",
+        "category": "DNCE & Carnaval",
+        "image": "/paintings/sb_18.webp",
+        "ratio": 0.5625,
+        "desc": "Abiamo Ode Orun — from the celebrated DNCE & Carnaval series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-19",
+        "title": "Bam",
+        "artist": "Mayowa Alabi",
+        "category": "DNCE & Carnaval",
+        "image": "/paintings/sb_19.webp",
+        "ratio": 1.384282624369142,
+        "desc": "Bam — from the celebrated DNCE & Carnaval series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-20",
+        "title": "Cos imma Christian and i walk in the blood of Jesus",
+        "artist": "Mayowa Alabi",
+        "category": "DNCE & Carnaval",
+        "image": "/paintings/sb_20.webp",
+        "ratio": 1.3753581661891117,
+        "desc": "Cos imma Christian and i walk in the blood of Jesus — from the celebrated DNCE & Carnaval series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-21",
+        "title": "Fire Drill",
+        "artist": "Mayowa Alabi",
+        "category": "DNCE & Carnaval",
+        "image": "/paintings/sb_21.webp",
+        "ratio": 1.3773314203730274,
+        "desc": "Fire Drill — from the celebrated DNCE & Carnaval series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-22",
+        "title": "Friday",
+        "artist": "Mayowa Alabi",
+        "category": "DNCE & Carnaval",
+        "image": "/paintings/sb_22.webp",
+        "ratio": 0.7265625,
+        "desc": "Friday — from the celebrated DNCE & Carnaval series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-23",
+        "title": "Go slow",
+        "artist": "Mayowa Alabi",
+        "category": "DNCE & Carnaval",
+        "image": "/paintings/sb_23.webp",
+        "ratio": 0.7478813559322034,
+        "desc": "Go slow — from the celebrated DNCE & Carnaval series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-24",
+        "title": "Isale Eko",
+        "artist": "Mayowa Alabi",
+        "category": "DNCE & Carnaval",
+        "image": "/paintings/sb_24.webp",
+        "ratio": 0.6036458333333333,
+        "desc": "Isale Eko — from the celebrated DNCE & Carnaval series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      }
+    ]
+  },
+  {
+    "id": "adumadan-heritage",
+    "title": "Adumadan & Heritage",
+    "subtitle": "Sculptural Mineral Pigments & Modern Ancestry",
+    "desc": "Geometric planes, deep terracotta ochres, and basalt textures blending ancient West African sculpture with avant-garde digital painting.",
+    "items": [
+      {
+        "id": "art-25",
+        "title": "Friday",
+        "artist": "Mayowa Alabi",
+        "category": "Adumadan & Heritage",
+        "image": "/paintings/sb_25.webp",
+        "ratio": 0.7265625,
+        "desc": "Friday — from the celebrated Adumadan & Heritage series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-26",
+        "title": "Rye Lane",
+        "artist": "Mayowa Alabi",
+        "category": "Adumadan & Heritage",
+        "image": "/paintings/sb_26.webp",
+        "ratio": 1.3820598006644518,
+        "desc": "Rye Lane — from the celebrated Adumadan & Heritage series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-27",
+        "title": "Boy n da Hood",
+        "artist": "Mayowa Alabi",
+        "category": "Adumadan & Heritage",
+        "image": "/paintings/sb_27.webp",
+        "ratio": 0.7269938650306749,
+        "desc": "Boy n da Hood — from the celebrated Adumadan & Heritage series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-28",
+        "title": "Odyssey",
+        "artist": "Mayowa Alabi",
+        "category": "Adumadan & Heritage",
+        "image": "/paintings/sb_28.webp",
+        "ratio": 1.3774834437086092,
+        "desc": "Odyssey — from the celebrated Adumadan & Heritage series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-29",
+        "title": "Friday",
+        "artist": "Mayowa Alabi",
+        "category": "Adumadan & Heritage",
+        "image": "/paintings/sb_29.webp",
+        "ratio": 0.7265625,
+        "desc": "Friday — from the celebrated Adumadan & Heritage series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Portrait Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-30",
+        "title": "Let it all Work out",
+        "artist": "Mayowa Alabi",
+        "category": "Adumadan & Heritage",
+        "image": "/paintings/sb_30.webp",
+        "ratio": 1.3803019410496047,
+        "desc": "Let it all Work out — from the celebrated Adumadan & Heritage series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-31",
+        "title": "Match week 1",
+        "artist": "Mayowa Alabi",
+        "category": "Adumadan & Heritage",
+        "image": "/paintings/sb_31.webp",
+        "ratio": 1.3763440860215055,
+        "desc": "Match week 1 — from the celebrated Adumadan & Heritage series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      },
+      {
+        "id": "art-32",
+        "title": "Rye Lane",
+        "artist": "Mayowa Alabi",
+        "category": "Adumadan & Heritage",
+        "image": "/paintings/sb_32.webp",
+        "ratio": 1.3714285714285714,
+        "desc": "Rye Lane — from the celebrated Adumadan & Heritage series by Mayowa Alabi.",
+        "specs": [
+          {
+            "label": "Medium",
+            "value": "Original Digital Fine Art"
+          },
+          {
+            "label": "Edition",
+            "value": "Nexora Rotunda Gallery Exclusive"
+          },
+          {
+            "label": "Artist",
+            "value": "Mayowa Alabi"
+          },
+          {
+            "label": "Format",
+            "value": "Landscape Canvas"
+          }
+        ],
+        "ctaUrl": "http://localhost:5174/"
+      }
+    ]
+  }
+]
