@@ -1,24 +1,23 @@
 import * as THREE from 'three';
-import { mount as mountPalace } from './nomadiic-rt.js';
 
 // ============================================================================
-// 1. CURATED FINE ART PAINTINGS DATA (INCLUDING FEATURED ACROPOLIS MUSE)
+// 1. CURATED FINE ART PAINTINGS DATA (INCLUDING FEATURED ACROPOLIS CLASSICAL MUSE)
 // ============================================================================
 const RAW_METADATA = [
-  // Station 0: Featured Acropolis Classical Muse (from user request)
+  // Station 0: Featured Acropolis Classical Muse (from user upload)
   {
     id: 'sb_01',
     title: 'Acropolis Classical Muse',
     artist: 'Classical Heritage',
-    category: 'Acropolis & Parthenon Series',
+    category: 'Parthenon Classical Sanctuary',
     image: '/paintings/greek_acropolis.jpg',
     ratio: 1.0,
-    desc: 'Portrait of the classical muse standing before the Parthenon and ancient temple ruins. Rendered in natural Mediterranean sunlight with historical stone architecture.',
+    desc: 'Portrait of the Acropolis Classical Muse standing before the ancient Parthenon and Grecian colonnade sanctuary ruins. Rendered in natural Mediterranean sunlight with classical stone craftsmanship and timeless heritage elegance.',
     specs: [
-      { label: 'Medium', value: 'Classical Realism' },
-      { label: 'Location', value: 'Acropolis, Athens' },
-      { label: 'Series', value: 'Parthenon & Temple Sanctuary' },
-      { label: 'Aspect Ratio', value: 'Square (1:1)' }
+      { label: 'Medium', value: 'Classical Fine Art Realism' },
+      { label: 'Location', value: 'Acropolis of Athens' },
+      { label: 'Architectural Style', value: 'Parthenon & Temple Sanctuary' },
+      { label: 'Framing', value: 'Museum Gilded Walnut Frame' }
     ],
     ctaUrl: 'http://localhost:5174/'
   },
@@ -100,21 +99,27 @@ const RAW_METADATA = [
 ];
 
 export const COLLECTIONS_INFO = [
-  { id: 'acropolis-parthenon', title: 'Acropolis & Classical Heritage', desc: 'Ancient stone temple architecture and Mediterranean light.' },
-  { id: 'lagos-love', title: 'From Lagos, with love', desc: 'Solar hues, coastal twilight, and music television nostalgia by Mayowa Alabi.' },
+  { id: 'parthenon-muse', title: 'Classical Sanctuary & Muse', desc: 'Ancient Mediterranean marble, temple peristyle colonnades, and timeless classical fine art.' },
   { id: 'blck-bourgie', title: 'BLCK & Bourgie', desc: 'Regal figurative portraits, gold leaf accents, and quiet cultural elegance.' },
   { id: 'dnce-carnaval', title: 'DNCE & Carnaval', desc: 'Celebratory carnival parades, kinetic rhythm, and nocturnal masquerades.' },
   { id: 'adumadan-heritage', title: 'Adumadan & Heritage', desc: 'Sculptural West African mineral pigments and modern ancestral portraits.' }
 ];
 
+// Enrich items with metadata
 export const ALL_ITEMS = RAW_METADATA.map((raw, idx) => {
-  const image = raw.image || `/paintings/sb_${String(idx + 1).padStart(2, '0')}.webp`;
+  if (idx === 0) {
+    return {
+      ...raw,
+      image: '/paintings/greek_acropolis.jpg'
+    };
+  }
+  const filename = `/paintings/sb_${String(idx + 1).padStart(2, '0')}.webp`;
   return {
     ...raw,
-    image,
-    desc: raw.desc || `${raw.title} — original fine art painting from the ${raw.category} collection by ${raw.artist}. Rendered with museum-grade color pigments, deep tactile textures, and architectural framing.`,
-    specs: raw.specs || [
-      { label: 'Medium', value: 'Original Fine Art Digital Painting' },
+    image: filename,
+    desc: `${raw.title} — original fine art painting from the ${raw.category} series by ${raw.artist}. Rendered with museum-grade pigments, tactile brushwork, and architectural framing.`,
+    specs: [
+      { label: 'Medium', value: 'Original Fine Art Painting' },
       { label: 'Artist', value: raw.artist },
       { label: 'Series', value: raw.category },
       { label: 'Aspect Ratio', value: raw.ratio > 1 ? 'Landscape (16:10)' : 'Portrait (3:4)' }
@@ -123,11 +128,12 @@ export const ALL_ITEMS = RAW_METADATA.map((raw, idx) => {
   };
 });
 
+// ------------------------------------------------ 2. 32 Continuous Stations Across Full 360°
 const NUM_STATIONS = 32;
 const ANGLE_STEP = (Math.PI * 2) / NUM_STATIONS;
 const OUTER_RADIUS = 11.97;
 const INNER_RADIUS = 7.43;
-const ROTUNDA_TRACK_R = 9.7;
+const ROTUNDA_TRACK_R = 9.7; // Walking track radius
 
 const STATIONS = [];
 for (let i = 0; i < NUM_STATIONS; i++) {
@@ -135,97 +141,68 @@ for (let i = 0; i < NUM_STATIONS; i++) {
   STATIONS.push({
     stationIdx: i,
     collectionIdx: colIdx,
-    collection: COLLECTIONS_INFO[colIdx] || COLLECTIONS_INFO[0],
+    collection: COLLECTIONS_INFO[colIdx],
     outerItem: ALL_ITEMS[i],
     innerItem: ALL_ITEMS[i + 32]
   });
 }
 
-// ============================================================================
-// 2. DOM ELEMENT REFERENCES
-// ============================================================================
-const palaceContainer = document.getElementById('palace-container');
-const canvasContainer = document.getElementById('canvas-container');
-const navSubTitle = document.getElementById('nav-sub-title');
-
-// Rotunda UI References
-const cursorTip = document.getElementById('cursor-tip');
-const cursorTipPill = document.getElementById('cursor-tip-pill');
-const roomCaption = document.getElementById('room-caption');
-const roomTitle = document.getElementById('room-title');
-const roomMore = document.getElementById('room-more');
-const walkHint = document.getElementById('walk-hint');
-const hintLine1 = document.getElementById('hint-line-1');
-const hintLine2 = document.getElementById('hint-line-2');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const viewToggle = document.getElementById('view-toggle');
-const viewGalleryBtn = document.getElementById('view-gallery-btn');
-const viewListBtn = document.getElementById('view-list-btn');
-const roomNav = document.getElementById('room-nav');
-const listView = document.getElementById('list-view');
-const listViewGrid = document.getElementById('list-view-grid');
-const drawer = document.getElementById('drawer');
-const drawerOverlay = document.getElementById('drawer-overlay');
-const drawerClose = document.getElementById('drawer-close');
-const drawerContent = document.getElementById('drawer-content');
-
-// ============================================================================
-// 3. MOUNT PALACE SCENE (NOMADIIC HORSE - STARTING AT POOL)
-// ============================================================================
-let palaceInstance = null;
-const Fs = 0.12946; // Exact waypoint at Reflecting Pool (Screenshot 1)
-const PALACE_DOOR_PROGRESS = 0.612; // Progress inside showroom at doorway (Screenshot 3)
-
-function initPalace() {
-  if (!palaceContainer) return;
-  palaceInstance = mountPalace(palaceContainer, {
-    exposure: 1.15,
-    intro: 'storm',
-    base: 'https://aniketh-ani.github.io/nomadiic-cdn/palace/assets/'
-  });
-  window.__palace = palaceInstance;
-}
-initPalace();
-
-// ============================================================================
-// 4. CURVED ROTUNDA GALLERY SCENE (SHUTABUG - 60-120 FPS PURE BASIC MATERIAL)
-// ============================================================================
-const rotundaScene = new THREE.Scene();
+// ------------------------------------------------ 3. High-Performance Three.js Scene Setup (60-120 FPS)
+const scene = new THREE.Scene();
 const BG_COLOR = 0x11151f;
-rotundaScene.background = new THREE.Color(BG_COLOR);
-rotundaScene.fog = new THREE.Fog(BG_COLOR, 8, 26);
+scene.background = new THREE.Color(BG_COLOR);
+scene.fog = new THREE.Fog(BG_COLOR, 9, 36);
 
-const rotundaCamera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 60);
+const camera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 70);
 
-const rotundaRenderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-rotundaRenderer.setSize(window.innerWidth, window.innerHeight);
-rotundaRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-rotundaRenderer.toneMapping = THREE.ACESFilmicToneMapping;
-rotundaRenderer.toneMappingExposure = 1.05;
-rotundaRenderer.outputColorSpace = THREE.SRGBColorSpace;
-canvasContainer.appendChild(rotundaRenderer.domElement);
+const container = document.getElementById('canvas-container');
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+container.appendChild(renderer.domElement);
 
 const textureLoader = new THREE.TextureLoader();
 textureLoader.crossOrigin = 'anonymous';
 
-// Architectural Surfaces
+// Architectural Surfaces (Pure MeshBasicMaterial = Zero Dynamic Light Overhead)
 const floorMat = new THREE.MeshBasicMaterial({ color: 0x222327 });
 const floorMesh = new THREE.Mesh(new THREE.RingGeometry(7.2, 12.2, 120), floorMat);
 floorMesh.rotation.x = -Math.PI / 2;
-rotundaScene.add(floorMesh);
+scene.add(floorMesh);
 
+// Center Court Floor Disc
+const centerCourtFloor = new THREE.Mesh(
+  new THREE.CircleGeometry(7.3, 64),
+  new THREE.MeshBasicMaterial({ color: 0x181a20 })
+);
+centerCourtFloor.rotation.x = -Math.PI / 2;
+scene.add(centerCourtFloor);
+
+// Outer Curved Wall
 const outerWallMat = new THREE.MeshBasicMaterial({ color: 0xeae8e2, side: THREE.BackSide });
-const outerWall = new THREE.Mesh(new THREE.CylinderGeometry(12.0, 12.0, 3.6, 120, 1, true), outerWallMat);
-outerWall.position.set(0, 1.8, 0);
-rotundaScene.add(outerWall);
+const outerWall = new THREE.Mesh(new THREE.CylinderGeometry(12.0, 12.0, 3.8, 120, 1, true), outerWallMat);
+outerWall.position.set(0, 1.9, 0);
+scene.add(outerWall);
 
-const innerWallMat = new THREE.MeshBasicMaterial({ color: 0xdfdcd5, side: THREE.FrontSide, transparent: true, opacity: 1.0 });
-const innerWall = new THREE.Mesh(new THREE.CylinderGeometry(7.4, 7.4, 3.6, 96, 1, true), innerWallMat);
-innerWall.position.set(0, 1.8, 0);
-rotundaScene.add(innerWall);
+// Inner Curved Wall with opening centered at Station 0 (+Z axis)
+// In Three.js cylinder geometry: thetaStart = PI/2 + 0.4, thetaLength = 2*PI - 0.8
+const innerWallMat = new THREE.MeshBasicMaterial({
+  color: 0xdfdcd5,
+  side: THREE.FrontSide,
+  transparent: true,
+  opacity: 1.0
+});
+const innerWall = new THREE.Mesh(
+  new THREE.CylinderGeometry(7.4, 7.4, 3.8, 96, 1, true, Math.PI / 2 + 0.4, Math.PI * 2 - 0.8),
+  innerWallMat
+);
+innerWall.position.set(0, 1.9, 0);
+scene.add(innerWall);
 
-// Radial Glow Textures for Museum Atmosphere (0 GPU Light Overhead)
+// Radial Glow Textures for Museum Atmosphere (0 Dynamic Lights)
 function createGlowTexture(colorStart, colorMid, colorEnd) {
   const c = document.createElement('canvas');
   c.width = 256;
@@ -248,134 +225,296 @@ const poolMat = new THREE.MeshBasicMaterial({
   map: poolGlowTex,
   transparent: true,
   opacity: 0.18,
-  blending: THREE.AdditiveBlending,
   depthWrite: false
 });
+const floorGlowMesh = new THREE.Mesh(new THREE.RingGeometry(7.5, 11.9, 64), poolMat);
+floorGlowMesh.rotation.x = -Math.PI / 2;
+floorGlowMesh.position.y = 0.01;
+scene.add(floorGlowMesh);
 
 const lampGlowTex = createGlowTexture('rgba(255, 241, 214, 0.8)', 'rgba(255, 232, 190, 0.35)', 'rgba(255, 220, 160, 0)');
-const innerLampMat = new THREE.MeshBasicMaterial({
-  color: 0xfff1d6,
+const outerLampMat = new THREE.MeshBasicMaterial({
   map: lampGlowTex,
   transparent: true,
   opacity: 0.55,
-  blending: THREE.AdditiveBlending,
+  side: THREE.BackSide,
   depthWrite: false
 });
+const outerWallLampGlow = new THREE.Mesh(new THREE.CylinderGeometry(11.94, 11.94, 1.2, 96, 1, true), outerLampMat);
+outerWallLampGlow.position.set(0, 2.7, 0);
+scene.add(outerWallLampGlow);
 
-const outerGlowTex = createGlowTexture('rgba(255, 248, 230, 0.45)', 'rgba(255, 235, 200, 0.15)', 'rgba(255, 225, 175, 0)');
-const outerLampMat = new THREE.MeshBasicMaterial({
-  color: 0xfff4e0,
-  map: outerGlowTex,
+const innerLampMat = new THREE.MeshBasicMaterial({
+  map: lampGlowTex,
   transparent: true,
-  opacity: 0.28,
-  blending: THREE.AdditiveBlending,
+  opacity: 0.55,
+  side: THREE.FrontSide,
   depthWrite: false
 });
+const innerWallLampGlow = new THREE.Mesh(
+  new THREE.CylinderGeometry(7.43, 7.43, 1.2, 80, 1, true, Math.PI / 2 + 0.4, Math.PI * 2 - 0.8),
+  innerLampMat
+);
+innerWallLampGlow.position.set(0, 2.7, 0);
+scene.add(innerWallLampGlow);
 
-// Mount All 64 Paintings on Outer & Inner Walls (Zero placards below!)
-const interactiveObjects = [];
+// ------------------------------------------------ 4. CENTRAL CLASSICAL TEMPLE DOORWAY PORTAL
+// Positioned at the inner opening at (0, 0, 7.35) facing the Station 0 corridor
+const centerPortalGroup = new THREE.Group();
+centerPortalGroup.position.set(0, 0, 7.35);
+scene.add(centerPortalGroup);
 
-STATIONS.forEach((station, i) => {
-  const angle = i * ANGLE_STEP;
-  const stationGroup = new THREE.Group();
+// Marble Stylobate (Double-tier base steps)
+const marbleMat = new THREE.MeshBasicMaterial({ color: 0xeeebe3 });
+const darkWoodMat = new THREE.MeshBasicMaterial({ color: 0x3d271d });
+const brassMat = new THREE.MeshBasicMaterial({ color: 0xd4af37 });
 
-  // Outer Wall Painting
-  const outerX = OUTER_RADIUS * Math.sin(angle);
-  const outerZ = OUTER_RADIUS * Math.cos(angle);
-  const outerRotY = angle + Math.PI;
+const stepLower = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.18, 1.6), marbleMat);
+stepLower.position.set(0, 0.09, 0);
+centerPortalGroup.add(stepLower);
 
-  const outerGroup = new THREE.Group();
-  outerGroup.position.set(outerX, 0, outerZ);
-  outerGroup.rotation.y = outerRotY;
+const stepUpper = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.18, 1.3), marbleMat);
+stepUpper.position.set(0, 0.27, 0);
+centerPortalGroup.add(stepUpper);
 
-  const poolMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 2.0), poolMat);
-  poolMesh.rotation.x = -Math.PI / 2;
-  poolMesh.position.set(0, 0.02, 1.1);
-  outerGroup.add(poolMesh);
+// Classical Fluted Columns (Left & Right)
+function createClassicalColumn(xPos) {
+  const colGroup = new THREE.Group();
+  colGroup.position.set(xPos, 0.36, 0);
 
-  const outerBeamMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.8, 3.0), outerLampMat);
-  outerBeamMesh.position.set(0, 1.85, 0.008);
-  outerGroup.add(outerBeamMesh);
+  // Plinth
+  const plinth = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.16, 0.72), marbleMat);
+  plinth.position.y = 0.08;
+  colGroup.add(plinth);
 
-  const item = station.outerItem;
-  const ratio = THREE.MathUtils.clamp(item.ratio || 1.0, 0.65, 1.78);
-  const pW = 1.45 * ratio;
-  const pH = 1.45;
+  // Torus Base
+  const torus = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.37, 0.14, 24), marbleMat);
+  torus.position.y = 0.23;
+  colGroup.add(torus);
 
-  const tex = textureLoader.load(item.image);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  tex.generateMipmaps = true;
-  tex.minFilter = THREE.LinearMipmapLinearFilter;
+  // Shaft (Classical Fluted Cylinder)
+  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 3.2, 24), marbleMat);
+  shaft.position.y = 1.83;
+  colGroup.add(shaft);
 
-  const frameMat = new THREE.MeshBasicMaterial({ color: 0x14161c, side: THREE.DoubleSide });
-  const frameMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW + 0.08, pH + 0.08), frameMat);
-  frameMesh.position.set(0, 1.6, 0.015);
-  outerGroup.add(frameMesh);
+  // Capital (Abacus & Echinus)
+  const echinus = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.25, 0.16, 24), marbleMat);
+  echinus.position.y = 3.51;
+  colGroup.add(echinus);
 
-  const artMat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide });
-  const artMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW, pH), artMat);
-  artMesh.position.set(0, 1.6, 0.03);
+  const abacus = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.16, 0.72), marbleMat);
+  abacus.position.y = 3.67;
+  colGroup.add(abacus);
 
-  const metaData = { isArtwork: true, item, stationIdx: i, wallSide: 'outer', frameMesh, artMesh };
-  artMesh.userData = metaData;
-  frameMesh.userData = metaData;
+  return colGroup;
+}
 
-  outerGroup.add(artMesh);
-  interactiveObjects.push(artMesh);
-  interactiveObjects.push(frameMesh);
+const leftColumn = createClassicalColumn(-1.65);
+const rightColumn = createClassicalColumn(1.65);
+centerPortalGroup.add(leftColumn);
+centerPortalGroup.add(rightColumn);
 
-  stationGroup.add(outerGroup);
+// Classical Entablature (Architrave & Cornice)
+const architrave = new THREE.Mesh(new THREE.BoxGeometry(3.9, 0.32, 0.65), marbleMat);
+architrave.position.set(0, 4.22, 0);
+centerPortalGroup.add(architrave);
 
-  // Inner Wall Painting
-  const innerItem = station.innerItem;
-  const innerX = INNER_RADIUS * Math.sin(angle);
-  const innerZ = INNER_RADIUS * Math.cos(angle);
-  const innerRotY = angle;
+const cornice = new THREE.Mesh(new THREE.BoxGeometry(4.1, 0.22, 0.78), marbleMat);
+cornice.position.set(0, 4.49, 0);
+centerPortalGroup.add(cornice);
 
-  const innerGroup = new THREE.Group();
-  innerGroup.position.set(innerX, 0, innerZ);
-  innerGroup.rotation.y = innerRotY;
+// Triangular Pediment Gable Roof
+const pedimentGeom = new THREE.CylinderGeometry(0.01, 2.3, 0.9, 3);
+pedimentGeom.rotateY(Math.PI / 6);
+const pediment = new THREE.Mesh(pedimentGeom, marbleMat);
+pediment.position.set(0, 5.04, 0);
+centerPortalGroup.add(pediment);
 
-  const lampMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.8), innerLampMat);
-  lampMesh.position.set(0, 1.8, 0.01);
-  innerGroup.add(lampMesh);
+// Central Gold Medallion Relief
+const medallion = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.08, 24), brassMat);
+medallion.rotation.x = Math.PI / 2;
+medallion.position.set(0, 4.88, 0.28);
+centerPortalGroup.add(medallion);
 
-  const iRatio = THREE.MathUtils.clamp(innerItem.ratio || 1.0, 0.65, 1.78);
-  const wLimit = 2.5 / 12 * 14.8 - 0.7;
-  const iHeight = Math.min(1.305, wLimit / iRatio);
-  const iWidth = iHeight * iRatio;
+// Doorway Frame
+const doorFrameLeft = new THREE.Mesh(new THREE.BoxGeometry(0.18, 3.4, 0.22), marbleMat);
+doorFrameLeft.position.set(-1.24, 2.06, 0);
+centerPortalGroup.add(doorFrameLeft);
 
-  const iTex = textureLoader.load(innerItem.image);
-  iTex.colorSpace = THREE.SRGBColorSpace;
-  iTex.generateMipmaps = true;
-  iTex.minFilter = THREE.LinearMipmapLinearFilter;
+const doorFrameRight = new THREE.Mesh(new THREE.BoxGeometry(0.18, 3.4, 0.22), marbleMat);
+doorFrameRight.position.set(1.24, 2.06, 0);
+centerPortalGroup.add(doorFrameRight);
 
-  const iFrameMat = new THREE.MeshBasicMaterial({ color: 0x14161c, side: THREE.DoubleSide });
-  const iFrameMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth + 0.08, iHeight + 0.08), iFrameMat);
-  iFrameMesh.position.set(0, 1.6, 0.015);
-  innerGroup.add(iFrameMesh);
+const doorFrameTop = new THREE.Mesh(new THREE.BoxGeometry(2.66, 0.18, 0.22), marbleMat);
+doorFrameTop.position.set(0, 3.76, 0);
+centerPortalGroup.add(doorFrameTop);
 
-  const iArtMat = new THREE.MeshBasicMaterial({ map: iTex, side: THREE.DoubleSide });
-  const iArtMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth, iHeight), iArtMat);
-  iArtMesh.position.set(0, 1.6, 0.03);
+// Open Double Doors (Pivoted open inwards)
+const leftDoor = new THREE.Mesh(new THREE.BoxGeometry(1.12, 3.3, 0.08), darkWoodMat);
+leftDoor.position.set(-1.15, 2.01, -0.45);
+leftDoor.rotation.y = Math.PI * 0.32;
+centerPortalGroup.add(leftDoor);
 
-  const iMetaData = { isArtwork: true, item: innerItem, stationIdx: i, wallSide: 'inner', frameMesh: iFrameMesh, artMesh: iArtMesh };
-  iArtMesh.userData = iMetaData;
-  iFrameMesh.userData = iMetaData;
+const rightDoor = new THREE.Mesh(new THREE.BoxGeometry(1.12, 3.3, 0.08), darkWoodMat);
+rightDoor.position.set(1.15, 2.01, -0.45);
+rightDoor.rotation.y = -Math.PI * 0.32;
+centerPortalGroup.add(rightDoor);
 
-  innerGroup.add(iArtMesh);
-  interactiveObjects.push(iArtMesh);
-  interactiveObjects.push(iFrameMesh);
+// PORTAL VISTA: The Reflecting Pool & Temple from Nomadiic Horse
+const poolVistaTexture = textureLoader.load('/textures/reflecting_pool.jpg');
+poolVistaTexture.colorSpace = THREE.SRGBColorSpace;
 
-  stationGroup.add(innerGroup);
-  rotundaScene.add(stationGroup);
+const portalVistaMat = new THREE.MeshBasicMaterial({
+  map: poolVistaTexture,
+  side: THREE.DoubleSide
 });
+const portalVistaMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.36, 3.34), portalVistaMat);
+portalVistaMesh.position.set(0, 2.03, -0.05);
+centerPortalGroup.add(portalVistaMesh);
 
-// Rotunda Camera Tracking State
+// Glowing Doorway Threshold
+const thresholdGlowMat = new THREE.MeshBasicMaterial({
+  color: 0xffd200,
+  map: poolGlowTex,
+  transparent: true,
+  opacity: 0.38,
+  depthWrite: false
+});
+const thresholdGlow = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 2.0), thresholdGlowMat);
+thresholdGlow.rotation.x = -Math.PI / 2;
+thresholdGlow.position.set(0, 0.37, 0.6);
+centerPortalGroup.add(thresholdGlow);
+
+// Interactive hit mesh for Central Portal
+const portalHitMesh = new THREE.Mesh(
+  new THREE.BoxGeometry(2.8, 3.8, 0.8),
+  new THREE.MeshBasicMaterial({ visible: false })
+);
+portalHitMesh.position.set(0, 2.0, 0);
+portalHitMesh.userData = {
+  isCenterPortal: true,
+  title: 'Classical Reflecting Pool & Temple Sanctuary',
+  desc: 'Step out to the neoclassical reflecting pool, peristyle colonnades, and temple sanctuary.'
+};
+centerPortalGroup.add(portalHitMesh);
+
+// Outdoor sanctuary vista panorama behind the door (visible when stepping through)
+const outdoorSanctuaryMat = new THREE.MeshBasicMaterial({
+  map: poolVistaTexture,
+  side: THREE.FrontSide
+});
+const outdoorSanctuary = new THREE.Mesh(new THREE.PlaneGeometry(16.0, 9.0), outdoorSanctuaryMat);
+outdoorSanctuary.position.set(0, 4.5, -4.0);
+scene.add(outdoorSanctuary);
+
+// Reflecting pool water terrace
+const poolWater = new THREE.Mesh(
+  new THREE.PlaneGeometry(12.0, 14.0),
+  new THREE.MeshBasicMaterial({ color: 0x141e2a })
+);
+poolWater.rotation.x = -Math.PI / 2;
+poolWater.position.set(0, 0.02, 1.0);
+scene.add(poolWater);
+
+// ------------------------------------------------ 5. CURATED ARTWORK MESHES ON 360° WALLS
+const interactiveObjects = [portalHitMesh];
+const artworkMeshes = [];
+
+const sharedFrameGeom = new THREE.BoxGeometry(1, 1, 0.06);
+const sharedPlaneGeom = new THREE.PlaneGeometry(1, 1);
+const placeholderCanvas = document.createElement('canvas');
+placeholderCanvas.width = 128;
+placeholderCanvas.height = 128;
+const pctx = placeholderCanvas.getContext('2d');
+pctx.fillStyle = '#181b24';
+pctx.fillRect(0, 0, 128, 128);
+const placeholderTex = new THREE.CanvasTexture(placeholderCanvas);
+
+function createArtworkMesh(item, isOuter, stationIdx) {
+  const angle = stationIdx * ANGLE_STEP;
+  const radius = isOuter ? OUTER_RADIUS : INNER_RADIUS;
+
+  const width = item.ratio > 1 ? 1.6 : 1.15;
+  const height = width / item.ratio;
+
+  // Frame
+  const frameMat = new THREE.MeshBasicMaterial({ color: 0x14161c });
+  const frameMesh = new THREE.Mesh(sharedFrameGeom, frameMat);
+  frameMesh.scale.set(width + 0.12, height + 0.12, 1);
+
+  // Artwork Canvas
+  const artMat = new THREE.MeshBasicMaterial({
+    map: placeholderTex,
+    toneMapped: true
+  });
+  const artMesh = new THREE.Mesh(sharedPlaneGeom, artMat);
+  artMesh.scale.set(width, height, 1);
+  artMesh.position.z = 0.035;
+
+  const artGroup = new THREE.Group();
+  artGroup.add(frameMesh);
+  artGroup.add(artMesh);
+
+  artGroup.position.set(
+    radius * Math.sin(angle),
+    1.85,
+    radius * Math.cos(angle)
+  );
+
+  // Face inwards toward track for outer wall, outwards for inner wall
+  if (isOuter) {
+    artGroup.rotation.y = angle + Math.PI;
+  } else {
+    artGroup.rotation.y = angle;
+  }
+
+  // Pure click & hover detection
+  artMesh.userData = {
+    isArtwork: true,
+    item: item,
+    stationIdx: stationIdx,
+    isOuter: isOuter,
+    frameMesh: frameMesh,
+    artGroup: artGroup
+  };
+
+  interactiveObjects.push(artMesh);
+  artworkMeshes.push(artMesh);
+
+  // Lazy load artwork texture
+  textureLoader.load(item.image, (tex) => {
+    tex.colorSpace = THREE.SRGBColorSpace;
+    artMat.map = tex;
+    artMat.needsUpdate = true;
+  });
+
+  return artGroup;
+}
+
+// Build 64 artworks (Clean walls: ZERO placards/text below paintings!)
+for (let i = 0; i < NUM_STATIONS; i++) {
+  const st = STATIONS[i];
+  // Outer wall artwork
+  scene.add(createArtworkMesh(st.outerItem, true, i));
+  // Inner wall artwork (skip station 0 which is the open temple portal)
+  if (i !== 0) {
+    scene.add(createArtworkMesh(st.innerItem, false, i));
+  }
+}
+
+// ------------------------------------------------ 6. CAMERA MOTION & INTERACTION STATE
 const walkState = {
-  angle: 0.0,
-  targetAngle: 0.0,
+  angle: -0.20,
+  targetAngle: -0.20,
   lastMoved: performance.now()
+};
+
+const entranceState = {
+  phase: 'wait',
+  startTime: performance.now(),
+  fromAngle: -1.0,
+  toAngle: -0.20,
+  durationMs: 2400
 };
 
 const currentEye = new THREE.Vector3();
@@ -387,6 +526,7 @@ const scratchFacingDir = new THREE.Vector3();
 
 let inspectedMesh = null;
 let isInspecting = false;
+let isPortalActive = false;
 let activeExhibit = null;
 
 const pointer = new THREE.Vector2(-999, -999);
@@ -395,32 +535,102 @@ const raycaster = new THREE.Raycaster();
 let hoveredMesh = null;
 let currentCollectionIdx = 0;
 
-function updateCaption(colIdx, item) {
-  if (colIdx !== currentCollectionIdx || item) {
-    currentCollectionIdx = colIdx;
-    const col = COLLECTIONS_INFO[colIdx] || COLLECTIONS_INFO[0];
-    if (roomTitle) roomTitle.textContent = item ? item.title : col.title;
-    if (roomMore) roomMore.textContent = item ? 'VIEW PAINTING DETAILS →' : 'EXPLORE COLLECTION →';
+// UI References
+const cursorTip = document.getElementById('cursor-tip');
+const cursorTipPill = document.getElementById('cursor-tip-pill');
+const roomCaption = document.getElementById('room-caption');
+const roomTitle = document.getElementById('room-title');
+const roomMore = document.getElementById('room-more');
+const walkHint = document.getElementById('walk-hint');
+const hintLine1 = document.getElementById('hint-line-1');
+const hintLine2 = document.getElementById('hint-line-2');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const viewGalleryBtn = document.getElementById('view-gallery-btn');
+const viewListBtn = document.getElementById('view-list-btn');
+const listView = document.getElementById('list-view');
+const listViewGrid = document.getElementById('list-view-grid');
+const drawer = document.getElementById('drawer');
+const drawerOverlay = document.getElementById('drawer-overlay');
+const drawerClose = document.getElementById('drawer-close');
+const drawerContent = document.getElementById('drawer-content');
+const portalBackWrap = document.getElementById('portal-back-wrap');
+const portalBackBtn = document.getElementById('portal-back-btn');
+
+// Initial camera position at threshold
+function setupEntranceThreshold() {
+  const a = walkState.angle;
+  const c = a + 0.32;
+  const entranceR = ROTUNDA_TRACK_R;
+
+  currentEye.set(
+    Math.sin(a) * entranceR,
+    1.55,
+    Math.cos(a) * entranceR
+  );
+  currentLookAt.set(
+    Math.sin(c) * entranceR,
+    1.5,
+    Math.cos(c) * entranceR
+  );
+  camera.position.copy(currentEye);
+  camera.lookAt(currentLookAt);
+}
+setupEntranceThreshold();
+
+function updateWalkHint() {
+  if (isPortalActive) {
+    if (hintLine1) hintLine1.textContent = 'Viewing Neoclassical Reflecting Pool';
+    if (hintLine2) hintLine2.textContent = 'Click Step Back or Esc to return to Rotunda';
+    walkHint?.classList.add('is-lit');
+  } else if (isInspecting) {
+    if (hintLine1) hintLine1.textContent = 'Click away or Esc to step back';
+    if (hintLine2) hintLine2.textContent = 'Viewing artwork details';
+    walkHint?.classList.add('is-lit');
+  } else {
+    if (hintLine1) hintLine1.textContent = 'Scroll or drag to walk round';
+    if (hintLine2) hintLine2.textContent = 'Click any painting or center temple door';
+    walkHint?.classList.remove('is-lit');
   }
 }
 
+function updateCaption(colIdx, item) {
+  if (isPortalActive) {
+    if (roomTitle) roomTitle.textContent = 'Reflecting Pool & Temple Colonnade';
+    if (roomMore) roomMore.textContent = 'STEP BACK TO ROTUNDA →';
+    return;
+  }
+  if (colIdx !== currentCollectionIdx || item) {
+    currentCollectionIdx = colIdx;
+    const col = COLLECTIONS_INFO[colIdx] || COLLECTIONS_INFO[0];
+    if (roomTitle) {
+      roomTitle.textContent = item ? item.title : col.title;
+    }
+    if (roomMore) {
+      roomMore.textContent = item ? 'VIEW PAINTING DETAILS →' : 'EXPLORE COLLECTION →';
+    }
+  }
+}
+
+// ------------------------------------------------ 7. ZOOM IN & INSPECTOR DRAWER
 function lookCloserAt(mesh) {
   inspectedMesh = mesh;
   isInspecting = true;
+  isPortalActive = false;
+  portalBackWrap?.classList.remove('is-visible');
   walkState.lastMoved = performance.now();
 
   mesh.getWorldPosition(scratchWorldPos);
   mesh.getWorldDirection(scratchFacingDir);
 
+  // Stand 2.2m directly facing the artwork at eye level
   targetEye.copy(scratchWorldPos).addScaledVector(scratchFacingDir, 2.2);
   targetEye.y = 1.6;
 
   targetLookAt.copy(scratchWorldPos);
-  targetLookAt.y -= 0.1;
+  targetLookAt.y -= 0.08;
 
-  if (hintLine1) hintLine1.textContent = 'Click away or Esc to step back';
-  if (hintLine2) hintLine2.textContent = 'Viewing artwork details';
-  walkHint?.classList.add('is-lit');
+  updateWalkHint();
   if (cursorTipPill) cursorTipPill.textContent = 'VIEWING ARTWORK';
 
   const item = mesh.userData.item;
@@ -431,14 +641,39 @@ function lookCloserAt(mesh) {
   }
 }
 
+// Step into Central Temple Portal looking out to reflecting pool
+function enterCentralPortal() {
+  isPortalActive = true;
+  isInspecting = false;
+  inspectedMesh = null;
+  closeDrawer();
+
+  // Position camera standing on terrace looking out across reflecting pool
+  targetEye.set(0, 1.65, 7.1);
+  targetLookAt.set(0, 1.55, -16.0);
+
+  portalBackWrap?.classList.add('is-visible');
+  updateWalkHint();
+  updateCaption(0, null);
+}
+
 function stepBack() {
   inspectedMesh = null;
   isInspecting = false;
+  isPortalActive = false;
+  portalBackWrap?.classList.remove('is-visible');
   closeDrawer();
-  if (hintLine1) hintLine1.textContent = 'Scroll to walk round circular wall';
-  if (hintLine2) hintLine2.textContent = 'Click any painting to look closer';
-  walkHint?.classList.remove('is-lit');
+  updateWalkHint();
   if (cursorTipPill) cursorTipPill.textContent = 'CLICK TO VIEW';
+
+  const stationIndex = THREE.MathUtils.euclideanModulo(
+    Math.round((walkState.angle + 0.22) / ANGLE_STEP),
+    NUM_STATIONS
+  );
+  const activeStation = STATIONS[stationIndex];
+  if (activeStation) {
+    updateCaption(activeStation.collectionIdx, activeStation.outerItem);
+  }
 }
 
 function openInspector(exhibit) {
@@ -485,32 +720,98 @@ function closeDrawer() {
 
 drawerClose?.addEventListener('click', stepBack);
 drawerOverlay?.addEventListener('click', stepBack);
+portalBackBtn?.addEventListener('click', stepBack);
 
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
+roomMore?.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (isPortalActive) {
     stepBack();
+    return;
+  }
+  if (activeExhibit) {
+    openInspector(activeExhibit);
   }
 });
 
-function highlightArtwork(mesh) {
-  const frame = mesh.userData.frameMesh;
-  if (frame && frame.material) {
-    frame.material.color.setHex(0xe5b869);
+// Escape key steps back
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    stepBack();
+  } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    if (isInspecting || isPortalActive) stepBack();
+    if (entranceState.phase !== 'done') entranceState.phase = 'done';
+    walkState.targetAngle += 2 * ANGLE_STEP;
+    walkState.lastMoved = performance.now();
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    if (isInspecting || isPortalActive) stepBack();
+    if (entranceState.phase !== 'done') entranceState.phase = 'done';
+    walkState.targetAngle -= 2 * ANGLE_STEP;
+    walkState.lastMoved = performance.now();
+  }
+});
+
+// ------------------------------------------------ 8. FLUID SCROLL & DRAG SYSTEM (60-120 FPS)
+window.addEventListener('wheel', (e) => {
+  if (drawer.classList.contains('is-open')) return;
+  e.preventDefault();
+
+  if (isInspecting || isPortalActive) {
+    stepBack();
+    return;
+  }
+
+  if (entranceState.phase !== 'done') {
+    entranceState.phase = 'done';
+    walkState.targetAngle = walkState.angle;
+  }
+
+  const rawDelta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+  const normalizedDelta = e.deltaMode === 1 ? rawDelta * 18 : rawDelta;
+  const clampedDelta = Math.max(-80, Math.min(80, normalizedDelta));
+
+  walkState.targetAngle += 0.00085 * clampedDelta;
+  walkState.lastMoved = performance.now();
+}, { passive: false });
+
+let pointerDownX = 0;
+let pointerDownY = 0;
+let pointerDownTime = 0;
+let isDraggingCamera = false;
+let pointerLastX = 0;
+let pointerVelocity = 0;
+let pointerTimestamp = 0;
+
+function highlightObject(mesh) {
+  if (mesh.userData.isCenterPortal) {
+    pediment.material.color.setHex(0xffd200);
+    architrave.material.color.setHex(0xffd200);
+    cornice.material.color.setHex(0xffd200);
+  } else {
+    const frame = mesh.userData.frameMesh;
+    if (frame && frame.material) {
+      frame.material.color.setHex(0xe5b869);
+    }
   }
 }
 
-function unhighlightArtwork(mesh) {
-  const frame = mesh.userData.frameMesh;
-  if (frame && frame.material) {
-    frame.material.color.setHex(0x14161c);
+function unhighlightObject(mesh) {
+  if (mesh.userData.isCenterPortal) {
+    pediment.material.color.setHex(0xeeebe3);
+    architrave.material.color.setHex(0xeeebe3);
+    cornice.material.color.setHex(0xeeebe3);
+  } else {
+    const frame = mesh.userData.frameMesh;
+    if (frame && frame.material) {
+      frame.material.color.setHex(0x14161c);
+    }
   }
 }
 
 let lastHoverCheck = 0;
 function checkHover(now) {
-  if (isInspecting || drawer.classList.contains('is-open') || pointer.x === -999) {
+  if (isDraggingCamera || drawer.classList.contains('is-open') || pointer.x === -999) {
     if (hoveredMesh) {
-      unhighlightArtwork(hoveredMesh);
+      unhighlightObject(hoveredMesh);
       hoveredMesh = null;
     }
     cursorTip?.classList.remove('is-on');
@@ -520,60 +821,141 @@ function checkHover(now) {
   if (now - lastHoverCheck < 32) return;
   lastHoverCheck = now;
 
-  raycaster.setFromCamera(pointer, rotundaCamera);
+  raycaster.setFromCamera(pointer, camera);
   const hits = raycaster.intersectObjects(interactiveObjects, false);
 
   if (hits.length > 0) {
     const mesh = hits[0].object;
     if (hoveredMesh !== mesh) {
-      if (hoveredMesh) unhighlightArtwork(hoveredMesh);
+      if (hoveredMesh) unhighlightObject(hoveredMesh);
       hoveredMesh = mesh;
-      highlightArtwork(hoveredMesh);
-      canvasContainer.style.cursor = 'pointer';
+      highlightObject(hoveredMesh);
+      container.style.cursor = 'pointer';
       cursorTip?.classList.add('is-on');
-      if (cursorTipPill) cursorTipPill.textContent = 'CLICK TO VIEW';
+      if (cursorTipPill) {
+        cursorTipPill.textContent = mesh.userData.isCenterPortal ? 'WALK OUT TO REFLECTING POOL' : 'CLICK TO VIEW';
+      }
     }
   } else {
     if (hoveredMesh) {
-      unhighlightArtwork(hoveredMesh);
+      unhighlightObject(hoveredMesh);
       hoveredMesh = null;
-      canvasContainer.style.cursor = 'grab';
+      container.style.cursor = 'grab';
       cursorTip?.classList.remove('is-on');
     }
   }
 }
 
+container.addEventListener('pointerdown', (e) => {
+  if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav') || e.target.closest('.portal-back-wrap')) return;
+
+  pointerDownX = e.clientX;
+  pointerDownY = e.clientY;
+  pointerDownTime = performance.now();
+  isDraggingCamera = true;
+  pointerLastX = e.clientX;
+  pointerTimestamp = performance.now();
+  pointerVelocity = 0;
+
+  if (entranceState.phase !== 'done') {
+    entranceState.phase = 'done';
+    walkState.targetAngle = walkState.angle;
+  }
+});
+
+container.addEventListener('pointermove', (e) => {
+  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  mouseParallax.x = pointer.x;
+  mouseParallax.y = pointer.y;
+
+  if (cursorTip) {
+    cursorTip.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+  }
+
+  if (isDraggingCamera && !drawer.classList.contains('is-open')) {
+    const deltaX = e.clientX - pointerLastX;
+    const totalMove = Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY);
+
+    if (totalMove > 6) {
+      walkState.targetAngle -= 0.0024 * deltaX;
+      walkState.lastMoved = performance.now();
+
+      const dt = Math.max(1, performance.now() - pointerTimestamp);
+      pointerVelocity = 0.5 * pointerVelocity + (deltaX / dt) * 0.5;
+      pointerTimestamp = performance.now();
+    }
+    pointerLastX = e.clientX;
+  }
+});
+
+container.addEventListener('pointerup', (e) => {
+  const totalMove = Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY);
+  const duration = performance.now() - pointerDownTime;
+  isDraggingCamera = false;
+
+  if (totalMove > 14 && Math.abs(pointerVelocity) > 0.08) {
+    const clampedV = Math.max(-2.5, Math.min(2.5, pointerVelocity));
+    walkState.targetAngle -= 180 * clampedV * 0.0022;
+    walkState.lastMoved = performance.now();
+    return;
+  }
+
+  if (totalMove < 12 && duration < 600) {
+    handleDirectArtworkClick(e.clientX, e.clientY);
+  }
+});
+
 function handleDirectArtworkClick(clientX, clientY) {
   pointer.x = (clientX / window.innerWidth) * 2 - 1;
   pointer.y = -(clientY / window.innerHeight) * 2 + 1;
-  raycaster.setFromCamera(pointer, rotundaCamera);
+  raycaster.setFromCamera(pointer, camera);
 
   const hits = raycaster.intersectObjects(interactiveObjects, false);
   if (hits.length > 0) {
     const mesh = hits[0].object;
+    if (mesh.userData.isCenterPortal) {
+      enterCentralPortal();
+      return;
+    }
     const item = mesh.userData.item;
     if (item) {
       lookCloserAt(mesh);
       openInspector(item);
     }
   } else {
-    if (isInspecting || drawer.classList.contains('is-open')) {
+    if (isInspecting || isPortalActive || drawer.classList.contains('is-open')) {
       stepBack();
     }
   }
 }
 
-// Rotunda Navigation & List View
+// Navigation arrows
 prevBtn?.addEventListener('click', () => {
   stepBack();
-  masterScroll = Math.max(DOOR_THRESHOLD, masterScroll - 300);
+  if (entranceState.phase !== 'done') entranceState.phase = 'done';
+  let currentTargetStation = Math.round(walkState.targetAngle / ANGLE_STEP);
+  let col = STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx;
+  do {
+    currentTargetStation -= 1;
+  } while (STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx === col);
+  walkState.targetAngle = currentTargetStation * ANGLE_STEP;
+  walkState.lastMoved = performance.now();
 });
 
 nextBtn?.addEventListener('click', () => {
   stepBack();
-  masterScroll += 300;
+  if (entranceState.phase !== 'done') entranceState.phase = 'done';
+  let currentTargetStation = Math.round(walkState.targetAngle / ANGLE_STEP);
+  let col = STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx;
+  do {
+    currentTargetStation += 1;
+  } while (STATIONS[THREE.MathUtils.euclideanModulo(currentTargetStation, NUM_STATIONS)].collectionIdx === col);
+  walkState.targetAngle = currentTargetStation * ANGLE_STEP;
+  walkState.lastMoved = performance.now();
 });
 
+// View mode switcher (GALLERY | LIST)
 function setViewMode(mode) {
   if (mode === 'list') {
     viewGalleryBtn?.classList.remove('is-active');
@@ -600,229 +982,131 @@ function renderListView() {
         <img src="${item.image}" alt="${item.title}" loading="lazy" />
       </div>
       <div class="list-card__body">
-        <div class="list-card__num">${item.category || 'FINE ART'}</div>
+        <span class="list-card__num">#${String(idx + 1).padStart(2, '0')}</span>
         <h3 class="list-card__title">${item.title}</h3>
-        <p class="list-card__sub">${item.artist}</p>
+        <p class="list-card__sub">${item.artist} · ${item.category}</p>
       </div>
     </article>
   `).join('');
 
-  listViewGrid.querySelectorAll('.list-card').forEach(card => {
+  listViewGrid.querySelectorAll('.list-card').forEach((card) => {
     card.addEventListener('click', () => {
       const idx = parseInt(card.dataset.idx, 10);
-      const exhibit = ALL_ITEMS[idx];
-      if (exhibit) openInspector(exhibit);
+      setViewMode('gallery');
+      const mesh = artworkMeshes[idx];
+      if (mesh) {
+        lookCloserAt(mesh);
+        openInspector(mesh.userData.item);
+      }
     });
   });
 }
 
-// Window resize
-window.addEventListener('resize', () => {
-  rotundaCamera.aspect = window.innerWidth / window.innerHeight;
-  rotundaCamera.updateProjectionMatrix();
-  rotundaRenderer.setSize(window.innerWidth, window.innerHeight);
-  rotundaRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-});
+// ------------------------------------------------ 9. SILKY SMOOTH 60-120 FPS RENDER LOOP
+const clock = new THREE.Clock();
 
-// ============================================================================
-// 5. UNIFIED CONTINUOUS SCROLL CONTROLLER (POOL -> PASSAGE -> ROTUNDA WALL)
-// ============================================================================
-// The user starts at the Reflecting Pool (masterScroll = 0).
-// Scrolling walks along the pool, down the colonnade passage, through the doorway,
-// and CONTINUES directly into the curved 360° rotunda wall of clickable paintings!
-// NO SEPARATE PARTS. ONE CONTINUOUS SCROLL!
+function animate() {
+  requestAnimationFrame(animate);
 
-let masterScroll = 0.0;
-let targetMasterScroll = 0.0;
-const DOOR_THRESHOLD = 1200.0; // Point where the camera passes through the temple doorway
-
-window.addEventListener('wheel', (e) => {
-  if (drawer.classList.contains('is-open')) return;
-  e.preventDefault();
-
-  if (isInspecting) {
-    stepBack();
-    return;
-  }
-
-  const rawDelta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-  const normalizedDelta = e.deltaMode === 1 ? rawDelta * 20 : rawDelta;
-  const clampedDelta = Math.max(-80, Math.min(80, normalizedDelta));
-
-  targetMasterScroll = Math.max(0, targetMasterScroll + clampedDelta * 1.8);
-}, { passive: false });
-
-// Pointer Dragging for Mobile / Touch / Mouse Drag
-let pointerDownX = 0;
-let pointerDownY = 0;
-let pointerDownTime = 0;
-let isDragging = false;
-let pointerLastY = 0;
-let pointerLastX = 0;
-
-window.addEventListener('pointerdown', (e) => {
-  if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav')) return;
-
-  pointerDownX = e.clientX;
-  pointerDownY = e.clientY;
-  pointerDownTime = performance.now();
-  isDragging = true;
-  pointerLastY = e.clientY;
-  pointerLastX = e.clientX;
-});
-
-window.addEventListener('pointermove', (e) => {
-  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-  mouseParallax.x = pointer.x;
-  mouseParallax.y = pointer.y;
-
-  if (cursorTip) {
-    cursorTip.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-  }
-
-  if (isDragging && !drawer.classList.contains('is-open')) {
-    const deltaY = e.clientY - pointerLastY;
-    const deltaX = e.clientX - pointerLastX;
-
-    // In rotunda, horizontal drag walks round; in palace, vertical drag walks forward
-    if (masterScroll >= DOOR_THRESHOLD) {
-      targetMasterScroll = Math.max(0, targetMasterScroll - deltaX * 2.5);
-    } else {
-      targetMasterScroll = Math.max(0, targetMasterScroll - deltaY * 2.5);
-    }
-
-    pointerLastY = e.clientY;
-    pointerLastX = e.clientX;
-  }
-});
-
-window.addEventListener('pointerup', (e) => {
-  const totalMove = Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY);
-  const duration = performance.now() - pointerDownTime;
-  isDragging = false;
-
-  // If clicked inside Rotunda wall area without drag:
-  if (masterScroll >= DOOR_THRESHOLD && totalMove < 12 && duration < 600) {
-    handleDirectArtworkClick(e.clientX, e.clientY);
-  }
-});
-
-// Master Unified Animation Loop (60-120 FPS)
-const masterClock = new THREE.Clock();
-
-function unifiedAnimationLoop() {
-  requestAnimationFrame(unifiedAnimationLoop);
-
-  const delta = Math.min(masterClock.getDelta(), 0.05);
-  const elapsedTime = masterClock.getElapsedTime();
+  const delta = Math.min(clock.getDelta(), 0.05);
+  const elapsedTime = clock.getElapsedTime();
   const now = performance.now();
 
-  // Butter-smooth frame-rate independent inertia damping on master scroll
-  const damping = 1 - Math.exp(-9.0 * delta);
-  masterScroll += (targetMasterScroll - masterScroll) * damping;
+  // Gentle water reflection pulse on portal threshold
+  thresholdGlowMat.opacity = 0.30 + 0.08 * Math.sin(elapsedTime * 2.2);
 
-  // ---------------- PART 1: Classical Temple Passage (0 <= masterScroll <= DOOR_THRESHOLD)
-  if (masterScroll < DOOR_THRESHOLD + 200) {
-    // Map masterScroll (0 -> DOOR_THRESHOLD) to Nomadiic Horse progress (Fs -> PALACE_DOOR_PROGRESS)
-    const t = Math.min(1.0, masterScroll / DOOR_THRESHOLD);
-    const palaceTargetProgress = Fs + t * (PALACE_DOOR_PROGRESS - Fs);
-
-    if (palaceInstance) {
-      palaceInstance.progress = palaceTargetProgress;
+  // Entrance walk-in animation
+  if (entranceState.phase === 'wait') {
+    if (now - entranceState.startTime > 300) {
+      entranceState.phase = 'run';
+      entranceState.startTime = now;
     }
+  } else if (entranceState.phase === 'run') {
+    const elapsed = now - entranceState.startTime;
+    const progress = Math.min(1.0, elapsed / entranceState.durationMs);
+    const easeProgress = 1 - Math.pow(1 - progress, 3);
+    walkState.angle = entranceState.fromAngle + (entranceState.toAngle - entranceState.fromAngle) * easeProgress;
+    walkState.targetAngle = walkState.angle;
 
-    // Smooth visual cross-fade through the doorway (between 85% and 100% of DOOR_THRESHOLD)
-    const fadeOutT = THREE.MathUtils.smoothstep(masterScroll, DOOR_THRESHOLD - 180, DOOR_THRESHOLD + 40);
-    const palaceOpacity = 1.0 - fadeOutT;
-    const rotundaOpacity = fadeOutT;
-
-    if (palaceContainer) {
-      palaceContainer.style.opacity = palaceOpacity;
-      palaceContainer.style.pointerEvents = palaceOpacity > 0.4 ? 'auto' : 'none';
+    if (progress >= 1.0) {
+      entranceState.phase = 'done';
+      walkState.lastMoved = now;
     }
-
-    if (canvasContainer) {
-      canvasContainer.style.opacity = rotundaOpacity;
-      canvasContainer.style.pointerEvents = rotundaOpacity > 0.4 ? 'auto' : 'none';
-    }
-
-    if (masterScroll < DOOR_THRESHOLD - 100) {
-      if (navSubTitle) navSubTitle.textContent = 'Classical Temple Passage & Reflecting Pool';
-      if (hintLine1) hintLine1.textContent = 'Scroll to walk along the pool and down the passage';
-      if (hintLine2) hintLine2.textContent = 'Continues directly through the doorway into the 3D gallery';
-      roomCaption?.classList.add('is-hidden');
-      roomNav?.classList.add('is-hidden');
-      viewToggle?.classList.add('is-hidden');
-    }
-  }
-
-  // ---------------- PART 2: Curved Rotunda Wall of Clickable Paintings (masterScroll >= DOOR_THRESHOLD)
-  if (masterScroll >= DOOR_THRESHOLD - 100) {
-    if (navSubTitle) navSubTitle.textContent = 'Curved 3D Rotunda Exhibition Wall';
-    if (!isInspecting) {
-      if (hintLine1) hintLine1.textContent = 'Scroll to walk round circular wall';
-      if (hintLine2) hintLine2.textContent = 'Click any painting to look closer';
-      roomCaption?.classList.remove('is-hidden');
-      roomNav?.classList.remove('is-hidden');
-      viewToggle?.classList.remove('is-hidden');
-    }
-
-    // Continuous rotational walking around the curved wall
-    const rotundaScrollOffset = Math.max(0, masterScroll - DOOR_THRESHOLD);
-    walkState.targetAngle = rotundaScrollOffset * 0.0035;
-
-    const angleDamping = 1 - Math.exp(-8.5 * delta);
-    walkState.angle += (walkState.targetAngle - walkState.angle) * angleDamping;
-
-    // Camera positioning in Rotunda
-    if (isInspecting && inspectedMesh) {
-      const inspectDamping = 1 - Math.exp(-6.0 * delta);
-      currentEye.lerp(targetEye, inspectDamping);
-      currentLookAt.lerp(targetLookAt, inspectDamping);
-    } else {
-      const a = walkState.angle;
-      const lookAngle = a + 0.32 + 0.14 * mouseParallax.x;
-
-      const eyeY = 1.55 + 0.008 * Math.sin(1.1 * elapsedTime);
-      const lookY = 1.5 + 0.14 * mouseParallax.y;
-
-      currentEye.set(
-        ROTUNDA_TRACK_R * Math.sin(a),
-        eyeY,
-        ROTUNDA_TRACK_R * Math.cos(a)
-      );
-      currentLookAt.set(
-        ROTUNDA_TRACK_R * Math.sin(lookAngle),
-        lookY,
-        ROTUNDA_TRACK_R * Math.cos(lookAngle)
-      );
-    }
-
-    rotundaCamera.position.copy(currentEye);
-    rotundaCamera.lookAt(currentLookAt);
-
-    // Inner wall distance fade
-    const camDist = Math.hypot(rotundaCamera.position.x, rotundaCamera.position.z);
-    const innerWallOpacity = THREE.MathUtils.smoothstep(camDist, 7.4 + 0.2, 7.4 + 1.8);
-    innerWallMat.opacity = innerWallOpacity;
-    innerLampMat.opacity = 0.55 * innerWallOpacity;
-
-    // Update active painting caption
-    if (!isInspecting) {
-      const stationIndex = THREE.MathUtils.euclideanModulo(
-        Math.round((walkState.angle + 0.25) / ANGLE_STEP),
-        NUM_STATIONS
-      );
-      const activeStation = STATIONS[stationIndex];
-      if (activeStation) {
-        updateCaption(activeStation.collectionIdx, activeStation.outerItem);
+  } else {
+    // Subtle idle drift when not interacting and drawer closed
+    if (!isDraggingCamera && !isInspecting && !isPortalActive && !drawer.classList.contains('is-open')) {
+      if (now - walkState.lastMoved > 3500) {
+        walkState.targetAngle += 0.004 * delta;
       }
     }
-
-    checkHover(now);
-    rotundaRenderer.render(rotundaScene, rotundaCamera);
+    const damping = 1 - Math.exp(-8.5 * delta);
+    walkState.angle += (walkState.targetAngle - walkState.angle) * damping;
   }
+
+  // Camera positioning
+  if (isPortalActive) {
+    const portalDamping = 1 - Math.exp(-7.0 * delta);
+    currentEye.lerp(targetEye, portalDamping);
+    scratchFacingDir.copy(targetLookAt);
+    scratchFacingDir.x += 0.3 * mouseParallax.x;
+    scratchFacingDir.y += 0.2 * mouseParallax.y;
+    currentLookAt.lerp(scratchFacingDir, portalDamping);
+  } else if (isInspecting && inspectedMesh) {
+    const inspectDamping = 1 - Math.exp(-6.5 * delta);
+    currentEye.lerp(targetEye, inspectDamping);
+    currentLookAt.lerp(targetLookAt, inspectDamping);
+  } else {
+    const a = walkState.angle;
+    const lookAngle = a + 0.32 + 0.14 * mouseParallax.x;
+
+    const eyeY = 1.55 + 0.008 * Math.sin(1.1 * elapsedTime);
+    const lookY = 1.5 + 0.14 * mouseParallax.y;
+
+    currentEye.set(
+      ROTUNDA_TRACK_R * Math.sin(a),
+      eyeY,
+      ROTUNDA_TRACK_R * Math.cos(a)
+    );
+    currentLookAt.set(
+      ROTUNDA_TRACK_R * Math.sin(lookAngle),
+      lookY,
+      ROTUNDA_TRACK_R * Math.cos(lookAngle)
+    );
+  }
+
+  camera.position.copy(currentEye);
+  camera.lookAt(currentLookAt);
+
+  // Inner wall distance fade
+  const camDist = Math.hypot(camera.position.x, camera.position.z);
+  const innerWallOpacity = THREE.MathUtils.smoothstep(camDist, 7.4 + 0.2, 7.4 + 1.8);
+  innerWallMat.opacity = innerWallOpacity;
+  innerLampMat.opacity = 0.55 * innerWallOpacity;
+
+  // Update room caption
+  if (!isInspecting && !isPortalActive && entranceState.phase !== 'wait') {
+    const stationIndex = THREE.MathUtils.euclideanModulo(
+      Math.round((walkState.angle + 0.22) / ANGLE_STEP),
+      NUM_STATIONS
+    );
+    const activeStation = STATIONS[stationIndex];
+    if (activeStation) {
+      updateCaption(activeStation.collectionIdx, activeStation.outerItem);
+    }
+  }
+
+  // Throttled raycasting hover check
+  checkHover(now);
+
+  renderer.render(scene, camera);
 }
 
-unifiedAnimationLoop();
+animate();
+
+// Resize handler
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+});

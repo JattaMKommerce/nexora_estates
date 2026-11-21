@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Nexora | 3D Classical Passage & Exhibition Rotunda</title>
-    <meta name="description" content="Continuous 3D entrance: start at the classical reflecting pool, walk down the temple passage, and continue seamlessly into the curved rotunda exhibition wall with clickable fine art paintings." />
+    <title>Nexora | 3D Curved Rotunda Exhibition Gallery</title>
+    <meta name="description" content="Curved 3D exhibition rotunda wall with 64 clickable fine art paintings, featured Acropolis classical muse portrait, and central temple doorway portal looking out to the reflecting pool." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/src/style.css" />
@@ -25,13 +25,13 @@
         </svg>
         <div class="gallery-nav__titles">
           <span class="gallery-nav__name">NEXORA</span>
-          <span class="gallery-nav__sub" id="nav-sub-title">Temple Passage & Curved Exhibition Rotunda</span>
+          <span class="gallery-nav__sub">Curved Exhibition Rotunda Wall</span>
         </div>
       </div>
 
       <div class="gallery-nav__status">
         <span class="status-indicator"></span>
-        <span id="nav-status-text">Continuous 3D Walk-through</span>
+        <span id="nav-status-text">64 Fine Art Paintings · 360° Wall</span>
       </div>
 
       <div class="gallery-nav__actions">
@@ -41,37 +41,44 @@
       </div>
     </header>
 
-    <!-- Stage 1: Classical Temple Passage (Starts at Reflecting Pool) -->
-    <div id="palace-container" class="scene-stage" role="region" aria-label="3D Palace Walk"></div>
+    <!-- 3D WebGL Canvas Container -->
+    <div id="canvas-container" role="region" aria-label="3D Rotunda Gallery"></div>
 
-    <!-- Stage 2: Curved Rotunda Exhibition Wall with Clickable Fine Art Paintings -->
-    <div id="canvas-container" class="scene-stage" role="region" aria-label="3D Rotunda Gallery"></div>
-
-    <!-- Floating Cursor Tip (Follows Pointer over Clickable Paintings) -->
+    <!-- Floating Cursor Tip (Follows Pointer over Clickable Paintings / Portal) -->
     <div class="cursor-tip" id="cursor-tip" aria-hidden="true">
       <span class="cursor-tip-pill" id="cursor-tip-pill">CLICK TO VIEW</span>
     </div>
 
-    <!-- Bottom-Left Room Caption (Rotunda Gallery) -->
-    <div class="room-caption is-hidden" id="room-caption">
+    <!-- Center Portal Back Button (appears when looking out through the center portal) -->
+    <div class="portal-back-wrap" id="portal-back-wrap" aria-hidden="true">
+      <button type="button" class="portal-back-btn" id="portal-back-btn">
+        <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
+          <path d="M16 10H5M9 5.5 4.5 10 9 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>STEP BACK TO ROTUNDA WALL</span>
+      </button>
+    </div>
+
+    <!-- Bottom-Left Room Caption -->
+    <div class="room-caption" id="room-caption">
       <p class="room-kicker">YOU ARE WALKING PAST</p>
-      <h2 class="room-title" id="room-title">Curved Exhibition Rotunda</h2>
-      <a href="#explore" class="room-more" id="room-more">EXPLORE COLLECTION →</a>
+      <h2 class="room-title" id="room-title">Acropolis Classical Muse</h2>
+      <a href="#explore" class="room-more" id="room-more">VIEW PAINTING DETAILS →</a>
     </div>
 
     <!-- Bottom-Right Room Navigation & Walk Hint -->
-    <div class="room-nav is-hidden" id="room-nav">
+    <div class="room-nav" id="room-nav">
       <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous exhibit">←</button>
       <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next exhibit">→</button>
     </div>
 
     <p class="walk-hint" id="walk-hint" aria-live="polite">
-      <span id="hint-line-1">Scroll to walk through the temple passage</span>
-      <span id="hint-line-2">Continues directly into the 3D exhibition wall</span>
+      <span id="hint-line-1">Scroll or drag to walk round</span>
+      <span id="hint-line-2">Click any painting or center temple door</span>
     </p>
 
     <!-- Bottom Center View Mode Toggle (GALLERY | LIST) -->
-    <div class="view-toggle is-hidden" id="view-toggle" role="group" aria-label="View Mode">
+    <div class="view-toggle" id="view-toggle" role="group" aria-label="View Mode">
       <button type="button" class="view-btn is-active" id="view-gallery-btn">
         <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
           <path d="M2 3h12v10H2V3zm1 1v8h10V4H3z"/>
@@ -100,7 +107,7 @@
       <div class="list-view__inner">
         <div class="list-view__header">
           <h2>Rotunda Gallery Catalogue</h2>
-          <p>Complete index of fine art paintings, architectural exhibits & digital twin structures.</p>
+          <p>Complete index of 64 fine art paintings, featured Acropolis Classical Muse, and digital twin structures.</p>
         </div>
         <div class="list-view__grid" id="list-view-grid">
           <!-- Injected dynamically via JavaScript -->
