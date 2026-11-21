@@ -1,166 +1,135 @@
 import * as THREE from 'three';
 
-// ------------------------------------------------ 1. Curated Fine Art Collections Data (Shutabug Masterpieces)
-export const COLLECTIONS = [
-  {
-    id: 'lagos-love',
-    title: 'From Lagos, with love',
-    subtitle: 'Contemporary Solar Pigments & Nostalgia · Mayowa Alabi',
-    desc: 'An exploration of urban rhythm, coastal twilight reflections, and early music television iconography celebrating Black and African diaspora culture.',
-    outerItems: [
-      { id: 'sb_01', title: 'Before the day i die', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_01.webp', ratio: 1.38 },
-      { id: 'sb_02', title: 'Check up on it', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_02.webp', ratio: 1.38 },
-      { id: 'sb_03', title: 'Crank Dat', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_03.webp', ratio: 1.40 },
-      { id: 'sb_04', title: 'Do you remember the time?', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_04.webp', ratio: 1.39 },
-      { id: 'sb_05', title: 'Heyah!', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_05.webp', ratio: 1.38 },
-      { id: 'sb_06', title: 'I’ve got 5 passports i’m never going to jail', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_06.webp', ratio: 1.38 },
-      { id: 'sb_07', title: 'Intl’ Playas Anthem', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_07.webp', ratio: 1.39 }
-    ],
-    innerItems: [
-      { id: 'sb_08', title: 'O', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_08.webp', ratio: 1.37 },
-      { id: 'p01', title: 'Lagos Sun & Indigo', artist: 'Nexora Atelier Collection', category: 'From Lagos, with love', image: '/paintings/p01.jpg', ratio: 0.8 },
-      { id: 'sb_09', title: '‏  (كورة)', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_09.webp', ratio: 0.72 },
-      { id: 'sb_10', title: 'Al-Maghrib', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_10.webp', ratio: 0.73 },
-      { id: 'sb_11', title: 'bɔɔlbɔ', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_11.webp', ratio: 0.73 },
-      { id: 'sb_12', title: 'Burkina Faso', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_12.webp', ratio: 0.73 },
-      { id: 'sb_13', title: 'Cabo Verde', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_13.webp', ratio: 0.73 },
-      { id: 'sb_14', title: 'Cameroun', artist: 'Mayowa Alabi', category: 'From Lagos, with love', image: '/paintings/sb_14.webp', ratio: 0.73 }
-    ]
-  },
-  {
-    id: 'blck-bourgie',
-    title: 'BLCK & Bourgie',
-    subtitle: 'Regal Figurative Portraits & Gold Tones',
-    desc: 'Intimate, majestic portraiture celebrating identity, cultural lineage, and quiet elegance with rich black velour and shimmering gold leaf accents.',
-    outerItems: [
-      { id: 'sb_15', title: 'Côte d’Ivoire', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_15.webp', ratio: 0.72 },
-      { id: 'sb_16', title: 'Dzayer', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_16.webp', ratio: 0.73 },
-      { id: 'sb_17', title: 'Ojude Oba', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_17.webp', ratio: 0.73 },
-      { id: 'sb_18', title: 'Abiamo Ode Orun', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_18.webp', ratio: 0.56 },
-      { id: 'sb_19', title: 'Bam', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_19.webp', ratio: 1.38 },
-      { id: 'sb_20', title: 'Blood of Jesus', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_20.webp', ratio: 1.38 },
-      { id: 'sb_21', title: 'Fire Drill', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_21.webp', ratio: 1.38 }
-    ],
-    innerItems: [
-      { id: 'p02', title: 'Terra Incognita', artist: 'Atelier Alabi Tribute', category: 'BLCK & Bourgie', image: '/paintings/p02.jpg', ratio: 0.8 },
-      { id: 'sb_22', title: 'Friday Night', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_22.webp', ratio: 0.73 },
-      { id: 'sb_23', title: 'Go Slow', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_23.webp', ratio: 0.75 },
-      { id: 'sb_24', title: 'Isale Eko', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_24.webp', ratio: 0.60 },
-      { id: 'sb_25', title: 'Friday in the City', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_25.webp', ratio: 0.73 },
-      { id: 'sb_26', title: 'Rye Lane', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_26.webp', ratio: 1.38 },
-      { id: 'sb_27', title: 'Boy n da Hood', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_27.webp', ratio: 0.73 },
-      { id: 'sb_28', title: 'Odyssey', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', image: '/paintings/sb_28.webp', ratio: 1.38 }
-    ]
-  },
-  {
-    id: 'dnce-carnaval',
-    title: 'DNCE & Carnaval',
-    subtitle: 'Kinetic Movement & Festival Chromatics',
-    desc: 'Dynamic compositions capturing the electric pulse of festival parades, celebratory dances, and nocturnal street masquerades across Lagos and the diaspora.',
-    outerItems: [
-      { id: 'sb_29', title: 'Sunday Freestyle', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_29.webp', ratio: 0.73 },
-      { id: 'sb_30', title: 'Let it all Work out', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_30.webp', ratio: 1.38 },
-      { id: 'sb_31', title: 'Match week 1', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_31.webp', ratio: 1.38 },
-      { id: 'sb_32', title: 'Rye Lane High', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_32.webp', ratio: 1.37 },
-      { id: 'sb_33', title: 'The Gardner', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_33.webp', ratio: 0.72 },
-      { id: 'sb_34', title: 'These Streets Are our Own', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_34.webp', ratio: 1.38 },
-      { id: 'sb_35', title: 'Dap of Champions', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_35.webp', ratio: 0.73 }
-    ],
-    innerItems: [
-      { id: 'p03', title: 'Emerald Horizon & Gold', artist: 'Heritage Series', category: 'DNCE & Carnaval', image: '/paintings/p03.jpg', ratio: 0.8 },
-      { id: 'sb_36', title: 'Suffering from success', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_36.webp', ratio: 0.73 },
-      { id: 'sb_37', title: 'Case 022', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_37.webp', ratio: 0.73 },
-      { id: 'sb_38', title: 'Case 023', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_38.webp', ratio: 0.73 },
-      { id: 'sb_39', title: 'Case 024', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_39.webp', ratio: 0.73 },
-      { id: 'sb_40', title: 'Case 025', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', image: '/paintings/sb_40.webp', ratio: 0.73 },
-      { id: 'p04', title: 'Symphony of Vanguard', artist: 'Modern Diaspora Study', category: 'DNCE & Carnaval', image: '/paintings/p04.jpg', ratio: 0.8 },
-      { id: 'p05', title: 'The Golden Passage', artist: 'Kinetic Expressionism', category: 'DNCE & Carnaval', image: '/paintings/p05.jpg', ratio: 0.8 }
-    ]
-  },
-  {
-    id: 'adumadan-heritage',
-    title: 'Adumadan & Heritage',
-    subtitle: 'Sculptural Mineral Pigments & Modern Ancestry',
-    desc: 'Geometric planes, deep terracotta ochres, and basalt textures blending ancient West African sculpture with contemporary digital museum art.',
-    outerItems: [
-      { id: 'sb_41', title: 'Case 027', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_41.webp', ratio: 0.73 },
-      { id: 'sb_42', title: 'Case 028', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_42.webp', ratio: 0.73 },
-      { id: 'sb_43', title: 'Case 001', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_43.webp', ratio: 0.73 },
-      { id: 'sb_44', title: 'Case 002', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_44.webp', ratio: 0.73 },
-      { id: 'sb_45', title: 'BSHP', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_45.webp', ratio: 0.73 },
-      { id: 'sb_46', title: 'Catty', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_46.webp', ratio: 0.73 },
-      { id: 'sb_47', title: 'Day Walker', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_47.webp', ratio: 0.73 }
-    ],
-    innerItems: [
-      { id: 'p06', title: 'Cobalt Odyssey', artist: 'Maritime Contemporary', category: 'Adumadan & Heritage', image: '/paintings/p06.jpg', ratio: 0.8 },
-      { id: 'sb_48', title: 'Electric', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_48.webp', ratio: 0.73 },
-      { id: 'sb_49', title: 'Invincible', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_49.webp', ratio: 0.73 },
-      { id: 'sb_50', title: 'Lightening', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_50.webp', ratio: 0.73 },
-      { id: 'sb_51', title: 'pUNk', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_51.webp', ratio: 0.73 },
-      { id: 'sb_52', title: 'Samurai', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', image: '/paintings/sb_52.webp', ratio: 0.73 },
-      { id: 'p07', title: 'Ochre & Basalt', artist: 'Architectural Elements', category: 'Adumadan & Heritage', image: '/paintings/p07.jpg', ratio: 0.8 },
-      { id: 'p08', title: 'Elysian Pulse', artist: 'Crown Collection', category: 'Adumadan & Heritage', image: '/paintings/p08.jpg', ratio: 0.8 }
-    ]
-  }
+// ------------------------------------------------ 1. Curated 64 Fine Art Paintings Data
+// All images are downloaded locally in /paintings/sb_01.webp through sb_64.webp
+const RAW_METADATA = [
+  // Collection 1: From Lagos, with love (Stations 0-7)
+  { id: 'sb_01', title: 'Before the day i die', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.38 },
+  { id: 'sb_02', title: 'Check up on it', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.38 },
+  { id: 'sb_03', title: 'Crank Dat', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.40 },
+  { id: 'sb_04', title: 'Do you remember the time?', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.39 },
+  { id: 'sb_05', title: 'Heyah!', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.38 },
+  { id: 'sb_06', title: 'I’ve got 5 passports i’m never going to jail', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.38 },
+  { id: 'sb_07', title: 'Intl’ Playas Anthem', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.39 },
+  { id: 'sb_08', title: 'O', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 1.37 },
+
+  { id: 'sb_09', title: '‏  (كورة)', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 0.72 },
+  { id: 'sb_10', title: 'Al-Maghrib', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 0.73 },
+  { id: 'sb_11', title: 'bɔɔlbɔ', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 0.73 },
+  { id: 'sb_12', title: 'Burkina Faso', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 0.73 },
+  { id: 'sb_13', title: 'Cabo Verde', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 0.73 },
+  { id: 'sb_14', title: 'Cameroun', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 0.73 },
+  { id: 'sb_15', title: 'Côte d’Ivoire', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 0.72 },
+  { id: 'sb_16', title: 'Dzayer', artist: 'Mayowa Alabi', category: 'From Lagos, with love', ratio: 0.73 },
+
+  // Collection 2: BLCK & Bourgie (Stations 8-15)
+  { id: 'sb_17', title: 'Ojude Oba', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 0.73 },
+  { id: 'sb_18', title: 'Abiamo Ode Orun', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 0.56 },
+  { id: 'sb_19', title: 'Bam', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 1.38 },
+  { id: 'sb_20', title: 'Blood of Jesus', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 1.38 },
+  { id: 'sb_21', title: 'Fire Drill', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 1.38 },
+  { id: 'sb_22', title: 'Friday Night', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 0.73 },
+  { id: 'sb_23', title: 'Go Slow', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 0.75 },
+  { id: 'sb_24', title: 'Isale Eko', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 0.60 },
+
+  { id: 'sb_25', title: 'Friday in the City', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 0.73 },
+  { id: 'sb_26', title: 'Rye Lane', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 1.38 },
+  { id: 'sb_27', title: 'Boy n da Hood', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 0.73 },
+  { id: 'sb_28', title: 'Odyssey', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 1.38 },
+  { id: 'sb_29', title: 'Sunday Freestyle', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 0.73 },
+  { id: 'sb_30', title: 'Let it all Work out', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 1.38 },
+  { id: 'sb_31', title: 'Match week 1', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 1.38 },
+  { id: 'sb_32', title: 'Rye Lane High', artist: 'Mayowa Alabi', category: 'BLCK & Bourgie', ratio: 1.37 },
+
+  // Collection 3: DNCE & Carnaval (Stations 16-23)
+  { id: 'sb_33', title: 'The Gardner', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.72 },
+  { id: 'sb_34', title: 'These Streets Are our Own', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 1.38 },
+  { id: 'sb_35', title: 'Dap of Champions', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_36', title: 'Suffering from success', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_37', title: 'Case 022', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_38', title: 'Case 023', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_39', title: 'Case 024', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_40', title: 'Case 025', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+
+  { id: 'sb_41', title: 'Case 027', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_42', title: 'Case 028', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_43', title: 'Case 001', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_44', title: 'Case 002', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_45', title: 'BSHP', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_46', title: 'Catty', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_47', title: 'Day Walker', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+  { id: 'sb_48', title: 'Electric', artist: 'Mayowa Alabi', category: 'DNCE & Carnaval', ratio: 0.73 },
+
+  // Collection 4: Adumadan & Heritage (Stations 24-31)
+  { id: 'sb_49', title: 'Invincible', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+  { id: 'sb_50', title: 'Lightening', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+  { id: 'sb_51', title: 'pUNk', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+  { id: 'sb_52', title: 'Samurai', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+  { id: 'sb_53', title: 'Carnaval Parade', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+  { id: 'sb_54', title: 'Dutty Wyne', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.72 },
+  { id: 'sb_55', title: 'Faaji', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+  { id: 'sb_56', title: 'Life of the Party', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+
+  { id: 'sb_57', title: 'Nottin’ Hill', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.72 },
+  { id: 'sb_58', title: 'Princesa', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.72 },
+  { id: 'sb_59', title: 'Riddim', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 1.38 },
+  { id: 'sb_60', title: 'Last Night Dance', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.72 },
+  { id: 'sb_61', title: 'Mumsy', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.72 },
+  { id: 'sb_62', title: 'Abiamo', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+  { id: 'sb_63', title: 'Iya', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 },
+  { id: 'sb_64', title: 'Iya ‘Beji', artist: 'Mayowa Alabi', category: 'Adumadan & Heritage', ratio: 0.73 }
 ];
 
-// Enrich item specs & description
-COLLECTIONS.forEach(col => {
-  [...col.outerItems, ...col.innerItems].forEach(item => {
-    item.collectionTitle = col.title;
-    item.desc = item.desc || `${item.title} — a fine art digital painting from the celebrated ${col.title} series by ${item.artist}. Features premium museum-grade color pigments, deep tactile textures, and architectural framing.`;
-    item.specs = item.specs || [
+export const COLLECTIONS_INFO = [
+  { id: 'lagos-love', title: 'From Lagos, with love', desc: 'Solar hues, coastal twilight, and music television nostalgia by Mayowa Alabi.' },
+  { id: 'blck-bourgie', title: 'BLCK & Bourgie', desc: 'Regal figurative portraits, gold leaf accents, and quiet cultural elegance.' },
+  { id: 'dnce-carnaval', title: 'DNCE & Carnaval', desc: 'Celebratory carnival parades, kinetic rhythm, and nocturnal masquerades.' },
+  { id: 'adumadan-heritage', title: 'Adumadan & Heritage', desc: 'Sculptural West African mineral pigments and modern ancestral portraits.' }
+];
+
+// Enrich items
+export const ALL_ITEMS = RAW_METADATA.map((raw, idx) => {
+  const filename = `/paintings/sb_${String(idx + 1).padStart(2, '0')}.webp`;
+  return {
+    ...raw,
+    image: filename,
+    desc: `${raw.title} — original fine art digital painting from the ${raw.category} series by ${raw.artist}. Rendered with museum-grade color pigments, deep tactile textures, and architectural framing.`,
+    specs: [
       { label: 'Medium', value: 'Original Fine Art Digital Painting' },
-      { label: 'Artist', value: item.artist },
-      { label: 'Collection', value: col.title },
-      { label: 'Aspect Ratio', value: item.ratio > 1 ? 'Landscape (16:10)' : 'Portrait (3:4)' }
-    ];
-    item.ctaUrl = item.ctaUrl || 'http://localhost:5174/';
-  });
+      { label: 'Artist', value: raw.artist },
+      { label: 'Series', value: raw.category },
+      { label: 'Aspect Ratio', value: raw.ratio > 1 ? 'Landscape (16:10)' : 'Portrait (3:4)' }
+    ],
+    ctaUrl: 'http://localhost:5174/'
+  };
 });
 
-// Flat array for 2D catalogue list view
-export const ALL_ITEMS = COLLECTIONS.flatMap(col => [
-  ...col.outerItems,
-  ...col.innerItems
-]);
-
-// ------------------------------------------------ 2. Build 32 Stations Around Full 360° Circle
-// 4 collections × 8 stations = 32 stations. Every single degree is filled!
+// ------------------------------------------------ 2. 32 Continuous Stations Across Full 360°
 const NUM_STATIONS = 32;
-const ANGLE_STEP = (Math.PI * 2) / NUM_STATIONS; // Exact full 360-degree closure!
+const ANGLE_STEP = (Math.PI * 2) / NUM_STATIONS; // Full 360° circle
 const OUTER_RADIUS = 11.97;
 const INNER_RADIUS = 7.43;
-const ROTUNDA_TRACK_R = 9.7; // Walking track between outer and inner walls
+const ROTUNDA_TRACK_R = 9.7; // Walking track radius
 
+// Outer stations: 32 items (ALL_ITEMS[0..31])
+// Inner stations: 32 items (ALL_ITEMS[32..63])
 const STATIONS = [];
-COLLECTIONS.forEach((col, colIdx) => {
-  // Station 0 of collection: Collection Plaque on Outer Wall, Painting on Inner Wall
+for (let i = 0; i < NUM_STATIONS; i++) {
+  const colIdx = Math.floor(i / 8);
   STATIONS.push({
-    stationIdx: STATIONS.length,
+    stationIdx: i,
     collectionIdx: colIdx,
-    collection: col,
-    outer: { kind: 'plaque', title: col.title, subtitle: `${col.outerItems.length + col.innerItems.length} Artworks`, desc: col.subtitle },
-    inner: col.innerItems[0]
+    collection: COLLECTIONS_INFO[colIdx],
+    outerItem: ALL_ITEMS[i],
+    innerItem: ALL_ITEMS[i + 32]
   });
+}
 
-  // Stations 1 to 7: Fine Art Painting on Outer Wall, Painting on Inner Wall
-  for (let s = 0; s < 7; s++) {
-    STATIONS.push({
-      stationIdx: STATIONS.length,
-      collectionIdx: colIdx,
-      collection: col,
-      outer: { kind: 'artwork', item: col.outerItems[s] },
-      inner: col.innerItems[s + 1]
-    });
-  }
-});
-
-// ------------------------------------------------ 3. Three.js Scene Initialization
+// ------------------------------------------------ 3. Three.js Scene Setup
 const container = document.getElementById('canvas-container');
 const scene = new THREE.Scene();
 
-const BG_COLOR = 0x11151f; // Deep dark museum environment (Shutabug)
+const BG_COLOR = 0x11151f; // Deep dark gallery environment (Shutabug)
 scene.background = new THREE.Color(BG_COLOR);
 scene.fog = new THREE.Fog(BG_COLOR, 8, 25);
 
@@ -202,7 +171,7 @@ const outerWall = new THREE.Mesh(new THREE.CylinderGeometry(12.0, 12.0, 3.6, 160
 outerWall.position.set(0, 1.8, 0);
 scene.add(outerWall);
 
-// Inner Curved Cylindrical Wall: Radius 7.4, Height 3.6 (with distance opacity fading)
+// Inner Curved Cylindrical Wall: Radius 7.4, Height 3.6
 const innerWallMat = new THREE.MeshStandardMaterial({
   color: 0xe2e0da,
   roughness: 0.76,
@@ -216,7 +185,7 @@ const innerWall = new THREE.Mesh(new THREE.CylinderGeometry(7.4, 7.4, 3.6, 120, 
 innerWall.position.set(0, 1.8, 0);
 scene.add(innerWall);
 
-// ------------------------------------------------ 5. Lighting & Radial Glow Materials
+// ------------------------------------------------ 5. Ambient & Warm Gallery Lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.35);
 scene.add(ambientLight);
 
@@ -227,7 +196,7 @@ const centerLight = new THREE.PointLight(0xfff6ec, 1.4, 35);
 centerLight.position.set(0, 2.0, 0);
 scene.add(centerLight);
 
-// Glow generator
+// Glow generator for warm floor pools and inner wall lamps
 function createGlowTexture(colorStart, colorMid, colorEnd) {
   const c = document.createElement('canvas');
   c.width = 256;
@@ -266,109 +235,15 @@ const innerLampMat = new THREE.MeshBasicMaterial({
   toneMapped: false
 });
 
-// ------------------------------------------------ 6. Canvas Texture Placards & Collection Plaques
-function createPlacardTexture(artist, title, meta) {
-  const c = document.createElement('canvas');
-  c.width = 512;
-  c.height = 256;
-  const ctx = c.getContext('2d');
-
-  ctx.fillStyle = '#f7f6f2';
-  ctx.fillRect(0, 0, 512, 256);
-  ctx.strokeStyle = '#e2dfd9';
-  ctx.lineWidth = 3;
-  ctx.strokeRect(3, 3, 506, 250);
-
-  ctx.fillStyle = '#1a1a1a';
-  ctx.textBaseline = 'top';
-
-  const clampText = (str, maxW) => {
-    let t = str;
-    while (t.length > 1 && ctx.measureText(t).width > maxW) t = t.slice(0, -1);
-    return t === str ? t : `${t.trimEnd()}…`;
-  };
-
-  // Artist
-  ctx.font = '600 24px "Plus Jakarta Sans", system-ui, sans-serif';
-  ctx.fillText(clampText(artist, 450), 30, 32);
-
-  // Artwork Title (Italic Serif)
-  ctx.font = 'italic 400 32px "Cormorant Garamond", Georgia, serif';
-  ctx.fillText(clampText(title, 450), 30, 78);
-
-  // Metadata
-  ctx.font = '600 18px ui-monospace, Menlo, Consolas, monospace';
-  ctx.globalAlpha = 0.65;
-  ctx.fillText(clampText(meta.toUpperCase(), 450), 30, 185);
-  ctx.globalAlpha = 1.0;
-
-  const tex = new THREE.CanvasTexture(c);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-  return tex;
-}
-
-function createPlaqueTexture(title, subtitle) {
-  const c = document.createElement('canvas');
-  c.width = 512;
-  c.height = 640;
-  const ctx = c.getContext('2d');
-
-  ctx.fillStyle = '#efede7';
-  ctx.fillRect(0, 0, 512, 640);
-  ctx.strokeStyle = '#dcd8cf';
-  ctx.lineWidth = 4;
-  ctx.strokeRect(4, 4, 504, 632);
-
-  ctx.fillStyle = '#1a1a1a';
-  ctx.textBaseline = 'top';
-
-  // Section badge
-  ctx.font = '700 16px ui-monospace, Menlo, Consolas, monospace';
-  ctx.letterSpacing = '3px';
-  ctx.fillStyle = '#b38200';
-  ctx.fillText('COLLECTION EXHIBIT', 45, 60);
-
-  // Title
-  ctx.fillStyle = '#1a1a1a';
-  ctx.font = '400 46px "Cormorant Garamond", Georgia, serif';
-  const words = title.toUpperCase().split(' ');
-  let line = '';
-  let y = 120;
-  for (const word of words) {
-    const testLine = line ? `${line} ${word}` : word;
-    if (ctx.measureText(testLine).width > 420 && line) {
-      ctx.fillText(line, 45, y);
-      y += 54;
-      line = word;
-    } else {
-      line = testLine;
-    }
-  }
-  if (line) ctx.fillText(line, 45, y);
-
-  // Subtitle
-  y += 65;
-  ctx.font = '600 20px ui-monospace, Menlo, monospace';
-  ctx.globalAlpha = 0.6;
-  ctx.fillText(subtitle.toUpperCase(), 45, y);
-  ctx.globalAlpha = 1.0;
-
-  const tex = new THREE.CanvasTexture(c);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-  return tex;
-}
-
-// ------------------------------------------------ 7. Mount All 32 Stations Around 360° Cylinder
-const interactiveObjects = [];
+// ------------------------------------------------ 6. Mount All 64 Fine Art Paintings (NO TAGS BELOW!)
+const interactiveObjects = []; // Meshes clickable for raycasting (both canvas & frame)
 const spotlights = [];
 
 STATIONS.forEach((station, i) => {
   const angle = i * ANGLE_STEP;
   const stationGroup = new THREE.Group();
 
-  // ---------------- Outer Wall Station (Facing Inward)
+  // ---------------- Outer Wall Painting (Facing Inward)
   const outerX = OUTER_RADIUS * Math.sin(angle);
   const outerZ = OUTER_RADIUS * Math.cos(angle);
   const outerRotY = angle + Math.PI;
@@ -383,63 +258,39 @@ STATIONS.forEach((station, i) => {
   poolMesh.position.set(0, 0.02, 1.1);
   outerGroup.add(poolMesh);
 
-  if (station.outer.kind === 'plaque') {
-    // Collection Plaque
-    const plaqueTex = createPlaqueTexture(station.outer.title, station.outer.subtitle);
-    const plaqueMat = new THREE.MeshStandardMaterial({
-      map: plaqueTex,
-      roughness: 0.45,
-      metalness: 0.05,
-      toneMapped: false
-    });
-    const plaqueMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.15, 1.44), plaqueMat);
-    plaqueMesh.position.set(0, 1.55, 0.03);
-    plaqueMesh.userData = {
-      isPlaque: true,
-      title: station.outer.title,
-      subtitle: station.outer.subtitle,
-      desc: station.outer.desc,
-      stationIdx: i
-    };
-    outerGroup.add(plaqueMesh);
-    interactiveObjects.push(plaqueMesh);
-  } else {
-    // Outer Wall Fine Art Painting
-    const item = station.outer.item;
-    const ratio = THREE.MathUtils.clamp(item.ratio || 1.0, 0.65, 1.78);
-    const pW = 1.45 * ratio;
-    const pH = 1.45;
+  // Outer Painting
+  const item = station.outerItem;
+  const ratio = THREE.MathUtils.clamp(item.ratio || 1.0, 0.65, 1.78);
+  const pW = 1.45 * ratio;
+  const pH = 1.45;
 
-    const tex = textureLoader.load(item.image);
-    tex.colorSpace = THREE.SRGBColorSpace;
-    tex.generateMipmaps = true;
-    tex.minFilter = THREE.LinearMipmapLinearFilter;
+  const tex = textureLoader.load(item.image);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.generateMipmaps = true;
+  tex.minFilter = THREE.LinearMipmapLinearFilter;
 
-    const artMat = new THREE.MeshStandardMaterial({
-      map: tex,
-      roughness: 0.35,
-      metalness: 0.04,
-      toneMapped: false
-    });
-    const artMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW, pH), artMat);
-    artMesh.position.set(0, 1.6, 0.03);
-    artMesh.userData = { isArtwork: true, item, stationIdx: i, wallSide: 'outer' };
-    outerGroup.add(artMesh);
-    interactiveObjects.push(artMesh);
+  const artMat = new THREE.MeshStandardMaterial({
+    map: tex,
+    roughness: 0.35,
+    metalness: 0.04,
+    side: THREE.DoubleSide,
+    toneMapped: false
+  });
+  const artMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW, pH), artMat);
+  artMesh.position.set(0, 1.6, 0.03);
+  artMesh.userData = { isArtwork: true, item, stationIdx: i, wallSide: 'outer' };
+  outerGroup.add(artMesh);
+  interactiveObjects.push(artMesh);
 
-    // Slim museum frame
-    const frameMat = new THREE.MeshBasicMaterial({ color: 0x14161c });
-    const frameMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW + 0.06, pH + 0.06), frameMat);
-    frameMesh.position.set(0, 1.6, 0.015);
-    outerGroup.add(frameMesh);
+  // Slim dark museum frame (also interactive)
+  const frameMat = new THREE.MeshBasicMaterial({ color: 0x14161c, side: THREE.DoubleSide });
+  const frameMesh = new THREE.Mesh(new THREE.PlaneGeometry(pW + 0.08, pH + 0.08), frameMat);
+  frameMesh.position.set(0, 1.6, 0.015);
+  frameMesh.userData = { isArtwork: true, item, stationIdx: i, wallSide: 'outer' };
+  outerGroup.add(frameMesh);
+  interactiveObjects.push(frameMesh);
 
-    // Placard Card
-    const placardTex = createPlacardTexture(item.artist, item.title, item.category);
-    const placardMat = new THREE.MeshStandardMaterial({ map: placardTex, roughness: 0.6, toneMapped: false });
-    const placardMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 0.28), placardMat);
-    placardMesh.position.set(-pW / 2 + 0.28, 1.6 - pH / 2 - 0.22, 0.03);
-    outerGroup.add(placardMesh);
-  }
+  // NOTE: TAG/PLACARD BELOW IS COMPLETELY REMOVED PER USER INSTRUCTION!
 
   // SpotLight on Outer Station
   const spot = new THREE.SpotLight(0xfff1dc, 3.8);
@@ -461,64 +312,59 @@ STATIONS.forEach((station, i) => {
 
   stationGroup.add(outerGroup);
 
-  // ---------------- Inner Wall Station (Facing Outward)
-  if (station.inner) {
-    const item = station.inner;
-    const innerX = INNER_RADIUS * Math.sin(angle);
-    const innerZ = INNER_RADIUS * Math.cos(angle);
-    const innerRotY = angle;
+  // ---------------- Inner Wall Painting (Facing Outward)
+  const innerItem = station.innerItem;
+  const innerX = INNER_RADIUS * Math.sin(angle);
+  const innerZ = INNER_RADIUS * Math.cos(angle);
+  const innerRotY = angle;
 
-    const innerGroup = new THREE.Group();
-    innerGroup.position.set(innerX, 0, innerZ);
-    innerGroup.rotation.y = innerRotY;
+  const innerGroup = new THREE.Group();
+  innerGroup.position.set(innerX, 0, innerZ);
+  innerGroup.rotation.y = innerRotY;
 
-    // Wall Lamp behind inner painting
-    const lampMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.8), innerLampMat);
-    lampMesh.position.set(0, 1.8, 0.01);
-    innerGroup.add(lampMesh);
+  // Wall Lamp behind inner painting
+  const lampMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.8), innerLampMat);
+  lampMesh.position.set(0, 1.8, 0.01);
+  innerGroup.add(lampMesh);
 
-    const ratio = THREE.MathUtils.clamp(item.ratio || 1.0, 0.65, 1.78);
-    const wLimit = 2.5 / 12 * 14.8 - 0.7; // ~2.38
-    const iHeight = Math.min(1.305, wLimit / ratio);
-    const iWidth = iHeight * ratio;
+  const iRatio = THREE.MathUtils.clamp(innerItem.ratio || 1.0, 0.65, 1.78);
+  const wLimit = 2.5 / 12 * 14.8 - 0.7; // ~2.38
+  const iHeight = Math.min(1.305, wLimit / iRatio);
+  const iWidth = iHeight * iRatio;
 
-    const tex = textureLoader.load(item.image);
-    tex.colorSpace = THREE.SRGBColorSpace;
-    tex.generateMipmaps = true;
-    tex.minFilter = THREE.LinearMipmapLinearFilter;
+  const iTex = textureLoader.load(innerItem.image);
+  iTex.colorSpace = THREE.SRGBColorSpace;
+  iTex.generateMipmaps = true;
+  iTex.minFilter = THREE.LinearMipmapLinearFilter;
 
-    const artMat = new THREE.MeshStandardMaterial({
-      map: tex,
-      roughness: 0.35,
-      metalness: 0.04,
-      toneMapped: false
-    });
-    const artMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth, iHeight), artMat);
-    artMesh.position.set(0, 1.6, 0.03);
-    artMesh.userData = { isArtwork: true, item, stationIdx: i, wallSide: 'inner' };
-    innerGroup.add(artMesh);
-    interactiveObjects.push(artMesh);
+  const iArtMat = new THREE.MeshStandardMaterial({
+    map: iTex,
+    roughness: 0.35,
+    metalness: 0.04,
+    side: THREE.DoubleSide,
+    toneMapped: false
+  });
+  const iArtMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth, iHeight), iArtMat);
+  iArtMesh.position.set(0, 1.6, 0.03);
+  iArtMesh.userData = { isArtwork: true, item: innerItem, stationIdx: i, wallSide: 'inner' };
+  innerGroup.add(iArtMesh);
+  interactiveObjects.push(iArtMesh);
 
-    // Slim frame
-    const frameMat = new THREE.MeshBasicMaterial({ color: 0x14161c });
-    const frameMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth + 0.06, iHeight + 0.06), frameMat);
-    frameMesh.position.set(0, 1.6, 0.015);
-    innerGroup.add(frameMesh);
+  // Slim frame (also interactive)
+  const iFrameMat = new THREE.MeshBasicMaterial({ color: 0x14161c, side: THREE.DoubleSide });
+  const iFrameMesh = new THREE.Mesh(new THREE.PlaneGeometry(iWidth + 0.08, iHeight + 0.08), iFrameMat);
+  iFrameMesh.position.set(0, 1.6, 0.015);
+  iFrameMesh.userData = { isArtwork: true, item: innerItem, stationIdx: i, wallSide: 'inner' };
+  innerGroup.add(iFrameMesh);
+  interactiveObjects.push(iFrameMesh);
 
-    // Museum Label Card
-    const placardTex = createPlacardTexture(item.artist, item.title, item.category);
-    const placardMat = new THREE.MeshStandardMaterial({ map: placardTex, roughness: 0.6, toneMapped: false });
-    const placardMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 0.28), placardMat);
-    placardMesh.position.set(-iWidth / 2 + 0.28, 1.6 - iHeight / 2 - 0.22, 0.03);
-    innerGroup.add(placardMesh);
+  // NOTE: TAG/PLACARD BELOW IS COMPLETELY REMOVED PER USER INSTRUCTION!
 
-    stationGroup.add(innerGroup);
-  }
-
+  stationGroup.add(innerGroup);
   scene.add(stationGroup);
 });
 
-// ------------------------------------------------ 8. State, Controls & Camera Engine
+// ------------------------------------------------ 7. Camera Motion & Interaction State
 const walkState = {
   angle: 0.0,
   targetAngle: 0.0,
@@ -527,7 +373,7 @@ const walkState = {
 };
 
 const entranceState = {
-  phase: 'wait', // 'wait' -> 'run' -> 'done'
+  phase: 'wait',
   startTime: performance.now(),
   fromAngle: -5.0,
   toAngle: 0.0,
@@ -547,14 +393,6 @@ let activeExhibit = null;
 
 const pointer = new THREE.Vector2();
 const mouseParallax = { x: 0, y: 0 };
-let isPointerDown = false;
-let pointerStartX = 0;
-let pointerStartY = 0;
-let pointerLastX = 0;
-let pointerTimestamp = 0;
-let pointerVelocity = 0;
-let hasDragged = false;
-
 const raycaster = new THREE.Raycaster();
 let hoveredMesh = null;
 let currentCollectionIdx = 0;
@@ -579,7 +417,7 @@ const drawerOverlay = document.getElementById('drawer-overlay');
 const drawerClose = document.getElementById('drawer-close');
 const drawerContent = document.getElementById('drawer-content');
 
-// Initial camera at entrance threshold
+// Initial camera position at threshold
 function setupEntranceThreshold() {
   const a = walkState.angle;
   const c = a + 0.32;
@@ -601,15 +439,15 @@ function setupEntranceThreshold() {
 }
 setupEntranceThreshold();
 
-// Update UI cues
+// Update UI
 function updateWalkHint() {
   if (isInspecting) {
-    if (hintLine1) hintLine1.textContent = 'Click the painting to open it';
-    if (hintLine2) hintLine2.textContent = 'Esc or click away to step back';
+    if (hintLine1) hintLine1.textContent = 'Click away or Esc to step back';
+    if (hintLine2) hintLine2.textContent = 'Viewing artwork details';
     walkHint?.classList.add('is-lit');
   } else {
     if (hintLine1) hintLine1.textContent = 'Scroll or drag to walk round';
-    if (hintLine2) hintLine2.textContent = 'Click a painting to look closer';
+    if (hintLine2) hintLine2.textContent = 'Click any painting to view';
     walkHint?.classList.remove('is-lit');
   }
 }
@@ -617,17 +455,17 @@ function updateWalkHint() {
 function updateCaption(colIdx, item) {
   if (colIdx !== currentCollectionIdx || item) {
     currentCollectionIdx = colIdx;
-    const col = COLLECTIONS[colIdx] || COLLECTIONS[0];
+    const col = COLLECTIONS_INFO[colIdx] || COLLECTIONS_INFO[0];
     if (roomTitle) {
       roomTitle.textContent = item ? item.title : col.title;
     }
     if (roomMore) {
-      roomMore.textContent = item ? 'VIEW PAINTING DETAILS →' : 'ENTER THE COLLECTION →';
+      roomMore.textContent = item ? 'VIEW PAINTING DETAILS →' : 'EXPLORE COLLECTION →';
     }
   }
 }
 
-// ------------------------------------------------ 9. Zoom-In / Inspection Actions
+// ------------------------------------------------ 8. ZOOM IN & INSPECT DRAWER ACTIONS
 function lookCloserAt(mesh) {
   inspectedMesh = mesh;
   isInspecting = true;
@@ -644,7 +482,7 @@ function lookCloserAt(mesh) {
   targetLookAt.y -= 0.12;
 
   updateWalkHint();
-  if (cursorTipPill) cursorTipPill.textContent = 'OPEN THE EXHIBIT';
+  if (cursorTipPill) cursorTipPill.textContent = 'VIEWING ARTWORK';
 
   const item = mesh.userData.item;
   if (item) {
@@ -655,12 +493,11 @@ function lookCloserAt(mesh) {
 }
 
 function stepBack() {
-  if (!isInspecting && !drawer.classList.contains('is-open')) return;
   inspectedMesh = null;
   isInspecting = false;
   closeDrawer();
   updateWalkHint();
-  if (cursorTipPill) cursorTipPill.textContent = 'LOOK CLOSER';
+  if (cursorTipPill) cursorTipPill.textContent = 'CLICK TO VIEW';
 }
 
 function openInspector(exhibit) {
@@ -705,10 +542,10 @@ function closeDrawer() {
   drawer?.classList.remove('is-open');
 }
 
-drawerClose?.addEventListener('click', closeDrawer);
-drawerOverlay?.addEventListener('click', closeDrawer);
+drawerClose?.addEventListener('click', stepBack);
+drawerOverlay?.addEventListener('click', stepBack);
 
-// ------------------------------------------------ 10. User Controls (Wheel, Drag, Keyboard)
+// Escape key steps back
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     stepBack();
@@ -723,6 +560,7 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
+// Wheel scroll walks round
 window.addEventListener('wheel', (e) => {
   if (drawer.classList.contains('is-open')) return;
   e.preventDefault();
@@ -741,13 +579,65 @@ window.addEventListener('wheel', (e) => {
   walkState.lastMoved = performance.now();
 }, { passive: false });
 
-window.addEventListener('pointerdown', (e) => {
+// ------------------------------------------------ 9. GUARANTEED 100% RELIABLE CLICK & DRAG SYSTEM
+let pointerDownX = 0;
+let pointerDownY = 0;
+let pointerDownTime = 0;
+let isDraggingCamera = false;
+let pointerLastX = 0;
+let pointerVelocity = 0;
+let pointerTimestamp = 0;
+
+function updateHover(clientX, clientY) {
+  if (drawer.classList.contains('is-open')) {
+    if (hoveredMesh) {
+      const oldSpot = spotlights[hoveredMesh.userData.stationIdx];
+      if (oldSpot) oldSpot.intensity = 3.8;
+      hoveredMesh = null;
+    }
+    container.style.cursor = 'default';
+    cursorTip?.classList.remove('is-on');
+    return;
+  }
+
+  pointer.x = (clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(clientY / window.innerHeight) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+
+  const hits = raycaster.intersectObjects(interactiveObjects, false);
+  if (hits.length > 0) {
+    const mesh = hits[0].object;
+    if (hoveredMesh !== mesh) {
+      if (hoveredMesh) {
+        const oldSpot = spotlights[hoveredMesh.userData.stationIdx];
+        if (oldSpot) oldSpot.intensity = 3.8;
+      }
+      hoveredMesh = mesh;
+      container.style.cursor = 'pointer';
+      cursorTip?.classList.add('is-on');
+      if (cursorTipPill) cursorTipPill.textContent = 'CLICK TO VIEW';
+
+      const spot = spotlights[mesh.userData.stationIdx];
+      if (spot) spot.intensity = 5.4;
+    }
+  } else {
+    if (hoveredMesh) {
+      const spot = spotlights[hoveredMesh.userData.stationIdx];
+      if (spot) spot.intensity = 3.8;
+      hoveredMesh = null;
+      container.style.cursor = 'grab';
+      cursorTip?.classList.remove('is-on');
+    }
+  }
+}
+
+container.addEventListener('pointerdown', (e) => {
   if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav')) return;
 
-  isPointerDown = true;
-  hasDragged = false;
-  pointerStartX = e.clientX;
-  pointerStartY = e.clientY;
+  pointerDownX = e.clientX;
+  pointerDownY = e.clientY;
+  pointerDownTime = performance.now();
+  isDraggingCamera = true;
   pointerLastX = e.clientX;
   pointerTimestamp = performance.now();
   pointerVelocity = 0;
@@ -758,10 +648,9 @@ window.addEventListener('pointerdown', (e) => {
   }
 });
 
-window.addEventListener('pointermove', (e) => {
+container.addEventListener('pointermove', (e) => {
   pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
   pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-
   mouseParallax.x = pointer.x;
   mouseParallax.y = pointer.y;
 
@@ -769,100 +658,68 @@ window.addEventListener('pointermove', (e) => {
     cursorTip.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
   }
 
-  if (isPointerDown && !drawer.classList.contains('is-open')) {
+  if (isDraggingCamera && !drawer.classList.contains('is-open')) {
     const deltaX = e.clientX - pointerLastX;
-    const totalDist = Math.hypot(e.clientX - pointerStartX, e.clientY - pointerStartY);
-    if (totalDist > 4) {
-      hasDragged = true;
-      if (isInspecting) stepBack();
+    const totalMove = Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY);
+
+    if (totalMove > 8) {
+      walkState.targetAngle -= 0.0022 * deltaX;
+      walkState.lastMoved = performance.now();
+
+      const dt = Math.max(1, performance.now() - pointerTimestamp);
+      pointerVelocity = 0.6 * pointerVelocity + (deltaX / dt) * 0.4;
+      pointerTimestamp = performance.now();
     }
-
-    walkState.targetAngle -= 0.0022 * deltaX;
-    walkState.lastMoved = performance.now();
-
-    const dt = Math.max(1, performance.now() - pointerTimestamp);
-    pointerVelocity = 0.6 * pointerVelocity + (deltaX / dt) * 0.4;
-    pointerTimestamp = performance.now();
     pointerLastX = e.clientX;
   }
 
-  // Hover raycasting
-  if (!isPointerDown && !isInspecting && !drawer.classList.contains('is-open')) {
-    raycaster.setFromCamera(pointer, camera);
-    const hits = raycaster.intersectObjects(interactiveObjects, false);
-
-    if (hits.length > 0) {
-      const mesh = hits[0].object;
-      if (hoveredMesh !== mesh) {
-        if (hoveredMesh) {
-          const oldSpot = spotlights[hoveredMesh.userData.stationIdx];
-          if (oldSpot) oldSpot.intensity = 3.8;
-        }
-        hoveredMesh = mesh;
-        container.style.cursor = 'pointer';
-        cursorTip?.classList.add('is-on');
-
-        if (cursorTipPill) {
-          cursorTipPill.textContent = mesh.userData.isPlaque ? 'VIEW COLLECTION' : 'LOOK CLOSER';
-        }
-
-        const spot = spotlights[mesh.userData.stationIdx];
-        if (spot) spot.intensity = 5.4;
-      }
-    } else {
-      if (hoveredMesh) {
-        const spot = spotlights[hoveredMesh.userData.stationIdx];
-        if (spot) spot.intensity = 3.8;
-        hoveredMesh = null;
-        container.style.cursor = 'grab';
-        cursorTip?.classList.remove('is-on');
-      }
-    }
-  }
+  updateHover(e.clientX, e.clientY);
 });
 
-window.addEventListener('pointerup', () => {
-  if (!isPointerDown) return;
-  isPointerDown = false;
+container.addEventListener('pointerup', (e) => {
+  const totalMove = Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY);
+  const duration = performance.now() - pointerDownTime;
+  isDraggingCamera = false;
 
-  if (hasDragged && Math.abs(pointerVelocity) > 0.05) {
+  // Fling momentum if actively dragged
+  if (totalMove > 14 && Math.abs(pointerVelocity) > 0.05) {
     const clampedV = Math.max(-3, Math.min(3, pointerVelocity));
     walkState.targetAngle -= 220 * clampedV * 0.0022;
     walkState.lastMoved = performance.now();
+    return;
+  }
+
+  // GUARANTEED CLICK TRIGGER:
+  // If pointer moved less than 12px and released within 600ms, it is ALWAYS a click!
+  if (totalMove < 12 && duration < 600) {
+    handleDirectArtworkClick(e.clientX, e.clientY);
   }
 });
 
-window.addEventListener('click', (e) => {
-  if (hasDragged) return;
-  if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav') || e.target.closest('#room-caption')) return;
-
-  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+function handleDirectArtworkClick(clientX, clientY) {
+  pointer.x = (clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(clientY / window.innerHeight) * 2 + 1;
   raycaster.setFromCamera(pointer, camera);
-  const hits = raycaster.intersectObjects(interactiveObjects, false);
 
+  const hits = raycaster.intersectObjects(interactiveObjects, false);
   if (hits.length > 0) {
     const mesh = hits[0].object;
-    if (isInspecting) {
-      if (inspectedMesh === mesh) {
-        if (mesh.userData.isArtwork) {
-          openInspector(mesh.userData.item);
-        } else if (mesh.userData.isPlaque) {
-          walkState.targetAngle = mesh.userData.stationIdx * ANGLE_STEP;
-          stepBack();
-        }
-      } else {
-        lookCloserAt(mesh);
-      }
-    } else {
+    const item = mesh.userData.item;
+    if (item) {
+      // 1. Smoothly fly camera to face artwork
       lookCloserAt(mesh);
+      // 2. Open inspector drawer with full specs and high-res image
+      openInspector(item);
     }
   } else {
-    if (isInspecting) stepBack();
+    // Clicked background/floor/empty wall: step back if inspecting
+    if (isInspecting || drawer.classList.contains('is-open')) {
+      stepBack();
+    }
   }
-});
+}
 
-// Collection round navigation buttons
+// Collection round navigation buttons (← and →)
 prevBtn?.addEventListener('click', () => {
   stepBack();
   let currentTargetStation = Math.round(walkState.targetAngle / ANGLE_STEP);
@@ -885,7 +742,7 @@ nextBtn?.addEventListener('click', () => {
   walkState.lastMoved = performance.now();
 });
 
-// View mode switcher
+// View mode switcher (GALLERY | LIST)
 function setViewMode(mode) {
   if (mode === 'list') {
     viewGalleryBtn?.classList.remove('is-active');
@@ -928,7 +785,7 @@ function renderListView() {
   });
 }
 
-// ------------------------------------------------ 11. Render Animation Loop
+// ------------------------------------------------ 10. Render Animation Loop
 const clock = new THREE.Clock();
 
 function animate() {
@@ -956,8 +813,8 @@ function animate() {
       walkState.lastMoved = now;
     }
   } else {
-    // Subtle idle drift
-    if (!isPointerDown && !isInspecting && !drawer.classList.contains('is-open')) {
+    // Subtle idle drift when not interacting and drawer closed
+    if (!isDraggingCamera && !isInspecting && !drawer.classList.contains('is-open')) {
       if (now - walkState.lastMoved > 2500) {
         walkState.targetAngle += 0.0075 * delta;
       }
@@ -1024,7 +881,7 @@ function animate() {
     );
     const activeStation = STATIONS[stationIndex];
     if (activeStation) {
-      updateCaption(activeStation.collectionIdx, activeStation.outer.item || null);
+      updateCaption(activeStation.collectionIdx, activeStation.outerItem);
     }
   }
 
