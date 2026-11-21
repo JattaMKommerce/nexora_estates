@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Nexora | 3D Curved Rotunda Exhibition Gallery</title>
-    <meta name="description" content="Curved 3D exhibition rotunda wall with 64 clickable fine art paintings, featured Acropolis classical muse portrait, and central temple doorway portal looking out to the reflecting pool." />
+    <title>Nomadiic Horse Designs × Nexora | 3D Palace Walk & Curved Exhibition Rotunda</title>
+    <meta name="description" content="Seamless 3D realtime walk starting from the reflecting pool, through the classical peristyle colonnade, into the Mithraki showroom, and continuing into the curved 360° rotunda wall with 64 clickable fine art paintings and Acropolis muse." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,65 +17,101 @@
     <!-- Top Header Navigation -->
     <header class="gallery-nav" id="gallery-nav">
       <div class="gallery-nav__brand">
-        <svg class="gallery-nav__logo" viewBox="0 0 53 36" fill="none" aria-hidden="true">
-          <path d="M5 30V6H11L24 23.5V6H30V30H24L11 12.5V30H5Z" fill="#f3eee6" />
-          <path d="M34 6H39V30H34V6Z" fill="#ffd200" />
-          <path d="M42 13H47V30H42V13Z" fill="#f3eee6" />
-          <path d="M42 6H47V10H42V6Z" fill="#6fe45d" />
-        </svg>
-        <div class="gallery-nav__titles">
-          <span class="gallery-nav__name">NEXORA</span>
-          <span class="gallery-nav__sub">Curved Exhibition Rotunda Wall</span>
+        <div class="nomadiic-brand">
+          <span class="nomadiic-brand__text">NOMADIIC HORSE DESIGNS</span>
+          <span class="nomadiic-brand__sub">BANGALORE</span>
         </div>
       </div>
 
       <div class="gallery-nav__status">
         <span class="status-indicator"></span>
-        <span id="nav-status-text">64 Fine Art Paintings · 360° Wall</span>
+        <span id="nav-status-text">Pool → Passage → Mithraki Room → 3D Rotunda Wall</span>
       </div>
 
       <div class="gallery-nav__actions">
+        <!-- Instagram icon -->
+        <a href="https://www.instagram.com/nomadiic.horse.designs/" class="nav-circle-btn" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+
+        <!-- Orange Contact us button -->
+        <a href="https://nomadiichorse.com/contact-us" class="contact-pill-btn" target="_blank" rel="noopener">
+          Contact us
+        </a>
+
+        <!-- Main 3D Twin Platform link -->
         <a href="http://localhost:5174/" class="gallery-nav__link" target="_blank" rel="noopener">
           Main 3D Twin Platform ↗
         </a>
       </div>
     </header>
 
-    <!-- 3D WebGL Canvas Container -->
-    <div id="canvas-container" role="region" aria-label="3D Rotunda Gallery"></div>
+    <!-- Awwwards Nominee Teal Ribbon (Right edge) -->
+    <aside class="awwwards-ribbon" aria-label="Awwwards Nominee">
+      <a href="https://www.awwwards.com/sites/nomadiic-horse-designs" target="_blank" rel="noopener">
+        <span class="w-mark">W.</span>
+        <span class="ribbon-text">Nominee</span>
+      </a>
+    </aside>
+
+    <!-- Stage 1: Nomadiic Horse Realtime Palace Container -->
+    <div id="palace-container" class="stage-layer" role="region" aria-label="Nomadiic Horse Realtime Palace"></div>
+
+    <!-- Stage 2: Three.js Curved Rotunda Wall Exhibition Gallery Container -->
+    <div id="canvas-container" class="stage-layer" role="region" aria-label="3D Rotunda Exhibition Gallery"></div>
 
     <!-- Floating Cursor Tip (Follows Pointer over Clickable Paintings / Portal) -->
     <div class="cursor-tip" id="cursor-tip" aria-hidden="true">
       <span class="cursor-tip-pill" id="cursor-tip-pill">CLICK TO VIEW</span>
     </div>
 
-    <!-- Center Portal Back Button (appears when looking out through the center portal) -->
+    <!-- Center Portal Back Button (Appears when in Rotunda Wall to step back to Palace) -->
     <div class="portal-back-wrap" id="portal-back-wrap" aria-hidden="true">
       <button type="button" class="portal-back-btn" id="portal-back-btn">
         <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
           <path d="M16 10H5M9 5.5 4.5 10 9 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span>STEP BACK TO ROTUNDA WALL</span>
+        <span>WALK OUT TO MITHRAKI SHOWROOM & POOL</span>
       </button>
     </div>
 
-    <!-- Bottom-Left Room Caption -->
-    <div class="room-caption" id="room-caption">
-      <p class="room-kicker">YOU ARE WALKING PAST</p>
-      <h2 class="room-title" id="room-title">Acropolis Classical Muse</h2>
-      <a href="#explore" class="room-more" id="room-more">VIEW PAINTING DETAILS →</a>
+    <!-- Bottom-Left Audio Equalizer Pill -->
+    <button type="button" class="audio-pill is-active" id="audio-toggle" aria-label="Toggle Sound Ambience">
+      <div class="eq-bars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <!-- Center Bottom Dynamic Waypoint HUD (Changes with scroll journey) -->
+    <div class="waypoint-hud" id="waypoint-hud">
+      <p class="hud-kicker" id="hud-kicker">WE ARE NOMADIIC HORSE DESIGNS</p>
+      <h2 class="hud-title" id="hud-title">A very detailed design team from Bangalore, India.</h2>
+      <p class="hud-subtitle" id="hud-subtitle"></p>
     </div>
 
-    <!-- Bottom-Right Room Navigation & Walk Hint -->
-    <div class="room-nav" id="room-nav">
-      <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous exhibit">←</button>
-      <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next exhibit">→</button>
-    </div>
+    <!-- Bottom-Right Navigation, Help Link & Hint -->
+    <div class="bottom-right-wrap" id="bottom-right-wrap">
+      <a href="https://nomadiichorse.com/contact-us" target="_blank" rel="noopener" class="help-tap-link" id="help-tap-link">
+        NEED A WEBSITE OR BRANDING HELP? REACH US BY TAPPING HERE →
+      </a>
 
-    <p class="walk-hint" id="walk-hint" aria-live="polite">
-      <span id="hint-line-1">Scroll or drag to walk round</span>
-      <span id="hint-line-2">Click any painting or center temple door</span>
-    </p>
+      <div class="room-nav" id="room-nav">
+        <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous exhibit">←</button>
+        <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next exhibit">→</button>
+      </div>
+
+      <p class="walk-hint" id="walk-hint" aria-live="polite">
+        <span id="hint-line-1">Scroll or drag to walk forward</span>
+        <span id="hint-line-2">Click any painting or step through door</span>
+      </p>
+    </div>
 
     <!-- Bottom Center View Mode Toggle (GALLERY | LIST) -->
     <div class="view-toggle" id="view-toggle" role="group" aria-label="View Mode">
@@ -115,6 +151,15 @@
       </div>
     </section>
 
+    <script>
+      const __rtUrl = '/nomadiic-rt.js';
+      window.__mountNomadiicPromise = import(/* @vite-ignore */ __rtUrl)
+        .then(m => m.mount)
+        .catch(err => {
+          console.error('[Nomadiic loader]', err);
+          return null;
+        });
+    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
