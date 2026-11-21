@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Nexora | 3D Palace Passage & Rotunda Gallery</title>
-    <meta name="description" content="Integrated 3D classical palace passage from Nomadiic Horse and curved rotunda exhibition wall with clickable fine art paintings." />
+    <title>Nexora | 3D Classical Passage & Exhibition Rotunda</title>
+    <meta name="description" content="Continuous 3D entrance: start at the classical reflecting pool, walk down the temple passage, and continue seamlessly into the curved rotunda exhibition wall with clickable fine art paintings." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/src/style.css" />
@@ -25,24 +25,13 @@
         </svg>
         <div class="gallery-nav__titles">
           <span class="gallery-nav__name">NEXORA</span>
-          <span class="gallery-nav__sub" id="nav-sub-title">Palace Colonnade & Rotunda Wall</span>
+          <span class="gallery-nav__sub" id="nav-sub-title">Temple Passage & Curved Exhibition Rotunda</span>
         </div>
       </div>
 
-      <!-- Integrated Scene Mode Switcher -->
-      <div class="scene-mode-pill" role="group" aria-label="Experience Mode">
-        <button type="button" class="mode-pill-btn is-active" id="mode-palace-btn">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
-            <path d="M10 2 2 7v2h16V7L10 2zm-6 9v5h3v-5H4zm5 0v5h2v-5H9zm4 0v5h3v-5h-3zM2 18h16v2H2v-2z"/>
-          </svg>
-          <span>PALACE PASSAGE</span>
-        </button>
-        <button type="button" class="mode-pill-btn" id="mode-rotunda-btn">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
-            <path d="M4 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4zm0 2h12v7.5l-3.5-3.5-3 3-2-2L4 13.5V5z"/>
-          </svg>
-          <span>ROTUNDA WALL</span>
-        </button>
+      <div class="gallery-nav__status">
+        <span class="status-indicator"></span>
+        <span id="nav-status-text">Continuous 3D Walk-through</span>
       </div>
 
       <div class="gallery-nav__actions">
@@ -52,63 +41,37 @@
       </div>
     </header>
 
-    <!-- Stage 1: Nomadiic Horse Classical Palace Walk (Starting from Pool) -->
-    <div id="palace-container" class="scene-stage is-active" role="region" aria-label="3D Palace Walk"></div>
+    <!-- Stage 1: Classical Temple Passage (Starts at Reflecting Pool) -->
+    <div id="palace-container" class="scene-stage" role="region" aria-label="3D Palace Walk"></div>
 
-    <!-- Doorway Portal Prompt in Palace Showroom (Screenshot 3) -->
-    <div class="palace-door-portal" id="palace-door-portal" aria-hidden="true">
-      <div class="portal-badge">PORTAL READY · END OF PASSAGE</div>
-      <h2 class="portal-heading">Curved Exhibition Rotunda</h2>
-      <p class="portal-sub">Pass through the illuminated doorway to explore 64 clickable fine art paintings on the 360° circular wall.</p>
-      <button type="button" class="portal-action-btn" id="enter-rotunda-door-btn">
-        <span>STEP THROUGH DOORWAY</span>
-        <svg viewBox="0 0 20 20" fill="none" width="18" height="18" aria-hidden="true">
-          <path d="M4 10h11M11 5.5 15.5 10 11 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Stage 2: Shutabug Curved Rotunda Gallery with Clickable Wall Paintings -->
+    <!-- Stage 2: Curved Rotunda Exhibition Wall with Clickable Fine Art Paintings -->
     <div id="canvas-container" class="scene-stage" role="region" aria-label="3D Rotunda Gallery"></div>
 
-    <!-- Rotunda Central Door Portal (Step back to Palace Passage & Pool) -->
-    <div class="rotunda-center-portal" id="rotunda-center-portal">
-      <button type="button" class="rotunda-door-btn" id="return-palace-btn" aria-label="Return to Palace & Pool">
-        <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
-          <path d="M16 10H5M9 5.5 4.5 10 9 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>RETURN TO PALACE PASSAGE & POOL</span>
-      </button>
-    </div>
-
-    <!-- Cinematic Portal Transition Flash -->
-    <div class="portal-flash" id="portal-flash" aria-hidden="true"></div>
-
-    <!-- Floating Cursor Tip (Follows Pointer in Rotunda Gallery) -->
+    <!-- Floating Cursor Tip (Follows Pointer over Clickable Paintings) -->
     <div class="cursor-tip" id="cursor-tip" aria-hidden="true">
       <span class="cursor-tip-pill" id="cursor-tip-pill">CLICK TO VIEW</span>
     </div>
 
     <!-- Bottom-Left Room Caption (Rotunda Gallery) -->
-    <div class="room-caption" id="room-caption">
+    <div class="room-caption is-hidden" id="room-caption">
       <p class="room-kicker">YOU ARE WALKING PAST</p>
       <h2 class="room-title" id="room-title">Curved Exhibition Rotunda</h2>
       <a href="#explore" class="room-more" id="room-more">EXPLORE COLLECTION →</a>
     </div>
 
-    <!-- Bottom-Right Room Navigation & Walk Hint (Rotunda Gallery) -->
-    <div class="room-nav" id="room-nav">
+    <!-- Bottom-Right Room Navigation & Walk Hint -->
+    <div class="room-nav is-hidden" id="room-nav">
       <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous exhibit">←</button>
       <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next exhibit">→</button>
     </div>
 
     <p class="walk-hint" id="walk-hint" aria-live="polite">
-      <span id="hint-line-1">Scroll or drag to walk round</span>
-      <span id="hint-line-2">Click any painting to look closer</span>
+      <span id="hint-line-1">Scroll to walk through the temple passage</span>
+      <span id="hint-line-2">Continues directly into the 3D exhibition wall</span>
     </p>
 
-    <!-- Bottom Center View Mode Toggle (Rotunda Gallery: GALLERY | LIST) -->
-    <div class="view-toggle" role="group" aria-label="View Mode">
+    <!-- Bottom Center View Mode Toggle (GALLERY | LIST) -->
+    <div class="view-toggle is-hidden" id="view-toggle" role="group" aria-label="View Mode">
       <button type="button" class="view-btn is-active" id="view-gallery-btn">
         <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
           <path d="M2 3h12v10H2V3zm1 1v8h10V4H3z"/>
