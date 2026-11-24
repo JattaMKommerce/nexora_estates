@@ -45,21 +45,16 @@ html, body {
 }
 
 #palace-container {
-  z-index: 2;
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  background: #0c1019;
-}
-
-#palace-container .nrt-ui {
   display: none !important;
+  z-index: 1;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 #canvas-container {
   z-index: 5;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events: auto;
   cursor: grab;
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1079,4 +1074,156 @@ html, body {
 .list-card__sub {
   font-size: 11px;
   color: var(--dim);
+}
+
+/* ------------------------------------------------ 3D SPATIAL LABELS & 4-SIDE VIEW CONTROLS */
+.spatial-labels-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+  overflow: hidden;
+  transition: opacity 0.35s ease;
+}
+
+.spatial-labels-layer.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spatial-pin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  transition: transform 0.12s ease-out, opacity 0.25s ease;
+  will-change: transform;
+}
+
+.spatial-pin:hover {
+  z-index: 20;
+}
+
+.spatial-pin__badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(14, 18, 26, 0.92);
+  border: 1px solid rgba(255, 215, 120, 0.40);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65), 0 0 12px rgba(255, 200, 80, 0.18);
+  border-radius: 999px;
+  padding: 4px 10px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  white-space: nowrap;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spatial-pin:hover .spatial-pin__badge {
+  background: rgba(22, 28, 42, 0.98);
+  border-color: #ffd700;
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85), 0 0 24px rgba(255, 215, 0, 0.45);
+}
+
+.spatial-pin__icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.spatial-pin__title {
+  font-family: var(--font-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.spatial-pin__sub {
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  color: #ffd778;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.spatial-pin__stem {
+  width: 2px;
+  height: 14px;
+  background: linear-gradient(to bottom, rgba(255, 215, 120, 0.85), rgba(255, 215, 120, 0.1));
+}
+
+.spatial-pin__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffd700;
+  box-shadow: 0 0 10px #ffd700, 0 0 18px #ffaa00;
+}
+
+/* Society 4-Side Camera Controls */
+.society-view-controls {
+  position: absolute;
+  bottom: 116px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(12, 16, 24, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 6px 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
+  z-index: 45;
+  transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.society-view-controls.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.view-side-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 6px 13px;
+  color: #d1d5db;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.view-side-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.view-side-btn.is-active {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.65);
+  color: #ffe580;
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.3);
+}
+
+.view-side-btn__icon {
+  font-size: 13px;
 }

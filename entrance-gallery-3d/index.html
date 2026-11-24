@@ -25,31 +25,31 @@
 
       <!-- Quick Room & Area Navigation Pills -->
       <nav class="room-nav-pills" id="room-nav-pills" aria-label="Society & Bungalow Room Navigation">
-        <button type="button" class="room-pill is-active" data-progress="0.00" title="Explore Gated Society Grounds">
-          <span class="room-pill__icon">🏘️</span>
-          <span class="room-pill__label">Gated Society</span>
+        <button type="button" class="room-pill is-active" data-progress="0.00" title="Step into 3D Exhibition Rotunda Entrance">
+          <span class="room-pill__icon">🎨</span>
+          <span class="room-pill__label">Art Gallery Entrance</span>
         </button>
-        <button type="button" class="room-pill" data-progress="0.18" title="Walk into Villa Living Room">
+        <button type="button" class="room-pill" data-progress="0.35" title="Explore Full Gated Society 360° from All 4 Sides">
+          <span class="room-pill__icon">🏘️</span>
+          <span class="room-pill__label">Gated Society 360°</span>
+        </button>
+        <button type="button" class="room-pill" data-progress="0.65" title="Walk into Villa Living Room">
           <span class="room-pill__icon">🛋️</span>
           <span class="room-pill__label">Living Room</span>
         </button>
-        <button type="button" class="room-pill" data-progress="0.28" title="Walk into Modular Kitchen & Dining">
+        <button type="button" class="room-pill" data-progress="0.75" title="Walk into Modular Kitchen & Dining">
           <span class="room-pill__icon">🍳</span>
           <span class="room-pill__label">Modular Kitchen</span>
         </button>
-        <button type="button" class="room-pill" data-progress="0.36" title="Walk into Master Bedroom Suite">
+        <button type="button" class="room-pill" data-progress="0.85" title="Walk into Master Bedroom Suite">
           <span class="room-pill__icon">🛏️</span>
           <span class="room-pill__label">Master Bedroom</span>
-        </button>
-        <button type="button" class="room-pill" data-progress="0.45" title="Step into 3D Exhibition Rotunda">
-          <span class="room-pill__icon">🎨</span>
-          <span class="room-pill__label">Art Gallery</span>
         </button>
       </nav>
 
       <div class="gallery-nav__status">
         <span class="status-indicator"></span>
-        <span id="nav-status-text">Gated Society Grounds · Luxury Towers, Courts & Central Bungalow</span>
+        <span id="nav-status-text">Art Gallery Entrance · 360° Curved Rotunda Exhibition</span>
       </div>
 
       <!-- Day / Night Linear Gradient Controller -->
@@ -95,8 +95,39 @@
     <!-- Stage 1: Nomadiic Horse Realtime Palace Container -->
     <div id="palace-container" class="stage-layer" role="region" aria-label="Nomadiic Horse Realtime Palace"></div>
 
-    <!-- Stage 2: Three.js Curved Rotunda Wall Exhibition Gallery Container -->
-    <div id="canvas-container" class="stage-layer" role="region" aria-label="3D Rotunda Exhibition Gallery"></div>
+    <!-- Stage 2: Three.js Curved Rotunda Wall Exhibition Gallery & 3D Gated Society Container -->
+    <div id="canvas-container" class="stage-layer" role="region" aria-label="3D Rotunda Exhibition Gallery">
+      <!-- 3D Projected Spatial Labels Layer -->
+      <div id="spatial-labels-layer" class="spatial-labels-layer" aria-hidden="true"></div>
+    </div>
+
+    <!-- Society 4-Side Cinematic Camera Controls (Floats in Gated Society view) -->
+    <nav class="society-view-controls" id="society-view-controls" aria-label="Society 4-Side Panoramic Angles">
+      <button type="button" class="view-side-btn is-active" data-side="auto" title="Continuous 360° Cinematic Orbit">
+        <span class="view-side-btn__icon">🔄</span>
+        <span>360° Auto Orbit</span>
+      </button>
+      <button type="button" class="view-side-btn" data-side="south" title="South Entrance Gate View">
+        <span class="view-side-btn__icon">🚪</span>
+        <span>South Entrance</span>
+      </button>
+      <button type="button" class="view-side-btn" data-side="east" title="East Wing View (Tower A & B, Tennis, Gym)">
+        <span class="view-side-btn__icon">🏢</span>
+        <span>East Wing (Tower A & B)</span>
+      </button>
+      <button type="button" class="view-side-btn" data-side="north" title="North Oasis View (Olympic Lap Pool & Kids Pool)">
+        <span class="view-side-btn__icon">🏊</span>
+        <span>North Pools Oasis</span>
+      </button>
+      <button type="button" class="view-side-btn" data-side="west" title="West Wing View (Tower C & D, Basketball, Villa)">
+        <span class="view-side-btn__icon">🏢</span>
+        <span>West Wing (Tower C & D)</span>
+      </button>
+      <button type="button" class="view-side-btn is-active" id="toggle-labels-btn" title="Toggle 3D Landmark Labels">
+        <span class="view-side-btn__icon">🏷️</span>
+        <span id="toggle-labels-text">Labels On</span>
+      </button>
+    </nav>
 
     <!-- Floating Cursor Tip (Follows Pointer over Clickable Paintings / Portal) -->
     <div class="cursor-tip" id="cursor-tip" aria-hidden="true">

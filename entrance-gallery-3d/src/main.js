@@ -44,11 +44,11 @@ function updateActiveRoomPill(p) {
   if (!pills.length) return;
 
   let activeIndex = 0;
-  if (p >= 0.42) activeIndex = 4; // Art Gallery
-  else if (p >= 0.33) activeIndex = 3; // Master Bedroom
-  else if (p >= 0.24) activeIndex = 2; // Modular Kitchen
-  else if (p >= 0.14) activeIndex = 1; // Living Room
-  else activeIndex = 0; // Gated Society Grounds
+  if (p >= 0.80) activeIndex = 4; // Master Bedroom
+  else if (p >= 0.70) activeIndex = 3; // Modular Kitchen
+  else if (p >= 0.60) activeIndex = 2; // Living Room
+  else if (p >= 0.30) activeIndex = 1; // Gated Society 360°
+  else activeIndex = 0; // Art Gallery Entrance
 
   pills.forEach((pill, idx) => {
     if (idx === activeIndex) pill.classList.add('is-active');
@@ -59,6 +59,20 @@ function updateActiveRoomPill(p) {
 function setDayNightFactor(factor) {
   dayNightState.factor = Math.max(0.0, Math.min(1.0, factor));
   const t = dayNightState.factor;
+
+  // Sync Three.js Scene Sky Background & Atmospheric Fog
+  if (window.__mainThreeScene) {
+    const sc = window.__mainThreeScene;
+    const skyDay = new THREE.Color(0xd6e5f3);
+    const skySunset = new THREE.Color(0xdf9468);
+    const skyNight = new THREE.Color(0x090d14);
+
+    const curSky = new THREE.Color();
+    if (t < 0.5) curSky.lerpColors(skyDay, skySunset, t / 0.5);
+    else curSky.lerpColors(skySunset, skyNight, (t - 0.5) / 0.5);
+    sc.background = curSky;
+    if (sc.fog) sc.fog.color.copy(curSky);
+  }
 
   if (nomadiic && nomadiic.postUniforms) {
     const u = nomadiic.postUniforms;
@@ -134,6 +148,16 @@ function setDayNightFactor(factor) {
       else villaWallMat.color.lerpColors(new THREE.Color(0xeee4d8), new THREE.Color(0x3c4350), (t - 0.5) / 0.5);
     }
 
+    // Pool water lighting: Crystal turquoise by day -> Illuminated night pool with glowing underwater lights!
+    if (window.__bldgMats.poolWaterMat) {
+      if (t < 0.5) window.__bldgMats.poolWaterMat.color.lerpColors(new THREE.Color(0x25a9bf), new THREE.Color(0x1b7e91), t / 0.5);
+      else window.__bldgMats.poolWaterMat.color.lerpColors(new THREE.Color(0x1b7e91), new THREE.Color(0x0e5a6e), (t - 0.5) / 0.5);
+    }
+    if (window.__bldgMats.kidsPoolWaterMat) {
+      if (t < 0.5) window.__bldgMats.kidsPoolWaterMat.color.lerpColors(new THREE.Color(0x4dd0e1), new THREE.Color(0x2bb0c2), t / 0.5);
+      else window.__bldgMats.kidsPoolWaterMat.color.lerpColors(new THREE.Color(0x2bb0c2), new THREE.Color(0x14606e), (t - 0.5) / 0.5);
+    }
+
     // Dynamic Evening & Night Lighting Glows
     if (lampGlobeMat) {
       lampGlobeMat.opacity = Math.max(0.35, Math.pow(t, 0.75) * 1.0);
@@ -195,9 +219,9 @@ function setDayNightFactor(factor) {
 window.setDayNight = setDayNightFactor;
 
 // ------------------------------------------------ FULL GATED TOWNSHIP, SPORTS AMENITIES & WALK-IN BUNGALOW
-function setupGatedTownshipAndBungalow(nomadiicInstance) {
-  if (!nomadiicInstance || !nomadiicInstance.scene) return;
-  const scene = nomadiicInstance.scene;
+function setupGatedTownshipAndBungalow(targetScene) {
+  const scene = targetScene?.scene || targetScene || window.__mainThreeScene;
+  if (!scene) return;
 
   // 1. Flatten old colonnades and old center structure to ground plinth level (Y = 0.05)
   // This opens up a clean, wide 52m community park for towers, footpaths, courts, gym, and bungalow
@@ -241,7 +265,11 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
   const villaInteriorLightMat = new THREE.MeshBasicMaterial({ color: 0xffdf99, transparent: true, opacity: 0.45 });
   const fireplaceFlameMat = new THREE.MeshBasicMaterial({ color: 0xff9922 });
 
-  // Sports courts materials
+  // Sports courts & pool materials
+  const poolWaterMat = new THREE.MeshBasicMaterial({ color: 0x00bcd4, transparent: true, opacity: 0.88 });
+  const kidsPoolWaterMat = new THREE.MeshBasicMaterial({ color: 0x2cd5eb, transparent: true, opacity: 0.88 });
+  const poolBasinFloorMat = new THREE.MeshBasicMaterial({ color: 0x005570 });
+  const poolDeckMat = new THREE.MeshBasicMaterial({ color: 0xeee7dc });
   const bballCourtMat = new THREE.MeshBasicMaterial({ color: 0x1b3b6f }); // Navy blue
   const bballKeyMat = new THREE.MeshBasicMaterial({ color: 0xbd5a3a }); // Terracotta
   const tennisCourtMat = new THREE.MeshBasicMaterial({ color: 0x277949 }); // Emerald green
@@ -267,37 +295,38 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
   window.__bldgMats = {
     marbleMat, slabMat, shadowMat, glassMat, roofMat,
     promenadeMat, curbMat, grassMat, woodSlatMat, villaWallMat,
-    lampGlobeMat, courtFloodlightMat, gymInteriorLightMat, villaInteriorLightMat
+    lampGlobeMat, courtFloodlightMat, gymInteriorLightMat, villaInteriorLightMat,
+    poolWaterMat, kidsPoolWaterMat, poolDeckMat
   };
 
   gatedTownshipGroup = new THREE.Group();
   gatedTownshipGroup.name = 'nexora-gated-township-society';
 
   // =========================================================================
-  // 1. WIDENED 15-FLOOR NEOCLASSICAL TWIN TOWERS (X = -32.0 and X = +32.0)
+  // 1. FOUR 15-FLOOR NEOCLASSICAL RESIDENTIAL TOWERS (TOWERS A, B, C, D)
+  // Distance: 96m East-to-West, 70m North-to-South (Zero Congestion, Grand Central Park)
   // =========================================================================
   const FLOORS = 15;
   const FLOOR_H = 2.85;
   const TOTAL_H = FLOORS * FLOOR_H; // ~42.75m
   const UNITS_PER_FLOOR = 10;
-  const BLDG_LEN = 53.5;
+  const BLDG_LEN = 48.0;
   const BLDG_W = 10.5;
   const UNIT_W = BLDG_LEN / UNITS_PER_FLOOR;
 
-  function create15FloorTower(side) {
+  function create15FloorTower(name, centerX, centerZ, rotY = 0) {
     const group = new THREE.Group();
-    const sign = side === 'left' ? -1 : 1;
-    const centerX = sign * 32.0; // Widened spacing (53.5m central community grounds!)
-    const centerZ = 48.0;
+    group.name = name;
+    const sign = centerX < 0 ? -1 : 1;
 
     // Building Main Core Body
     const coreGeo = new THREE.BoxGeometry(BLDG_W - 0.6, TOTAL_H, BLDG_LEN - 0.6);
     const core = new THREE.Mesh(coreGeo, shadowMat);
-    core.position.set(centerX, TOTAL_H / 2, centerZ);
+    core.position.set(0, TOTAL_H / 2, 0);
     group.add(core);
 
-    const facadeX = centerX - sign * (BLDG_W / 2 + 0.08);
-    const frontZ = centerZ + BLDG_LEN / 2 + 0.08;
+    const facadeX = -sign * (BLDG_W / 2 + 0.08);
+    const frontZ = BLDG_LEN / 2 + 0.08;
 
     // Build 15 Equal Floors
     for (let f = 0; f < FLOORS; f++) {
@@ -306,18 +335,18 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
       // Horizontal Floor Cornice Slab
       const slabGeo = new THREE.BoxGeometry(BLDG_W + 0.6, 0.36, BLDG_LEN + 0.6);
       const slab = new THREE.Mesh(slabGeo, slabMat);
-      slab.position.set(centerX, floorY + 0.18, centerZ);
+      slab.position.set(0, floorY + 0.18, 0);
       group.add(slab);
 
       // Floor decorative molding band
       const bandGeo = new THREE.BoxGeometry(BLDG_W + 0.8, 0.14, BLDG_LEN + 0.8);
       const band = new THREE.Mesh(bandGeo, slabMat);
-      band.position.set(centerX, floorY + 0.35, centerZ);
+      band.position.set(0, floorY + 0.35, 0);
       group.add(band);
 
       // --- Community Promenade-Facing Elevation (10 Equal Units) ---
       for (let u = 0; u < UNITS_PER_FLOOR; u++) {
-        const unitZ = (centerZ - BLDG_LEN / 2 + UNIT_W / 2) + u * UNIT_W;
+        const unitZ = (-BLDG_LEN / 2 + UNIT_W / 2) + u * UNIT_W;
 
         if (f === 0) {
           // Ground Floor Monumental Colonnade
@@ -372,7 +401,7 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
 
       if (f === 0) {
         for (let b = 0; b <= FRONT_BAYS; b++) {
-          const colX = centerX - (BLDG_W - 1.0) / 2 + b * BAY_W;
+          const colX = -(BLDG_W - 1.0) / 2 + b * BAY_W;
           const colGeo = new THREE.CylinderGeometry(0.32, 0.32, FLOOR_H - 0.45, 16);
           const col = new THREE.Mesh(colGeo, marbleMat);
           col.position.set(colX, floorY + FLOOR_H / 2 + 0.2, frontZ + 0.35);
@@ -380,7 +409,7 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
         }
       } else {
         for (let b = 0; b < FRONT_BAYS; b++) {
-          const bayX = centerX + bayOffsets[b];
+          const bayX = bayOffsets[b];
           const isCenter = b === 1;
 
           const winW = isCenter ? 2.5 : 2.1;
@@ -402,7 +431,7 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
         }
 
         for (let p = 0; p <= FRONT_BAYS; p++) {
-          const px = centerX - (BLDG_W - 1.0) / 2 + p * BAY_W;
+          const px = -(BLDG_W - 1.0) / 2 + p * BAY_W;
           const pilGeo = new THREE.CylinderGeometry(0.20, 0.20, FLOOR_H - 0.45, 16);
           const pil = new THREE.Mesh(pilGeo, marbleMat);
           pil.position.set(px, floorY + FLOOR_H / 2 + 0.2, frontZ + 0.08);
@@ -414,7 +443,7 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
     // Floor 15 Rooftop Entablature & Classical Pediment Temple Roof
     const crownGeo = new THREE.BoxGeometry(BLDG_W + 1.2, 0.8, BLDG_LEN + 1.2);
     const crown = new THREE.Mesh(crownGeo, slabMat);
-    crown.position.set(centerX, TOTAL_H + 0.4, centerZ);
+    crown.position.set(0, TOTAL_H + 0.4, 0);
     group.add(crown);
 
     const halfW = (BLDG_W + 1.0) / 2;
@@ -435,13 +464,16 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
     };
     const pedGeo = new THREE.ExtrudeGeometry(pedShape, extrudeSettings);
     const pedRoof = new THREE.Mesh(pedGeo, roofMat);
-    pedRoof.position.set(centerX, TOTAL_H + 0.8, centerZ - (BLDG_LEN + 1.0) / 2);
+    pedRoof.position.set(0, TOTAL_H + 0.8, -(BLDG_LEN + 1.0) / 2);
     group.add(pedRoof);
 
     const tympanumGeo = new THREE.BoxGeometry(BLDG_W + 0.8, 0.2, 0.4);
     const tympanum = new THREE.Mesh(tympanumGeo, marbleMat);
-    tympanum.position.set(centerX, TOTAL_H + 0.9, frontZ + 0.2);
+    tympanum.position.set(0, TOTAL_H + 0.9, frontZ + 0.2);
     group.add(tympanum);
+
+    group.position.set(centerX, 0, centerZ);
+    group.rotation.y = rotY;
 
     group.traverse(obj => {
       if (obj.isMesh) obj.frustumCulled = false;
@@ -450,15 +482,211 @@ function setupGatedTownshipAndBungalow(nomadiicInstance) {
     return group;
   }
 
-  const leftTower = create15FloorTower('left');
-  const rightTower = create15FloorTower('right');
-  gatedTownshipGroup.add(leftTower);
-  gatedTownshipGroup.add(rightTower);
+  // Four 15-Floor Towers positioned in quadrants (Spacious 96m width central park!)
+  const towerA = create15FloorTower('Tower A', 48.0, 35.0, 0); // East Wing (South)
+  const towerB = create15FloorTower('Tower B', 48.0, -35.0, 0); // East Wing (North)
+  const towerC = create15FloorTower('Tower C', -48.0, -35.0, Math.PI); // West Wing (North)
+  const towerD = create15FloorTower('Tower D', -48.0, 35.0, Math.PI); // West Wing (South)
+  gatedTownshipGroup.add(towerA);
+  gatedTownshipGroup.add(towerB);
+  gatedTownshipGroup.add(towerC);
+  gatedTownshipGroup.add(towerD);
+
+  // =========================================================================
+  // 2. NORTH RESORT OASIS: MAIN OLYMPIC LAP POOL & KIDS SPLASH POOL
+  // =========================================================================
+  const poolOasis = new THREE.Group();
+  poolOasis.name = 'north-pool-oasis';
+
+  // Travertine Pool Terrace Deck (Width 52m, Length 30m)
+  const deckGeo = new THREE.BoxGeometry(52.0, 0.12, 30.0);
+  const deck = new THREE.Mesh(deckGeo, poolDeckMat);
+  deck.position.set(0, 0.06, -38.0);
+  poolOasis.add(deck);
+
+  // Helper to create a rectangular hollow coping/rim around a pool (leaves water clear & visible!)
+  function createPoolCopingRim(cx, cz, innerW, innerD, rimWidth, rimHeight, yCenter, mat) {
+    const rimGroup = new THREE.Group();
+    const halfW = innerW / 2;
+    const halfD = innerD / 2;
+    const halfRim = rimWidth / 2;
+
+    // North border
+    const nGeo = new THREE.BoxGeometry(innerW + 2 * rimWidth, rimHeight, rimWidth);
+    const nMesh = new THREE.Mesh(nGeo, mat);
+    nMesh.position.set(cx, yCenter, cz - halfD - halfRim);
+    rimGroup.add(nMesh);
+
+    // South border
+    const sGeo = new THREE.BoxGeometry(innerW + 2 * rimWidth, rimHeight, rimWidth);
+    const sMesh = new THREE.Mesh(sGeo, mat);
+    sMesh.position.set(cx, yCenter, cz + halfD + halfRim);
+    rimGroup.add(sMesh);
+
+    // West border
+    const wGeo = new THREE.BoxGeometry(rimWidth, rimHeight, innerD);
+    const wMesh = new THREE.Mesh(wGeo, mat);
+    wMesh.position.set(cx - halfW - halfRim, yCenter, cz);
+    rimGroup.add(wMesh);
+
+    // East border
+    const eGeo = new THREE.BoxGeometry(rimWidth, rimHeight, innerD);
+    const eMesh = new THREE.Mesh(eGeo, mat);
+    eMesh.position.set(cx + halfW + halfRim, yCenter, cz);
+    rimGroup.add(eMesh);
+
+    return rimGroup;
+  }
+
+  // --- Main Olympic Lap Pool (28m x 12m, Depth 1.8m) ---
+  // Perimeter limestone coping edge
+  poolOasis.add(createPoolCopingRim(4.0, -38.0, 28.0, 12.0, 0.8, 0.28, 0.16, slabMat));
+
+  // Deep Lagoon Blue Pool Floor Basin
+  const mainFloorGeo = new THREE.PlaneGeometry(28.0, 12.0);
+  const mainFloor = new THREE.Mesh(mainFloorGeo, poolBasinFloorMat);
+  mainFloor.rotation.x = -Math.PI / 2;
+  mainFloor.position.set(4.0, 0.05, -38.0);
+  poolOasis.add(mainFloor);
+
+  // Sparkling Crystal Blue Pool Water Plane
+  const mainWaterGeo = new THREE.PlaneGeometry(28.0, 12.0);
+  const mainWater = new THREE.Mesh(mainWaterGeo, poolWaterMat);
+  mainWater.rotation.x = -Math.PI / 2;
+  mainWater.position.set(4.0, 0.22, -38.0);
+  poolOasis.add(mainWater);
+
+  // 5 Black Olympic Swim Lane Lines on pool floor
+  for (let l = 0; l < 5; l++) {
+    const laneZ = -43.0 + l * 2.5;
+    const laneGeo = new THREE.BoxGeometry(26.0, 0.02, 0.25);
+    const lane = new THREE.Mesh(laneGeo, new THREE.MeshBasicMaterial({ color: 0x002838 }));
+    lane.position.set(4.0, 0.06, laneZ);
+    poolOasis.add(lane);
+
+    // 4 Floating competition lane float lines
+    if (l < 4) {
+      const ropeGeo = new THREE.CylinderGeometry(0.04, 0.04, 26.0, 8);
+      const ropeMat = new THREE.MeshBasicMaterial({ color: l % 2 === 0 ? 0xff3b30 : 0x007aff });
+      const rope = new THREE.Mesh(ropeGeo, ropeMat);
+      rope.rotation.z = Math.PI / 2;
+      rope.position.set(4.0, 0.25, -41.75 + l * 2.5);
+      poolOasis.add(rope);
+    }
+  }
+
+  // Stainless Steel Pool Corner Grab Ladders
+  function createPoolLadder(lx, lz) {
+    const lad = new THREE.Group();
+    const railMat = new THREE.MeshBasicMaterial({ color: 0xe0e6ed });
+    const rL = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.85, 8), railMat);
+    rL.position.set(-0.24, 0.45, 0);
+    const rR = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.85, 8), railMat);
+    rR.position.set(0.24, 0.45, 0);
+    lad.add(rL); lad.add(rR);
+    for (let s = 1; s <= 3; s++) {
+      const st = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.02, 0.04), railMat);
+      st.position.set(0, s * 0.20, 0);
+      lad.add(st);
+    }
+    lad.position.set(lx, 0.15, lz);
+    return lad;
+  }
+  poolOasis.add(createPoolLadder(4.0 - 13.5, -38.0 - 4.5));
+  poolOasis.add(createPoolLadder(4.0 - 13.5, -38.0 + 4.5));
+  poolOasis.add(createPoolLadder(4.0 + 13.5, -38.0 - 4.5));
+  poolOasis.add(createPoolLadder(4.0 + 13.5, -38.0 + 4.5));
+
+  // --- Kids Splash Pool (12m x 9m, Shallow 0.45m) ---
+  // Perimeter coping rim
+  poolOasis.add(createPoolCopingRim(-18.0, -38.0, 12.0, 9.0, 0.6, 0.24, 0.14, slabMat));
+
+  // Cyan Shallow Basin Floor
+  const kidsFloorGeo = new THREE.PlaneGeometry(12.0, 9.0);
+  const kidsFloor = new THREE.Mesh(kidsFloorGeo, poolBasinFloorMat);
+  kidsFloor.rotation.x = -Math.PI / 2;
+  kidsFloor.position.set(-18.0, 0.05, -38.0);
+  poolOasis.add(kidsFloor);
+
+  // Vibrant Turquoise Splash Water
+  const kidsWaterGeo = new THREE.PlaneGeometry(12.0, 9.0);
+  const kidsWater = new THREE.Mesh(kidsWaterGeo, kidsPoolWaterMat);
+  kidsWater.rotation.x = -Math.PI / 2;
+  kidsWater.position.set(-18.0, 0.19, -38.0);
+  poolOasis.add(kidsWater);
+
+  // 3 Arched Rainbow Water Fountain Jets over Kids Pool
+  for (let f = 0; f < 3; f++) {
+    const jetArc = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.04, 8, 24, Math.PI), new THREE.MeshBasicMaterial({ color: 0x8fe5ff, transparent: true, opacity: 0.85 }));
+    jetArc.position.set(-18.0, 0.3, -41.0 + f * 3.0);
+    jetArc.rotation.z = Math.PI;
+    jetArc.rotation.y = Math.PI / 2;
+    poolOasis.add(jetArc);
+  }
+
+  // Safety Glass Railing around Kids Pool
+  const glassRailGeo = new THREE.BoxGeometry(12.6, 0.85, 0.06);
+  const glassRailN = new THREE.Mesh(glassRailGeo, clearGlassMat);
+  glassRailN.position.set(-18.0, 0.72, -43.0);
+  const glassRailS = new THREE.Mesh(glassRailGeo, clearGlassMat);
+  glassRailS.position.set(-18.0, 0.72, -33.0);
+  poolOasis.add(glassRailN);
+  poolOasis.add(glassRailS);
+
+  // Luxury Poolside Cabanas (4 Private Cabanas)
+  for (let c = 0; c < 4; c++) {
+    const cx = -8.0 + c * 8.0;
+    const cabanaGroup = new THREE.Group();
+    for (let cp = 0; cp < 4; cp++) {
+      const px = (cp % 2 === 0 ? -1.6 : 1.6);
+      const pz = (cp < 2 ? -1.6 : 1.6);
+      const post = new THREE.Mesh(new THREE.BoxGeometry(0.12, 2.8, 0.12), woodSlatMat);
+      post.position.set(px, 1.4, pz);
+      cabanaGroup.add(post);
+    }
+    const canopy = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.12, 3.6), new THREE.MeshBasicMaterial({ color: 0xf5f3ee }));
+    canopy.position.set(0, 2.8, 0);
+    cabanaGroup.add(canopy);
+    const daybed = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.38, 2.4), new THREE.MeshBasicMaterial({ color: 0xeeece6 }));
+    daybed.position.set(0, 0.25, 0);
+    cabanaGroup.add(daybed);
+
+    cabanaGroup.position.set(cx, 0.08, -50.0);
+    poolOasis.add(cabanaGroup);
+  }
+
+  // Designer Sun Loungers with Parasols along Poolside
+  for (let s = 0; s < 10; s++) {
+    const sx = -8.0 + (s % 5) * 6.0;
+    const sz = s < 5 ? -30.5 : -45.5;
+    const lounger = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.24, 2.2), new THREE.MeshBasicMaterial({ color: 0xded8cc }));
+    lounger.position.set(sx, 0.2, sz);
+    lounger.rotation.y = s < 5 ? 0 : Math.PI;
+    poolOasis.add(lounger);
+
+    if (s % 2 === 0) {
+      const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.6, 8), blackMetalMat);
+      pole.position.set(sx + 1.2, 1.3, sz);
+      const canopy = new THREE.Mesh(new THREE.ConeGeometry(1.6, 0.65, 8), new THREE.MeshBasicMaterial({ color: 0xf4eedb }));
+      canopy.position.set(sx + 1.2, 2.6, sz);
+      poolOasis.add(pole);
+      poolOasis.add(canopy);
+    }
+  }
+
+  gatedTownshipGroup.add(poolOasis);
 
   // =========================================================================
   // 2. GATED SOCIETY GROUNDS: FOOTPATHS, STREETLAMPS, PALMS & GATEHOUSE
   // =========================================================================
   const groundsGroup = new THREE.Group();
+
+  // Grand Estate Community Green Lawn (260m x 260m, spacious and uncongested)
+  const estateLawnGeo = new THREE.PlaneGeometry(260.0, 260.0);
+  const estateLawn = new THREE.Mesh(estateLawnGeo, grassMat);
+  estateLawn.rotation.x = -Math.PI / 2;
+  estateLawn.position.set(0, 0.01, 15.0);
+  groundsGroup.add(estateLawn);
 
   // Wide Central Paved Promenade (Z = 100 to Z = 20)
   const promLen = 82.0;
@@ -1389,11 +1617,12 @@ const navStatusText = document.getElementById('nav-status-text');
 
 // ------------------------------------------------ 4. Three.js Rotunda Gallery Scene (60-120 FPS)
 const scene = new THREE.Scene();
-const BG_COLOR = 0x11151f;
+window.__mainThreeScene = scene;
+const BG_COLOR = 0xd6e5f3;
 scene.background = new THREE.Color(BG_COLOR);
-scene.fog = new THREE.Fog(BG_COLOR, 35, 180);
+scene.fog = new THREE.FogExp2(BG_COLOR, 0.0035);
 
-const camera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 70);
+const camera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 500);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -1406,11 +1635,15 @@ canvasContainer.appendChild(renderer.domElement);
 const textureLoader = new THREE.TextureLoader();
 textureLoader.crossOrigin = 'anonymous';
 
+// Rotunda Master Group (3D Art Gallery Entrance)
+const rotundaGroup = new THREE.Group();
+rotundaGroup.name = 'art-gallery-rotunda';
+
 // Architectural Surfaces (Pure MeshBasicMaterial = Zero Dynamic Light Overhead)
 const floorMat = new THREE.MeshBasicMaterial({ color: 0x222327 });
 const floorMesh = new THREE.Mesh(new THREE.RingGeometry(7.2, 12.2, 120), floorMat);
 floorMesh.rotation.x = -Math.PI / 2;
-scene.add(floorMesh);
+rotundaGroup.add(floorMesh);
 
 // Center Court Floor Disc
 const centerCourtFloor = new THREE.Mesh(
@@ -1418,13 +1651,13 @@ const centerCourtFloor = new THREE.Mesh(
   new THREE.MeshBasicMaterial({ color: 0x181a20 })
 );
 centerCourtFloor.rotation.x = -Math.PI / 2;
-scene.add(centerCourtFloor);
+rotundaGroup.add(centerCourtFloor);
 
 // Outer Curved Wall
 const outerWallMat = new THREE.MeshBasicMaterial({ color: 0xeae8e2, side: THREE.BackSide });
 const outerWall = new THREE.Mesh(new THREE.CylinderGeometry(12.0, 12.0, 3.8, 120, 1, true), outerWallMat);
 outerWall.position.set(0, 1.9, 0);
-scene.add(outerWall);
+rotundaGroup.add(outerWall);
 
 // Inner Curved Wall with opening centered at Station 0 (+Z axis)
 const innerWallMat = new THREE.MeshBasicMaterial({
@@ -1438,7 +1671,7 @@ const innerWall = new THREE.Mesh(
   innerWallMat
 );
 innerWall.position.set(0, 1.9, 0);
-scene.add(innerWall);
+rotundaGroup.add(innerWall);
 
 // Radial Glow Textures for Museum Atmosphere (0 Dynamic Lights)
 function createGlowTexture(colorStart, colorMid, colorEnd) {
@@ -1468,7 +1701,7 @@ const poolMat = new THREE.MeshBasicMaterial({
 const floorGlowMesh = new THREE.Mesh(new THREE.RingGeometry(7.5, 11.9, 64), poolMat);
 floorGlowMesh.rotation.x = -Math.PI / 2;
 floorGlowMesh.position.y = 0.01;
-scene.add(floorGlowMesh);
+rotundaGroup.add(floorGlowMesh);
 
 const lampGlowTex = createGlowTexture('rgba(255, 241, 214, 0.8)', 'rgba(255, 232, 190, 0.35)', 'rgba(255, 220, 160, 0)');
 const outerLampMat = new THREE.MeshBasicMaterial({
@@ -1480,7 +1713,7 @@ const outerLampMat = new THREE.MeshBasicMaterial({
 });
 const outerWallLampGlow = new THREE.Mesh(new THREE.CylinderGeometry(11.94, 11.94, 1.2, 96, 1, true), outerLampMat);
 outerWallLampGlow.position.set(0, 2.7, 0);
-scene.add(outerWallLampGlow);
+rotundaGroup.add(outerWallLampGlow);
 
 const innerLampMat = new THREE.MeshBasicMaterial({
   map: lampGlowTex,
@@ -1494,12 +1727,12 @@ const innerWallLampGlow = new THREE.Mesh(
   innerLampMat
 );
 innerWallLampGlow.position.set(0, 2.7, 0);
-scene.add(innerWallLampGlow);
+rotundaGroup.add(innerWallLampGlow);
 
 // ------------------------------------------------ 5. CENTRAL CLASSICAL TEMPLE DOORWAY PORTAL
 const centerPortalGroup = new THREE.Group();
 centerPortalGroup.position.set(0, 0, 7.35);
-scene.add(centerPortalGroup);
+rotundaGroup.add(centerPortalGroup);
 
 const marbleMat = new THREE.MeshBasicMaterial({ color: 0xeeebe3 });
 const brassMat = new THREE.MeshBasicMaterial({ color: 0xd4af37 });
@@ -1665,13 +1898,16 @@ for (let i = 0; i < NUM_STATIONS; i++) {
   const station = STATIONS[i];
 
   const outerPainting = createPaintingMesh(station.outerItem, true, stationAngle);
-  scene.add(outerPainting);
+  rotundaGroup.add(outerPainting);
 
   if (i !== 0) {
     const innerPainting = createPaintingMesh(station.innerItem, false, stationAngle);
-    scene.add(innerPainting);
+    rotundaGroup.add(innerPainting);
   }
 }
+
+scene.add(rotundaGroup);
+window.__rotundaGroup = rotundaGroup;
 
 // ------------------------------------------------ WALK-IN BUNGALOW INTERIOR ROOMS IN THREE.JS SCENE
 function buildWalkInBungalowRooms(targetScene) {
@@ -2040,19 +2276,257 @@ function buildWalkInBungalowRooms(targetScene) {
 
 buildWalkInBungalowRooms(scene);
 
+// ------------------------------------------------ 3D SPATIAL LANDMARKS & FLOATING PINS
+const SPATIAL_LANDMARKS = [
+  {
+    id: 'tower-a',
+    title: 'Tower A',
+    subtitle: '15 Floors · East Wing',
+    icon: '🏢',
+    pos: new THREE.Vector3(48.0, 42.0, 35.0),
+    viewCamPos: new THREE.Vector3(76.0, 32.0, 58.0),
+    viewLookAt: new THREE.Vector3(48.0, 20.0, 35.0)
+  },
+  {
+    id: 'tower-b',
+    title: 'Tower B',
+    subtitle: '15 Floors · East Wing',
+    icon: '🏢',
+    pos: new THREE.Vector3(48.0, 42.0, -35.0),
+    viewCamPos: new THREE.Vector3(76.0, 32.0, -12.0),
+    viewLookAt: new THREE.Vector3(48.0, 20.0, -35.0)
+  },
+  {
+    id: 'tower-c',
+    title: 'Tower C',
+    subtitle: '15 Floors · West Wing',
+    icon: '🏢',
+    pos: new THREE.Vector3(-48.0, 42.0, -35.0),
+    viewCamPos: new THREE.Vector3(-76.0, 32.0, -12.0),
+    viewLookAt: new THREE.Vector3(-48.0, 20.0, -35.0)
+  },
+  {
+    id: 'tower-d',
+    title: 'Tower D',
+    subtitle: '15 Floors · West Wing',
+    icon: '🏢',
+    pos: new THREE.Vector3(-48.0, 42.0, 35.0),
+    viewCamPos: new THREE.Vector3(-76.0, 32.0, 58.0),
+    viewLookAt: new THREE.Vector3(-48.0, 20.0, 35.0)
+  },
+  {
+    id: 'olympic-pool',
+    title: 'Olympic Lap Pool',
+    subtitle: '28m Resort Pool & Cabanas',
+    icon: '🏊',
+    pos: new THREE.Vector3(4.0, 2.8, -38.0),
+    viewCamPos: new THREE.Vector3(4.0, 20.0, -15.0),
+    viewLookAt: new THREE.Vector3(4.0, 0.5, -38.0)
+  },
+  {
+    id: 'kids-pool',
+    title: 'Kids Splash Pool',
+    subtitle: 'Shallow Jet Waterpark',
+    icon: '💦',
+    pos: new THREE.Vector3(-18.0, 2.5, -38.0),
+    viewCamPos: new THREE.Vector3(-18.0, 16.0, -18.0),
+    viewLookAt: new THREE.Vector3(-18.0, 0.5, -38.0)
+  },
+  {
+    id: 'central-villa',
+    title: 'Central Luxury Bungalow',
+    subtitle: 'Walk-In Designer Villa',
+    icon: '🏡',
+    pos: new THREE.Vector3(0, 8.0, 2.0),
+    viewCamPos: new THREE.Vector3(0, 14.0, 32.0),
+    viewLookAt: new THREE.Vector3(0, 3.5, 2.0)
+  },
+  {
+    id: 'tennis-court',
+    title: 'Grand Slam Tennis Court',
+    subtitle: 'US Open Acrylic Surface',
+    icon: '🎾',
+    pos: new THREE.Vector3(-18.0, 3.2, 24.0),
+    viewCamPos: new THREE.Vector3(-18.0, 18.0, 48.0),
+    viewLookAt: new THREE.Vector3(-18.0, 0.5, 24.0)
+  },
+  {
+    id: 'basketball-court',
+    title: 'NBA Basketball Court',
+    subtitle: 'Regulation Hoops & Lighting',
+    icon: '🏀',
+    pos: new THREE.Vector3(-18.0, 3.2, 55.0),
+    viewCamPos: new THREE.Vector3(-18.0, 18.0, 80.0),
+    viewLookAt: new THREE.Vector3(-18.0, 0.5, 55.0)
+  },
+  {
+    id: 'glass-gym',
+    title: 'Vitality Glass Gym',
+    subtitle: 'Wellness & Fitness Club',
+    icon: '🏋️',
+    pos: new THREE.Vector3(18.0, 5.5, 40.0),
+    viewCamPos: new THREE.Vector3(28.0, 14.0, 60.0),
+    viewLookAt: new THREE.Vector3(18.0, 2.5, 40.0)
+  },
+  {
+    id: 'gatehouse',
+    title: 'Grand Gatehouse',
+    subtitle: '24/7 Monitored Access',
+    icon: '🛡️',
+    pos: new THREE.Vector3(0, 5.8, 96.0),
+    viewCamPos: new THREE.Vector3(0, 16.0, 118.0),
+    viewLookAt: new THREE.Vector3(0, 3.0, 96.0)
+  }
+];
+
+let spatialPinElements = [];
+const spatialLabelsLayer = document.getElementById('spatial-labels-layer');
+let areLabelsEnabled = true;
+
+function createSpatialPinElements() {
+  if (!spatialLabelsLayer) return;
+  spatialLabelsLayer.innerHTML = '';
+  spatialPinElements = [];
+
+  SPATIAL_LANDMARKS.forEach((lm) => {
+    const pin = document.createElement('div');
+    pin.className = 'spatial-pin';
+    pin.setAttribute('data-id', lm.id);
+    pin.innerHTML = `
+      <div class="spatial-pin__badge">
+        <span class="spatial-pin__icon">${lm.icon}</span>
+        <div style="display:flex; flex-direction:column; line-height:1.15;">
+          <span class="spatial-pin__title">${lm.title}</span>
+          <span class="spatial-pin__sub">${lm.subtitle}</span>
+        </div>
+      </div>
+      <div class="spatial-pin__stem"></div>
+      <div class="spatial-pin__dot"></div>
+    `;
+
+    pin.addEventListener('click', (e) => {
+      e.stopPropagation();
+      flyToLandmark(lm);
+    });
+
+    spatialLabelsLayer.appendChild(pin);
+    spatialPinElements.push({ el: pin, landmark: lm });
+  });
+}
+
+function updateSpatialPins(cam, width, height) {
+  if (!areLabelsEnabled || !spatialLabelsLayer || journey.progress < 0.32 || journey.progress >= 0.65) {
+    if (spatialLabelsLayer && !spatialLabelsLayer.classList.contains('is-hidden')) {
+      spatialLabelsLayer.classList.add('is-hidden');
+    }
+    return;
+  }
+  spatialLabelsLayer.classList.remove('is-hidden');
+
+  const halfW = width / 2;
+  const halfH = height / 2;
+  const tempV = new THREE.Vector3();
+
+  for (let i = 0; i < spatialPinElements.length; i++) {
+    const item = spatialPinElements[i];
+    tempV.copy(item.landmark.pos);
+    tempV.project(cam);
+
+    // Behind camera check
+    if (tempV.z > 1.0) {
+      item.el.style.opacity = '0';
+      item.el.style.pointerEvents = 'none';
+      continue;
+    }
+
+    const screenX = (tempV.x * halfW) + halfW;
+    const screenY = -(tempV.y * halfH) + halfH;
+
+    // Margin bounds check
+    if (screenX < 30 || screenX > width - 30 || screenY < 70 || screenY > height - 60) {
+      item.el.style.opacity = '0';
+      item.el.style.pointerEvents = 'none';
+      continue;
+    }
+
+    item.el.style.opacity = '1';
+    item.el.style.pointerEvents = 'auto';
+    item.el.style.transform = `translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -100%)`;
+  }
+}
+
+// ------------------------------------------------ 4-SIDE PANORAMIC CONTROLS
+const societyViewState = {
+  mode: 'auto', // 'auto' | 'south' | 'east' | 'north' | 'west' | 'landmark'
+  orbitAngle: 0.0,
+  targetLandmark: null
+};
+
+function setupSocietyViewControls() {
+  const buttons = document.querySelectorAll('.view-side-btn[data-side]');
+  const toggleLabelsBtn = document.getElementById('toggle-labels-btn');
+  const toggleLabelsText = document.getElementById('toggle-labels-text');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const side = btn.dataset.side;
+      buttons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      societyViewState.mode = side;
+      societyViewState.targetLandmark = null;
+    });
+  });
+
+  if (toggleLabelsBtn) {
+    toggleLabelsBtn.addEventListener('click', () => {
+      areLabelsEnabled = !areLabelsEnabled;
+      if (areLabelsEnabled) {
+        toggleLabelsBtn.classList.add('is-active');
+        if (toggleLabelsText) toggleLabelsText.textContent = 'Labels On';
+      } else {
+        toggleLabelsBtn.classList.remove('is-active');
+        if (toggleLabelsText) toggleLabelsText.textContent = 'Labels Off';
+      }
+    });
+  }
+}
+
+function flyToLandmark(lm) {
+  societyViewState.mode = 'landmark';
+  societyViewState.targetLandmark = lm;
+  const buttons = document.querySelectorAll('.view-side-btn[data-side]');
+  buttons.forEach(b => b.classList.remove('is-active'));
+}
+
+// Initialize Full Gated Township Society, Amenities & Bungalow directly in Three.js scene!
+setupGatedTownshipAndBungalow(scene);
+createSpatialPinElements();
+setupSocietyViewControls();
+setupDayNightController();
+setupRoomNavigation();
+
+// Initial State: Art Gallery Entrance is active!
+if (rotundaGroup) rotundaGroup.visible = true;
+if (gatedTownshipGroup) gatedTownshipGroup.visible = false;
+if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
+canvasContainer.style.opacity = '1';
+canvasContainer.style.pointerEvents = 'auto';
+palaceContainer.style.opacity = '0';
+palaceContainer.style.pointerEvents = 'none';
+
 // ------------------------------------------------ 7. UNIFIED CONTINUOUS JOURNEY CONTROLLER
 // Master Journey Progress:
-// 0.00 -> 0.12 : Reflecting Pool with lightning & fountain (Screenshot 1)
-// 0.12 -> 0.26 : Colonnade Passage Hallway with columns & sconces (Screenshot 2)
-// 0.26 -> 0.40 : Mithraki Coffee Machine Showroom with terracotta reflection floor (Screenshot 3)
-// 0.40 -> 1.00+: Stepping through the doorway into the 3D Curved Exhibition Rotunda Wall!
+// 0.00 -> 0.28 : Art Gallery Entrance (Rotunda Exhibition Wall, 64 Paintings)
+// 0.28 -> 0.35 : Classical Temple Portal Transition out into the Gated Society
+// 0.35 -> 0.65 : Full Gated Society 360° Panoramic Tour (All 4 Sides, Floating Labels)
+// 0.65 -> 1.00 : Walk-In Central Luxury Bungalow Interior (Living Room, Kitchen, Bedroom)
 const journey = {
   progress: 0.0,
   targetProgress: 0.0,
-  activeMode: 'palace' // 'palace' | 'rotunda'
+  activeMode: 'rotunda'
 };
 
-// Support direct URL coordinate query (?p=0.30, etc.)
+// Support direct URL coordinate query (?p=0.35, etc.)
 const urlParams = new URLSearchParams(window.location.search);
 const pParam = urlParams.get('p');
 if (pParam !== null) {
@@ -2080,54 +2554,11 @@ let nomadiic = null;
 window.__nomadiic = () => nomadiic;
 
 async function initNomadiicStage() {
-  try {
-    const mountNomadiic = await getMountNomadiic();
-    if (!mountNomadiic) {
-      console.warn('[Nomadiic] mount function not available');
-      return;
-    }
-
-    nomadiic = await mountNomadiic(palaceContainer, {
-      exposure: 1.15,
-      intro: 'none',
-      base: 'https://aniketh-ani.github.io/nomadiic-cdn/palace/assets/',
-      debug: true
-    });
-
-    // Preload Mithraki showroom slice immediately
-    if (nomadiic && nomadiic.loadSlice) {
-      await nomadiic.loadSlice(0);
-    }
-
-    // Setup Day/Night linear gradient slider controller
-    setupDayNightController();
-
-    // Setup Top HUD Quick Room Navigation Pills
-    setupRoomNavigation();
-
-    // Build Full Gated Township Society, Sports Amenities & Walk-In Bungalow
-    if (nomadiic && nomadiic.scene) {
-      setupGatedTownshipAndBungalow(nomadiic);
-    }
-
-    // Set camera to initial journey progress
-    const initProg = 0.037 + (journey.progress / 0.38) * (0.38 - 0.037);
-    if (nomadiic && nomadiic.setProgressImmediate) {
-      nomadiic.setProgressImmediate(initProg);
-    }
-
-    if (journey.progress < 0.38) {
-      canvasContainer.style.opacity = '0';
-      canvasContainer.style.pointerEvents = 'none';
-      palaceContainer.style.opacity = '1';
-      palaceContainer.style.pointerEvents = 'auto';
-    }
-  } catch (err) {
-    console.warn('[Nomadiic Mount]', err);
-  }
+  // Nomadiic Palace is fully replaced by the Native Three.js Art Gallery Entrance & Gated Township
+  return;
 }
 
-initNomadiicStage();
+// initNomadiicStage();
 
 // ------------------------------------------------ 8. FLUID SCROLL SYSTEM (WHEEL, TOUCH, ARROWS)
 function handleJourneyDelta(rawDelta) {
@@ -2136,7 +2567,7 @@ function handleJourneyDelta(rawDelta) {
   const clampedDelta = Math.max(-100, Math.min(100, rawDelta));
   // Scroll sensitivity: 0.00045
   journey.targetProgress += clampedDelta * 0.00045;
-  journey.targetProgress = Math.max(0.0, journey.targetProgress);
+  journey.targetProgress = Math.max(0.0, Math.min(1.0, journey.targetProgress));
   walkState.lastMoved = performance.now();
 }
 
@@ -2177,34 +2608,34 @@ window.addEventListener('keydown', (e) => {
 
 // Arrow Navigation Buttons (Prev / Next)
 prevBtn?.addEventListener('click', () => {
-  if (journey.targetProgress < 0.40) {
-    journey.targetProgress = Math.max(0.0, journey.targetProgress - 0.12);
+  if (journey.targetProgress >= 0.65) {
+    journey.targetProgress = Math.max(0.38, journey.targetProgress - 0.10);
+  } else if (journey.targetProgress >= 0.30) {
+    journey.targetProgress = 0.00;
   } else {
-    journey.targetProgress = Math.max(0.40, journey.targetProgress - (ANGLE_STEP / 10.0));
+    journey.targetProgress = Math.max(0.0, journey.targetProgress - (ANGLE_STEP / (Math.PI * 2 / 0.28)));
   }
 });
 
 nextBtn?.addEventListener('click', () => {
-  if (journey.targetProgress < 0.40) {
-    journey.targetProgress = Math.min(0.40, journey.targetProgress + 0.12);
+  if (journey.targetProgress < 0.28) {
+    journey.targetProgress = Math.min(0.38, journey.targetProgress + (ANGLE_STEP / (Math.PI * 2 / 0.28)));
+  } else if (journey.targetProgress < 0.65) {
+    journey.targetProgress = 0.68;
   } else {
-    journey.targetProgress += (ANGLE_STEP / 10.0);
+    journey.targetProgress = Math.min(1.0, journey.targetProgress + 0.10);
   }
 });
 
 // Portal Back Button: Steps back out
 portalBackBtn?.addEventListener('click', () => {
-  if (journey.progress >= 0.42) {
-    // From Art gallery back to Master Bedroom
+  if (journey.progress >= 0.65) {
+    // From Bungalow Interior back to Gated Society 360°
     journey.targetProgress = 0.38;
-  } else if (journey.progress >= 0.32) {
-    // From Bedroom back to Kitchen
-    journey.targetProgress = 0.28;
-  } else if (journey.progress >= 0.22) {
-    // From Kitchen back to Living Room
-    journey.targetProgress = 0.18;
+  } else if (journey.progress >= 0.28) {
+    // From Gated Society 360° back to Art Gallery Entrance
+    journey.targetProgress = 0.00;
   } else {
-    // From Living Room back to Gated Society Grounds
     journey.targetProgress = 0.00;
   }
 });
@@ -2256,7 +2687,7 @@ function unhighlightObject(mesh) {
 
 let lastHoverCheck = 0;
 function checkHover(now) {
-  if (drawer.classList.contains('is-open') || pointer.x === -999 || journey.progress < 0.38) {
+  if (drawer.classList.contains('is-open') || pointer.x === -999 || journey.progress >= 0.28) {
     if (hoveredMesh) {
       unhighlightObject(hoveredMesh);
       hoveredMesh = null;
@@ -2281,7 +2712,7 @@ function checkHover(now) {
       cursorTip?.classList.add('is-on');
       if (cursorTipPill) {
         cursorTipPill.textContent = mesh.userData.isCenterPortal
-          ? 'WALK OUT TO MITHRAKI SHOWROOM & POOL'
+          ? 'WALK OUT TO GATED SOCIETY 360°'
           : 'CLICK TO VIEW';
       }
     }
@@ -2297,12 +2728,12 @@ function checkHover(now) {
 
 // Click / Pointerdown handler
 canvasContainer.addEventListener('pointerup', (e) => {
-  if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav') || e.target.closest('.portal-back-wrap') || e.target.closest('.awwwards-ribbon')) return;
+  if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav') || e.target.closest('.portal-back-wrap') || e.target.closest('.society-view-controls') || e.target.closest('.spatial-pin') || e.target.closest('.awwwards-ribbon')) return;
 
   if (hoveredMesh) {
     if (hoveredMesh.userData.isCenterPortal) {
-      // Step out to Mithraki Room
-      journey.targetProgress = 0.30;
+      // Step out through portal into Gated Society 360°!
+      journey.targetProgress = 0.38;
     } else if (hoveredMesh.userData.isPainting) {
       inspectPainting(hoveredMesh);
     }
@@ -2487,95 +2918,32 @@ function animate() {
   updateActiveRoomPill(journey.progress);
 
   // Stage Management & Cross-fade
-  if (journey.progress < 0.12) {
-    // Stage 1: Outdoor Happy Gated Society Grounds
-    journey.activeMode = 'society';
-    palaceContainer.style.opacity = '1';
-    canvasContainer.style.opacity = '0';
-    canvasContainer.style.pointerEvents = 'none';
-    palaceContainer.style.pointerEvents = 'auto';
-    portalBackWrap?.classList.remove('is-visible');
+  const societyControlsEl = document.getElementById('society-view-controls');
 
-    if (waypointHud) waypointHud.style.opacity = '0';
-    if (viewToggle) viewToggle.style.opacity = '0';
-    if (helpTapLink) helpTapLink.style.opacity = '1';
-    if (hintLine1) hintLine1.textContent = 'Explore the happy gated community grounds';
-    if (hintLine2) hintLine2.textContent = 'Use navigation pills or scroll to enter the central bungalow';
-
-    // Smoothly traverse from entrance gatehouse (0.037) down the promenade towards the bungalow front door (0.13)
-    const nomProg = 0.037 + (journey.progress / 0.12) * (0.13 - 0.037);
-    if (nomadiic && nomadiic.setProgressImmediate) {
-      nomadiic.setProgressImmediate(nomProg);
-    }
-  } else if (journey.progress < 0.42) {
-    // Stage 2: Walk-In Central Luxury Bungalow Interior
-    journey.activeMode = 'bungalow';
-    palaceContainer.style.opacity = '0';
-    canvasContainer.style.opacity = '1';
-    canvasContainer.style.pointerEvents = 'auto';
-    palaceContainer.style.pointerEvents = 'none';
-    portalBackWrap?.classList.add('is-visible');
-    if (portalBackText) portalBackText.textContent = 'WALK OUT TO GATED SOCIETY GROUNDS';
-
-    if (waypointHud) waypointHud.style.opacity = '1';
-    if (viewToggle) viewToggle.style.opacity = '0';
-    if (helpTapLink) helpTapLink.style.opacity = '0';
-    if (hintLine1) hintLine1.textContent = 'Exploring inside the central luxury bungalow';
-    if (hintLine2) hintLine2.textContent = 'Scroll forward or click room pills to navigate';
-
-    const roomCamPos = new THREE.Vector3();
-    const roomLookAt = new THREE.Vector3();
-
-    if (journey.progress < 0.22) {
-      // Living Room (p = 0.12 to 0.22)
-      const t = (journey.progress - 0.12) / 0.10;
-      roomCamPos.set(Math.sin(t * Math.PI) * 0.9, 1.75, -53.5 - t * 4.0);
-      roomLookAt.set(0, 1.55, -64.0);
-      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
-      if (hudTitle) hudTitle.textContent = 'Grand Living Room & Fireplace Lounge';
-      if (hudSubtitle) hudSubtitle.textContent = 'Italian sectional lounge, marble coffee table & Nero Marquina fireplace';
-    } else if (journey.progress < 0.32) {
-      // Modular Kitchen (p = 0.22 to 0.32)
-      const t = (journey.progress - 0.22) / 0.10;
-      roomCamPos.set(Math.sin(t * Math.PI) * 0.9, 1.75, -33.5 - t * 4.0);
-      roomLookAt.set(0, 1.55, -44.0);
-      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
-      if (hudTitle) hudTitle.textContent = 'Gourmet Modular Kitchen & Dining';
-      if (hudSubtitle) hudSubtitle.textContent = '4.2m waterfall Calacatta gold marble island, modular cabinetry & wine preservation';
-    } else {
-      // Master Bedroom (p = 0.32 to 0.42)
-      const t = (journey.progress - 0.32) / 0.10;
-      roomCamPos.set(Math.sin(t * Math.PI) * 0.9, 1.75, -13.5 - t * 4.0);
-      roomLookAt.set(0, 1.55, -24.0);
-      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
-      if (hudTitle) hudTitle.textContent = 'Master Bedroom Suite & Walk-In Wardrobe';
-      if (hudSubtitle) hudSubtitle.textContent = 'King platform bed, vertical fluted headboard & designer wardrobe';
-    }
-
-    const damp = 1 - Math.exp(-8.0 * delta);
-    currentEye.lerp(roomCamPos, damp);
-    currentLookAt.lerp(roomLookAt, damp);
-    camera.position.copy(currentEye);
-    camera.lookAt(currentLookAt);
-  } else {
-    // Stage 3: 3D Curved Exhibition Rotunda Wall
+  if (journey.progress < 0.28) {
+    // Stage 1: 3D Art Gallery Entrance (Rotunda Track, 64 Paintings)
     journey.activeMode = 'rotunda';
-    palaceContainer.style.opacity = '0';
     canvasContainer.style.opacity = '1';
     canvasContainer.style.pointerEvents = 'auto';
+    palaceContainer.style.opacity = '0';
     palaceContainer.style.pointerEvents = 'none';
-    portalBackWrap?.classList.add('is-visible');
-    if (portalBackText) portalBackText.textContent = 'WALK BACK TO CENTRAL BUNGALOW';
+
+    if (rotundaGroup) rotundaGroup.visible = true;
+    if (gatedTownshipGroup) gatedTownshipGroup.visible = false;
+    if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
+
+    portalBackWrap?.classList.remove('is-visible');
+    societyControlsEl?.classList.remove('is-visible');
+    if (spatialLabelsLayer) spatialLabelsLayer.classList.add('is-hidden');
 
     if (waypointHud) waypointHud.style.opacity = '1';
     if (viewToggle) viewToggle.style.opacity = '1';
     if (helpTapLink) helpTapLink.style.opacity = '0';
-    if (hintLine1) hintLine1.textContent = 'Scroll or drag to walk 360° rotunda wall';
-    if (hintLine2) hintLine2.textContent = 'Click any painting to inspect closer';
-    if (navStatusText) navStatusText.textContent = 'Station 5: Curved Exhibition Rotunda · 64 Fine Art Paintings';
+    if (hintLine1) hintLine1.textContent = '360° Art Gallery Entrance · Scroll to walk curated rotunda';
+    if (hintLine2) hintLine2.textContent = 'Click any painting to inspect · Scroll forward to exit to Gated Society';
 
-    // Walk around the 360° wall
-    const rotundaRot = (journey.progress - 0.42) * 10.0;
+    // Walk around the 360° rotunda wall
+    const rotundaRot = (journey.progress / 0.28) * (Math.PI * 2);
     walkState.targetAngle = rotundaRot;
     const damping = 1 - Math.exp(-8.5 * delta);
     walkState.angle += (walkState.targetAngle - walkState.angle) * damping;
@@ -2614,8 +2982,172 @@ function animate() {
       if (hudKicker) hudKicker.textContent = `EXHIBITION ROTUNDA · ${activeStation.collection.title.toUpperCase()}`;
       if (hudTitle) hudTitle.textContent = item.title;
       if (hudSubtitle) hudSubtitle.textContent = `${item.artist} · Click painting to view museum details`;
-      if (navStatusText) navStatusText.textContent = `Station ${stationIndex + 1} of 32: ${item.title}`;
+      if (navStatusText) navStatusText.textContent = `Art Gallery Entrance · Station ${stationIndex + 1} of 32: ${item.title}`;
     }
+
+    // Inner wall distance fade
+    const camDist = Math.hypot(currentEye.x, currentEye.z);
+    const innerWallOpacity = THREE.MathUtils.smoothstep(camDist, 7.4 + 0.2, 7.4 + 1.8);
+    innerWallMat.opacity = innerWallOpacity;
+    innerLampMat.opacity = 0.55 * innerWallOpacity;
+
+    // Throttled raycasting hover check
+    checkHover(now);
+
+  } else if (journey.progress < 0.35) {
+    // Stage 2: Grand Classical Portal Transition
+    journey.activeMode = 'portal-transition';
+    canvasContainer.style.opacity = '1';
+    canvasContainer.style.pointerEvents = 'auto';
+    palaceContainer.style.opacity = '0';
+    palaceContainer.style.pointerEvents = 'none';
+
+    const t = (journey.progress - 0.28) / 0.07;
+    if (t < 0.5) {
+      if (rotundaGroup) rotundaGroup.visible = true;
+      if (gatedTownshipGroup) gatedTownshipGroup.visible = false;
+    } else {
+      if (rotundaGroup) rotundaGroup.visible = false;
+      if (gatedTownshipGroup) gatedTownshipGroup.visible = true;
+    }
+
+    portalBackWrap?.classList.add('is-visible');
+    if (portalBackText) portalBackText.textContent = '← STEP BACK INTO ART GALLERY';
+    societyControlsEl?.classList.remove('is-visible');
+    if (spatialLabelsLayer) spatialLabelsLayer.classList.add('is-hidden');
+
+    if (hudKicker) hudKicker.textContent = 'ESTATE PORTAL';
+    if (hudTitle) hudTitle.textContent = 'Stepping Out to Nexora Gated Society';
+    if (hudSubtitle) hudSubtitle.textContent = 'Transitioning from the rotunda art gallery to the luxury community grounds';
+    if (navStatusText) navStatusText.textContent = 'Exiting Art Gallery · Entering Gated Society 360°';
+    if (hintLine1) hintLine1.textContent = 'Stepping through classical temple portal...';
+    if (hintLine2) hintLine2.textContent = 'Scroll forward to view the 360° gated society';
+
+    // Camera glides through doorway forward
+    const pCamPos = new THREE.Vector3(
+      0,
+      THREE.MathUtils.lerp(1.7, 24.0, t),
+      THREE.MathUtils.lerp(7.0, 96.0, t)
+    );
+    const pLookAt = new THREE.Vector3(0, THREE.MathUtils.lerp(1.5, 6.0, t), THREE.MathUtils.lerp(15.0, 10.0, t));
+    const damp = 1 - Math.exp(-7.0 * delta);
+    currentEye.lerp(pCamPos, damp);
+    currentLookAt.lerp(pLookAt, damp);
+
+  } else if (journey.progress < 0.65) {
+    // Stage 3: Full Gated Society 360° Panoramic Tour (View from All 4 Sides + Floating Pins)
+    journey.activeMode = 'society';
+    canvasContainer.style.opacity = '1';
+    canvasContainer.style.pointerEvents = 'auto';
+    palaceContainer.style.opacity = '0';
+    palaceContainer.style.pointerEvents = 'none';
+
+    if (rotundaGroup) rotundaGroup.visible = false;
+    if (gatedTownshipGroup) gatedTownshipGroup.visible = true;
+    if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
+
+    portalBackWrap?.classList.add('is-visible');
+    if (portalBackText) portalBackText.textContent = '← STEP BACK INTO ART GALLERY';
+    societyControlsEl?.classList.add('is-visible');
+
+    // In society 360° tour, hide center text HUD so 4-side buttons and scene are completely clear
+    if (waypointHud) waypointHud.style.opacity = '0';
+    if (viewToggle) viewToggle.style.opacity = '0';
+    if (helpTapLink) helpTapLink.style.opacity = '1';
+    if (navStatusText) navStatusText.textContent = 'Gated Society 360° · Towers A-D, Pools, Courts, Gym & Villa';
+    if (hintLine1) hintLine1.textContent = 'View society from all 4 sides · Click landmark pins to inspect';
+    if (hintLine2) hintLine2.textContent = 'Scroll forward or click room pills to walk into central luxury bungalow';
+
+    // Update 3D projected spatial pins
+    updateSpatialPins(camera, window.innerWidth, window.innerHeight);
+
+    // 4-Side Camera Orientation & 360° Auto Orbit
+    const damp = 1 - Math.exp(-4.5 * delta);
+    if (societyViewState.mode === 'auto') {
+      societyViewState.orbitAngle += delta * 0.12; // smooth 360° continuous rotation
+      const r = 96.0;
+      const targetCam = new THREE.Vector3(
+        Math.sin(societyViewState.orbitAngle) * r,
+        34.0,
+        Math.cos(societyViewState.orbitAngle) * r
+      );
+      currentEye.lerp(targetCam, damp);
+      currentLookAt.lerp(new THREE.Vector3(0, 6.0, 5.0), damp);
+    } else if (societyViewState.mode === 'south') {
+      currentEye.lerp(new THREE.Vector3(0, 22.0, 96.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(0, 4.0, 10.0), damp);
+    } else if (societyViewState.mode === 'east') {
+      currentEye.lerp(new THREE.Vector3(-14.0, 18.0, 0.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(48.0, 16.0, 0.0), damp);
+    } else if (societyViewState.mode === 'north') {
+      currentEye.lerp(new THREE.Vector3(-2.0, 14.0, -16.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(-4.0, 1.2, -38.0), damp);
+    } else if (societyViewState.mode === 'west') {
+      currentEye.lerp(new THREE.Vector3(14.0, 18.0, 0.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(-48.0, 16.0, 0.0), damp);
+    } else if (societyViewState.mode === 'landmark' && societyViewState.targetLandmark) {
+      currentEye.lerp(societyViewState.targetLandmark.viewCamPos, damp);
+      currentLookAt.lerp(societyViewState.targetLandmark.viewLookAt, damp);
+    }
+
+  } else {
+    // Stage 4: Walk-In Central Luxury Bungalow Interior
+    journey.activeMode = 'bungalow';
+    canvasContainer.style.opacity = '1';
+    canvasContainer.style.pointerEvents = 'auto';
+    palaceContainer.style.opacity = '0';
+    palaceContainer.style.pointerEvents = 'none';
+
+    if (rotundaGroup) rotundaGroup.visible = false;
+    if (gatedTownshipGroup) gatedTownshipGroup.visible = true;
+    if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
+
+    portalBackWrap?.classList.add('is-visible');
+    if (portalBackText) portalBackText.textContent = '← WALK OUT TO GATED SOCIETY 360°';
+    societyControlsEl?.classList.remove('is-visible');
+    if (spatialLabelsLayer) spatialLabelsLayer.classList.add('is-hidden');
+
+    if (waypointHud) waypointHud.style.opacity = '1';
+    if (viewToggle) viewToggle.style.opacity = '0';
+    if (helpTapLink) helpTapLink.style.opacity = '0';
+    if (hintLine1) hintLine1.textContent = 'Inside Central Luxury Bungalow Villa';
+    if (hintLine2) hintLine2.textContent = 'Scroll forward or click room pills to walk through rooms';
+
+    const damp = 1 - Math.exp(-7.5 * delta);
+    const roomCamPos = new THREE.Vector3();
+    const roomLookAt = new THREE.Vector3();
+
+    if (journey.progress < 0.75) {
+      // Living Room (p = 0.65 to 0.75)
+      const t = (journey.progress - 0.65) / 0.10;
+      roomCamPos.set(1.5, 1.65, 14.8 - t * 4.2);
+      roomLookAt.set(-0.2, 1.35, 9.6);
+      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
+      if (hudTitle) hudTitle.textContent = 'Grand Living Room & Fireplace Lounge';
+      if (hudSubtitle) hudSubtitle.textContent = 'Italian sectional lounge, marble coffee table & Nero Marquina fireplace';
+      if (navStatusText) navStatusText.textContent = 'Bungalow Room 1 of 3: Grand Living Room & Fireplace';
+    } else if (journey.progress < 0.85) {
+      // Modular Kitchen (p = 0.75 to 0.85)
+      const t = (journey.progress - 0.75) / 0.10;
+      roomCamPos.set(Math.sin(t * Math.PI) * 0.8, 1.75, 5.0 - t * 4.5);
+      roomLookAt.set(0, 1.45, -2.0);
+      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
+      if (hudTitle) hudTitle.textContent = 'Gourmet Modular Kitchen & Dining';
+      if (hudSubtitle) hudSubtitle.textContent = '4.2m waterfall Calacatta gold marble island, modular cabinetry & wine cooler';
+      if (navStatusText) navStatusText.textContent = 'Bungalow Room 2 of 3: Gourmet Modular Kitchen';
+    } else {
+      // Master Bedroom (p = 0.85 to 1.00)
+      const t = (journey.progress - 0.85) / 0.15;
+      roomCamPos.set(Math.sin(t * Math.PI) * 0.8, 1.75, -5.0 - t * 4.5);
+      roomLookAt.set(0, 1.45, -11.0);
+      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
+      if (hudTitle) hudTitle.textContent = 'Master Bedroom Suite & Walk-In Wardrobe';
+      if (hudSubtitle) hudSubtitle.textContent = 'King platform bed, vertical fluted headboard & designer wardrobe';
+      if (navStatusText) navStatusText.textContent = 'Bungalow Room 3 of 3: Master Bedroom Suite';
+    }
+
+    currentEye.lerp(roomCamPos, damp);
+    currentLookAt.lerp(roomLookAt, damp);
   }
 
   // Camera update
