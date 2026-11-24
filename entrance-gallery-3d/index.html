@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Nexora Palms Residences | Luxury Gated Township, Smart Bungalow & 3D Art Gallery</title>
-    <meta name="description" content="Experience Nexora Palms luxury gated society in 3D: 15-floor residential towers, pedestrian footpaths with active residents, tennis and basketball courts, corner wellness gym, complete walk-in luxury bungalow with living room, modular kitchen, and master bedroom suite, leading to the 360° curved art rotunda." />
+    <title>Nexora Residences | Real Estate 3D Model Walkthrough</title>
+    <meta name="description" content="Interactive 3D real estate digital twin model walkthrough: explore the architectural exhibition entrance, resort aquatics swimming pool from all 4 sides, glass wellness gym, full gated society with 15-floor towers, parking plaza, walking promenades, and luxury walk-in bungalow." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,38 +18,38 @@
     <header class="gallery-nav" id="gallery-nav">
       <div class="gallery-nav__brand">
         <div class="nomadiic-brand">
-          <span class="nomadiic-brand__text">NEXORA PALMS RESIDENCES</span>
-          <span class="nomadiic-brand__sub">LUXURY GATED TOWNSHIP</span>
+          <span class="nomadiic-brand__text">NEXORA RESIDENCES</span>
+          <span class="nomadiic-brand__sub">REAL ESTATE 3D DIGITAL MODEL</span>
         </div>
       </div>
 
-      <!-- Quick Room & Area Navigation Pills -->
-      <nav class="room-nav-pills" id="room-nav-pills" aria-label="Society & Bungalow Room Navigation">
-        <button type="button" class="room-pill is-active" data-progress="0.00" title="Step into 3D Exhibition Rotunda Entrance">
-          <span class="room-pill__icon">🎨</span>
-          <span class="room-pill__label">Art Gallery Entrance</span>
+      <!-- Quick Walkthrough Station Navigation Pills -->
+      <nav class="room-nav-pills" id="room-nav-pills" aria-label="Real Estate Model Walkthrough Navigation">
+        <button type="button" class="room-pill is-active" data-progress="0.00" title="Step into 3D Architectural Model Entrance">
+          <span class="room-pill__icon">🏛️</span>
+          <span class="room-pill__label">3D Entrance</span>
         </button>
-        <button type="button" class="room-pill" data-progress="0.35" title="Explore Full Gated Society 360° from All 4 Sides">
+        <button type="button" class="room-pill" data-progress="0.25" title="Explore Luxury Swimming Pool from all 4 sides">
+          <span class="room-pill__icon">🏊</span>
+          <span class="room-pill__label">Swimming Pool</span>
+        </button>
+        <button type="button" class="room-pill" data-progress="0.45" title="Explore Wellness Gym from all 4 sides">
+          <span class="room-pill__icon">🏋️</span>
+          <span class="room-pill__label">Wellness Gym</span>
+        </button>
+        <button type="button" class="room-pill" data-progress="0.65" title="Explore Full Society Grounds, Parking Plaza & Towers">
           <span class="room-pill__icon">🏘️</span>
-          <span class="room-pill__label">Gated Society 360°</span>
+          <span class="room-pill__label">Society & Parking</span>
         </button>
-        <button type="button" class="room-pill" data-progress="0.65" title="Walk into Villa Living Room">
-          <span class="room-pill__icon">🛋️</span>
-          <span class="room-pill__label">Living Room</span>
-        </button>
-        <button type="button" class="room-pill" data-progress="0.75" title="Walk into Modular Kitchen & Dining">
-          <span class="room-pill__icon">🍳</span>
-          <span class="room-pill__label">Modular Kitchen</span>
-        </button>
-        <button type="button" class="room-pill" data-progress="0.85" title="Walk into Master Bedroom Suite">
-          <span class="room-pill__icon">🛏️</span>
-          <span class="room-pill__label">Master Bedroom</span>
+        <button type="button" class="room-pill" data-progress="0.85" title="Walk inside Central Luxury Bungalow Villa">
+          <span class="room-pill__icon">🏡</span>
+          <span class="room-pill__label">Central Villa</span>
         </button>
       </nav>
 
       <div class="gallery-nav__status">
         <span class="status-indicator"></span>
-        <span id="nav-status-text">Art Gallery Entrance · 360° Curved Rotunda Exhibition</span>
+        <span id="nav-status-text">3D Architectural Model · Interactive Real Estate Walkthrough</span>
       </div>
 
       <!-- Day / Night Linear Gradient Controller -->
@@ -63,84 +63,41 @@
       </div>
 
       <div class="gallery-nav__actions">
-        <!-- Instagram icon -->
-        <a href="https://www.instagram.com/nomadiic.horse.designs/" class="nav-circle-btn" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
-        </a>
-
-        <!-- Orange Contact us button -->
-        <a href="https://nomadiichorse.com/contact-us" class="contact-pill-btn" target="_blank" rel="noopener">
-          Contact us
-        </a>
-
-        <!-- Main 3D Twin Platform link -->
-        <a href="http://localhost:5174/" class="gallery-nav__link" target="_blank" rel="noopener">
-          Main 3D Twin Platform ↗
+        <!-- Orange Contact / Client Inquiry button -->
+        <a href="#contact" class="contact-pill-btn" id="inquire-btn">
+          Inquire 3D Twin
         </a>
       </div>
     </header>
 
-    <!-- Awwwards Nominee Teal Ribbon (Right edge) -->
-    <aside class="awwwards-ribbon" aria-label="Awwwards Nominee">
-      <a href="https://www.awwwards.com/sites/nomadiic-horse-designs" target="_blank" rel="noopener">
-        <span class="w-mark">W.</span>
-        <span class="ribbon-text">Nominee</span>
-      </a>
-    </aside>
+    <!-- Stage 1: Nomadiic Horse Realtime Palace Container (Hidden) -->
+    <div id="palace-container" class="stage-layer" role="region" aria-label="Palace Background" style="display:none;"></div>
 
-    <!-- Stage 1: Nomadiic Horse Realtime Palace Container -->
-    <div id="palace-container" class="stage-layer" role="region" aria-label="Nomadiic Horse Realtime Palace"></div>
-
-    <!-- Stage 2: Three.js Curved Rotunda Wall Exhibition Gallery & 3D Gated Society Container -->
-    <div id="canvas-container" class="stage-layer" role="region" aria-label="3D Rotunda Exhibition Gallery">
+    <!-- Stage 2: Three.js Real Estate 3D Digital Model Container -->
+    <div id="canvas-container" class="stage-layer" role="region" aria-label="3D Real Estate Walkthrough Experience">
       <!-- 3D Projected Spatial Labels Layer -->
       <div id="spatial-labels-layer" class="spatial-labels-layer" aria-hidden="true"></div>
     </div>
 
-    <!-- Society 4-Side Cinematic Camera Controls (Floats in Gated Society view) -->
-    <nav class="society-view-controls" id="society-view-controls" aria-label="Society 4-Side Panoramic Angles">
-      <button type="button" class="view-side-btn is-active" data-side="auto" title="Continuous 360° Cinematic Orbit">
-        <span class="view-side-btn__icon">🔄</span>
-        <span>360° Auto Orbit</span>
-      </button>
-      <button type="button" class="view-side-btn" data-side="south" title="South Entrance Gate View">
-        <span class="view-side-btn__icon">🚪</span>
-        <span>South Entrance</span>
-      </button>
-      <button type="button" class="view-side-btn" data-side="east" title="East Wing View (Tower A & B, Tennis, Gym)">
-        <span class="view-side-btn__icon">🏢</span>
-        <span>East Wing (Tower A & B)</span>
-      </button>
-      <button type="button" class="view-side-btn" data-side="north" title="North Oasis View (Olympic Lap Pool & Kids Pool)">
-        <span class="view-side-btn__icon">🏊</span>
-        <span>North Pools Oasis</span>
-      </button>
-      <button type="button" class="view-side-btn" data-side="west" title="West Wing View (Tower C & D, Basketball, Villa)">
-        <span class="view-side-btn__icon">🏢</span>
-        <span>West Wing (Tower C & D)</span>
-      </button>
-      <button type="button" class="view-side-btn is-active" id="toggle-labels-btn" title="Toggle 3D Landmark Labels">
-        <span class="view-side-btn__icon">🏷️</span>
-        <span id="toggle-labels-text">Labels On</span>
-      </button>
+    <!-- 4-Side Panoramic View Controls (Dynamically updates for each station) -->
+    <nav class="society-view-controls" id="society-view-controls" aria-label="4-Side Panoramic Angles">
+      <div id="view-controls-buttons" class="view-controls-buttons">
+        <!-- Injected dynamically in JavaScript based on active station -->
+      </div>
     </nav>
 
-    <!-- Floating Cursor Tip (Follows Pointer over Clickable Paintings / Portal) -->
+    <!-- Floating Cursor Tip -->
     <div class="cursor-tip" id="cursor-tip" aria-hidden="true">
-      <span class="cursor-tip-pill" id="cursor-tip-pill">CLICK TO VIEW</span>
+      <span class="cursor-tip-pill" id="cursor-tip-pill">EXPLORE IN 3D</span>
     </div>
 
-    <!-- Center Portal Back Button (Appears when in Bungalow or Rotunda to step back) -->
+    <!-- Navigation Step Back Button -->
     <div class="portal-back-wrap" id="portal-back-wrap" aria-hidden="true">
       <button type="button" class="portal-back-btn" id="portal-back-btn">
         <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
           <path d="M16 10H5M9 5.5 4.5 10 9 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span id="portal-back-text">WALK OUT TO GATED SOCIETY GROUNDS</span>
+        <span id="portal-back-text">← STEP BACK</span>
       </button>
     </div>
 
@@ -154,77 +111,19 @@
       </div>
     </button>
 
-    <!-- Center Bottom Dynamic Waypoint HUD (Changes with scroll journey) -->
-    <div class="waypoint-hud" id="waypoint-hud">
-      <p class="hud-kicker" id="hud-kicker">WE ARE NOMADIIC HORSE DESIGNS</p>
-      <h2 class="hud-title" id="hud-title">A very detailed design team from Bangalore, India.</h2>
-      <p class="hud-subtitle" id="hud-subtitle"></p>
-    </div>
-
-    <!-- Bottom-Right Navigation, Help Link & Hint -->
+    <!-- Bottom-Right Navigation Controls & Hint -->
     <div class="bottom-right-wrap" id="bottom-right-wrap">
-      <a href="https://nomadiichorse.com/contact-us" target="_blank" rel="noopener" class="help-tap-link" id="help-tap-link">
-        NEED A WEBSITE OR BRANDING HELP? REACH US BY TAPPING HERE →
-      </a>
-
       <div class="room-nav" id="room-nav">
-        <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous exhibit">←</button>
-        <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next exhibit">→</button>
+        <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous station">←</button>
+        <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next station">→</button>
       </div>
 
       <p class="walk-hint" id="walk-hint" aria-live="polite">
-        <span id="hint-line-1">Scroll or drag to walk forward</span>
-        <span id="hint-line-2">Click any painting or step through door</span>
+        <span id="hint-line-1">Real Estate 3D Walkthrough</span>
+        <span id="hint-line-2">Scroll or click pills above to experience amenities & society</span>
       </p>
     </div>
 
-    <!-- Bottom Center View Mode Toggle (GALLERY | LIST) -->
-    <div class="view-toggle" id="view-toggle" role="group" aria-label="View Mode">
-      <button type="button" class="view-btn is-active" id="view-gallery-btn">
-        <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
-          <path d="M2 3h12v10H2V3zm1 1v8h10V4H3z"/>
-        </svg>
-        <span>GALLERY</span>
-      </button>
-      <button type="button" class="view-btn" id="view-list-btn">
-        <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13" aria-hidden="true">
-          <path d="M2 4h12v1.5H2V4zm0 3.5h12V9H2V7.5zm0 3.5h12v1.5H2V11z"/>
-        </svg>
-        <span>LIST</span>
-      </button>
-    </div>
-
-    <!-- Slide-Out Architectural Inspection Drawer -->
-    <div class="drawer-overlay" id="drawer-overlay"></div>
-    <aside class="drawer" id="drawer" aria-hidden="true">
-      <button class="drawer__close" id="drawer-close" aria-label="Close Inspector">✕</button>
-      <div class="drawer__content" id="drawer-content">
-        <!-- Injected dynamically via JavaScript -->
-      </div>
-    </aside>
-
-    <!-- Architectural List View Overlay (shown when LIST is selected) -->
-    <section class="list-view" id="list-view" aria-hidden="true">
-      <div class="list-view__inner">
-        <div class="list-view__header">
-          <h2>Rotunda Gallery Catalogue</h2>
-          <p>Complete index of 64 fine art paintings, featured Acropolis Classical Muse, and digital twin structures.</p>
-        </div>
-        <div class="list-view__grid" id="list-view-grid">
-          <!-- Injected dynamically via JavaScript -->
-        </div>
-      </div>
-    </section>
-
-    <script>
-      const __rtUrl = '/nomadiic-rt.js';
-      window.__mountNomadiicPromise = import(/* @vite-ignore */ __rtUrl)
-        .then(m => m.mount)
-        .catch(err => {
-          console.error('[Nomadiic loader]', err);
-          return null;
-        });
-    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

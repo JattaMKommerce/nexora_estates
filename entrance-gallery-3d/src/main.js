@@ -44,11 +44,11 @@ function updateActiveRoomPill(p) {
   if (!pills.length) return;
 
   let activeIndex = 0;
-  if (p >= 0.80) activeIndex = 4; // Master Bedroom
-  else if (p >= 0.70) activeIndex = 3; // Modular Kitchen
-  else if (p >= 0.60) activeIndex = 2; // Living Room
-  else if (p >= 0.30) activeIndex = 1; // Gated Society 360°
-  else activeIndex = 0; // Art Gallery Entrance
+  if (p >= 0.80) activeIndex = 4; // Central Luxury Villa
+  else if (p >= 0.60) activeIndex = 3; // Society Grounds & Parking
+  else if (p >= 0.40) activeIndex = 2; // Wellness Gym
+  else if (p >= 0.20) activeIndex = 1; // Swimming Pool
+  else activeIndex = 0; // 3D Model Entrance
 
   pills.forEach((pill, idx) => {
     if (idx === activeIndex) pill.classList.add('is-active');
@@ -1077,6 +1077,170 @@ function setupGatedTownshipAndBungalow(targetScene) {
   gatedTownshipGroup.add(gymGroup);
 
   // =========================================================================
+  // 5b. DEDICATED RESIDENT & VISITOR PARKING PLAZA (X = +18.0, Z = 68.0)
+  // =========================================================================
+  const parkingGroup = new THREE.Group();
+  parkingGroup.name = 'resident-visitor-parking-plaza';
+
+  // Asphalt Plaza Pavement (18m wide x 26m long)
+  const asphaltMat = new THREE.MeshBasicMaterial({ color: 0x1f2328 });
+  const parkingPavement = new THREE.Mesh(new THREE.BoxGeometry(18.0, 0.10, 26.0), asphaltMat);
+  parkingPavement.position.set(18.0, 0.05, 68.0);
+  parkingGroup.add(parkingPavement);
+
+  // Concrete Curb Borders
+  const curbN = new THREE.Mesh(new THREE.BoxGeometry(18.4, 0.16, 0.4), curbMat);
+  curbN.position.set(18.0, 0.08, 68.0 - 13.0);
+  const curbS = new THREE.Mesh(new THREE.BoxGeometry(18.4, 0.16, 0.4), curbMat);
+  curbS.position.set(18.0, 0.08, 68.0 + 13.0);
+  const curbE = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.16, 26.0), curbMat);
+  curbE.position.set(18.0 + 9.0, 0.08, 68.0);
+  parkingGroup.add(curbN);
+  parkingGroup.add(curbS);
+  parkingGroup.add(curbE);
+
+  // Striped Parking Bays (White Thermoplastic Markings)
+  const stripeMat = new THREE.MeshBasicMaterial({ color: 0xf5f5f5 });
+  for (let s = 0; s <= 6; s++) {
+    const sz = 68.0 - 12.0 + s * 4.0;
+    const stL = new THREE.Mesh(new THREE.BoxGeometry(5.4, 0.02, 0.14), stripeMat);
+    stL.position.set(18.0 - 3.2, 0.11, sz);
+    parkingGroup.add(stL);
+    const stR = new THREE.Mesh(new THREE.BoxGeometry(5.4, 0.02, 0.14), stripeMat);
+    stR.position.set(18.0 + 3.2, 0.11, sz);
+    parkingGroup.add(stR);
+  }
+
+  // Modern Architectural Timber Solar Canopy / Pergola over South Stalls
+  const pergolaGroup = new THREE.Group();
+  for (let p = 0; p < 4; p++) {
+    const postX = (p % 2 === 0 ? 11.5 : 24.5);
+    const postZ = 68.0 + (p < 2 ? -4.0 : 8.0);
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.2, 3.2, 0.2), blackMetalMat);
+    post.position.set(postX, 1.6, postZ);
+    pergolaGroup.add(post);
+  }
+  // Open architectural slats so parked luxury cars are visible
+  for (let r = 0; r < 9; r++) {
+    const rz = 64.5 + r * 1.4;
+    const slat = new THREE.Mesh(new THREE.BoxGeometry(13.6, 0.16, 0.24), woodSlatMat);
+    slat.position.set(18.0, 3.25, rz);
+    pergolaGroup.add(slat);
+  }
+  // Smoked Translucent Solar Glass Roof
+  const solarGlass = new THREE.Mesh(new THREE.PlaneGeometry(13.4, 12.0), new THREE.MeshBasicMaterial({
+    color: 0x1a2e3b,
+    transparent: true,
+    opacity: 0.38,
+    side: THREE.DoubleSide
+  }));
+  solarGlass.position.set(18.0, 3.34, 70.0);
+  solarGlass.rotation.x = Math.PI / 2;
+  pergolaGroup.add(solarGlass);
+  parkingGroup.add(pergolaGroup);
+
+  // Dual EV Fast-Charging Stations with Green Status LED
+  function createEVCharger(cx, cz) {
+    const ev = new THREE.Group();
+    const pedestal = new THREE.Mesh(new THREE.BoxGeometry(0.45, 1.45, 0.35), blackMetalMat);
+    pedestal.position.set(0, 0.72, 0);
+    ev.add(pedestal);
+
+    const ledGlow = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.08, 0.06), new THREE.MeshBasicMaterial({ color: 0x10b981 }));
+    ledGlow.position.set(0, 1.25, 0.18);
+    ev.add(ledGlow);
+
+    const cable = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.8, 8), new THREE.MeshBasicMaterial({ color: 0x222222 }));
+    cable.position.set(0.25, 0.6, 0);
+    ev.add(cable);
+
+    ev.position.set(cx, 0.05, cz);
+    return ev;
+  }
+  parkingGroup.add(createEVCharger(10.2, 60.0));
+  parkingGroup.add(createEVCharger(10.2, 64.0));
+
+  // 4 Parked Luxury 3D Cars (Sedans & SUVs in Obsidian Black, Glacier Silver, Alpine White, Sapphire Blue)
+  function createStylizedCar({ x, z, rotY = 0, bodyColor = 0x15181f, isSUV = false }) {
+    const car = new THREE.Group();
+    const carMat = new THREE.MeshBasicMaterial({ color: bodyColor });
+    const glassCarMat = new THREE.MeshBasicMaterial({ color: 0x111620 });
+    const tireMat = new THREE.MeshBasicMaterial({ color: 0x151515 });
+    const rimMat = new THREE.MeshBasicMaterial({ color: 0xc8d0db });
+    const headlightMat = new THREE.MeshBasicMaterial({ color: 0xf8fafc });
+    const taillightMat = new THREE.MeshBasicMaterial({ color: 0xef4444 });
+
+    const cL = isSUV ? 4.6 : 4.4;
+    const cW = isSUV ? 2.0 : 1.9;
+    const cH = isSUV ? 1.6 : 1.35;
+
+    // Chassis body
+    const bodyGeo = new THREE.BoxGeometry(cW, cH * 0.45, cL);
+    const body = new THREE.Mesh(bodyGeo, carMat);
+    body.position.set(0, cH * 0.35, 0);
+    car.add(body);
+
+    // Cabin / Greenhouse
+    const cabinGeo = new THREE.BoxGeometry(cW * 0.88, cH * 0.45, cL * 0.52);
+    const cabin = new THREE.Mesh(cabinGeo, glassCarMat);
+    cabin.position.set(0, cH * 0.72, -cL * 0.04);
+    car.add(cabin);
+
+    // Roof
+    const roof = new THREE.Mesh(new THREE.BoxGeometry(cW * 0.86, 0.05, cL * 0.46), carMat);
+    roof.position.set(0, cH * 0.95, -cL * 0.04);
+    car.add(roof);
+
+    // Headlights & Taillights
+    const h1 = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.12, 0.05), headlightMat);
+    h1.position.set(-cW * 0.34, cH * 0.38, cL / 2 + 0.02);
+    const h2 = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.12, 0.05), headlightMat);
+    h2.position.set(cW * 0.34, cH * 0.38, cL / 2 + 0.02);
+    car.add(h1); car.add(h2);
+
+    const t1 = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.10, 0.05), taillightMat);
+    t1.position.set(-cW * 0.34, cH * 0.40, -cL / 2 - 0.02);
+    const t2 = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.10, 0.05), taillightMat);
+    t2.position.set(cW * 0.34, cH * 0.40, -cL / 2 - 0.02);
+    car.add(t1); car.add(t2);
+
+    // 4 Wheels
+    const wheelPositions = [
+      [-cW / 2 - 0.04, cL * 0.30],
+      [cW / 2 + 0.04, cL * 0.30],
+      [-cW / 2 - 0.04, -cL * 0.30],
+      [cW / 2 + 0.04, -cL * 0.30]
+    ];
+    wheelPositions.forEach(([wx, wz]) => {
+      const tire = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.22, 16), tireMat);
+      tire.rotation.z = Math.PI / 2;
+      tire.position.set(wx, 0.34, wz);
+      const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.20, 0.23, 12), rimMat);
+      hub.rotation.z = Math.PI / 2;
+      hub.position.set(wx, 0.34, wz);
+      car.add(tire);
+      car.add(hub);
+    });
+
+    car.position.set(x, 0.05, z);
+    car.rotation.y = rotY;
+    return car;
+  }
+
+  // Parked cars in stalls
+  parkingGroup.add(createStylizedCar({ x: 14.8, z: 60.0, rotY: -Math.PI / 2, bodyColor: 0x0f131a })); // Obsidian Black Sedan
+  parkingGroup.add(createStylizedCar({ x: 14.8, z: 64.0, rotY: -Math.PI / 2, bodyColor: 0x9ca3af, isSUV: true })); // Glacier Silver SUV
+  parkingGroup.add(createStylizedCar({ x: 21.2, z: 68.0, rotY: Math.PI / 2, bodyColor: 0xf8fafc })); // Pearl White Sedan
+  parkingGroup.add(createStylizedCar({ x: 21.2, z: 72.0, rotY: Math.PI / 2, bodyColor: 0x1e3a8a, isSUV: true })); // Midnight Blue SUV
+
+  // Walkway connecting parking plaza to central promenade
+  const connectPath = new THREE.Mesh(new THREE.BoxGeometry(9.0, 0.08, 3.6), promenadeMat);
+  connectPath.position.set(4.5, 0.04, 68.0);
+  parkingGroup.add(connectPath);
+
+  gatedTownshipGroup.add(parkingGroup);
+
+  // =========================================================================
   // 6. ANIMATED RESIDENTS / PEOPLE MOVING
   // =========================================================================
   animatedResidents = [];
@@ -1249,19 +1413,41 @@ function setupGatedTownshipAndBungalow(targetScene) {
   lrGroup.add(ctMarble);
   lrGroup.add(ctWood);
 
-  // Feature Media & Fireplace Wall (Nero Marquina Black Marble)
-  const tvWall = new THREE.Mesh(new THREE.BoxGeometry(7.2, vH - 0.4, 0.35), blackMarbleTvWallMat);
+  // Feature Media & Fireplace Wall (Warm Slatted Oak with Nero Marquina Center & Floating Console)
+  const slatL = new THREE.Mesh(new THREE.BoxGeometry(1.6, vH - 0.4, 0.25), woodSlatMat);
+  slatL.position.set(-2.8, vH / 2, 6.2);
+  const slatR = new THREE.Mesh(new THREE.BoxGeometry(1.6, vH - 0.4, 0.25), woodSlatMat);
+  slatR.position.set(2.8, vH / 2, 6.2);
+  lrGroup.add(slatL);
+  lrGroup.add(slatR);
+
+  // Center Feature Slab
+  const tvWall = new THREE.Mesh(new THREE.BoxGeometry(4.0, vH - 0.4, 0.35), darkCabinetMat);
   tvWall.position.set(0, vH / 2, 6.2);
   lrGroup.add(tvWall);
 
+  // Floating Walnut Media Console
+  const mediaConsole = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.38, 0.55), woodSlatMat);
+  mediaConsole.position.set(0, 0.65, 6.35);
+  lrGroup.add(mediaConsole);
+
   // Wall-mounted 85" Ultra-Slim OLED TV
   const tvScreen = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 2.0), new THREE.MeshBasicMaterial({ color: 0x050608 }));
-  tvScreen.position.set(0, 3.6, 6.4);
+  tvScreen.position.set(0, 3.4, 6.4);
   lrGroup.add(tvScreen);
 
+  // Ambient Blue LED Glow Strip under TV
+  const tvGlow = new THREE.Mesh(new THREE.PlaneGeometry(3.5, 0.06), new THREE.MeshBasicMaterial({ color: 0x38bdf8 }));
+  tvGlow.position.set(0, 2.38, 6.41);
+  lrGroup.add(tvGlow);
+
   // Built-in Linear Electric Fireplace (Warm Glowing Flame)
-  fireplaceFlameMesh = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 0.55), fireplaceFlameMat);
-  fireplaceFlameMesh.position.set(0, 1.35, 6.4);
+  const fpBackdrop = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.65, 0.1), new THREE.MeshBasicMaterial({ color: 0x111111 }));
+  fpBackdrop.position.set(0, 1.35, 6.38);
+  lrGroup.add(fpBackdrop);
+
+  fireplaceFlameMesh = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 0.50), fireplaceFlameMat);
+  fireplaceFlameMesh.position.set(0, 1.35, 6.42);
   lrGroup.add(fireplaceFlameMesh);
 
   // Contemporary Suspended Double-Ring Brass Chandelier
@@ -1729,99 +1915,9 @@ const innerWallLampGlow = new THREE.Mesh(
 innerWallLampGlow.position.set(0, 2.7, 0);
 rotundaGroup.add(innerWallLampGlow);
 
-// ------------------------------------------------ 5. CENTRAL CLASSICAL TEMPLE DOORWAY PORTAL
-const centerPortalGroup = new THREE.Group();
-centerPortalGroup.position.set(0, 0, 7.35);
-rotundaGroup.add(centerPortalGroup);
-
-const marbleMat = new THREE.MeshBasicMaterial({ color: 0xeeebe3 });
-const brassMat = new THREE.MeshBasicMaterial({ color: 0xd4af37 });
-
-const stepLower = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.18, 1.6), marbleMat);
-stepLower.position.set(0, 0.09, 0);
-centerPortalGroup.add(stepLower);
-
-const stepUpper = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.18, 1.3), marbleMat);
-stepUpper.position.set(0, 0.27, 0);
-centerPortalGroup.add(stepUpper);
-
-function createClassicalColumn(xPos) {
-  const colGroup = new THREE.Group();
-  colGroup.position.set(xPos, 0.36, 0);
-  const plinth = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.16, 0.72), marbleMat);
-  plinth.position.y = 0.08;
-  colGroup.add(plinth);
-  const torus = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.37, 0.14, 24), marbleMat);
-  torus.position.y = 0.23;
-  colGroup.add(torus);
-  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 3.2, 24), marbleMat);
-  shaft.position.y = 1.83;
-  colGroup.add(shaft);
-  const echinus = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.25, 0.16, 24), marbleMat);
-  echinus.position.y = 3.51;
-  colGroup.add(echinus);
-  const abacus = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.16, 0.72), marbleMat);
-  abacus.position.y = 3.67;
-  colGroup.add(abacus);
-  return colGroup;
-}
-
-const leftColumn = createClassicalColumn(-1.65);
-const rightColumn = createClassicalColumn(1.65);
-centerPortalGroup.add(leftColumn);
-centerPortalGroup.add(rightColumn);
-
-const architrave = new THREE.Mesh(new THREE.BoxGeometry(3.9, 0.32, 0.65), marbleMat);
-architrave.position.set(0, 4.22, 0);
-centerPortalGroup.add(architrave);
-
-const cornice = new THREE.Mesh(new THREE.BoxGeometry(4.1, 0.22, 0.78), marbleMat);
-cornice.position.set(0, 4.49, 0);
-centerPortalGroup.add(cornice);
-
-const pedimentGeom = new THREE.CylinderGeometry(0.01, 2.3, 0.9, 3);
-pedimentGeom.rotateY(Math.PI / 6);
-const pediment = new THREE.Mesh(pedimentGeom, marbleMat);
-pediment.position.set(0, 5.04, 0);
-centerPortalGroup.add(pediment);
-
-const medallion = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.08, 24), brassMat);
-medallion.rotation.x = Math.PI / 2;
-medallion.position.set(0, 4.88, 0.28);
-centerPortalGroup.add(medallion);
-
-const doorFrameLeft = new THREE.Mesh(new THREE.BoxGeometry(0.18, 3.4, 0.22), marbleMat);
-doorFrameLeft.position.set(-1.24, 2.06, 0);
-centerPortalGroup.add(doorFrameLeft);
-
-const doorFrameRight = new THREE.Mesh(new THREE.BoxGeometry(0.18, 3.4, 0.22), marbleMat);
-doorFrameRight.position.set(1.24, 2.06, 0);
-centerPortalGroup.add(doorFrameRight);
-
-const doorFrameTop = new THREE.Mesh(new THREE.BoxGeometry(2.66, 0.18, 0.22), marbleMat);
-doorFrameTop.position.set(0, 3.76, 0);
-centerPortalGroup.add(doorFrameTop);
-
-// Central Portal Threshold Mesh (Clickable to walk back outside)
-const portalMeshMat = new THREE.MeshBasicMaterial({ color: 0x0c1019, transparent: true, opacity: 0.1 });
-const centerPortalClickMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 3.2), portalMeshMat);
-centerPortalClickMesh.position.set(0, 2.0, 0.05);
-centerPortalClickMesh.userData = { isCenterPortal: true };
-centerPortalGroup.add(centerPortalClickMesh);
-
-const thresholdGlowMat = new THREE.MeshBasicMaterial({
-  color: 0xffbe82,
-  transparent: true,
-  opacity: 0.35,
-  depthWrite: false
-});
-const thresholdGlow = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 1.2), thresholdGlowMat);
-thresholdGlow.rotation.x = -Math.PI / 2;
-thresholdGlow.position.set(0, 0.37, 0);
-centerPortalGroup.add(thresholdGlow);
-
-// ------------------------------------------------ 6. PAINTINGS ARCHITECTURE (64 PAINTINGS)
-const interactiveObjects = [centerPortalClickMesh];
+// ------------------------------------------------ 5. CURATED ARCHITECTURAL 3D EXHIBITION GALLERY
+// Continuous clean circular rotunda gallery (doorway structure removed per client specification)
+const interactiveObjects = [];
 const frameColorMat = new THREE.MeshBasicMaterial({ color: 0x14161c });
 const museGoldFrameMat = new THREE.MeshBasicMaterial({ color: 0xd4af37 });
 
@@ -2369,6 +2465,15 @@ const SPATIAL_LANDMARKS = [
     viewLookAt: new THREE.Vector3(18.0, 2.5, 40.0)
   },
   {
+    id: 'parking-plaza',
+    title: 'Resident Parking Plaza',
+    subtitle: 'EV Charging & Shaded Bays',
+    icon: '🚗',
+    pos: new THREE.Vector3(18.0, 4.0, 68.0),
+    viewCamPos: new THREE.Vector3(18.0, 16.0, 92.0),
+    viewLookAt: new THREE.Vector3(18.0, 2.0, 68.0)
+  },
+  {
     id: 'gatehouse',
     title: 'Grand Gatehouse',
     subtitle: '24/7 Monitored Access',
@@ -2415,7 +2520,7 @@ function createSpatialPinElements() {
 }
 
 function updateSpatialPins(cam, width, height) {
-  if (!areLabelsEnabled || !spatialLabelsLayer || journey.progress < 0.32 || journey.progress >= 0.65) {
+  if (!areLabelsEnabled || !spatialLabelsLayer || journey.progress < 0.20 || journey.progress >= 0.80) {
     if (spatialLabelsLayer && !spatialLabelsLayer.classList.contains('is-hidden')) {
       spatialLabelsLayer.classList.add('is-hidden');
     }
@@ -2457,26 +2562,94 @@ function updateSpatialPins(cam, width, height) {
 
 // ------------------------------------------------ 4-SIDE PANORAMIC CONTROLS
 const societyViewState = {
-  mode: 'auto', // 'auto' | 'south' | 'east' | 'north' | 'west' | 'landmark'
+  currentStage: 'entrance',
+  mode: 'auto',
   orbitAngle: 0.0,
   targetLandmark: null
 };
 
-function setupSocietyViewControls() {
-  const buttons = document.querySelectorAll('.view-side-btn[data-side]');
-  const toggleLabelsBtn = document.getElementById('toggle-labels-btn');
-  const toggleLabelsText = document.getElementById('toggle-labels-text');
+const STATION_VIEW_CONFIGS = {
+  pool: [
+    { side: 'auto', icon: '🔄', label: '360° Orbit', title: 'Continuous 360° Pool Orbit' },
+    { side: 'north', icon: '🏊', label: 'North Deck', title: 'North Pool Deck Looking South' },
+    { side: 'south', icon: '🏖️', label: 'South Deck', title: 'South Sun Deck Looking North' },
+    { side: 'east', icon: '🌴', label: 'East Loungers', title: 'East Sun Loungers View' },
+    { side: 'west', icon: '🍹', label: 'West Cabanas', title: 'West Private Cabanas View' }
+  ],
+  gym: [
+    { side: 'auto', icon: '🔄', label: '360° Orbit', title: 'Continuous 360° Gym Orbit' },
+    { side: 'cardio', icon: '🏃', label: 'Cardio Zone', title: 'Treadmills & Cardio Zone' },
+    { side: 'weights', icon: '💪', label: 'Free Weights', title: 'Olympic Bench & Dumbbell Racks' },
+    { side: 'garden', icon: '🌿', label: 'Garden Glass', title: 'Panoramic Glass View into Garden' },
+    { side: 'entry', icon: '🚪', label: 'Gym Entrance', title: 'Main Gym Glass Entry' }
+  ],
+  society: [
+    { side: 'auto', icon: '🔄', label: '360° Orbit', title: 'Continuous 360° Society Orbit' },
+    { side: 'south', icon: '🚪', label: 'South Gate', title: 'Main Security Entrance Boulevard' },
+    { side: 'parking', icon: '🚗', label: 'Parking Plaza', title: 'Resident Parking & EV Charging' },
+    { side: 'east', icon: '🏢', label: 'East Towers', title: 'East Wing Towers A & B' },
+    { side: 'west', icon: '🏢', label: 'West Towers', title: 'West Wing Towers C & D' }
+  ],
+  bungalow: [
+    { side: 'living', icon: '🛋️', label: 'Living Room', title: 'Grand Living Room & Fireplace' },
+    { side: 'kitchen', icon: '🍳', label: 'Modular Kitchen', title: 'Gourmet Kitchen & Dining' },
+    { side: 'bedroom', icon: '🛏️', label: 'Master Bedroom', title: 'Master Bedroom Suite' },
+    { side: 'outside', icon: '←', label: 'Step Outside', title: 'Step out to Society Grounds' }
+  ]
+};
 
-  buttons.forEach((btn) => {
+let currentRenderedStage = null;
+
+function updateSocietyViewControlsForStage(stage) {
+  if (currentRenderedStage === stage) return;
+  currentRenderedStage = stage;
+  societyViewState.currentStage = stage;
+  societyViewState.mode = 'auto';
+
+  const container = document.getElementById('view-controls-buttons');
+  if (!container) return;
+
+  const configs = STATION_VIEW_CONFIGS[stage] || [];
+  let html = configs.map((cfg, idx) => `
+    <button type="button" class="view-side-btn ${idx === 0 ? 'is-active' : ''}" data-side="${cfg.side}" title="${cfg.title}">
+      <span class="view-side-btn__icon">${cfg.icon}</span>
+      <span>${cfg.label}</span>
+    </button>
+  `).join('');
+
+  if (stage === 'society' || stage === 'pool') {
+    html += `
+      <button type="button" class="view-side-btn is-active" id="toggle-labels-btn" title="Toggle 3D Landmark Labels">
+        <span class="view-side-btn__icon">🏷️</span>
+        <span id="toggle-labels-text">${areLabelsEnabled ? 'Labels On' : 'Labels Off'}</span>
+      </button>
+    `;
+  }
+
+  container.innerHTML = html;
+
+  container.querySelectorAll('.view-side-btn[data-side]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const side = btn.dataset.side;
-      buttons.forEach(b => b.classList.remove('is-active'));
+      container.querySelectorAll('.view-side-btn[data-side]').forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
       societyViewState.mode = side;
       societyViewState.targetLandmark = null;
+
+      if (stage === 'bungalow' && side === 'outside') {
+        journey.targetProgress = 0.65;
+      } else if (stage === 'bungalow' && side === 'living') {
+        journey.targetProgress = 0.82;
+      } else if (stage === 'bungalow' && side === 'kitchen') {
+        journey.targetProgress = 0.90;
+      } else if (stage === 'bungalow' && side === 'bedroom') {
+        journey.targetProgress = 0.96;
+      }
     });
   });
 
+  const toggleLabelsBtn = document.getElementById('toggle-labels-btn');
+  const toggleLabelsText = document.getElementById('toggle-labels-text');
   if (toggleLabelsBtn) {
     toggleLabelsBtn.addEventListener('click', () => {
       areLabelsEnabled = !areLabelsEnabled;
@@ -2494,18 +2667,19 @@ function setupSocietyViewControls() {
 function flyToLandmark(lm) {
   societyViewState.mode = 'landmark';
   societyViewState.targetLandmark = lm;
-  const buttons = document.querySelectorAll('.view-side-btn[data-side]');
-  buttons.forEach(b => b.classList.remove('is-active'));
+  const container = document.getElementById('view-controls-buttons');
+  if (container) {
+    container.querySelectorAll('.view-side-btn[data-side]').forEach(b => b.classList.remove('is-active'));
+  }
 }
 
 // Initialize Full Gated Township Society, Amenities & Bungalow directly in Three.js scene!
 setupGatedTownshipAndBungalow(scene);
 createSpatialPinElements();
-setupSocietyViewControls();
 setupDayNightController();
 setupRoomNavigation();
 
-// Initial State: Art Gallery Entrance is active!
+// Initial State: 3D Model Entrance is active!
 if (rotundaGroup) rotundaGroup.visible = true;
 if (gatedTownshipGroup) gatedTownshipGroup.visible = false;
 if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
@@ -2514,19 +2688,20 @@ canvasContainer.style.pointerEvents = 'auto';
 palaceContainer.style.opacity = '0';
 palaceContainer.style.pointerEvents = 'none';
 
-// ------------------------------------------------ 7. UNIFIED CONTINUOUS JOURNEY CONTROLLER
+// ------------------------------------------------ 7. UNIFIED REAL ESTATE 3D WALKTHROUGH CONTROLLER
 // Master Journey Progress:
-// 0.00 -> 0.28 : Art Gallery Entrance (Rotunda Exhibition Wall, 64 Paintings)
-// 0.28 -> 0.35 : Classical Temple Portal Transition out into the Gated Society
-// 0.35 -> 0.65 : Full Gated Society 360° Panoramic Tour (All 4 Sides, Floating Labels)
-// 0.65 -> 1.00 : Walk-In Central Luxury Bungalow Interior (Living Room, Kitchen, Bedroom)
+// 0.00 -> 0.20 : 3D Architectural Model Entrance (Curved Rotunda Showcase)
+// 0.20 -> 0.40 : Resort Aquatics Oasis (Swimming Pool - 4-Side Views)
+// 0.40 -> 0.60 : Vitality Wellness Gym & Fitness Pavilion (4-Side Views)
+// 0.60 -> 0.80 : Grand Gated Society Grounds, Parking Plaza & Towers (4-Side Views)
+// 0.80 -> 1.00 : Central Luxury Walk-In Bungalow Villa Interior (Living Room, Kitchen, Bedroom)
 const journey = {
   progress: 0.0,
   targetProgress: 0.0,
   activeMode: 'rotunda'
 };
 
-// Support direct URL coordinate query (?p=0.35, etc.)
+// Support direct URL coordinate query (?p=0.25, etc.)
 const urlParams = new URLSearchParams(window.location.search);
 const pParam = urlParams.get('p');
 if (pParam !== null) {
@@ -2554,27 +2729,19 @@ let nomadiic = null;
 window.__nomadiic = () => nomadiic;
 
 async function initNomadiicStage() {
-  // Nomadiic Palace is fully replaced by the Native Three.js Art Gallery Entrance & Gated Township
   return;
 }
 
-// initNomadiicStage();
-
 // ------------------------------------------------ 8. FLUID SCROLL SYSTEM (WHEEL, TOUCH, ARROWS)
 function handleJourneyDelta(rawDelta) {
-  if (drawer.classList.contains('is-open') || listView.classList.contains('is-visible')) return;
-
   const clampedDelta = Math.max(-100, Math.min(100, rawDelta));
-  // Scroll sensitivity: 0.00045
   journey.targetProgress += clampedDelta * 0.00045;
   journey.targetProgress = Math.max(0.0, Math.min(1.0, journey.targetProgress));
   walkState.lastMoved = performance.now();
 }
 
 window.addEventListener('wheel', (e) => {
-  if (drawer.classList.contains('is-open')) return;
   e.preventDefault();
-
   const rawDelta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
   const normalizedDelta = e.deltaMode === 1 ? rawDelta * 18 : rawDelta;
   handleJourneyDelta(normalizedDelta);
@@ -2594,11 +2761,6 @@ window.addEventListener('touchmove', (e) => {
 }, { passive: true });
 
 window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    closeDrawer();
-    closeListView();
-    return;
-  }
   if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
     handleJourneyDelta(60);
   } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
@@ -2606,228 +2768,37 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// Arrow Navigation Buttons (Prev / Next)
+// Arrow Navigation Buttons (Prev / Next Stations)
 prevBtn?.addEventListener('click', () => {
-  if (journey.targetProgress >= 0.65) {
-    journey.targetProgress = Math.max(0.38, journey.targetProgress - 0.10);
-  } else if (journey.targetProgress >= 0.30) {
-    journey.targetProgress = 0.00;
-  } else {
-    journey.targetProgress = Math.max(0.0, journey.targetProgress - (ANGLE_STEP / (Math.PI * 2 / 0.28)));
-  }
+  if (journey.targetProgress >= 0.80) journey.targetProgress = 0.65;
+  else if (journey.targetProgress >= 0.60) journey.targetProgress = 0.45;
+  else if (journey.targetProgress >= 0.40) journey.targetProgress = 0.25;
+  else journey.targetProgress = 0.00;
 });
 
 nextBtn?.addEventListener('click', () => {
-  if (journey.targetProgress < 0.28) {
-    journey.targetProgress = Math.min(0.38, journey.targetProgress + (ANGLE_STEP / (Math.PI * 2 / 0.28)));
-  } else if (journey.targetProgress < 0.65) {
-    journey.targetProgress = 0.68;
-  } else {
-    journey.targetProgress = Math.min(1.0, journey.targetProgress + 0.10);
-  }
+  if (journey.targetProgress < 0.20) journey.targetProgress = 0.25;
+  else if (journey.targetProgress < 0.40) journey.targetProgress = 0.45;
+  else if (journey.targetProgress < 0.60) journey.targetProgress = 0.65;
+  else if (journey.targetProgress < 0.80) journey.targetProgress = 0.85;
+  else journey.targetProgress = 1.00;
 });
 
-// Portal Back Button: Steps back out
+// Navigation Step Back Button
 portalBackBtn?.addEventListener('click', () => {
-  if (journey.progress >= 0.65) {
-    // From Bungalow Interior back to Gated Society 360°
-    journey.targetProgress = 0.38;
-  } else if (journey.progress >= 0.28) {
-    // From Gated Society 360° back to Art Gallery Entrance
-    journey.targetProgress = 0.00;
-  } else {
-    journey.targetProgress = 0.00;
-  }
+  if (journey.progress >= 0.80) journey.targetProgress = 0.65;
+  else if (journey.progress >= 0.60) journey.targetProgress = 0.45;
+  else if (journey.progress >= 0.40) journey.targetProgress = 0.25;
+  else journey.targetProgress = 0.00;
 });
 
-// ------------------------------------------------ 9. RAYCASTING, HOVER & INSPECTION DRAWER
-const raycaster = new THREE.Raycaster();
-const pointer = new THREE.Vector2(-999, -999);
-let hoveredMesh = null;
-let isInspecting = false;
-let inspectedMesh = null;
-
+// ------------------------------------------------ 9. POINTER & CAMERA STATE
 const currentEye = new THREE.Vector3();
 const currentLookAt = new THREE.Vector3();
 const targetEye = new THREE.Vector3();
 const targetLookAt = new THREE.Vector3();
 
-window.addEventListener('pointermove', (e) => {
-  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-
-  if (cursorTip) {
-    cursorTip.style.transform = `translate3d(${e.clientX + 16}px, ${e.clientY + 16}px, 0)`;
-  }
-});
-
-function highlightObject(mesh) {
-  if (mesh.userData.isCenterPortal) {
-    pediment.material.color.setHex(0xffd200);
-    architrave.material.color.setHex(0xffd200);
-    cornice.material.color.setHex(0xffd200);
-  } else {
-    const frame = mesh.userData.frameMesh;
-    if (frame && frame.material) frame.material.color.setHex(0xe5b869);
-  }
-}
-
-function unhighlightObject(mesh) {
-  if (mesh.userData.isCenterPortal) {
-    pediment.material.color.setHex(0xeeebe3);
-    architrave.material.color.setHex(0xeeebe3);
-    cornice.material.color.setHex(0xeeebe3);
-  } else {
-    const frame = mesh.userData.frameMesh;
-    if (frame && frame.material) {
-      frame.material.color.setHex(mesh.userData.item?.id === 'sb_01' ? 0xd4af37 : 0x14161c);
-    }
-  }
-}
-
-let lastHoverCheck = 0;
-function checkHover(now) {
-  if (drawer.classList.contains('is-open') || pointer.x === -999 || journey.progress >= 0.28) {
-    if (hoveredMesh) {
-      unhighlightObject(hoveredMesh);
-      hoveredMesh = null;
-    }
-    cursorTip?.classList.remove('is-on');
-    return;
-  }
-
-  if (now - lastHoverCheck < 32) return;
-  lastHoverCheck = now;
-
-  raycaster.setFromCamera(pointer, camera);
-  const hits = raycaster.intersectObjects(interactiveObjects, false);
-
-  if (hits.length > 0) {
-    const mesh = hits[0].object;
-    if (hoveredMesh !== mesh) {
-      if (hoveredMesh) unhighlightObject(hoveredMesh);
-      hoveredMesh = mesh;
-      highlightObject(hoveredMesh);
-      canvasContainer.style.cursor = 'pointer';
-      cursorTip?.classList.add('is-on');
-      if (cursorTipPill) {
-        cursorTipPill.textContent = mesh.userData.isCenterPortal
-          ? 'WALK OUT TO GATED SOCIETY 360°'
-          : 'CLICK TO VIEW';
-      }
-    }
-  } else {
-    if (hoveredMesh) {
-      unhighlightObject(hoveredMesh);
-      hoveredMesh = null;
-      canvasContainer.style.cursor = 'grab';
-      cursorTip?.classList.remove('is-on');
-    }
-  }
-}
-
-// Click / Pointerdown handler
-canvasContainer.addEventListener('pointerup', (e) => {
-  if (e.target.closest('.gallery-nav') || e.target.closest('.drawer') || e.target.closest('.view-toggle') || e.target.closest('.room-nav') || e.target.closest('.portal-back-wrap') || e.target.closest('.society-view-controls') || e.target.closest('.spatial-pin') || e.target.closest('.awwwards-ribbon')) return;
-
-  if (hoveredMesh) {
-    if (hoveredMesh.userData.isCenterPortal) {
-      // Step out through portal into Gated Society 360°!
-      journey.targetProgress = 0.38;
-    } else if (hoveredMesh.userData.isPainting) {
-      inspectPainting(hoveredMesh);
-    }
-  }
-});
-
-function inspectPainting(mesh) {
-  isInspecting = true;
-  inspectedMesh = mesh;
-  openDrawer(mesh.userData.item);
-}
-
-function openDrawer(item) {
-  if (!drawer || !drawerContent) return;
-
-  drawerContent.innerHTML = `
-    <div class="drawer__media">
-      <img src="${item.image}" alt="${item.title}" loading="lazy" />
-    </div>
-    <span class="drawer__tag">${item.category}</span>
-    <h3 class="drawer__title">${item.title}</h3>
-    <p class="drawer__desc">${item.desc}</p>
-    <div class="drawer__specs-grid">
-      ${item.specs.map(s => `
-        <div class="spec-item">
-          <span class="spec-item__label">${s.label}</span>
-          <span class="spec-item__value">${s.value}</span>
-        </div>
-      `).join('')}
-    </div>
-    <a href="${item.ctaUrl}" class="drawer__cta-btn" target="_blank" rel="noopener">
-      EXPLORE IN 3D TWIN PLATFORM ↗
-    </a>
-  `;
-
-  drawer.classList.add('is-open');
-  drawerOverlay?.classList.add('is-open');
-}
-
-function closeDrawer() {
-  drawer?.classList.remove('is-open');
-  drawerOverlay?.classList.remove('is-open');
-  isInspecting = false;
-  inspectedMesh = null;
-}
-
-drawerClose?.addEventListener('click', closeDrawer);
-drawerOverlay?.addEventListener('click', closeDrawer);
-
-// ------------------------------------------------ 10. CATALOGUE LIST VIEW
-function renderListView() {
-  if (!listViewGrid) return;
-  listViewGrid.innerHTML = ALL_ITEMS.map((item, idx) => `
-    <div class="list-card" data-idx="${idx}">
-      <div class="list-card__media">
-        <img src="${item.image}" alt="${item.title}" loading="lazy" />
-      </div>
-      <div class="list-card__body">
-        <span class="list-card__num">${String(idx + 1).padStart(2, '0')} · ${item.category}</span>
-        <h3 class="list-card__title">${item.title}</h3>
-        <p class="list-card__sub">${item.artist}</p>
-      </div>
-    </div>
-  `).join('');
-
-  listViewGrid.querySelectorAll('.list-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const idx = parseInt(card.dataset.idx, 10);
-      const item = ALL_ITEMS[idx];
-      closeListView();
-      // Jump to Rotunda Wall and open drawer
-      journey.targetProgress = 0.40 + (idx % NUM_STATIONS) * (ANGLE_STEP / 10.0);
-      openDrawer(item);
-    });
-  });
-}
-
-function openListView() {
-  listView?.classList.add('is-visible');
-  viewListBtn?.classList.add('is-active');
-  viewGalleryBtn?.classList.remove('is-active');
-  renderListView();
-}
-
-function closeListView() {
-  listView?.classList.remove('is-visible');
-  viewGalleryBtn?.classList.add('is-active');
-  viewListBtn?.classList.remove('is-active');
-}
-
-viewListBtn?.addEventListener('click', openListView);
-viewGalleryBtn?.addEventListener('click', closeListView);
-
-// ------------------------------------------------ 11. AUDIO AMBIENCE SYNTHESIZER
+// ------------------------------------------------ 10. AUDIO AMBIENCE SYNTHESIZER
 let audioCtx = null;
 let isAudioActive = true;
 let ambientOsc = null;
@@ -2841,7 +2812,7 @@ function toggleAmbienceAudio() {
       const filter = audioCtx.createBiquadFilter();
 
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(110, audioCtx.currentTime); // Soft A2 tone
+      osc.frequency.setValueAtTime(110, audioCtx.currentTime);
 
       filter.type = 'lowpass';
       filter.frequency.setValueAtTime(220, audioCtx.currentTime);
@@ -2868,8 +2839,9 @@ function toggleAmbienceAudio() {
 
 audioToggle?.addEventListener('click', toggleAmbienceAudio);
 
-// ------------------------------------------------ 12. UNIFIED RENDER & ANIMATION LOOP (60-120 FPS)
+// ------------------------------------------------ 11. UNIFIED RENDER & ANIMATION LOOP (60-120 FPS)
 const clock = new THREE.Clock();
+let currentWalkthroughStage = 'rotunda';
 
 function animate() {
   requestAnimationFrame(animate);
@@ -2914,19 +2886,50 @@ function animate() {
     fireplaceFlameMesh.scale.y = flicker;
   }
 
+  // Smooth station transitions without passing through walls
+  const newStage = journey.progress < 0.20 ? 'rotunda'
+    : journey.progress < 0.40 ? 'pool'
+    : journey.progress < 0.60 ? 'gym'
+    : journey.progress < 0.80 ? 'society'
+    : 'bungalow';
+
+  if (newStage !== currentWalkthroughStage) {
+    currentWalkthroughStage = newStage;
+    if (newStage === 'pool') {
+      currentEye.set(-4.0, 5.8, -58.0);
+      currentLookAt.set(-4.0, 2.0, -28.0);
+      societyViewState.mode = 'north';
+    } else if (newStage === 'gym') {
+      currentEye.set(18.0, 2.2, 48.0);
+      currentLookAt.set(16.5, 1.5, 38.0);
+      societyViewState.mode = 'cardio';
+    } else if (newStage === 'society') {
+      currentEye.set(12.0, 8.5, 86.0);
+      currentLookAt.set(18.0, 1.2, 68.0);
+      societyViewState.mode = 'parking';
+    } else if (newStage === 'bungalow') {
+      currentEye.set(4.5, 1.85, 15.5);
+      currentLookAt.set(-0.2, 1.45, 9.5);
+      societyViewState.mode = 'living';
+    } else if (newStage === 'rotunda') {
+      currentEye.set(0, 1.55, 9.8);
+      currentLookAt.set(3.36, 1.5, 9.2);
+    }
+  }
+
   // Update active room pill in the top header
   updateActiveRoomPill(journey.progress);
 
   // Stage Management & Cross-fade
   const societyControlsEl = document.getElementById('society-view-controls');
 
-  if (journey.progress < 0.28) {
-    // Stage 1: 3D Art Gallery Entrance (Rotunda Track, 64 Paintings)
+  if (journey.progress < 0.20) {
+    // =========================================================================
+    // STAGE 1: 3D REAL ESTATE ARCHITECTURAL MODEL ENTRANCE (Curved Rotunda)
+    // =========================================================================
     journey.activeMode = 'rotunda';
     canvasContainer.style.opacity = '1';
     canvasContainer.style.pointerEvents = 'auto';
-    palaceContainer.style.opacity = '0';
-    palaceContainer.style.pointerEvents = 'none';
 
     if (rotundaGroup) rotundaGroup.visible = true;
     if (gatedTownshipGroup) gatedTownshipGroup.visible = false;
@@ -2934,137 +2937,167 @@ function animate() {
 
     portalBackWrap?.classList.remove('is-visible');
     societyControlsEl?.classList.remove('is-visible');
+    currentRenderedStage = null;
     if (spatialLabelsLayer) spatialLabelsLayer.classList.add('is-hidden');
 
-    if (waypointHud) waypointHud.style.opacity = '1';
-    if (viewToggle) viewToggle.style.opacity = '1';
-    if (helpTapLink) helpTapLink.style.opacity = '0';
-    if (hintLine1) hintLine1.textContent = '360° Art Gallery Entrance · Scroll to walk curated rotunda';
-    if (hintLine2) hintLine2.textContent = 'Click any painting to inspect · Scroll forward to exit to Gated Society';
+    if (navStatusText) navStatusText.textContent = '3D Real Estate Model · Architectural Showcase Entrance';
+    if (hintLine1) hintLine1.textContent = '360° Architectural Gallery';
+    if (hintLine2) hintLine2.textContent = 'Scroll forward or click pills above to explore amenities';
 
-    // Walk around the 360° rotunda wall
-    const rotundaRot = (journey.progress / 0.28) * (Math.PI * 2);
+    // Walk around the 360° rotunda wall smoothly
+    const rotundaRot = (journey.progress / 0.20) * (Math.PI * 2);
     walkState.targetAngle = rotundaRot;
     const damping = 1 - Math.exp(-8.5 * delta);
     walkState.angle += (walkState.targetAngle - walkState.angle) * damping;
 
-    // Update camera around the track
-    if (isInspecting && inspectedMesh) {
-      const inspectDamping = 1 - Math.exp(-6.5 * delta);
-      currentEye.lerp(targetEye, inspectDamping);
-      currentLookAt.lerp(targetLookAt, inspectDamping);
-    } else {
-      const a = walkState.angle;
-      const lookAngle = a + 0.32;
-      const eyeY = 1.55 + 0.008 * Math.sin(1.1 * elapsedTime);
-      const lookY = 1.5;
+    const a = walkState.angle;
+    const lookAngle = a + 0.35;
+    const eyeY = 1.55;
+    const lookY = 1.50;
 
-      currentEye.set(
-        ROTUNDA_TRACK_R * Math.sin(a),
-        eyeY,
-        ROTUNDA_TRACK_R * Math.cos(a)
-      );
-      currentLookAt.set(
-        ROTUNDA_TRACK_R * Math.sin(lookAngle),
-        lookY,
-        ROTUNDA_TRACK_R * Math.cos(lookAngle)
-      );
-    }
-
-    // Active station & dynamic captions
-    const stationIndex = THREE.MathUtils.euclideanModulo(
-      Math.round((walkState.angle + 0.22) / ANGLE_STEP),
-      NUM_STATIONS
+    targetEye.set(
+      ROTUNDA_TRACK_R * Math.sin(a),
+      eyeY,
+      ROTUNDA_TRACK_R * Math.cos(a)
     );
-    const activeStation = STATIONS[stationIndex];
-    if (activeStation) {
-      const item = activeStation.outerItem;
-      if (hudKicker) hudKicker.textContent = `EXHIBITION ROTUNDA · ${activeStation.collection.title.toUpperCase()}`;
-      if (hudTitle) hudTitle.textContent = item.title;
-      if (hudSubtitle) hudSubtitle.textContent = `${item.artist} · Click painting to view museum details`;
-      if (navStatusText) navStatusText.textContent = `Art Gallery Entrance · Station ${stationIndex + 1} of 32: ${item.title}`;
-    }
+    targetLookAt.set(
+      ROTUNDA_TRACK_R * Math.sin(lookAngle),
+      lookY,
+      ROTUNDA_TRACK_R * Math.cos(lookAngle)
+    );
 
-    // Inner wall distance fade
-    const camDist = Math.hypot(currentEye.x, currentEye.z);
-    const innerWallOpacity = THREE.MathUtils.smoothstep(camDist, 7.4 + 0.2, 7.4 + 1.8);
-    innerWallMat.opacity = innerWallOpacity;
-    innerLampMat.opacity = 0.55 * innerWallOpacity;
+    const damp = 1 - Math.exp(-6.5 * delta);
+    currentEye.lerp(targetEye, damp);
+    currentLookAt.lerp(targetLookAt, damp);
 
-    // Throttled raycasting hover check
-    checkHover(now);
-
-  } else if (journey.progress < 0.35) {
-    // Stage 2: Grand Classical Portal Transition
-    journey.activeMode = 'portal-transition';
+  } else if (journey.progress < 0.40) {
+    // =========================================================================
+    // STAGE 2: RESORT AQUATICS OASIS (Swimming Pool - 4-Side Views)
+    // =========================================================================
+    journey.activeMode = 'pool';
     canvasContainer.style.opacity = '1';
     canvasContainer.style.pointerEvents = 'auto';
-    palaceContainer.style.opacity = '0';
-    palaceContainer.style.pointerEvents = 'none';
-
-    const t = (journey.progress - 0.28) / 0.07;
-    if (t < 0.5) {
-      if (rotundaGroup) rotundaGroup.visible = true;
-      if (gatedTownshipGroup) gatedTownshipGroup.visible = false;
-    } else {
-      if (rotundaGroup) rotundaGroup.visible = false;
-      if (gatedTownshipGroup) gatedTownshipGroup.visible = true;
-    }
-
-    portalBackWrap?.classList.add('is-visible');
-    if (portalBackText) portalBackText.textContent = '← STEP BACK INTO ART GALLERY';
-    societyControlsEl?.classList.remove('is-visible');
-    if (spatialLabelsLayer) spatialLabelsLayer.classList.add('is-hidden');
-
-    if (hudKicker) hudKicker.textContent = 'ESTATE PORTAL';
-    if (hudTitle) hudTitle.textContent = 'Stepping Out to Nexora Gated Society';
-    if (hudSubtitle) hudSubtitle.textContent = 'Transitioning from the rotunda art gallery to the luxury community grounds';
-    if (navStatusText) navStatusText.textContent = 'Exiting Art Gallery · Entering Gated Society 360°';
-    if (hintLine1) hintLine1.textContent = 'Stepping through classical temple portal...';
-    if (hintLine2) hintLine2.textContent = 'Scroll forward to view the 360° gated society';
-
-    // Camera glides through doorway forward
-    const pCamPos = new THREE.Vector3(
-      0,
-      THREE.MathUtils.lerp(1.7, 24.0, t),
-      THREE.MathUtils.lerp(7.0, 96.0, t)
-    );
-    const pLookAt = new THREE.Vector3(0, THREE.MathUtils.lerp(1.5, 6.0, t), THREE.MathUtils.lerp(15.0, 10.0, t));
-    const damp = 1 - Math.exp(-7.0 * delta);
-    currentEye.lerp(pCamPos, damp);
-    currentLookAt.lerp(pLookAt, damp);
-
-  } else if (journey.progress < 0.65) {
-    // Stage 3: Full Gated Society 360° Panoramic Tour (View from All 4 Sides + Floating Pins)
-    journey.activeMode = 'society';
-    canvasContainer.style.opacity = '1';
-    canvasContainer.style.pointerEvents = 'auto';
-    palaceContainer.style.opacity = '0';
-    palaceContainer.style.pointerEvents = 'none';
 
     if (rotundaGroup) rotundaGroup.visible = false;
     if (gatedTownshipGroup) gatedTownshipGroup.visible = true;
     if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
 
     portalBackWrap?.classList.add('is-visible');
-    if (portalBackText) portalBackText.textContent = '← STEP BACK INTO ART GALLERY';
+    if (portalBackText) portalBackText.textContent = '← STEP BACK TO 3D ENTRANCE';
     societyControlsEl?.classList.add('is-visible');
+    updateSocietyViewControlsForStage('pool');
 
-    // In society 360° tour, hide center text HUD so 4-side buttons and scene are completely clear
-    if (waypointHud) waypointHud.style.opacity = '0';
-    if (viewToggle) viewToggle.style.opacity = '0';
-    if (helpTapLink) helpTapLink.style.opacity = '1';
-    if (navStatusText) navStatusText.textContent = 'Gated Society 360° · Towers A-D, Pools, Courts, Gym & Villa';
-    if (hintLine1) hintLine1.textContent = 'View society from all 4 sides · Click landmark pins to inspect';
-    if (hintLine2) hintLine2.textContent = 'Scroll forward or click room pills to walk into central luxury bungalow';
+    if (navStatusText) navStatusText.textContent = 'Resort Aquatics Oasis · 28m Olympic Lap Pool & Cabanas (4-Side Views)';
+    if (hintLine1) hintLine1.textContent = 'Swimming Pool Amenities · View from all 4 sides below';
+    if (hintLine2) hintLine2.textContent = 'Scroll forward to step into the Wellness Gym';
 
-    // Update 3D projected spatial pins
     updateSpatialPins(camera, window.innerWidth, window.innerHeight);
 
-    // 4-Side Camera Orientation & 360° Auto Orbit
+    const damp = 1 - Math.exp(-5.5 * delta);
+    if (societyViewState.mode === 'auto') {
+      societyViewState.orbitAngle += delta * 0.16;
+      const r = 18.0;
+      const tCam = new THREE.Vector3(
+        -4.0 + Math.sin(societyViewState.orbitAngle) * r,
+        9.0,
+        -40.0 + Math.cos(societyViewState.orbitAngle) * r
+      );
+      currentEye.lerp(tCam, damp);
+      currentLookAt.lerp(new THREE.Vector3(-4.0, 1.2, -38.0), damp);
+    } else if (societyViewState.mode === 'north') {
+      currentEye.lerp(new THREE.Vector3(-4.0, 5.8, -58.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(-4.0, 2.0, -28.0), damp);
+    } else if (societyViewState.mode === 'south') {
+      currentEye.lerp(new THREE.Vector3(-4.0, 3.8, -23.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(-4.0, 1.2, -42.0), damp);
+    } else if (societyViewState.mode === 'east') {
+      currentEye.lerp(new THREE.Vector3(24.0, 6.5, -38.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(-6.0, 1.2, -38.0), damp);
+    } else if (societyViewState.mode === 'west') {
+      currentEye.lerp(new THREE.Vector3(-28.0, 6.5, -38.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(4.0, 1.2, -38.0), damp);
+    } else if (societyViewState.mode === 'landmark' && societyViewState.targetLandmark) {
+      currentEye.lerp(societyViewState.targetLandmark.viewCamPos, damp);
+      currentLookAt.lerp(societyViewState.targetLandmark.viewLookAt, damp);
+    }
+
+  } else if (journey.progress < 0.60) {
+    // =========================================================================
+    // STAGE 3: VITALITY WELLNESS GYM & FITNESS CENTER (4-Side Views)
+    // =========================================================================
+    journey.activeMode = 'gym';
+    canvasContainer.style.opacity = '1';
+    canvasContainer.style.pointerEvents = 'auto';
+
+    if (rotundaGroup) rotundaGroup.visible = false;
+    if (gatedTownshipGroup) gatedTownshipGroup.visible = true;
+    if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
+
+    portalBackWrap?.classList.add('is-visible');
+    if (portalBackText) portalBackText.textContent = '← STEP BACK TO SWIMMING POOL';
+    societyControlsEl?.classList.add('is-visible');
+    updateSocietyViewControlsForStage('gym');
+
+    if (navStatusText) navStatusText.textContent = 'Vitality Wellness Club · Modern Glass Fitness Center (4-Side Views)';
+    if (hintLine1) hintLine1.textContent = 'Wellness Gym Amenities · View from all 4 sides below';
+    if (hintLine2) hintLine2.textContent = 'Scroll forward to step out to Society Grounds & Parking';
+
+    updateSpatialPins(camera, window.innerWidth, window.innerHeight);
+
+    const damp = 1 - Math.exp(-5.5 * delta);
+    if (societyViewState.mode === 'auto') {
+      societyViewState.orbitAngle += delta * 0.16;
+      const r = 7.2;
+      const tCam = new THREE.Vector3(
+        18.0 + Math.sin(societyViewState.orbitAngle) * r,
+        2.2,
+        40.0 + Math.cos(societyViewState.orbitAngle) * r
+      );
+      currentEye.lerp(tCam, damp);
+      currentLookAt.lerp(new THREE.Vector3(18.0, 1.8, 40.0), damp);
+    } else if (societyViewState.mode === 'cardio') {
+      currentEye.lerp(new THREE.Vector3(18.0, 2.0, 46.5), damp);
+      currentLookAt.lerp(new THREE.Vector3(16.5, 1.4, 40.0), damp);
+    } else if (societyViewState.mode === 'weights') {
+      currentEye.lerp(new THREE.Vector3(22.5, 2.0, 34.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(16.0, 1.2, 36.5), damp);
+    } else if (societyViewState.mode === 'garden') {
+      currentEye.lerp(new THREE.Vector3(14.0, 2.0, 38.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(2.0, 1.4, 38.0), damp);
+    } else if (societyViewState.mode === 'entry') {
+      currentEye.lerp(new THREE.Vector3(18.0, 2.4, 51.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(18.0, 1.8, 40.0), damp);
+    } else if (societyViewState.mode === 'landmark' && societyViewState.targetLandmark) {
+      currentEye.lerp(societyViewState.targetLandmark.viewCamPos, damp);
+      currentLookAt.lerp(societyViewState.targetLandmark.viewLookAt, damp);
+    }
+
+  } else if (journey.progress < 0.80) {
+    // =========================================================================
+    // STAGE 4: GRAND GATED SOCIETY GROUNDS, PARKING PLAZA & TOWERS
+    // =========================================================================
+    journey.activeMode = 'society';
+    canvasContainer.style.opacity = '1';
+    canvasContainer.style.pointerEvents = 'auto';
+
+    if (rotundaGroup) rotundaGroup.visible = false;
+    if (gatedTownshipGroup) gatedTownshipGroup.visible = true;
+    if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
+
+    portalBackWrap?.classList.add('is-visible');
+    if (portalBackText) portalBackText.textContent = '← STEP BACK TO WELLNESS GYM';
+    societyControlsEl?.classList.add('is-visible');
+    updateSocietyViewControlsForStage('society');
+
+    if (navStatusText) navStatusText.textContent = 'Gated Society Grounds · 15-Floor Towers, Parking Plaza & Promenades';
+    if (hintLine1) hintLine1.textContent = 'Full Society Masterplan · View angles below';
+    if (hintLine2) hintLine2.textContent = 'Scroll forward or click Central Villa pill to walk inside villa';
+
+    updateSpatialPins(camera, window.innerWidth, window.innerHeight);
+
     const damp = 1 - Math.exp(-4.5 * delta);
     if (societyViewState.mode === 'auto') {
-      societyViewState.orbitAngle += delta * 0.12; // smooth 360° continuous rotation
+      societyViewState.orbitAngle += delta * 0.12;
       const r = 96.0;
       const targetCam = new THREE.Vector3(
         Math.sin(societyViewState.orbitAngle) * r,
@@ -3074,14 +3107,14 @@ function animate() {
       currentEye.lerp(targetCam, damp);
       currentLookAt.lerp(new THREE.Vector3(0, 6.0, 5.0), damp);
     } else if (societyViewState.mode === 'south') {
-      currentEye.lerp(new THREE.Vector3(0, 22.0, 96.0), damp);
-      currentLookAt.lerp(new THREE.Vector3(0, 4.0, 10.0), damp);
+      currentEye.lerp(new THREE.Vector3(0, 18.0, 102.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(0, 4.0, 20.0), damp);
+    } else if (societyViewState.mode === 'parking') {
+      currentEye.lerp(new THREE.Vector3(12.0, 8.5, 86.0), damp);
+      currentLookAt.lerp(new THREE.Vector3(18.0, 1.2, 68.0), damp);
     } else if (societyViewState.mode === 'east') {
       currentEye.lerp(new THREE.Vector3(-14.0, 18.0, 0.0), damp);
       currentLookAt.lerp(new THREE.Vector3(48.0, 16.0, 0.0), damp);
-    } else if (societyViewState.mode === 'north') {
-      currentEye.lerp(new THREE.Vector3(-2.0, 14.0, -16.0), damp);
-      currentLookAt.lerp(new THREE.Vector3(-4.0, 1.2, -38.0), damp);
     } else if (societyViewState.mode === 'west') {
       currentEye.lerp(new THREE.Vector3(14.0, 18.0, 0.0), damp);
       currentLookAt.lerp(new THREE.Vector3(-48.0, 16.0, 0.0), damp);
@@ -3091,59 +3124,48 @@ function animate() {
     }
 
   } else {
-    // Stage 4: Walk-In Central Luxury Bungalow Interior
+    // =========================================================================
+    // STAGE 5: CENTRAL LUXURY WALK-IN BUNGALOW VILLA INTERIOR
+    // =========================================================================
     journey.activeMode = 'bungalow';
     canvasContainer.style.opacity = '1';
     canvasContainer.style.pointerEvents = 'auto';
-    palaceContainer.style.opacity = '0';
-    palaceContainer.style.pointerEvents = 'none';
 
     if (rotundaGroup) rotundaGroup.visible = false;
     if (gatedTownshipGroup) gatedTownshipGroup.visible = true;
     if (window.__bungalowInterior) window.__bungalowInterior.visible = false;
 
     portalBackWrap?.classList.add('is-visible');
-    if (portalBackText) portalBackText.textContent = '← WALK OUT TO GATED SOCIETY 360°';
-    societyControlsEl?.classList.remove('is-visible');
+    if (portalBackText) portalBackText.textContent = '← WALK OUT TO SOCIETY GROUNDS';
+    societyControlsEl?.classList.add('is-visible');
+    updateSocietyViewControlsForStage('bungalow');
     if (spatialLabelsLayer) spatialLabelsLayer.classList.add('is-hidden');
-
-    if (waypointHud) waypointHud.style.opacity = '1';
-    if (viewToggle) viewToggle.style.opacity = '0';
-    if (helpTapLink) helpTapLink.style.opacity = '0';
-    if (hintLine1) hintLine1.textContent = 'Inside Central Luxury Bungalow Villa';
-    if (hintLine2) hintLine2.textContent = 'Scroll forward or click room pills to walk through rooms';
 
     const damp = 1 - Math.exp(-7.5 * delta);
     const roomCamPos = new THREE.Vector3();
     const roomLookAt = new THREE.Vector3();
 
-    if (journey.progress < 0.75) {
-      // Living Room (p = 0.65 to 0.75)
-      const t = (journey.progress - 0.65) / 0.10;
-      roomCamPos.set(1.5, 1.65, 14.8 - t * 4.2);
-      roomLookAt.set(-0.2, 1.35, 9.6);
-      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
-      if (hudTitle) hudTitle.textContent = 'Grand Living Room & Fireplace Lounge';
-      if (hudSubtitle) hudSubtitle.textContent = 'Italian sectional lounge, marble coffee table & Nero Marquina fireplace';
-      if (navStatusText) navStatusText.textContent = 'Bungalow Room 1 of 3: Grand Living Room & Fireplace';
-    } else if (journey.progress < 0.85) {
-      // Modular Kitchen (p = 0.75 to 0.85)
-      const t = (journey.progress - 0.75) / 0.10;
-      roomCamPos.set(Math.sin(t * Math.PI) * 0.8, 1.75, 5.0 - t * 4.5);
-      roomLookAt.set(0, 1.45, -2.0);
-      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
-      if (hudTitle) hudTitle.textContent = 'Gourmet Modular Kitchen & Dining';
-      if (hudSubtitle) hudSubtitle.textContent = '4.2m waterfall Calacatta gold marble island, modular cabinetry & wine cooler';
-      if (navStatusText) navStatusText.textContent = 'Bungalow Room 2 of 3: Gourmet Modular Kitchen';
+    if (journey.progress < 0.87 || societyViewState.mode === 'living') {
+      // Living Room
+      roomCamPos.set(4.5, 1.85, 15.5);
+      roomLookAt.set(-0.2, 1.45, 9.5);
+      if (navStatusText) navStatusText.textContent = 'Central Luxury Villa · Grand Living Room & Fireplace';
+      if (hintLine1) hintLine1.textContent = 'Grand Living Room & Lounge';
+      if (hintLine2) hintLine2.textContent = 'Scroll forward to walk into the Gourmet Modular Kitchen';
+    } else if (journey.progress < 0.94 || societyViewState.mode === 'kitchen') {
+      // Modular Kitchen
+      roomCamPos.set(3.5, 1.85, 4.5);
+      roomLookAt.set(-0.5, 1.45, -2.5);
+      if (navStatusText) navStatusText.textContent = 'Central Luxury Villa · Gourmet Modular Kitchen & Dining';
+      if (hintLine1) hintLine1.textContent = 'Gourmet Modular Kitchen';
+      if (hintLine2) hintLine2.textContent = 'Scroll forward to walk into the Master Bedroom Suite';
     } else {
-      // Master Bedroom (p = 0.85 to 1.00)
-      const t = (journey.progress - 0.85) / 0.15;
-      roomCamPos.set(Math.sin(t * Math.PI) * 0.8, 1.75, -5.0 - t * 4.5);
-      roomLookAt.set(0, 1.45, -11.0);
-      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
-      if (hudTitle) hudTitle.textContent = 'Master Bedroom Suite & Walk-In Wardrobe';
-      if (hudSubtitle) hudSubtitle.textContent = 'King platform bed, vertical fluted headboard & designer wardrobe';
-      if (navStatusText) navStatusText.textContent = 'Bungalow Room 3 of 3: Master Bedroom Suite';
+      // Master Bedroom
+      roomCamPos.set(3.2, 1.85, -5.5);
+      roomLookAt.set(0.0, 1.45, -10.5);
+      if (navStatusText) navStatusText.textContent = 'Central Luxury Villa · Master Bedroom Suite & Wardrobe';
+      if (hintLine1) hintLine1.textContent = 'Master Bedroom Suite';
+      if (hintLine2) hintLine2.textContent = 'Complete Real Estate Walkthrough';
     }
 
     currentEye.lerp(roomCamPos, damp);
@@ -3159,9 +3181,6 @@ function animate() {
   const innerWallOpacity = THREE.MathUtils.smoothstep(camDist, 7.4 + 0.2, 7.4 + 1.8);
   innerWallMat.opacity = innerWallOpacity;
   innerLampMat.opacity = 0.55 * innerWallOpacity;
-
-  // Throttled raycasting hover check
-  checkHover(now);
 
   renderer.render(scene, camera);
 }

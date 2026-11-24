@@ -1087,8 +1087,10 @@ html, body {
 }
 
 .spatial-labels-layer.is-hidden {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+  pointer-events: none !important;
 }
 
 .spatial-pin {
@@ -1187,6 +1189,12 @@ html, body {
   transition: all 0.3s ease;
   opacity: 0;
   pointer-events: none;
+}
+
+.view-controls-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .society-view-controls.is-visible {
