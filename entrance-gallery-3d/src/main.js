@@ -10,6 +10,9 @@ const dayNightState = {
 
 let buildingWindowGlowMat = null;
 let twinBuildingsGroup = null;
+let gatedTownshipGroup = null;
+let animatedResidents = [];
+let fireplaceFlameMesh = null;
 
 function setupDayNightController() {
   const slider = document.getElementById('daynight-slider');
@@ -22,6 +25,35 @@ function setupDayNightController() {
       setDayNightFactor(parseFloat(e.target.value) / 100.0);
     });
   }
+}
+
+function setupRoomNavigation() {
+  const pills = document.querySelectorAll('.room-pill');
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const targetP = parseFloat(pill.dataset.progress);
+      if (!isNaN(targetP)) {
+        journey.targetProgress = targetP;
+      }
+    });
+  });
+}
+
+function updateActiveRoomPill(p) {
+  const pills = document.querySelectorAll('.room-pill');
+  if (!pills.length) return;
+
+  let activeIndex = 0;
+  if (p >= 0.42) activeIndex = 4; // Art Gallery
+  else if (p >= 0.33) activeIndex = 3; // Master Bedroom
+  else if (p >= 0.24) activeIndex = 2; // Modular Kitchen
+  else if (p >= 0.14) activeIndex = 1; // Living Room
+  else activeIndex = 0; // Gated Society Grounds
+
+  pills.forEach((pill, idx) => {
+    if (idx === activeIndex) pill.classList.add('is-active');
+    else pill.classList.remove('is-active');
+  });
 }
 
 function setDayNightFactor(factor) {
@@ -37,7 +69,12 @@ function setDayNightFactor(factor) {
   }
 
   if (window.__bldgMats) {
-    const { marbleMat, slabMat, shadowMat, glassMat, roofMat } = window.__bldgMats;
+    const {
+      marbleMat, slabMat, shadowMat, glassMat, roofMat,
+      promenadeMat, curbMat, grassMat, woodSlatMat, villaWallMat,
+      lampGlobeMat, courtFloodlightMat, gymInteriorLightMat, villaInteriorLightMat
+    } = window.__bldgMats;
+
     // Classical limestone & marble color grading across time of day:
     if (marbleMat) {
       if (t < 0.5) {
@@ -75,6 +112,65 @@ function setDayNightFactor(factor) {
         glassMat.color.lerpColors(new THREE.Color(0x9a5e2d), new THREE.Color(0xffd580), (t - 0.5) / 0.5);
       }
     }
+    // Ground & architecture materials
+    if (promenadeMat) {
+      if (t < 0.5) promenadeMat.color.lerpColors(new THREE.Color(0xdcd6ca), new THREE.Color(0xd4beaa), t / 0.5);
+      else promenadeMat.color.lerpColors(new THREE.Color(0xd4beaa), new THREE.Color(0x303642), (t - 0.5) / 0.5);
+    }
+    if (curbMat) {
+      if (t < 0.5) curbMat.color.lerpColors(new THREE.Color(0xbeb7a8), new THREE.Color(0xb5a08d), t / 0.5);
+      else curbMat.color.lerpColors(new THREE.Color(0xb5a08d), new THREE.Color(0x222730), (t - 0.5) / 0.5);
+    }
+    if (grassMat) {
+      if (t < 0.5) grassMat.color.lerpColors(new THREE.Color(0x385e30), new THREE.Color(0x4a5a2a), t / 0.5);
+      else grassMat.color.lerpColors(new THREE.Color(0x4a5a2a), new THREE.Color(0x132115), (t - 0.5) / 0.5);
+    }
+    if (woodSlatMat) {
+      if (t < 0.5) woodSlatMat.color.lerpColors(new THREE.Color(0x93663b), new THREE.Color(0xb57c48), t / 0.5);
+      else woodSlatMat.color.lerpColors(new THREE.Color(0xb57c48), new THREE.Color(0x3b2816), (t - 0.5) / 0.5);
+    }
+    if (villaWallMat) {
+      if (t < 0.5) villaWallMat.color.lerpColors(new THREE.Color(0xf6f5f0), new THREE.Color(0xeee4d8), t / 0.5);
+      else villaWallMat.color.lerpColors(new THREE.Color(0xeee4d8), new THREE.Color(0x3c4350), (t - 0.5) / 0.5);
+    }
+
+    // Dynamic Evening & Night Lighting Glows
+    if (lampGlobeMat) {
+      lampGlobeMat.opacity = Math.max(0.35, Math.pow(t, 0.75) * 1.0);
+    }
+    if (courtFloodlightMat) {
+      courtFloodlightMat.opacity = Math.pow(t, 1.4) * 0.95;
+    }
+    if (gymInteriorLightMat) {
+      gymInteriorLightMat.opacity = 0.45 + t * 0.55;
+    }
+    if (villaInteriorLightMat) {
+      villaInteriorLightMat.opacity = 0.35 + Math.pow(t, 0.8) * 0.65;
+    }
+  }
+
+  // Sync Walk-In Bungalow Interior Lighting across day & night
+  if (window.__bungalowMats) {
+    const { wallMat, oakFloorMat, porcelainFloorMat, carpetMat, ledGlowMat } = window.__bungalowMats;
+    if (wallMat) {
+      if (t < 0.5) wallMat.color.lerpColors(new THREE.Color(0xf5f3ee), new THREE.Color(0xecdecb), t / 0.5);
+      else wallMat.color.lerpColors(new THREE.Color(0xecdecb), new THREE.Color(0x384152), (t - 0.5) / 0.5);
+    }
+    if (oakFloorMat) {
+      if (t < 0.5) oakFloorMat.color.lerpColors(new THREE.Color(0xd8c8a8), new THREE.Color(0xc9b28b), t / 0.5);
+      else oakFloorMat.color.lerpColors(new THREE.Color(0xc9b28b), new THREE.Color(0x33281b), (t - 0.5) / 0.5);
+    }
+    if (porcelainFloorMat) {
+      if (t < 0.5) porcelainFloorMat.color.lerpColors(new THREE.Color(0xece9e3), new THREE.Color(0xe2d6c5), t / 0.5);
+      else porcelainFloorMat.color.lerpColors(new THREE.Color(0xe2d6c5), new THREE.Color(0x2f3745), (t - 0.5) / 0.5);
+    }
+    if (carpetMat) {
+      if (t < 0.5) carpetMat.color.lerpColors(new THREE.Color(0xd5cebe), new THREE.Color(0xccbda7), t / 0.5);
+      else carpetMat.color.lerpColors(new THREE.Color(0xccbda7), new THREE.Color(0x262f3a), (t - 0.5) / 0.5);
+    }
+    if (ledGlowMat) {
+      ledGlowMat.opacity = 0.45 + t * 0.55;
+    }
   }
 
   if (dayNightState.badgeEl) {
@@ -98,12 +194,13 @@ function setDayNightFactor(factor) {
 
 window.setDayNight = setDayNightFactor;
 
-// ------------------------------------------------ 15-Floor Neoclassical Clean Twin Buildings
-function setupNeoclassical15FloorTowers(nomadiicInstance) {
+// ------------------------------------------------ FULL GATED TOWNSHIP, SPORTS AMENITIES & WALK-IN BUNGALOW
+function setupGatedTownshipAndBungalow(nomadiicInstance) {
   if (!nomadiicInstance || !nomadiicInstance.scene) return;
   const scene = nomadiicInstance.scene;
 
-  // 1. Flatten the old 1-story side colonnades from palace mesh to ground level
+  // 1. Flatten old colonnades and old center structure to ground plinth level (Y = 0.05)
+  // This opens up a clean, wide 52m community park for towers, footpaths, courts, gym, and bungalow
   const palaceMesh = scene.children.find(c => c.isMesh && c.geometry?.attributes?.position?.count > 50000);
   if (palaceMesh && palaceMesh.geometry) {
     palaceMesh.frustumCulled = false;
@@ -112,7 +209,7 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
       const x = pos.getX(i);
       const y = pos.getY(i);
       const z = pos.getZ(i);
-      if (Math.abs(x) >= 11.2 && Math.abs(x) <= 26.0 && z >= 17.0 && z <= 80.0 && y > 0.4) {
+      if (Math.abs(x) <= 38.0 && z >= -25.0 && z <= 82.0 && y > 0.4) {
         pos.setY(i, 0.05);
       }
     }
@@ -121,15 +218,64 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
     palaceMesh.geometry.computeBoundingSphere();
   }
 
-  // 2. Materials matching the classical limestone/marble of the temple
+  // 2. Comprehensive Material System for Gated Township & Bungalow
   const marbleMat = new THREE.MeshBasicMaterial({ color: 0xf0ede6 });
   const slabMat = new THREE.MeshBasicMaterial({ color: 0xf8f6f0 });
   const shadowMat = new THREE.MeshBasicMaterial({ color: 0xdad5c8 });
   const glassMat = new THREE.MeshBasicMaterial({ color: 0x1c293a });
   const roofMat = new THREE.MeshBasicMaterial({ color: 0xe6e1d6 });
 
-  window.__bldgMats = { marbleMat, slabMat, shadowMat, glassMat, roofMat };
+  // Community grounds & landscape materials
+  const promenadeMat = new THREE.MeshBasicMaterial({ color: 0xdcd6ca });
+  const curbMat = new THREE.MeshBasicMaterial({ color: 0xbeb7a8 });
+  const grassMat = new THREE.MeshBasicMaterial({ color: 0x385e30 });
+  const woodSlatMat = new THREE.MeshBasicMaterial({ color: 0x93663b });
+  const villaWallMat = new THREE.MeshBasicMaterial({ color: 0xf6f5f0 });
+  const blackMetalMat = new THREE.MeshBasicMaterial({ color: 0x1a1d21 });
+  const clearGlassMat = new THREE.MeshBasicMaterial({ color: 0x223548, transparent: true, opacity: 0.45 });
 
+  // Lighting & Night glow materials
+  const lampGlobeMat = new THREE.MeshBasicMaterial({ color: 0xffe89e, transparent: true, opacity: 0.5 });
+  const courtFloodlightMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.2 });
+  const gymInteriorLightMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+  const villaInteriorLightMat = new THREE.MeshBasicMaterial({ color: 0xffdf99, transparent: true, opacity: 0.45 });
+  const fireplaceFlameMat = new THREE.MeshBasicMaterial({ color: 0xff9922 });
+
+  // Sports courts materials
+  const bballCourtMat = new THREE.MeshBasicMaterial({ color: 0x1b3b6f }); // Navy blue
+  const bballKeyMat = new THREE.MeshBasicMaterial({ color: 0xbd5a3a }); // Terracotta
+  const tennisCourtMat = new THREE.MeshBasicMaterial({ color: 0x277949 }); // Emerald green
+  const tennisSurroundMat = new THREE.MeshBasicMaterial({ color: 0x172944 }); // Navy surround
+  const whiteLineMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  const netMeshMat = new THREE.MeshBasicMaterial({ color: 0x111111, transparent: true, opacity: 0.7 });
+  const hoopRimMat = new THREE.MeshBasicMaterial({ color: 0xff5500 });
+  const hoopBackboardMat = new THREE.MeshBasicMaterial({ color: 0xe6f2ff, transparent: true, opacity: 0.65 });
+
+  // Villa Interior Furnishing materials
+  const oakFloorMat = new THREE.MeshBasicMaterial({ color: 0xd5c4a1 });
+  const kitchenTileMat = new THREE.MeshBasicMaterial({ color: 0xeae7e1 });
+  const carpetMat = new THREE.MeshBasicMaterial({ color: 0xd2cbbf });
+  const sofaMat = new THREE.MeshBasicMaterial({ color: 0xede8e1 });
+  const cushionMat = new THREE.MeshBasicMaterial({ color: 0xc47242 });
+  const marbleIslandMat = new THREE.MeshBasicMaterial({ color: 0xf8f6f0 });
+  const darkCabinetMat = new THREE.MeshBasicMaterial({ color: 0x23272e });
+  const blackMarbleTvWallMat = new THREE.MeshBasicMaterial({ color: 0x151619 });
+  const brassMetalMat = new THREE.MeshBasicMaterial({ color: 0xd4af37 });
+  const bedLinenMat = new THREE.MeshBasicMaterial({ color: 0xfafafa });
+  const headboardMat = new THREE.MeshBasicMaterial({ color: 0x8c7c6e });
+
+  window.__bldgMats = {
+    marbleMat, slabMat, shadowMat, glassMat, roofMat,
+    promenadeMat, curbMat, grassMat, woodSlatMat, villaWallMat,
+    lampGlobeMat, courtFloodlightMat, gymInteriorLightMat, villaInteriorLightMat
+  };
+
+  gatedTownshipGroup = new THREE.Group();
+  gatedTownshipGroup.name = 'nexora-gated-township-society';
+
+  // =========================================================================
+  // 1. WIDENED 15-FLOOR NEOCLASSICAL TWIN TOWERS (X = -32.0 and X = +32.0)
+  // =========================================================================
   const FLOORS = 15;
   const FLOOR_H = 2.85;
   const TOTAL_H = FLOORS * FLOOR_H; // ~42.75m
@@ -141,7 +287,7 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
   function create15FloorTower(side) {
     const group = new THREE.Group();
     const sign = side === 'left' ? -1 : 1;
-    const centerX = sign * 18.2;
+    const centerX = sign * 32.0; // Widened spacing (53.5m central community grounds!)
     const centerZ = 48.0;
 
     // Building Main Core Body
@@ -169,12 +315,12 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
       band.position.set(centerX, floorY + 0.35, centerZ);
       group.add(band);
 
-      // ================= POOL-FACING ELEVATION (10 Equal Units) =================
+      // --- Community Promenade-Facing Elevation (10 Equal Units) ---
       for (let u = 0; u < UNITS_PER_FLOOR; u++) {
         const unitZ = (centerZ - BLDG_LEN / 2 + UNIT_W / 2) + u * UNIT_W;
 
         if (f === 0) {
-          // Ground Floor: Monumental Classical Colonnade
+          // Ground Floor Monumental Colonnade
           const colGeo = new THREE.CylinderGeometry(0.32, 0.32, FLOOR_H - 0.45, 16);
           const col = new THREE.Mesh(colGeo, marbleMat);
           col.position.set(facadeX - sign * 0.25, floorY + FLOOR_H / 2 + 0.2, unitZ - UNIT_W / 2);
@@ -219,13 +365,12 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
         }
       }
 
-      // ================= FRONT-FACING ELEVATION (3 Equal Bays facing Viewer) =================
+      // --- Front-Facing Elevation (3 Equal Bays facing Arrival View) ---
       const FRONT_BAYS = 3;
-      const BAY_W = (BLDG_W - 1.0) / FRONT_BAYS; // ~3.16m
+      const BAY_W = (BLDG_W - 1.0) / FRONT_BAYS;
       const bayOffsets = [-BAY_W, 0, BAY_W];
 
       if (f === 0) {
-        // Ground Floor Monumental Front Entrance Portico
         for (let b = 0; b <= FRONT_BAYS; b++) {
           const colX = centerX - (BLDG_W - 1.0) / 2 + b * BAY_W;
           const colGeo = new THREE.CylinderGeometry(0.32, 0.32, FLOOR_H - 0.45, 16);
@@ -234,33 +379,28 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
           group.add(col);
         }
       } else {
-        // Floors 2 to 15: Symmetrical 3 Equal Units on the Front Elevation
         for (let b = 0; b < FRONT_BAYS; b++) {
           const bayX = centerX + bayOffsets[b];
           const isCenter = b === 1;
 
-          // Window
           const winW = isCenter ? 2.5 : 2.1;
           const winGeo = new THREE.PlaneGeometry(winW, FLOOR_H - 0.75);
           const win = new THREE.Mesh(winGeo, glassMat);
           win.position.set(bayX, floorY + FLOOR_H / 2 + 0.2, frontZ);
           group.add(win);
 
-          // Balcony Slab
           const balcW = isCenter ? 2.7 : 2.3;
           const balcSlabGeo = new THREE.BoxGeometry(balcW, 0.18, 1.0);
           const balcSlab = new THREE.Mesh(balcSlabGeo, slabMat);
           balcSlab.position.set(bayX, floorY + 0.45, frontZ + 0.5);
           group.add(balcSlab);
 
-          // Balcony Railing
           const railGeo = new THREE.BoxGeometry(balcW, 0.82, 0.08);
           const rail = new THREE.Mesh(railGeo, slabMat);
           rail.position.set(bayX, floorY + 0.95, frontZ + 0.96);
           group.add(rail);
         }
 
-        // 4 Classical Pilasters dividing the 3 front bays
         for (let p = 0; p <= FRONT_BAYS; p++) {
           const px = centerX - (BLDG_W - 1.0) / 2 + p * BAY_W;
           const pilGeo = new THREE.CylinderGeometry(0.20, 0.20, FLOOR_H - 0.45, 16);
@@ -271,14 +411,12 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
       }
     }
 
-    // ================= FLOOR 15 ROOFTOP CROWN & CLASSICAL PEDIMENT TEMPLE ROOF =================
-    // Classical Dentil Entablature Slab
+    // Floor 15 Rooftop Entablature & Classical Pediment Temple Roof
     const crownGeo = new THREE.BoxGeometry(BLDG_W + 1.2, 0.8, BLDG_LEN + 1.2);
     const crown = new THREE.Mesh(crownGeo, slabMat);
     crown.position.set(centerX, TOTAL_H + 0.4, centerZ);
     group.add(crown);
 
-    // Classical Triangular Greek Pediment Roof running the entire length
     const halfW = (BLDG_W + 1.0) / 2;
     const pedH = 3.2;
     const pedShape = new THREE.Shape();
@@ -300,7 +438,6 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
     pedRoof.position.set(centerX, TOTAL_H + 0.8, centerZ - (BLDG_LEN + 1.0) / 2);
     group.add(pedRoof);
 
-    // Front Pediment Tympanum Trim molding
     const tympanumGeo = new THREE.BoxGeometry(BLDG_W + 0.8, 0.2, 0.4);
     const tympanum = new THREE.Mesh(tympanumGeo, marbleMat);
     tympanum.position.set(centerX, TOTAL_H + 0.9, frontZ + 0.2);
@@ -315,14 +452,750 @@ function setupNeoclassical15FloorTowers(nomadiicInstance) {
 
   const leftTower = create15FloorTower('left');
   const rightTower = create15FloorTower('right');
+  gatedTownshipGroup.add(leftTower);
+  gatedTownshipGroup.add(rightTower);
 
-  twinBuildingsGroup = new THREE.Group();
-  twinBuildingsGroup.name = 'neoclassical-15floor-towers';
-  twinBuildingsGroup.add(leftTower);
-  twinBuildingsGroup.add(rightTower);
-  scene.add(twinBuildingsGroup);
+  // =========================================================================
+  // 2. GATED SOCIETY GROUNDS: FOOTPATHS, STREETLAMPS, PALMS & GATEHOUSE
+  // =========================================================================
+  const groundsGroup = new THREE.Group();
 
-  window.__twinBuildings = twinBuildingsGroup;
+  // Wide Central Paved Promenade (Z = 100 to Z = 20)
+  const promLen = 82.0;
+  const promW = 6.0;
+  const promGeo = new THREE.BoxGeometry(promW, 0.08, promLen);
+  const promenade = new THREE.Mesh(promGeo, promenadeMat);
+  promenade.position.set(0, 0.06, 59.0);
+  groundsGroup.add(promenade);
+
+  // Stone Curbs along Central Promenade
+  const curbL = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.16, promLen), curbMat);
+  curbL.position.set(-promW / 2 - 0.12, 0.10, 59.0);
+  const curbR = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.16, promLen), curbMat);
+  curbR.position.set(promW / 2 + 0.12, 0.10, 59.0);
+  groundsGroup.add(curbL);
+  groundsGroup.add(curbR);
+
+  // Branching Footpath to Left Courts (X = -3 to -18, Z = 55)
+  const branchLeftGeo = new THREE.BoxGeometry(16.0, 0.08, 3.2);
+  const branchLeft = new THREE.Mesh(branchLeftGeo, promenadeMat);
+  branchLeft.position.set(-11.0, 0.06, 55.0);
+  groundsGroup.add(branchLeft);
+
+  // Branching Footpath to Tennis Court (X = -3 to -18, Z = 26)
+  const branchTennis = new THREE.Mesh(new THREE.BoxGeometry(16.0, 0.08, 3.2), promenadeMat);
+  branchTennis.position.set(-11.0, 0.06, 26.0);
+  groundsGroup.add(branchTennis);
+
+  // Branching Footpath to Right Gym Pavilion (X = 3 to 18, Z = 40)
+  const branchRightGeo = new THREE.BoxGeometry(16.0, 0.08, 3.4);
+  const branchRight = new THREE.Mesh(branchRightGeo, promenadeMat);
+  branchRight.position.set(11.0, 0.06, 40.0);
+  groundsGroup.add(branchRight);
+
+  // Modern Pedestrian Streetlamps along Footpaths
+  function createStreetlamp(x, z) {
+    const lampGroup = new THREE.Group();
+    // Post
+    const postGeo = new THREE.CylinderGeometry(0.07, 0.09, 3.6, 12);
+    const post = new THREE.Mesh(postGeo, blackMetalMat);
+    post.position.set(0, 1.8, 0);
+    lampGroup.add(post);
+
+    // Arm & Head
+    const armGeo = new THREE.BoxGeometry(0.42, 0.06, 0.06);
+    const arm = new THREE.Mesh(armGeo, blackMetalMat);
+    arm.position.set(0.18, 3.55, 0);
+    lampGroup.add(arm);
+
+    // Glowing Frosted Globe
+    const globeGeo = new THREE.SphereGeometry(0.22, 16, 16);
+    const globe = new THREE.Mesh(globeGeo, lampGlobeMat);
+    globe.position.set(0.36, 3.42, 0);
+    lampGroup.add(globe);
+
+    lampGroup.position.set(x, 0, z);
+    return lampGroup;
+  }
+
+  // Place lamps every 14 meters along promenade and paths
+  const lampZs = [24, 38, 52, 66, 80, 94];
+  lampZs.forEach(z => {
+    groundsGroup.add(createStreetlamp(-3.6, z));
+    groundsGroup.add(createStreetlamp(3.6, z));
+  });
+
+  // Royal Palm Trees lining the community park
+  function createPalmTree(x, z, scale = 1.0) {
+    const palm = new THREE.Group();
+    // Curved trunk
+    const trunkGeo = new THREE.CylinderGeometry(0.24 * scale, 0.38 * scale, 6.5 * scale, 10);
+    const trunkMat = new THREE.MeshBasicMaterial({ color: 0x5a4a3a });
+    const trunk = new THREE.Mesh(trunkGeo, trunkMat);
+    trunk.position.set(0, 3.25 * scale, 0);
+    trunk.rotation.z = (Math.random() - 0.5) * 0.08;
+    palm.add(trunk);
+
+    // Fronds (10 radiating arched leaves)
+    const frondMat = new THREE.MeshBasicMaterial({ color: 0x2e5c24 });
+    for (let i = 0; i < 10; i++) {
+      const angle = (i / 10) * Math.PI * 2;
+      const frondGeo = new THREE.BoxGeometry(0.3 * scale, 0.06 * scale, 2.8 * scale);
+      const frond = new THREE.Mesh(frondGeo, frondMat);
+      frond.position.set(
+        Math.sin(angle) * 1.3 * scale,
+        (6.5 - 0.25) * scale,
+        Math.cos(angle) * 1.3 * scale
+      );
+      frond.rotation.y = angle;
+      frond.rotation.x = 0.45;
+      palm.add(frond);
+    }
+
+    palm.position.set(x, 0, z);
+    return palm;
+  }
+
+  // Plant palms on both sides of promenade
+  groundsGroup.add(createPalmTree(-5.8, 30, 1.1));
+  groundsGroup.add(createPalmTree(5.8, 30, 1.1));
+  groundsGroup.add(createPalmTree(-5.8, 58, 1.15));
+  groundsGroup.add(createPalmTree(5.8, 58, 1.15));
+  groundsGroup.add(createPalmTree(-5.8, 86, 1.2));
+  groundsGroup.add(createPalmTree(5.8, 86, 1.2));
+
+  // Gated Society Security Entrance & Gatehouse (Z = 96.0)
+  const gatehouseGroup = new THREE.Group();
+  // Guardhouse pavilion
+  const ghGeo = new THREE.BoxGeometry(4.2, 3.2, 4.0);
+  const gh = new THREE.Mesh(ghGeo, villaWallMat);
+  gh.position.set(8.5, 1.6, 96.0);
+  gatehouseGroup.add(gh);
+
+  const ghRoof = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.25, 4.6), blackMetalMat);
+  ghRoof.position.set(8.5, 3.32, 96.0);
+  gatehouseGroup.add(ghRoof);
+
+  // Security window
+  const ghWin = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 1.4), lampGlobeMat);
+  ghWin.position.set(6.38, 1.8, 96.0);
+  ghWin.rotation.y = -Math.PI / 2;
+  gatehouseGroup.add(ghWin);
+
+  // Monumental Entry Gate Pillars
+  const pillarGeo = new THREE.BoxGeometry(1.4, 4.2, 1.4);
+  const pL = new THREE.Mesh(pillarGeo, marbleMat);
+  pL.position.set(-4.2, 2.1, 96.0);
+  const pR = new THREE.Mesh(pillarGeo, marbleMat);
+  pR.position.set(4.2, 2.1, 96.0);
+  gatehouseGroup.add(pL);
+  gatehouseGroup.add(pR);
+
+  // Welcome Arch Community Sign
+  const signGeo = new THREE.BoxGeometry(8.6, 0.85, 0.3);
+  const archSign = new THREE.Mesh(signGeo, blackMetalMat);
+  archSign.position.set(0, 4.4, 96.0);
+  gatehouseGroup.add(archSign);
+
+  // Automatic Boom Barrier (White/Red arm)
+  const barrierArm = new THREE.Mesh(new THREE.BoxGeometry(6.4, 0.12, 0.12), new THREE.MeshBasicMaterial({ color: 0xff3b30 }));
+  barrierArm.position.set(0, 1.05, 96.0);
+  gatehouseGroup.add(barrierArm);
+
+  groundsGroup.add(gatehouseGroup);
+  gatedTownshipGroup.add(groundsGroup);
+
+  // =========================================================================
+  // 3. BASKETBALL COURT (X = -18.0, Z = 55.0)
+  // =========================================================================
+  const bballGroup = new THREE.Group();
+  const bbW = 15.0;
+  const bbL = 26.0;
+
+  // Outer terracotta border
+  const bballOuter = new THREE.Mesh(new THREE.BoxGeometry(bbW + 2.0, 0.08, bbL + 2.0), bballKeyMat);
+  bballOuter.position.set(-18.0, 0.05, 55.0);
+  bballGroup.add(bballOuter);
+
+  // NBA Navy Blue inner playing field
+  const bballCourt = new THREE.Mesh(new THREE.BoxGeometry(bbW, 0.10, bbL), bballCourtMat);
+  bballCourt.position.set(-18.0, 0.07, 55.0);
+  bballGroup.add(bballCourt);
+
+  // Terracotta Key areas (north & south)
+  const keyN = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.12, 5.8), bballKeyMat);
+  keyN.position.set(-18.0, 0.08, 55.0 - bbL / 2 + 2.9);
+  const keyS = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.12, 5.8), bballKeyMat);
+  keyS.position.set(-18.0, 0.08, 55.0 + bbL / 2 - 2.9);
+  bballGroup.add(keyN);
+  bballGroup.add(keyS);
+
+  // White Regulation Line Markings
+  const midLine = new THREE.Mesh(new THREE.BoxGeometry(bbW, 0.12, 0.12), whiteLineMat);
+  midLine.position.set(-18.0, 0.09, 55.0);
+  bballGroup.add(midLine);
+
+  const centerCircle = new THREE.Mesh(new THREE.RingGeometry(1.6, 1.74, 32), whiteLineMat);
+  centerCircle.position.set(-18.0, 0.09, 55.0);
+  centerCircle.rotation.x = -Math.PI / 2;
+  bballGroup.add(centerCircle);
+
+  // 2 Basketball Hoops
+  function createBasketballHoop(zEnd, isNorth) {
+    const hoop = new THREE.Group();
+    // Stanchion Post
+    const stanchion = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.15, 3.8, 12), blackMetalMat);
+    stanchion.position.set(0, 1.9, 0);
+    hoop.add(stanchion);
+
+    // Cantilever Arm
+    const arm = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 1.4), blackMetalMat);
+    arm.position.set(0, 3.4, isNorth ? 0.7 : -0.7);
+    hoop.add(arm);
+
+    // Clear Acrylic Backboard
+    const bbBoard = new THREE.Mesh(new THREE.BoxGeometry(1.8, 1.1, 0.06), hoopBackboardMat);
+    bbBoard.position.set(0, 3.4, isNorth ? 1.4 : -1.4);
+    hoop.add(bbBoard);
+
+    // Orange Rim
+    const rim = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.03, 8, 24), hoopRimMat);
+    rim.position.set(0, 3.05, isNorth ? 1.7 : -1.7);
+    rim.rotation.x = Math.PI / 2;
+    hoop.add(rim);
+
+    // White Net
+    const netGeo = new THREE.CylinderGeometry(0.28, 0.12, 0.45, 12, 1, true);
+    const net = new THREE.Mesh(netGeo, whiteLineMat);
+    net.position.set(0, 2.82, isNorth ? 1.7 : -1.7);
+    hoop.add(net);
+
+    hoop.position.set(-18.0, 0, zEnd);
+    return hoop;
+  }
+
+  bballGroup.add(createBasketballHoop(55.0 - bbL / 2 - 0.4, true));
+  bballGroup.add(createBasketballHoop(55.0 + bbL / 2 + 0.4, false));
+
+  // Floodlight pole
+  const bballLight = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 9.5, 12), blackMetalMat);
+  bballLight.position.set(-18.0 - bbW / 2 - 1.0, 4.75, 55.0);
+  const bballLightPanel = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.8, 2.2), courtFloodlightMat);
+  bballLightPanel.position.set(-18.0 - bbW / 2 - 0.8, 9.2, 55.0);
+  bballGroup.add(bballLight);
+  bballGroup.add(bballLightPanel);
+
+  gatedTownshipGroup.add(bballGroup);
+
+  // =========================================================================
+  // 4. TENNIS COURT (X = -18.0, Z = 24.0)
+  // =========================================================================
+  const tennisGroup = new THREE.Group();
+  const tcW = 16.0;
+  const tcL = 28.0;
+
+  // Navy Surround
+  const tennisOuter = new THREE.Mesh(new THREE.BoxGeometry(tcW + 2.0, 0.08, tcL + 2.0), tennisSurroundMat);
+  tennisOuter.position.set(-18.0, 0.05, 24.0);
+  tennisGroup.add(tennisOuter);
+
+  // Emerald Green Inner Court
+  const tennisInner = new THREE.Mesh(new THREE.BoxGeometry(tcW, 0.10, tcL), tennisCourtMat);
+  tennisInner.position.set(-18.0, 0.07, 24.0);
+  tennisGroup.add(tennisInner);
+
+  // White Boundary & Service Lines
+  const tBaselineN = new THREE.Mesh(new THREE.BoxGeometry(11.0, 0.12, 0.12), whiteLineMat);
+  tBaselineN.position.set(-18.0, 0.09, 24.0 - tcL / 2 + 1.2);
+  const tBaselineS = new THREE.Mesh(new THREE.BoxGeometry(11.0, 0.12, 0.12), whiteLineMat);
+  tBaselineS.position.set(-18.0, 0.09, 24.0 + tcL / 2 - 1.2);
+  tennisGroup.add(tBaselineN);
+  tennisGroup.add(tBaselineS);
+
+  // Regulation Center Tennis Net
+  const netMesh = new THREE.Mesh(new THREE.PlaneGeometry(12.8, 1.05), netMeshMat);
+  netMesh.position.set(-18.0, 0.55, 24.0);
+  tennisGroup.add(netMesh);
+
+  // White top strap
+  const netTop = new THREE.Mesh(new THREE.BoxGeometry(12.8, 0.08, 0.06), whiteLineMat);
+  netTop.position.set(-18.0, 1.06, 24.0);
+  tennisGroup.add(netTop);
+
+  // Green Net Posts
+  const postL = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 1.2, 12), new THREE.MeshBasicMaterial({ color: 0x1a4a2a }));
+  postL.position.set(-18.0 - 6.4, 0.6, 24.0);
+  const postR = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 1.2, 12), new THREE.MeshBasicMaterial({ color: 0x1a4a2a }));
+  postR.position.set(-18.0 + 6.4, 0.6, 24.0);
+  tennisGroup.add(postL);
+  tennisGroup.add(postR);
+
+  // Court Floodlight
+  const tennisLight = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 9.5, 12), blackMetalMat);
+  tennisLight.position.set(-18.0 - tcW / 2 - 1.0, 4.75, 24.0);
+  const tennisLightPanel = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.8, 2.2), courtFloodlightMat);
+  tennisLightPanel.position.set(-18.0 - tcW / 2 - 0.8, 9.2, 24.0);
+  tennisGroup.add(tennisLight);
+  tennisGroup.add(tennisLightPanel);
+
+  gatedTownshipGroup.add(tennisGroup);
+
+  // =========================================================================
+  // 5. CORNER GLASS GYM & HEALTH CLUB PAVILION (X = +18.0, Z = 40.0)
+  // =========================================================================
+  const gymGroup = new THREE.Group();
+  const gymW = 14.0;
+  const gymL = 18.0;
+  const gymH = 4.2;
+
+  // Charcoal rubber sports floor
+  const gymFloor = new THREE.Mesh(new THREE.BoxGeometry(gymW, 0.12, gymL), new THREE.MeshBasicMaterial({ color: 0x22252a }));
+  gymFloor.position.set(18.0, 0.06, 40.0);
+  gymGroup.add(gymFloor);
+
+  // Architectural Roof Slab with Recessed White LED Light Panels
+  const gymRoof = new THREE.Mesh(new THREE.BoxGeometry(gymW + 1.2, 0.4, gymL + 1.2), villaWallMat);
+  gymRoof.position.set(18.0, gymH + 0.2, 40.0);
+  gymGroup.add(gymRoof);
+
+  // Luminous interior ceiling
+  const gymCeiling = new THREE.Mesh(new THREE.PlaneGeometry(gymW - 1.0, gymL - 1.0), gymInteriorLightMat);
+  gymCeiling.position.set(18.0, gymH - 0.02, 40.0);
+  gymCeiling.rotation.x = Math.PI / 2;
+  gymGroup.add(gymCeiling);
+
+  // Panoramic Floor-to-Ceiling Glass Curtain Walls
+  const glassFront = new THREE.Mesh(new THREE.PlaneGeometry(gymW, gymH), clearGlassMat);
+  glassFront.position.set(18.0, gymH / 2 + 0.06, 40.0 + gymL / 2);
+  gymGroup.add(glassFront);
+
+  const glassWest = new THREE.Mesh(new THREE.PlaneGeometry(gymL, gymH), clearGlassMat);
+  glassWest.position.set(18.0 - gymW / 2, gymH / 2 + 0.06, 40.0);
+  glassWest.rotation.y = Math.PI / 2;
+  gymGroup.add(glassWest);
+
+  const glassNorth = new THREE.Mesh(new THREE.PlaneGeometry(gymW, gymH), clearGlassMat);
+  glassNorth.position.set(18.0, gymH / 2 + 0.06, 40.0 - gymL / 2);
+  gymGroup.add(glassNorth);
+
+  // Bronze architectural mullion pillars
+  for (let m = 0; m <= 4; m++) {
+    const mx = 18.0 - gymW / 2 + m * (gymW / 4);
+    const mPillar = new THREE.Mesh(new THREE.BoxGeometry(0.18, gymH, 0.18), blackMetalMat);
+    mPillar.position.set(mx, gymH / 2 + 0.06, 40.0 + gymL / 2);
+    gymGroup.add(mPillar);
+  }
+
+  // Modern Treadmills (Row of 3 along glass wall)
+  function createTreadmill(tx, tz) {
+    const tm = new THREE.Group();
+    // Deck
+    const deck = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.22, 2.1), new THREE.MeshBasicMaterial({ color: 0x15171a }));
+    deck.position.set(0, 0.16, 0);
+    tm.add(deck);
+
+    // Handrails & Console
+    const railL = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.25, 8), new THREE.MeshBasicMaterial({ color: 0xc8cdd5 }));
+    railL.position.set(-0.4, 0.8, -0.6);
+    const railR = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.25, 8), new THREE.MeshBasicMaterial({ color: 0xc8cdd5 }));
+    railR.position.set(0.4, 0.8, -0.6);
+    tm.add(railL);
+    tm.add(railR);
+
+    // Glowing Console LCD Screen
+    const consoleScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.65, 0.38), new THREE.MeshBasicMaterial({ color: 0x38bdf8 }));
+    consoleScreen.position.set(0, 1.4, -0.65);
+    consoleScreen.rotation.x = -0.3;
+    tm.add(consoleScreen);
+
+    tm.position.set(tx, 0, tz);
+    return tm;
+  }
+
+  gymGroup.add(createTreadmill(14.5, 42.0));
+  gymGroup.add(createTreadmill(16.5, 42.0));
+  gymGroup.add(createTreadmill(18.5, 42.0));
+
+  // Olympic Weight Bench & Barbell
+  const bench = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.45, 1.5), new THREE.MeshBasicMaterial({ color: 0x1f232b }));
+  bench.position.set(16.0, 0.25, 36.5);
+  gymGroup.add(bench);
+
+  const barbell = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 2.1, 10), new THREE.MeshBasicMaterial({ color: 0xcccccc }));
+  barbell.position.set(16.0, 1.15, 36.5);
+  barbell.rotation.z = Math.PI / 2;
+  gymGroup.add(barbell);
+
+  // Chrome Weight Plates
+  const plateL = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.08, 16), new THREE.MeshBasicMaterial({ color: 0x222222 }));
+  plateL.position.set(15.2, 1.15, 36.5);
+  plateL.rotation.z = Math.PI / 2;
+  const plateR = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.08, 16), new THREE.MeshBasicMaterial({ color: 0x222222 }));
+  plateR.position.set(16.8, 1.15, 36.5);
+  plateR.rotation.z = Math.PI / 2;
+  gymGroup.add(plateL);
+  gymGroup.add(plateR);
+
+  // 3-Tier Dumbbell Rack
+  const rack = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.9, 0.6), blackMetalMat);
+  rack.position.set(22.0, 0.5, 36.5);
+  gymGroup.add(rack);
+
+  // Glowing Neon Sign inside gym
+  const gymNeon = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.7, 0.1), new THREE.MeshBasicMaterial({ color: 0x38bdf8 }));
+  gymNeon.position.set(18.0, 3.2, 32.5);
+  gymGroup.add(gymNeon);
+
+  gatedTownshipGroup.add(gymGroup);
+
+  // =========================================================================
+  // 6. ANIMATED RESIDENTS / PEOPLE MOVING
+  // =========================================================================
+  animatedResidents = [];
+
+  function createStylizedResident({ x, y = 0, z, shirtCol, pantsCol, hairCol = 0x2b1d0c, speed = 1.0, minZ = 20, maxZ = 90, dir = -1 }) {
+    const person = new THREE.Group();
+    // Torso
+    const torsoGeo = new THREE.BoxGeometry(0.38, 0.52, 0.22);
+    const torso = new THREE.Mesh(torsoGeo, new THREE.MeshBasicMaterial({ color: shirtCol }));
+    torso.position.set(0, 0.98, 0);
+    person.add(torso);
+
+    // Head
+    const headGeo = new THREE.SphereGeometry(0.14, 12, 12);
+    const head = new THREE.Mesh(headGeo, new THREE.MeshBasicMaterial({ color: 0xe8beac }));
+    head.position.set(0, 1.38, 0);
+    person.add(head);
+
+    // Hair
+    const hairGeo = new THREE.SphereGeometry(0.15, 12, 12);
+    const hair = new THREE.Mesh(hairGeo, new THREE.MeshBasicMaterial({ color: hairCol }));
+    hair.position.set(0, 1.44, -0.02);
+    person.add(hair);
+
+    // Left Leg
+    const legGeo = new THREE.BoxGeometry(0.12, 0.62, 0.13);
+    const legL = new THREE.Mesh(legGeo, new THREE.MeshBasicMaterial({ color: pantsCol }));
+    legL.position.set(-0.10, 0.38, 0);
+    person.add(legL);
+
+    // Right Leg
+    const legR = new THREE.Mesh(legGeo, new THREE.MeshBasicMaterial({ color: pantsCol }));
+    legR.position.set(0.10, 0.38, 0);
+    person.add(legR);
+
+    // Left Arm
+    const armGeo = new THREE.BoxGeometry(0.10, 0.52, 0.10);
+    const armL = new THREE.Mesh(armGeo, new THREE.MeshBasicMaterial({ color: shirtCol }));
+    armL.position.set(-0.25, 0.96, 0);
+    person.add(armL);
+
+    // Right Arm
+    const armR = new THREE.Mesh(armGeo, new THREE.MeshBasicMaterial({ color: shirtCol }));
+    armR.position.set(0.25, 0.96, 0);
+    person.add(armR);
+
+    person.position.set(x, y, z);
+    gatedTownshipGroup.add(person);
+
+    const residentData = {
+      mesh: person,
+      legL, legR, armL, armR,
+      baseY: y,
+      speed, minZ, maxZ, dir,
+      freq: 4.8 * speed
+    };
+    animatedResidents.push(residentData);
+    return person;
+  }
+
+  // Resident 1 & 2: Couple strolling along the central promenade
+  createStylizedResident({ x: -1.0, z: 75.0, shirtCol: 0xff6b6b, pantsCol: 0x2d3436, speed: 0.9, minZ: 25, maxZ: 85, dir: -1 });
+  createStylizedResident({ x: -0.4, z: 74.8, shirtCol: 0x48dbfb, pantsCol: 0xf5f6fa, speed: 0.9, minZ: 25, maxZ: 85, dir: -1 });
+
+  // Resident 3: Jogger running along the path
+  createStylizedResident({ x: 1.4, z: 35.0, shirtCol: 0x1dd1a1, pantsCol: 0x222f3e, speed: 2.2, minZ: 22, maxZ: 88, dir: 1 });
+
+  // Resident 4: Walking towards the gym pavilion
+  createStylizedResident({ x: 9.5, z: 40.0, shirtCol: 0xfeca57, pantsCol: 0x576574, speed: 0.8, minZ: 32, maxZ: 50, dir: 1 });
+
+  // Resident 5: Basketball player near the hoop
+  createStylizedResident({ x: -18.0, z: 52.0, shirtCol: 0xff9f43, pantsCol: 0x0abde3, speed: 0.5, minZ: 50, maxZ: 56, dir: 1 });
+
+  // Resident 6 & 7: Tennis players rallying on court
+  createStylizedResident({ x: -18.0, z: 16.5, shirtCol: 0xee5253, pantsCol: 0xffffff, speed: 0.7, minZ: 15, maxZ: 18, dir: 1 });
+  createStylizedResident({ x: -18.0, z: 31.5, shirtCol: 0x10ac84, pantsCol: 0xffffff, speed: 0.7, minZ: 30, maxZ: 33, dir: -1 });
+
+  // Resident 8: Gym member running on treadmill
+  createStylizedResident({ x: 14.5, z: 42.0, shirtCol: 0x5f27cd, pantsCol: 0x341f97, speed: 1.6, minZ: 41.8, maxZ: 42.2, dir: 1 });
+
+  // =========================================================================
+  // 7. CENTERPIECE: COMPLETE WALK-IN LUXURY BUNGALOW VILLA (X = 0, Z = -16 to +20)
+  // =========================================================================
+  const villaGroup = new THREE.Group();
+  const vW = 16.0;
+  const vL = 36.0;
+  const vH = 6.4; // Double-height modern luxury ceiling
+
+  // Modern Cantilevered Roof Slab
+  const roofMain = new THREE.Mesh(new THREE.BoxGeometry(vW + 2.0, 0.42, vL + 2.0), villaWallMat);
+  roofMain.position.set(0, vH + 0.21, 2.0);
+  villaGroup.add(roofMain);
+
+  // Warm Teak Fascia Trim around roof
+  const fascia = new THREE.Mesh(new THREE.BoxGeometry(vW + 2.2, 0.18, vL + 2.2), woodSlatMat);
+  fascia.position.set(0, vH + 0.4, 2.0);
+  villaGroup.add(fascia);
+
+  // Architectural Exterior Wall Panels (White Stucco & Teak Louver Screens)
+  const wallEast = new THREE.Mesh(new THREE.BoxGeometry(0.3, vH, vL), villaWallMat);
+  wallEast.position.set(vW / 2, vH / 2, 2.0);
+  const wallWest = new THREE.Mesh(new THREE.BoxGeometry(0.3, vH, vL), villaWallMat);
+  wallWest.position.set(-vW / 2, vH / 2, 2.0);
+  villaGroup.add(wallEast);
+  villaGroup.add(wallWest);
+
+  // Vertical Teak Louver Screens flanking front entrance
+  for (let s = 0; s < 8; s++) {
+    const louverL = new THREE.Mesh(new THREE.BoxGeometry(0.08, vH - 0.4, 0.22), woodSlatMat);
+    louverL.position.set(-vW / 2 + 1.2 + s * 0.45, vH / 2, 19.8);
+    const louverR = new THREE.Mesh(new THREE.BoxGeometry(0.08, vH - 0.4, 0.22), woodSlatMat);
+    louverR.position.set(vW / 2 - 1.2 - s * 0.45, vH / 2, 19.8);
+    villaGroup.add(louverL);
+    villaGroup.add(louverR);
+  }
+
+  // Front Panoramic Glass Pivot Entrance Doors (Z = 20.0)
+  const frontGlassDoor = new THREE.Mesh(new THREE.PlaneGeometry(5.2, vH - 0.8), clearGlassMat);
+  frontGlassDoor.position.set(0, vH / 2 - 0.2, 20.0);
+  villaGroup.add(frontGlassDoor);
+
+  // Front Reflecting Water Pond & Stepping Stones
+  const pondGeo = new THREE.BoxGeometry(vW + 1.0, 0.2, 6.0);
+  const pond = new THREE.Mesh(pondGeo, new THREE.MeshBasicMaterial({ color: 0x1a3348 }));
+  pond.position.set(0, 0.05, 22.0);
+  villaGroup.add(pond);
+
+  // Floating Stone Stepping Stones over water
+  for (let st = 0; st < 3; st++) {
+    const step = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.16, 1.4), villaWallMat);
+    step.position.set(0, 0.16, 20.2 + st * 1.8);
+    villaGroup.add(step);
+  }
+
+  // -------------------------------------------------------------------------
+  // ROOM 1: GRAND LIVING ROOM (Z = 16.0 to 6.0)
+  // -------------------------------------------------------------------------
+  const lrGroup = new THREE.Group();
+  // Herringbone Oak Floor
+  const lrFloor = new THREE.Mesh(new THREE.BoxGeometry(vW - 0.4, 0.08, 10.0), oakFloorMat);
+  lrFloor.position.set(0, 0.04, 11.0);
+  lrGroup.add(lrFloor);
+
+  // Plush Designer Geometric Area Rug
+  const lrRug = new THREE.Mesh(new THREE.BoxGeometry(8.5, 0.04, 6.8), carpetMat);
+  lrRug.position.set(0, 0.09, 11.0);
+  lrGroup.add(lrRug);
+
+  // Italian L-Shaped Sectional Sofa (Cream Bouclé)
+  const sofaMain = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.75, 1.4), sofaMat);
+  sofaMain.position.set(0.6, 0.46, 12.8);
+  const sofaChaise = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.75, 3.2), sofaMat);
+  sofaChaise.position.set(-1.3, 0.46, 10.5);
+  lrGroup.add(sofaMain);
+  lrGroup.add(sofaChaise);
+
+  // Accent Throw Cushions
+  const cush1 = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.45, 0.2), cushionMat);
+  cush1.position.set(-1.0, 0.88, 12.8);
+  const cush2 = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.45, 0.2), cushionMat);
+  cush2.position.set(2.2, 0.88, 12.8);
+  lrGroup.add(cush1);
+  lrGroup.add(cush2);
+
+  // Calacatta Marble & Walnut Dual Coffee Table
+  const ctMarble = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.38, 1.2), marbleIslandMat);
+  ctMarble.position.set(0.5, 0.28, 10.4);
+  const ctWood = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.32, 1.2), woodSlatMat);
+  ctWood.position.set(-1.1, 0.25, 10.2);
+  lrGroup.add(ctMarble);
+  lrGroup.add(ctWood);
+
+  // Feature Media & Fireplace Wall (Nero Marquina Black Marble)
+  const tvWall = new THREE.Mesh(new THREE.BoxGeometry(7.2, vH - 0.4, 0.35), blackMarbleTvWallMat);
+  tvWall.position.set(0, vH / 2, 6.2);
+  lrGroup.add(tvWall);
+
+  // Wall-mounted 85" Ultra-Slim OLED TV
+  const tvScreen = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 2.0), new THREE.MeshBasicMaterial({ color: 0x050608 }));
+  tvScreen.position.set(0, 3.6, 6.4);
+  lrGroup.add(tvScreen);
+
+  // Built-in Linear Electric Fireplace (Warm Glowing Flame)
+  fireplaceFlameMesh = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 0.55), fireplaceFlameMat);
+  fireplaceFlameMesh.position.set(0, 1.35, 6.4);
+  lrGroup.add(fireplaceFlameMesh);
+
+  // Contemporary Suspended Double-Ring Brass Chandelier
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.04, 8, 32), brassMetalMat);
+  ring1.position.set(0, 4.8, 11.0);
+  ring1.rotation.x = Math.PI / 2;
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(1.0, 0.04, 8, 32), brassMetalMat);
+  ring2.position.set(0, 4.4, 11.0);
+  ring2.rotation.x = Math.PI / 2;
+  lrGroup.add(ring1);
+  lrGroup.add(ring2);
+
+  // Fluted Planter with Indoor Ficus Tree
+  const planter = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.28, 0.85, 16), villaWallMat);
+  planter.position.set(-5.5, 0.45, 8.5);
+  const ficusTrunk = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 2.2, 8), woodSlatMat);
+  ficusTrunk.position.set(-5.5, 1.5, 8.5);
+  const ficusFoliage = new THREE.Mesh(new THREE.SphereGeometry(0.85, 12, 12), grassMat);
+  ficusFoliage.position.set(-5.5, 2.5, 8.5);
+  lrGroup.add(planter);
+  lrGroup.add(ficusTrunk);
+  lrGroup.add(ficusFoliage);
+
+  villaGroup.add(lrGroup);
+
+  // -------------------------------------------------------------------------
+  // ROOM 2: GOURMET MODULAR KITCHEN & DINING ISLAND (Z = 6.0 to -4.0)
+  // -------------------------------------------------------------------------
+  const kitchenGroup = new THREE.Group();
+  // Large Format Porcelain Floor
+  const kFloor = new THREE.Mesh(new THREE.BoxGeometry(vW - 0.4, 0.08, 10.0), kitchenTileMat);
+  kFloor.position.set(0, 0.04, 1.0);
+  kitchenGroup.add(kFloor);
+
+  // 4.2m Waterfall Calacatta Gold Marble Island
+  const islandTop = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.95, 1.5), marbleIslandMat);
+  islandTop.position.set(0, 0.52, 1.0);
+  kitchenGroup.add(islandTop);
+
+  // Black Ceramic Induction Cooktop
+  const cooktop = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.04, 0.7), blackMetalMat);
+  cooktop.position.set(-1.1, 1.02, 1.0);
+  kitchenGroup.add(cooktop);
+
+  // Undermount Sink & Brass Gooseneck Faucet
+  const sink = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.04, 0.6), new THREE.MeshBasicMaterial({ color: 0x333333 }));
+  sink.position.set(1.1, 1.01, 1.0);
+  const faucet = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.45, 8), brassMetalMat);
+  faucet.position.set(1.1, 1.25, 1.3);
+  kitchenGroup.add(sink);
+  kitchenGroup.add(faucet);
+
+  // 3 Contemporary Bar Stools
+  for (let bs = 0; bs < 3; bs++) {
+    const stoolX = -1.2 + bs * 1.2;
+    const stool = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.68, 16), darkCabinetMat);
+    stool.position.set(stoolX, 0.38, 2.1);
+    const cushion = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.12, 16), cushionMat);
+    cushion.position.set(stoolX, 0.75, 2.1);
+    kitchenGroup.add(stool);
+    kitchenGroup.add(cushion);
+  }
+
+  // Matte Charcoal Modular Back Cabinetry Wall
+  const cabWall = new THREE.Mesh(new THREE.BoxGeometry(vW - 1.2, 3.2, 0.8), darkCabinetMat);
+  cabWall.position.set(0, 1.6, -3.4);
+  kitchenGroup.add(cabWall);
+
+  // Warm LED Under-Cabinet Cove Lighting
+  const coveLight = new THREE.Mesh(new THREE.BoxGeometry(vW - 1.4, 0.06, 0.4), villaInteriorLightMat);
+  coveLight.position.set(0, 3.22, -3.2);
+  kitchenGroup.add(coveLight);
+
+  // Built-in Double Stainless Ovens
+  const ovens = new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.6, 0.1), new THREE.MeshBasicMaterial({ color: 0x444444 }));
+  ovens.position.set(3.8, 1.6, -2.95);
+  kitchenGroup.add(ovens);
+
+  // Integrated Smoked Glass Wine Cooler
+  const wineCooler = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 1.6), clearGlassMat);
+  wineCooler.position.set(-3.8, 1.6, -2.95);
+  kitchenGroup.add(wineCooler);
+
+  // Trio of Brass Cylinder Pendant Lights
+  for (let p = 0; p < 3; p++) {
+    const px = -1.2 + p * 1.2;
+    const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 2.0, 6), blackMetalMat);
+    cord.position.set(px, 3.8, 1.0);
+    const pendant = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.45, 12), brassMetalMat);
+    pendant.position.set(px, 2.7, 1.0);
+    kitchenGroup.add(cord);
+    kitchenGroup.add(pendant);
+  }
+
+  villaGroup.add(kitchenGroup);
+
+  // -------------------------------------------------------------------------
+  // ROOM 3: MASTER BEDROOM SUITE (Z = -4.0 to -14.0)
+  // -------------------------------------------------------------------------
+  const bedGroup = new THREE.Group();
+  // Deep Plush Neutral Carpet
+  const bCarpet = new THREE.Mesh(new THREE.BoxGeometry(vW - 0.4, 0.08, 10.0), carpetMat);
+  bCarpet.position.set(0, 0.04, -9.0);
+  bedGroup.add(bCarpet);
+
+  // King-Size Platform Bed
+  const bedBase = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.45, 3.8), woodSlatMat);
+  bedBase.position.set(0, 0.26, -9.5);
+  bedGroup.add(bedBase);
+
+  // Crisp White Mattress & Duvet
+  const mattress = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.45, 3.4), bedLinenMat);
+  mattress.position.set(0, 0.62, -9.3);
+  bedGroup.add(mattress);
+
+  // Folded Charcoal Throw Blanket
+  const throwB = new THREE.Mesh(new THREE.BoxGeometry(3.04, 0.08, 1.2), darkCabinetMat);
+  throwB.position.set(0, 0.88, -8.2);
+  bedGroup.add(throwB);
+
+  // Vertical Fluted Upholstered Headboard
+  const hb = new THREE.Mesh(new THREE.BoxGeometry(4.2, 1.8, 0.28), headboardMat);
+  hb.position.set(0, 1.2, -11.2);
+  bedGroup.add(hb);
+
+  // Slatted Oak Accent Wall behind bed
+  const slattedWall = new THREE.Mesh(new THREE.BoxGeometry(7.5, vH - 0.4, 0.15), woodSlatMat);
+  slattedWall.position.set(0, vH / 2, -11.4);
+  bedGroup.add(slattedWall);
+
+  // Floating Walnut Bedside Tables
+  const ntL = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.35, 0.65), woodSlatMat);
+  ntL.position.set(-2.2, 0.45, -10.8);
+  const ntR = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.35, 0.65), woodSlatMat);
+  ntR.position.set(2.2, 0.45, -10.8);
+  bedGroup.add(ntL);
+  bedGroup.add(ntR);
+
+  // Modern Bedside Touch Lamps
+  const lampL = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.48, 12), lampGlobeMat);
+  lampL.position.set(-2.2, 0.88, -10.8);
+  const lampR = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.48, 12), lampGlobeMat);
+  lampR.position.set(2.2, 0.88, -10.8);
+  bedGroup.add(lampL);
+  bedGroup.add(lampR);
+
+  // Walk-In Wardrobe with Smoked Glass Doors
+  const wardrobe = new THREE.Mesh(new THREE.BoxGeometry(3.6, 2.8, 1.2), clearGlassMat);
+  wardrobe.position.set(-5.6, 1.45, -8.5);
+  bedGroup.add(wardrobe);
+
+  // Rear Panoramic Glass Sliding Doors opening to Garden Terrace
+  const rearGlass = new THREE.Mesh(new THREE.PlaneGeometry(6.4, vH - 0.8), clearGlassMat);
+  rearGlass.position.set(0, vH / 2 - 0.2, -13.9);
+  bedGroup.add(rearGlass);
+
+  villaGroup.add(bedGroup);
+  gatedTownshipGroup.add(villaGroup);
+
+  // Add the entire completed Gated Township Society & Bungalow to the 3D scene!
+  scene.add(gatedTownshipGroup);
+  window.__gatedTownship = gatedTownshipGroup;
 }
 
 async function getMountNomadiic() {
@@ -510,6 +1383,7 @@ const drawerClose = document.getElementById('drawer-close');
 const drawerContent = document.getElementById('drawer-content');
 const portalBackWrap = document.getElementById('portal-back-wrap');
 const portalBackBtn = document.getElementById('portal-back-btn');
+const portalBackText = document.getElementById('portal-back-text');
 const audioToggle = document.getElementById('audio-toggle');
 const navStatusText = document.getElementById('nav-status-text');
 
@@ -517,7 +1391,7 @@ const navStatusText = document.getElementById('nav-status-text');
 const scene = new THREE.Scene();
 const BG_COLOR = 0x11151f;
 scene.background = new THREE.Color(BG_COLOR);
-scene.fog = new THREE.Fog(BG_COLOR, 9, 36);
+scene.fog = new THREE.Fog(BG_COLOR, 35, 180);
 
 const camera = new THREE.PerspectiveCamera(62, window.innerWidth / window.innerHeight, 0.1, 70);
 
@@ -799,6 +1673,373 @@ for (let i = 0; i < NUM_STATIONS; i++) {
   }
 }
 
+// ------------------------------------------------ WALK-IN BUNGALOW INTERIOR ROOMS IN THREE.JS SCENE
+function buildWalkInBungalowRooms(targetScene) {
+  const bungalowGroup = new THREE.Group();
+  bungalowGroup.name = 'bungalow-walk-in-interior';
+
+  // Materials
+  const oakFloorMat = new THREE.MeshBasicMaterial({ color: 0xd8c8a8 });
+  const porcelainFloorMat = new THREE.MeshBasicMaterial({ color: 0xece9e3 });
+  const carpetMat = new THREE.MeshBasicMaterial({ color: 0xd5cebe });
+  const wallMat = new THREE.MeshBasicMaterial({ color: 0xf5f3ee, side: THREE.BackSide });
+  const baseboardMat = new THREE.MeshBasicMaterial({ color: 0x22252c });
+  const blackMarbleMat = new THREE.MeshBasicMaterial({ color: 0x141518 });
+  const calacattaMat = new THREE.MeshBasicMaterial({ color: 0xfbf9f4 });
+  const charcoalWoodMat = new THREE.MeshBasicMaterial({ color: 0x22252c });
+  const warmTeakMat = new THREE.MeshBasicMaterial({ color: 0x93663b });
+  const sofaFabricMat = new THREE.MeshBasicMaterial({ color: 0xeee9e2 });
+  const terracottaMat = new THREE.MeshBasicMaterial({ color: 0xc47242 });
+  const brassMat = new THREE.MeshBasicMaterial({ color: 0xd4af37 });
+  const bedLinenMat = new THREE.MeshBasicMaterial({ color: 0xfcfcfc });
+  const headboardMat = new THREE.MeshBasicMaterial({ color: 0x8c7c6e });
+  const windowGlassMat = new THREE.MeshBasicMaterial({ color: 0x203548, transparent: true, opacity: 0.55 });
+  const smokedGlassMat = new THREE.MeshBasicMaterial({ color: 0x161e28, transparent: true, opacity: 0.65 });
+  const ledGlowMat = new THREE.MeshBasicMaterial({ color: 0xffdf99, transparent: true, opacity: 0.65 });
+  const flameMat = new THREE.MeshBasicMaterial({ color: 0xff9922 });
+  const gardenGreenMat = new THREE.MeshBasicMaterial({ color: 0x254d1f });
+  const artTerracottaMat = new THREE.MeshBasicMaterial({ color: 0xba6838 });
+  const artOchreMat = new THREE.MeshBasicMaterial({ color: 0xd49b42 });
+
+  window.__bungalowMats = {
+    wallMat, oakFloorMat, porcelainFloorMat, carpetMat, ledGlowMat, flameMat, blackMarbleMat, warmTeakMat
+  };
+
+  // Helper for architectural perimeter trims (Baseboards & Cove)
+  function addRoomArchitecturalShell(group, centerZ) {
+    // Room Enclosure (Width 16m, Length 14m, Height 5.0m)
+    const enclGeo = new THREE.BoxGeometry(16.0, 5.0, 14.0);
+    const enclosure = new THREE.Mesh(enclGeo, wallMat);
+    enclosure.position.set(0, 2.5, centerZ);
+    group.add(enclosure);
+
+    // Dark charcoal baseboards along perimeter
+    const bbBack = new THREE.Mesh(new THREE.BoxGeometry(15.8, 0.14, 0.04), baseboardMat);
+    bbBack.position.set(0, 0.07, centerZ - 6.9);
+    const bbFront = new THREE.Mesh(new THREE.BoxGeometry(15.8, 0.14, 0.04), baseboardMat);
+    bbFront.position.set(0, 0.07, centerZ + 6.9);
+    group.add(bbBack);
+    group.add(bbFront);
+
+    // Warm perimeter ceiling cove light
+    const cove = new THREE.Mesh(new THREE.BoxGeometry(15.6, 0.08, 13.6), ledGlowMat);
+    cove.position.set(0, 4.92, centerZ);
+    group.add(cove);
+
+    // Floor-to-ceiling panoramic glass window wall on left side overlooking society greenery
+    const winWall = new THREE.Mesh(new THREE.PlaneGeometry(10.0, 3.8), windowGlassMat);
+    winWall.position.set(-7.9, 2.3, centerZ);
+    winWall.rotation.y = Math.PI / 2;
+    group.add(winWall);
+
+    for (let m = 0; m <= 4; m++) {
+      const mull = new THREE.Mesh(new THREE.BoxGeometry(0.06, 3.8, 0.08), charcoalWoodMat);
+      mull.position.set(-7.88, 2.3, centerZ - 5.0 + m * 2.5);
+      group.add(mull);
+    }
+
+    // Lush garden landscaping visible through glass
+    for (let g = 0; g < 3; g++) {
+      const bush = new THREE.Mesh(new THREE.SphereGeometry(1.3, 10, 10), gardenGreenMat);
+      bush.position.set(-9.4, 1.4, centerZ - 4.0 + g * 4.0);
+      group.add(bush);
+    }
+  }
+
+  // =========================================================================
+  // ROOM 1: GRAND LIVING ROOM (Center at Z = -60.0)
+  // =========================================================================
+  const lr = new THREE.Group();
+  addRoomArchitecturalShell(lr, -60.0);
+
+  // Herringbone Oak Floor
+  const lrFloor = new THREE.Mesh(new THREE.BoxGeometry(15.9, 0.08, 13.9), oakFloorMat);
+  lrFloor.position.set(0, 0.04, -60.0);
+  lr.add(lrFloor);
+
+  // Designer Area Rug
+  const rug = new THREE.Mesh(new THREE.BoxGeometry(9.0, 0.04, 7.5), carpetMat);
+  rug.position.set(0, 0.08, -59.5);
+  lr.add(rug);
+
+  // Italian L-Shaped Sectional Sofa (Cream Bouclé)
+  const sofaMain = new THREE.Mesh(new THREE.BoxGeometry(5.4, 0.82, 1.5), sofaFabricMat);
+  sofaMain.position.set(0.6, 0.45, -57.5);
+  const sofaChaise = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.82, 3.4), sofaFabricMat);
+  sofaChaise.position.set(-1.35, 0.45, -59.8);
+  lr.add(sofaMain);
+  lr.add(sofaChaise);
+
+  // Accent Throw Pillows
+  const p1 = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.45, 0.22), terracottaMat);
+  p1.position.set(-1.1, 0.9, -57.5);
+  const p2 = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.45, 0.22), terracottaMat);
+  p2.position.set(2.4, 0.9, -57.5);
+  lr.add(p1);
+  lr.add(p2);
+
+  // Designer Terracotta Accent Armchair
+  const chairBase = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.42, 1.15), terracottaMat);
+  chairBase.position.set(3.8, 0.32, -59.5);
+  chairBase.rotation.y = -0.38;
+  const chairBack = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.72, 0.24), terracottaMat);
+  chairBack.position.set(4.0, 0.72, -60.0);
+  chairBack.rotation.y = -0.38;
+  lr.add(chairBase);
+  lr.add(chairBack);
+
+  // Slim Brass Floor Lamp
+  const flPole = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 2.3, 8), brassMat);
+  flPole.position.set(5.1, 1.15, -61.2);
+  const flShade = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.36, 0.42, 16), ledGlowMat);
+  flShade.position.set(5.1, 2.15, -61.2);
+  lr.add(flPole);
+  lr.add(flShade);
+
+  // Dual Calacatta Marble & Walnut Coffee Table
+  const tableMarble = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.38, 1.2), calacattaMat);
+  tableMarble.position.set(0.6, 0.27, -60.5);
+  const tableWood = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.32, 1.2), warmTeakMat);
+  tableWood.position.set(-1.2, 0.24, -60.8);
+  lr.add(tableMarble);
+  lr.add(tableWood);
+
+  // Decorative Bowl & Books on Coffee Table
+  const decBowl = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.12, 0.10, 16), brassMat);
+  decBowl.position.set(0.6, 0.50, -60.5);
+  const book = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.05, 0.25), terracottaMat);
+  book.position.set(-1.1, 0.43, -60.7);
+  lr.add(decBowl);
+  lr.add(book);
+
+  // Full-Height Nero Marquina Black Marble Media Feature Wall
+  const mediaWall = new THREE.Mesh(new THREE.BoxGeometry(8.2, 4.6, 0.35), blackMarbleMat);
+  mediaWall.position.set(0, 2.3, -66.8);
+  lr.add(mediaWall);
+
+  // 85" Ultra-Slim OLED TV Screen
+  const tv = new THREE.Mesh(new THREE.PlaneGeometry(3.8, 2.1), new THREE.MeshBasicMaterial({ color: 0x06070a }));
+  tv.position.set(0, 2.9, -66.6);
+  lr.add(tv);
+
+  // Built-in Linear Electric Fireplace (Warm Glowing Flame)
+  const fireplace = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 0.55), flameMat);
+  fireplace.position.set(0, 1.05, -66.6);
+  lr.add(fireplace);
+
+  // Curated Fine Art Frame on Wall
+  const art1Frame = new THREE.Mesh(new THREE.BoxGeometry(0.08, 2.2, 1.8), brassMat);
+  art1Frame.position.set(7.9, 2.6, -60.0);
+  const art1Canvas = new THREE.Mesh(new THREE.BoxGeometry(0.06, 2.0, 1.6), artTerracottaMat);
+  art1Canvas.position.set(7.88, 2.6, -60.0);
+  lr.add(art1Frame);
+  lr.add(art1Canvas);
+
+  // Contemporary Double-Ring Brass Chandelier
+  const chRing1 = new THREE.Mesh(new THREE.TorusGeometry(1.8, 0.04, 8, 32), brassMat);
+  chRing1.position.set(0, 3.9, -60.0);
+  chRing1.rotation.x = Math.PI / 2;
+  const chRing2 = new THREE.Mesh(new THREE.TorusGeometry(1.1, 0.04, 8, 32), brassMat);
+  chRing2.position.set(0, 3.5, -60.0);
+  chRing2.rotation.x = Math.PI / 2;
+  lr.add(chRing1);
+  lr.add(chRing2);
+
+  // Ficus Plant in Ceramic Pot
+  const pot = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.3, 0.9, 16), calacattaMat);
+  pot.position.set(-6.2, 0.45, -64.0);
+  const plant = new THREE.Mesh(new THREE.SphereGeometry(0.95, 12, 12), new THREE.MeshBasicMaterial({ color: 0x2e5c24 }));
+  plant.position.set(-6.2, 2.2, -64.0);
+  lr.add(pot);
+  lr.add(plant);
+
+  bungalowGroup.add(lr);
+
+  // =========================================================================
+  // ROOM 2: GOURMET MODULAR KITCHEN & DINING (Center at Z = -40.0)
+  // =========================================================================
+  const kitchen = new THREE.Group();
+  addRoomArchitecturalShell(kitchen, -40.0);
+
+  // Porcelain Tile Floor
+  const kFloor = new THREE.Mesh(new THREE.BoxGeometry(15.9, 0.08, 13.9), porcelainFloorMat);
+  kFloor.position.set(0, 0.04, -40.0);
+  kitchen.add(kFloor);
+
+  // 4.2m Waterfall Calacatta Gold Marble Island
+  const island = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.95, 1.6), calacattaMat);
+  island.position.set(0, 0.52, -40.0);
+  kitchen.add(island);
+
+  // Black Ceramic Induction Cooktop
+  const cooktop = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.04, 0.75), new THREE.MeshBasicMaterial({ color: 0x111111 }));
+  cooktop.position.set(-1.1, 1.02, -40.0);
+  kitchen.add(cooktop);
+
+  // Undermount Sink with Brass Faucet
+  const sink = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.04, 0.65), new THREE.MeshBasicMaterial({ color: 0x222222 }));
+  sink.position.set(1.1, 1.01, -40.0);
+  const faucet = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.48, 8), brassMat);
+  faucet.position.set(1.1, 1.25, -39.7);
+  kitchen.add(sink);
+  kitchen.add(faucet);
+
+  // Contemporary Bar Stools with Footrests
+  for (let bs = 0; bs < 3; bs++) {
+    const sx = -1.2 + bs * 1.2;
+    const stoolLegs = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.68, 16), charcoalWoodMat);
+    stoolLegs.position.set(sx, 0.38, -38.8);
+    const footrest = new THREE.Mesh(new THREE.TorusGeometry(0.25, 0.02, 6, 16), brassMat);
+    footrest.position.set(sx, 0.25, -38.8);
+    footrest.rotation.x = Math.PI / 2;
+    const stoolCushion = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.12, 16), terracottaMat);
+    stoolCushion.position.set(sx, 0.75, -38.8);
+    kitchen.add(stoolLegs);
+    kitchen.add(footrest);
+    kitchen.add(stoolCushion);
+  }
+
+  // Fruit Bowl & Wine Bottle on Marble Island
+  const fruitBowl = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.16, 0.12, 16), brassMat);
+  fruitBowl.position.set(0.0, 1.05, -40.0);
+  const wineBottle = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.38, 10), new THREE.MeshBasicMaterial({ color: 0x1b3820 }));
+  wineBottle.position.set(-0.35, 1.18, -40.0);
+  kitchen.add(fruitBowl);
+  kitchen.add(wineBottle);
+
+  // Matte Charcoal Modular Back Cabinetry Wall
+  const cabWall = new THREE.Mesh(new THREE.BoxGeometry(14.0, 3.4, 0.8), charcoalWoodMat);
+  cabWall.position.set(0, 1.7, -46.5);
+  kitchen.add(cabWall);
+
+  // Warm LED Under-Cabinet Cove Lighting
+  const cove = new THREE.Mesh(new THREE.BoxGeometry(13.8, 0.06, 0.4), ledGlowMat);
+  cove.position.set(0, 3.42, -46.3);
+  kitchen.add(cove);
+
+  // Built-in Double Ovens
+  const ovens = new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.7, 0.1), new THREE.MeshBasicMaterial({ color: 0x484848 }));
+  ovens.position.set(4.2, 1.7, -46.05);
+  kitchen.add(ovens);
+
+  // Integrated Glass Wine Cooler with Illuminated Bottles
+  const wine = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1.7), smokedGlassMat);
+  wine.position.set(-4.2, 1.7, -46.05);
+  const wineLight = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.6, 0.05), ledGlowMat);
+  wineLight.position.set(-4.2, 1.7, -46.1);
+  kitchen.add(wine);
+  kitchen.add(wineLight);
+
+  // Trio of Brass Cylinder Pendant Lights
+  for (let p = 0; p < 3; p++) {
+    const px = -1.2 + p * 1.2;
+    const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.8, 6), charcoalWoodMat);
+    cord.position.set(px, 3.7, -40.0);
+    const pend = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.45, 12), brassMat);
+    pend.position.set(px, 2.7, -40.0);
+    const bulbGlow = new THREE.Mesh(new THREE.SphereGeometry(0.09, 8, 8), ledGlowMat);
+    bulbGlow.position.set(px, 2.45, -40.0);
+    kitchen.add(cord);
+    kitchen.add(pend);
+    kitchen.add(bulbGlow);
+  }
+
+  // Framed Culinary Art Canvas
+  const art2Frame = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.8, 2.4), brassMat);
+  art2Frame.position.set(7.9, 2.6, -40.0);
+  const art2Canvas = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.6, 2.2), artOchreMat);
+  art2Canvas.position.set(7.88, 2.6, -40.0);
+  kitchen.add(art2Frame);
+  kitchen.add(art2Canvas);
+
+  bungalowGroup.add(kitchen);
+
+  // =========================================================================
+  // ROOM 3: MASTER BEDROOM SUITE (Center at Z = -20.0)
+  // =========================================================================
+  const bedroom = new THREE.Group();
+  addRoomArchitecturalShell(bedroom, -20.0);
+
+  // Deep Plush Neutral Carpet
+  const bCarpet = new THREE.Mesh(new THREE.BoxGeometry(15.9, 0.08, 13.9), carpetMat);
+  bCarpet.position.set(0, 0.04, -20.0);
+  bedroom.add(bCarpet);
+
+  // King-Size Platform Bed Frame
+  const bedBase = new THREE.Mesh(new THREE.BoxGeometry(3.5, 0.45, 3.8), warmTeakMat);
+  bedBase.position.set(0, 0.26, -20.0);
+  bedroom.add(bedBase);
+
+  // Crisp White Mattress & Duvet
+  const mattress = new THREE.Mesh(new THREE.BoxGeometry(3.1, 0.45, 3.4), bedLinenMat);
+  mattress.position.set(0, 0.62, -19.8);
+  bedroom.add(mattress);
+
+  // Folded Charcoal Throw Blanket
+  const throwB = new THREE.Mesh(new THREE.BoxGeometry(3.14, 0.08, 1.2), charcoalWoodMat);
+  throwB.position.set(0, 0.88, -18.7);
+  bedroom.add(throwB);
+
+  // Cozy Upholstered Bedroom Bench at Foot of Bed
+  const bench = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.44, 0.8), sofaFabricMat);
+  bench.position.set(0, 0.26, -17.5);
+  const benchLegs = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.22, 0.6), brassMat);
+  benchLegs.position.set(0, 0.11, -17.5);
+  bedroom.add(bench);
+  bedroom.add(benchLegs);
+
+  // Vertical Fluted Upholstered Headboard
+  const hb = new THREE.Mesh(new THREE.BoxGeometry(4.4, 1.9, 0.28), headboardMat);
+  hb.position.set(0, 1.25, -21.8);
+  bedroom.add(hb);
+
+  // Slatted Oak Accent Wall behind bed
+  const slattedWall = new THREE.Mesh(new THREE.BoxGeometry(8.0, 4.6, 0.15), warmTeakMat);
+  slattedWall.position.set(0, 2.3, -26.8);
+  bedroom.add(slattedWall);
+
+  // Framed Master Art Piece above Headboard
+  const art3Frame = new THREE.Mesh(new THREE.BoxGeometry(3.2, 1.4, 0.08), brassMat);
+  art3Frame.position.set(0, 3.2, -26.7);
+  const art3Canvas = new THREE.Mesh(new THREE.BoxGeometry(3.0, 1.2, 0.06), artTerracottaMat);
+  art3Canvas.position.set(0, 3.2, -26.68);
+  bedroom.add(art3Frame);
+  bedroom.add(art3Canvas);
+
+  // Floating Walnut Bedside Tables
+  const ntL = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.35, 0.65), warmTeakMat);
+  ntL.position.set(-2.3, 0.45, -21.4);
+  const ntR = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.35, 0.65), warmTeakMat);
+  ntR.position.set(2.3, 0.45, -21.4);
+  bedroom.add(ntL);
+  bedroom.add(ntR);
+
+  // Modern Bedside Pendant Lamps
+  const lampL = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.48, 12), ledGlowMat);
+  lampL.position.set(-2.3, 0.88, -21.4);
+  const lampR = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.48, 12), ledGlowMat);
+  lampR.position.set(2.3, 0.88, -21.4);
+  bedroom.add(lampL);
+  bedroom.add(lampR);
+
+  // Walk-In Wardrobe with Smoked Glass Doors & Backlit Shelves
+  const wardrobe = new THREE.Mesh(new THREE.BoxGeometry(3.8, 3.2, 1.2), smokedGlassMat);
+  wardrobe.position.set(-5.8, 1.65, -19.5);
+  bedroom.add(wardrobe);
+
+  // Sliding Glass Doors opening toward Rotunda Terrace
+  const terraceDoor = new THREE.Mesh(new THREE.PlaneGeometry(6.5, 4.2), windowGlassMat);
+  terraceDoor.position.set(0, 2.1, -13.1);
+  bedroom.add(terraceDoor);
+
+  bungalowGroup.add(bedroom);
+
+  targetScene.add(bungalowGroup);
+  window.__bungalowInterior = bungalowGroup;
+}
+
+buildWalkInBungalowRooms(scene);
+
 // ------------------------------------------------ 7. UNIFIED CONTINUOUS JOURNEY CONTROLLER
 // Master Journey Progress:
 // 0.00 -> 0.12 : Reflecting Pool with lightning & fountain (Screenshot 1)
@@ -861,9 +2102,12 @@ async function initNomadiicStage() {
     // Setup Day/Night linear gradient slider controller
     setupDayNightController();
 
-    // Build 15-Floor Neoclassical Clean Twin Buildings replacing side structures
+    // Setup Top HUD Quick Room Navigation Pills
+    setupRoomNavigation();
+
+    // Build Full Gated Township Society, Sports Amenities & Walk-In Bungalow
     if (nomadiic && nomadiic.scene) {
-      setupNeoclassical15FloorTowers(nomadiic);
+      setupGatedTownshipAndBungalow(nomadiic);
     }
 
     // Set camera to initial journey progress
@@ -948,9 +2192,21 @@ nextBtn?.addEventListener('click', () => {
   }
 });
 
-// Portal Back Button: Steps back out to Mithraki Showroom
+// Portal Back Button: Steps back out
 portalBackBtn?.addEventListener('click', () => {
-  journey.targetProgress = 0.30;
+  if (journey.progress >= 0.42) {
+    // From Art gallery back to Master Bedroom
+    journey.targetProgress = 0.38;
+  } else if (journey.progress >= 0.32) {
+    // From Bedroom back to Kitchen
+    journey.targetProgress = 0.28;
+  } else if (journey.progress >= 0.22) {
+    // From Kitchen back to Living Room
+    journey.targetProgress = 0.18;
+  } else {
+    // From Living Room back to Gated Society Grounds
+    journey.targetProgress = 0.00;
+  }
 });
 
 // ------------------------------------------------ 9. RAYCASTING, HOVER & INSPECTION DRAWER
@@ -1195,84 +2451,128 @@ function animate() {
   const journeyDamping = 1 - Math.exp(-6.5 * delta);
   journey.progress += (journey.targetProgress - journey.progress) * journeyDamping;
 
+  // Animate moving residents along the society footpaths
+  if (animatedResidents && animatedResidents.length > 0) {
+    for (let r = 0; r < animatedResidents.length; r++) {
+      const res = animatedResidents[r];
+      res.mesh.position.z += res.dir * res.speed * delta * 2.5;
+
+      if (res.mesh.position.z < res.minZ) {
+        res.mesh.position.z = res.minZ;
+        res.dir = 1;
+        res.mesh.rotation.y = 0;
+      } else if (res.mesh.position.z > res.maxZ) {
+        res.mesh.position.z = res.maxZ;
+        res.dir = -1;
+        res.mesh.rotation.y = Math.PI;
+      }
+
+      // Walking stride swing & body bounce
+      const swing = Math.sin(now * 0.006 * res.speed * 2.0) * 0.5;
+      if (res.legL) res.legL.rotation.x = swing;
+      if (res.legR) res.legR.rotation.x = -swing;
+      if (res.armL) res.armL.rotation.x = -swing * 0.8;
+      if (res.armR) res.armR.rotation.x = swing * 0.8;
+      res.mesh.position.y = res.baseY + Math.abs(Math.sin(now * 0.006 * res.speed * 2.0)) * 0.06;
+    }
+  }
+
+  // Animate living room fireplace flame flicker
+  if (fireplaceFlameMesh) {
+    const flicker = 0.9 + 0.22 * Math.sin(now * 0.02) + 0.12 * Math.cos(now * 0.045);
+    fireplaceFlameMesh.scale.y = flicker;
+  }
+
+  // Update active room pill in the top header
+  updateActiveRoomPill(journey.progress);
+
   // Stage Management & Cross-fade
-  if (journey.progress < 0.38) {
-    // Stage 1: Nomadiic Horse Palace Walk
-    journey.activeMode = 'palace';
+  if (journey.progress < 0.12) {
+    // Stage 1: Outdoor Happy Gated Society Grounds
+    journey.activeMode = 'society';
     palaceContainer.style.opacity = '1';
     canvasContainer.style.opacity = '0';
     canvasContainer.style.pointerEvents = 'none';
     palaceContainer.style.pointerEvents = 'auto';
     portalBackWrap?.classList.remove('is-visible');
 
-    // In palace mode, 3D text is rendered by WebGL in the scene, so 2D rotunda HUD is hidden
     if (waypointHud) waypointHud.style.opacity = '0';
     if (viewToggle) viewToggle.style.opacity = '0';
     if (helpTapLink) helpTapLink.style.opacity = '1';
-    if (hintLine1) hintLine1.textContent = 'Scroll forward to walk through palace';
-    if (hintLine2) hintLine2.textContent = '';
+    if (hintLine1) hintLine1.textContent = 'Explore the happy gated community grounds';
+    if (hintLine2) hintLine2.textContent = 'Use navigation pills or scroll to enter the central bungalow';
 
-    // Map journey.progress [0.0, 0.38] -> Nomadiic camera progress:
-    // 0.0 -> 0.037 (Reflecting Pool)
-    // 0.15 -> 0.141 (Passage with columns)
-    // 0.30 -> 0.300 (Mithraki Showroom)
-    // 0.38 -> 0.380 (Doorway threshold)
-    const nomadiicProgress = 0.037 + (journey.progress / 0.38) * (0.38 - 0.037);
-    if (nomadiic) {
-      if (typeof nomadiic.setProgressImmediate === 'function') {
-        nomadiic.setProgressImmediate(nomadiicProgress);
-      } else {
-        nomadiic.progress = nomadiicProgress;
-      }
-    }
-
-    // Dynamic Top Header Nav Status
-    if (journey.progress < 0.12) {
-      if (navStatusText) navStatusText.textContent = 'Station 1: Outdoor Reflecting Pool & Parthenon Sanctuary';
-    } else if (journey.progress < 0.25) {
-      if (navStatusText) navStatusText.textContent = 'Station 2: Classical Peristyle Colonnade Passage';
-    } else {
-      if (navStatusText) navStatusText.textContent = 'Station 3: Mithraki Coffee Machine Showroom';
+    // Smoothly traverse from entrance gatehouse (0.037) down the promenade towards the bungalow front door (0.13)
+    const nomProg = 0.037 + (journey.progress / 0.12) * (0.13 - 0.037);
+    if (nomadiic && nomadiic.setProgressImmediate) {
+      nomadiic.setProgressImmediate(nomProg);
     }
   } else if (journey.progress < 0.42) {
-    // Transition Phase: Stepping through the temple doorway into the Rotunda Wall
-    const blend = (journey.progress - 0.38) / 0.04;
-    palaceContainer.style.opacity = String(Math.max(0, 1 - blend));
-    canvasContainer.style.opacity = String(Math.min(1, blend));
-    canvasContainer.style.pointerEvents = blend > 0.5 ? 'auto' : 'none';
-    palaceContainer.style.pointerEvents = blend <= 0.5 ? 'auto' : 'none';
+    // Stage 2: Walk-In Central Luxury Bungalow Interior
+    journey.activeMode = 'bungalow';
+    palaceContainer.style.opacity = '0';
+    canvasContainer.style.opacity = '1';
+    canvasContainer.style.pointerEvents = 'auto';
+    palaceContainer.style.pointerEvents = 'none';
+    portalBackWrap?.classList.add('is-visible');
+    if (portalBackText) portalBackText.textContent = 'WALK OUT TO GATED SOCIETY GROUNDS';
 
-    if (waypointHud) waypointHud.style.opacity = String(blend);
-    if (viewToggle) viewToggle.style.opacity = String(blend);
-    if (helpTapLink) helpTapLink.style.opacity = String(1 - blend);
+    if (waypointHud) waypointHud.style.opacity = '1';
+    if (viewToggle) viewToggle.style.opacity = '0';
+    if (helpTapLink) helpTapLink.style.opacity = '0';
+    if (hintLine1) hintLine1.textContent = 'Exploring inside the central luxury bungalow';
+    if (hintLine2) hintLine2.textContent = 'Scroll forward or click room pills to navigate';
 
-    if (nomadiic) {
-      const transP = 0.38 + blend * 0.02;
-      if (typeof nomadiic.setProgressImmediate === 'function') {
-        nomadiic.setProgressImmediate(transP);
-      } else {
-        nomadiic.progress = transP;
-      }
+    const roomCamPos = new THREE.Vector3();
+    const roomLookAt = new THREE.Vector3();
+
+    if (journey.progress < 0.22) {
+      // Living Room (p = 0.12 to 0.22)
+      const t = (journey.progress - 0.12) / 0.10;
+      roomCamPos.set(Math.sin(t * Math.PI) * 0.9, 1.75, -53.5 - t * 4.0);
+      roomLookAt.set(0, 1.55, -64.0);
+      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
+      if (hudTitle) hudTitle.textContent = 'Grand Living Room & Fireplace Lounge';
+      if (hudSubtitle) hudSubtitle.textContent = 'Italian sectional lounge, marble coffee table & Nero Marquina fireplace';
+    } else if (journey.progress < 0.32) {
+      // Modular Kitchen (p = 0.22 to 0.32)
+      const t = (journey.progress - 0.22) / 0.10;
+      roomCamPos.set(Math.sin(t * Math.PI) * 0.9, 1.75, -33.5 - t * 4.0);
+      roomLookAt.set(0, 1.55, -44.0);
+      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
+      if (hudTitle) hudTitle.textContent = 'Gourmet Modular Kitchen & Dining';
+      if (hudSubtitle) hudSubtitle.textContent = '4.2m waterfall Calacatta gold marble island, modular cabinetry & wine preservation';
+    } else {
+      // Master Bedroom (p = 0.32 to 0.42)
+      const t = (journey.progress - 0.32) / 0.10;
+      roomCamPos.set(Math.sin(t * Math.PI) * 0.9, 1.75, -13.5 - t * 4.0);
+      roomLookAt.set(0, 1.55, -24.0);
+      if (hudKicker) hudKicker.textContent = 'CENTRAL LUXURY BUNGALOW';
+      if (hudTitle) hudTitle.textContent = 'Master Bedroom Suite & Walk-In Wardrobe';
+      if (hudSubtitle) hudSubtitle.textContent = 'King platform bed, vertical fluted headboard & designer wardrobe';
     }
 
-    if (hudKicker) hudKicker.textContent = 'STEPPING INTO THE ROTUNDA GALLERY';
-    if (hudTitle) hudTitle.textContent = 'Entering the 360° Curved Exhibition Wall';
-    if (hudSubtitle) hudSubtitle.textContent = '64 fine art paintings & Acropolis classical muse';
-    if (navStatusText) navStatusText.textContent = 'Threshold: Entering Curved Exhibition Rotunda';
+    const damp = 1 - Math.exp(-8.0 * delta);
+    currentEye.lerp(roomCamPos, damp);
+    currentLookAt.lerp(roomLookAt, damp);
+    camera.position.copy(currentEye);
+    camera.lookAt(currentLookAt);
   } else {
-    // Stage 2: 3D Curved Exhibition Rotunda Wall
+    // Stage 3: 3D Curved Exhibition Rotunda Wall
     journey.activeMode = 'rotunda';
     palaceContainer.style.opacity = '0';
     canvasContainer.style.opacity = '1';
     canvasContainer.style.pointerEvents = 'auto';
     palaceContainer.style.pointerEvents = 'none';
     portalBackWrap?.classList.add('is-visible');
+    if (portalBackText) portalBackText.textContent = 'WALK BACK TO CENTRAL BUNGALOW';
 
     if (waypointHud) waypointHud.style.opacity = '1';
     if (viewToggle) viewToggle.style.opacity = '1';
     if (helpTapLink) helpTapLink.style.opacity = '0';
     if (hintLine1) hintLine1.textContent = 'Scroll or drag to walk 360° rotunda wall';
     if (hintLine2) hintLine2.textContent = 'Click any painting to inspect closer';
+    if (navStatusText) navStatusText.textContent = 'Station 5: Curved Exhibition Rotunda · 64 Fine Art Paintings';
 
     // Walk around the 360° wall
     const rotundaRot = (journey.progress - 0.42) * 10.0;

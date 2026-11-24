@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Nomadiic Horse Designs × Nexora | 3D Palace Walk & Curved Exhibition Rotunda</title>
-    <meta name="description" content="Seamless 3D realtime walk starting from the reflecting pool, through the classical peristyle colonnade, into the Mithraki showroom, and continuing into the curved 360° rotunda wall with 64 clickable fine art paintings and Acropolis muse." />
+    <title>Nexora Palms Residences | Luxury Gated Township, Smart Bungalow & 3D Art Gallery</title>
+    <meta name="description" content="Experience Nexora Palms luxury gated society in 3D: 15-floor residential towers, pedestrian footpaths with active residents, tennis and basketball courts, corner wellness gym, complete walk-in luxury bungalow with living room, modular kitchen, and master bedroom suite, leading to the 360° curved art rotunda." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,14 +18,38 @@
     <header class="gallery-nav" id="gallery-nav">
       <div class="gallery-nav__brand">
         <div class="nomadiic-brand">
-          <span class="nomadiic-brand__text">NOMADIIC HORSE DESIGNS</span>
-          <span class="nomadiic-brand__sub">BANGALORE</span>
+          <span class="nomadiic-brand__text">NEXORA PALMS RESIDENCES</span>
+          <span class="nomadiic-brand__sub">LUXURY GATED TOWNSHIP</span>
         </div>
       </div>
 
+      <!-- Quick Room & Area Navigation Pills -->
+      <nav class="room-nav-pills" id="room-nav-pills" aria-label="Society & Bungalow Room Navigation">
+        <button type="button" class="room-pill is-active" data-progress="0.00" title="Explore Gated Society Grounds">
+          <span class="room-pill__icon">🏘️</span>
+          <span class="room-pill__label">Gated Society</span>
+        </button>
+        <button type="button" class="room-pill" data-progress="0.18" title="Walk into Villa Living Room">
+          <span class="room-pill__icon">🛋️</span>
+          <span class="room-pill__label">Living Room</span>
+        </button>
+        <button type="button" class="room-pill" data-progress="0.28" title="Walk into Modular Kitchen & Dining">
+          <span class="room-pill__icon">🍳</span>
+          <span class="room-pill__label">Modular Kitchen</span>
+        </button>
+        <button type="button" class="room-pill" data-progress="0.36" title="Walk into Master Bedroom Suite">
+          <span class="room-pill__icon">🛏️</span>
+          <span class="room-pill__label">Master Bedroom</span>
+        </button>
+        <button type="button" class="room-pill" data-progress="0.45" title="Step into 3D Exhibition Rotunda">
+          <span class="room-pill__icon">🎨</span>
+          <span class="room-pill__label">Art Gallery</span>
+        </button>
+      </nav>
+
       <div class="gallery-nav__status">
         <span class="status-indicator"></span>
-        <span id="nav-status-text">Pool → Passage → Mithraki Room → 3D Rotunda Wall</span>
+        <span id="nav-status-text">Gated Society Grounds · Luxury Towers, Courts & Central Bungalow</span>
       </div>
 
       <!-- Day / Night Linear Gradient Controller -->
@@ -79,13 +103,13 @@
       <span class="cursor-tip-pill" id="cursor-tip-pill">CLICK TO VIEW</span>
     </div>
 
-    <!-- Center Portal Back Button (Appears when in Rotunda Wall to step back to Palace) -->
+    <!-- Center Portal Back Button (Appears when in Bungalow or Rotunda to step back) -->
     <div class="portal-back-wrap" id="portal-back-wrap" aria-hidden="true">
       <button type="button" class="portal-back-btn" id="portal-back-btn">
         <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
           <path d="M16 10H5M9 5.5 4.5 10 9 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span>WALK OUT TO MITHRAKI SHOWROOM & POOL</span>
+        <span id="portal-back-text">WALK OUT TO GATED SOCIETY GROUNDS</span>
       </button>
     </div>
 
