@@ -1,0 +1,550 @@
+{
+ "code": "ml",
+ "label": "മലയാളം",
+ "placeholder": "നിങ്ങളുടെ പേര് ടൈപ്പ് ചെയ്യൂ, അല്ലെങ്കിൽ നെക്സോറയെക്കുറിച്ച് എന്തും ചോദിക്കൂ...",
+ "greetingKey": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+ "switchedKey": "Of course, let's continue in English. How can I help you?",
+ "lines": {
+  "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?": {
+   "text": "നമസ്കാരം, നെക്സോറയിലേക്ക് സ്വാഗതം! ഞാൻ ഹന്ന, നിങ്ങളുടെ വെർച്വൽ റിസപ്ഷനിസ്റ്റ്. നിങ്ങളുടെ പേര് അറിയാമോ?"
+  },
+  "Welcome back! It's lovely to see you again. How can I help you today?": {
+   "text": "വീണ്ടും സ്വാഗതം! നിങ്ങളെ വീണ്ടും കണ്ടതിൽ സന്തോഷം. ഇന്ന് ഞാൻ എങ്ങനെ സഹായിക്കണം?"
+  },
+  "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?": {
+   "text": "നെക്സോറ, ജട്ട എം കൊമേഴ്സിന്റെ റിയൽ എസ്റ്റേറ്റ് സോഫ്റ്റ്‌വെയറാണ്. കൂടുതൽ അറിയണോ?"
+  },
+  "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?": {
+   "text": "ഡെവലപ്പർമാർക്ക് അവരുടെ പ്രോജക്ടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ 3D യിൽ കാണിക്കാൻ ഇത് സഹായിക്കുന്നു. കൂടുതൽ അറിയണോ?",
+   "say": "ഡെവലപ്പർമാർക്ക് അവരുടെ പ്രോജക്ടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ ത്രീ-ഡി യിൽ കാണിക്കാൻ ഇത് സഹായിക്കുന്നു. കൂടുതൽ അറിയണോ?"
+  },
+  "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?": {
+   "text": "ഇത് നിർമ്മാണം ട്രാക്ക് ചെയ്യുന്നു, വീടുകൾ വാങ്ങുന്നവർക്ക് കൈമാറുന്നത് വരെ എല്ലാം ഒരിടത്ത് നോക്കുന്നു. 3D ഡിജിറ്റൽ ട്വിൻ എന്താണെന്ന് അറിയണോ?",
+   "say": "ഇത് നിർമ്മാണം ട്രാക്ക് ചെയ്യുന്നു, വീടുകൾ വാങ്ങുന്നവർക്ക് കൈമാറുന്നത് വരെ എല്ലാം ഒരിടത്ത് നോക്കുന്നു. ത്രീ-ഡി ഡിജിറ്റൽ ട്വിൻ എന്താണെന്ന് അറിയണോ?"
+  },
+  "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?": {
+   "text": "ഡിജിറ്റൽ ട്വിൻ എന്നാൽ ഒരു പ്രോജക്ടിന്റെ യഥാർത്ഥം പോലെ തോന്നുന്ന 3D പകർപ്പാണ്. കൂടുതൽ അറിയണോ?",
+   "say": "ഡിജിറ്റൽ ട്വിൻ എന്നാൽ ഒരു പ്രോജക്ടിന്റെ യഥാർത്ഥം പോലെ തോന്നുന്ന ത്രീ-ഡി പകർപ്പാണ്. കൂടുതൽ അറിയണോ?"
+  },
+  "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?": {
+   "text": "ഇത് ആർക്കിടെക്ടിന്റെ ഡ്രോയിംഗുകളിൽ നിന്നാണ് ഉണ്ടാക്കുന്നത്, അതിനാൽ വാങ്ങുന്നവർക്ക് ഓരോ വില്ലയും ബ്രൗസറിൽ കാണാം. കൂടുതൽ അറിയണോ?"
+  },
+  "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?": {
+   "text": "നെക്സോറയ്ക്ക് റെവിറ്റ്, ആർക്കികാഡ് അല്ലെങ്കിൽ ബിം മോഡലുകളെ 72 മണിക്കൂറിനുള്ളിൽ ട്വിൻ ആക്കി മാറ്റാൻ കഴിയും. ഞങ്ങളുടെ മാതൃകാ വില്ലയുടെ വെർച്വൽ ടൂർ കാണണോ?",
+   "say": "നെക്സോറയ്ക്ക് റെവിറ്റ്, ആർക്കികാഡ് അല്ലെങ്കിൽ ബിം മോഡലുകളെ എഴുപത്തിരണ്ട് മണിക്കൂറിനുള്ളിൽ ട്വിൻ ആക്കി മാറ്റാൻ കഴിയും. ഞങ്ങളുടെ മാതൃകാ വില്ലയുടെ വെർച്വൽ ടൂർ കാണണോ?"
+  },
+  "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?": {
+   "text": "നെക്സോറയിൽ അഞ്ച് പ്രധാന മൊഡ്യൂളുകളുണ്ട്, ഒഴിഞ്ഞ ഭൂമി മുതൽ താമസക്കാർ എത്തുന്നത് വരെ. കൂടുതൽ അറിയണോ?"
+  },
+  "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?": {
+   "text": "ആദ്യത്തെ മൂന്നെണ്ണം: ഭൂമിയും സാധ്യതാ പഠനവും, 3D സെയിൽസ് ഗാലറി, പിന്നെ കൺസ്ട്രക്ഷൻ ട്രാക്കർ. കൂടുതൽ അറിയണോ?",
+   "say": "ആദ്യത്തെ മൂന്നെണ്ണം: ഭൂമിയും സാധ്യതാ പഠനവും, ത്രീ-ഡി സെയിൽസ് ഗാലറി, പിന്നെ കൺസ്ട്രക്ഷൻ ട്രാക്കർ. കൂടുതൽ അറിയണോ?"
+  },
+  "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?": {
+   "text": "പിന്നെ ക്വാളിറ്റിയും സ്നാഗിംഗും, ഒടുവിൽ ബയർ ഹാൻഡോവറും റസിഡന്റ് പോർട്ടലും. ഓരോന്നായി കാണിക്കട്ടെ?"
+  },
+  "Nexora is built for real estate developers and builders. Would you like to hear more?": {
+   "text": "നെക്സോറ റിയൽ എസ്റ്റേറ്റ് ഡെവലപ്പർമാർക്കും ബിൽഡർമാർക്കും വേണ്ടി ഉണ്ടാക്കിയതാണ്. കൂടുതൽ അറിയണോ?"
+  },
+  "From boutique villa builders to large township developers. Would you like to hear more?": {
+   "text": "ചെറിയ വില്ല ബിൽഡർമാർ മുതൽ വലിയ ടൗൺഷിപ്പ് ഡെവലപ്പർമാർ വരെ. കൂടുതൽ അറിയണോ?"
+  },
+  "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?": {
+   "text": "അവരുടെ വാങ്ങുന്നവരും താമസക്കാരും വീടുകൾ കാണാനും നിർമ്മാണം പിന്തുടരാനും ഇത് ഉപയോഗിക്കുന്നു. നിങ്ങൾ ഡെവലപ്പറാണോ, അതോ സ്വന്തമായി വീട് അന്വേഷിക്കുകയാണോ?"
+  },
+  "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?": {
+   "text": "ആദ്യ ഘട്ടം സൈറ്റ് ഇവാല്യുവേഷൻ, പണിയുന്നതിന് മുമ്പ് ഡെവലപ്പർ ഭൂമി പരിശോധിക്കുന്ന ഘട്ടം. കൂടുതൽ അറിയണോ?"
+  },
+  "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?": {
+   "text": "റോഡ്, സർവേ, വെള്ളം, വൈദ്യുതി, അനുമതികൾ, സോണിംഗ്, മണ്ണ് പരിശോധന എല്ലാം നെക്സോറ ട്രാക്ക് ചെയ്യുന്നു. നിങ്ങൾക്കായി സൈറ്റ് ഇവാല്യുവേഷൻ തുറക്കട്ടെ?"
+  },
+  "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?": {
+   "text": "രണ്ടാം ഘട്ടം മാസ്റ്റർ പ്ലാനിംഗ്, വില്ല ലേഔട്ടുകൾ അന്തിമമാക്കുന്ന ഘട്ടം. കൂടുതൽ അറിയണോ?"
+  },
+  "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?": {
+   "text": "റെറ രജിസ്ട്രേഷൻ പൂർത്തിയാകുന്നു, വാങ്ങുന്നവർക്കായി 3D ട്വിൻ ലൈവ് ആകുന്നു, ലൈവ് ഇൻവെന്ററിയും ബുക്കിംഗും സഹിതം. കാണാനായി മാസ്റ്റർ പ്ലാനിംഗ് തുറക്കട്ടെ?",
+   "say": "റെറ രജിസ്ട്രേഷൻ പൂർത്തിയാകുന്നു, വാങ്ങുന്നവർക്കായി ത്രീ-ഡി ട്വിൻ ലൈവ് ആകുന്നു, ലൈവ് ഇൻവെന്ററിയും ബുക്കിംഗും സഹിതം. കാണാനായി മാസ്റ്റർ പ്ലാനിംഗ് തുറക്കട്ടെ?"
+  },
+  "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?": {
+   "text": "മൂന്നാം ഘട്ടം കൺസ്ട്രക്ഷൻ, ടവറുകളും ക്ലബ്ഹൗസും ഉയർന്നുവരുന്ന ഘട്ടം. കൂടുതൽ അറിയണോ?"
+  },
+  "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?": {
+   "text": "ഡ്രോൺ ചിത്രങ്ങൾ, ബിൽ പരിശോധന, ഫോട്ടോ രേഖകൾ എന്നിവയോടെ നെക്സോറ ഓരോ ഘട്ടവും ട്രാക്ക് ചെയ്യുന്നു. നിങ്ങളെ കൺസ്ട്രക്ഷൻ ഘട്ടത്തിലേക്ക് കൊണ്ടുപോകട്ടെ?"
+  },
+  "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?": {
+   "text": "നാലാം ഘട്ടം ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും, ഇന്റീരിയറുകൾ പൂർത്തിയാകുന്ന സമയം. കൂടുതൽ അറിയണോ?"
+  },
+  "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?": {
+   "text": "ഓരോ വീടും 200-ലധികം ഗുണനിലവാര പോയിന്റുകളിൽ പരിശോധിക്കുന്നു, വാക്ക്ത്രൂവിന് ശേഷം താക്കോലുകൾ കൈമാറുന്നു. നിങ്ങൾക്കായി ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും തുറക്കട്ടെ?",
+   "say": "ഓരോ വീടും ഇരുന്നൂറ്-ലധികം ഗുണനിലവാര പോയിന്റുകളിൽ പരിശോധിക്കുന്നു, വാക്ക്ത്രൂവിന് ശേഷം താക്കോലുകൾ കൈമാറുന്നു. നിങ്ങൾക്കായി ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും തുറക്കട്ടെ?"
+  },
+  "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?": {
+   "text": "അഞ്ചാം ഘട്ടം റെഡി ടു മൂവ് ഇൻ, താമസക്കാർ സ്ഥിരതാമസമാക്കുന്ന സമയം. കൂടുതൽ അറിയണോ?"
+  },
+  "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?": {
+   "text": "റസിഡന്റ് ആപ്പ് സൗകര്യ ബുക്കിംഗ്, സന്ദർശകർ, സുരക്ഷ, പരിപാലനം എന്നിവ നോക്കുന്നു. റെഡി ടു മൂവ് ഇൻ കാണണോ?"
+  },
+  "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?": {
+   "text": "വെർച്വൽ ടൂറിൽ ഞങ്ങളുടെ മാതൃകാ ആഡംബര വില്ല 3D യിൽ കാണാം. കൂടുതൽ അറിയണോ?",
+   "say": "വെർച്വൽ ടൂറിൽ ഞങ്ങളുടെ മാതൃകാ ആഡംബര വില്ല ത്രീ-ഡി യിൽ കാണാം. കൂടുതൽ അറിയണോ?"
+  },
+  "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?": {
+   "text": "പൂന്തോട്ടം, ക്ലബ്ഹൗസും പൂളും, ലിവിംഗ് പവലിയൻ, മാസ്റ്റർ സ്യൂട്ട് എന്നിവയിലൂടെ നടന്നു കാണാം. നിങ്ങൾക്കായി വെർച്വൽ ടൂർ തുടങ്ങട്ടെ?"
+  },
+  "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?": {
+   "text": "വെബ്സൈറ്റ് നെക്സോറയുടെ കഥ അഞ്ച് ഘട്ടങ്ങളിലും ഒരു വെർച്വൽ ടൂറിലും പറയുന്നു. കൂടുതൽ അറിയണോ?"
+  },
+  "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?": {
+   "text": "സൈറ്റ് ഇവാല്യുവേഷൻ, മാസ്റ്റർ പ്ലാനിംഗ്, കൺസ്ട്രക്ഷൻ, ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും, പിന്നെ റെഡി ടു മൂവ് ഇൻ. തുടക്കം മുതൽ, സൈറ്റ് ഇവാല്യുവേഷനിൽ നിന്ന് ആരംഭിക്കട്ടെ?"
+  },
+  "Nexora has subscription plans for builders of every size. Would you like to hear more?": {
+   "text": "നെക്സോറയിൽ എല്ലാ വലിപ്പത്തിലുമുള്ള ബിൽഡർമാർക്കും സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകളുണ്ട്. കൂടുതൽ അറിയണോ?"
+  },
+  "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?": {
+   "text": "വിലകൾ പ്രസിദ്ധീകരിച്ചിട്ടില്ല, അതിനാൽ ഡെമോയിൽ നിങ്ങളുടെ പ്രോജക്ടിന്റെ വില ടീം പറയും. ഡെമോ ബുക്കിംഗ് ഫോം തുറക്കട്ടെ?"
+  },
+  "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?": {
+   "text": "ക്ഷമിക്കണം, ഇവിടെയുള്ള വില്ല ഒരു ഉദാഹരണം മാത്രമാണ്, വിൽപ്പനയ്ക്കുള്ളതല്ല. കൂടുതൽ അറിയണോ?"
+  },
+  "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?": {
+   "text": "അതിനാൽ വിലയോ സ്ഥലമോ ഇല്ല, പക്ഷേ വാങ്ങുന്നവർ ഒരു പ്രോജക്ട് എങ്ങനെ കാണുന്നുവെന്ന് വെർച്വൽ ടൂർ കാണിക്കുന്നു. വെർച്വൽ ടൂർ കാണണോ?"
+  },
+  "I'd be happy to help you book a free demo. Would you like to hear more?": {
+   "text": "സൗജന്യ ഡെമോ ബുക്ക് ചെയ്യാൻ സഹായിക്കുന്നതിൽ സന്തോഷം. കൂടുതൽ അറിയണോ?"
+  },
+  "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?": {
+   "text": "നിങ്ങളുടെ പ്രോജക്ടിനെക്കുറിച്ച് അല്പം പറയൂ, വ്യക്തിപരമായ വാക്ക്ത്രൂവിനായി ടീം നിങ്ങളെ ബന്ധപ്പെടും. ഇപ്പോൾ ഡെമോ ഫോം തുറക്കട്ടെ?"
+  },
+  "You can email the team at contact@jattamkommerce.com. Would you like to hear more?": {
+   "text": "ടീമിന് contact@jattamkommerce.com എന്ന വിലാസത്തിൽ ഇമെയിൽ ചെയ്യാം. കൂടുതൽ അറിയണോ?",
+   "say": "ടീമിന് കോൺടാക്ട് അറ്റ് ജട്ട എം കൊമേഴ്സ് ഡോട്ട് കോം എന്ന വിലാസത്തിൽ ഇമെയിൽ ചെയ്യാം. കൂടുതൽ അറിയണോ?"
+  },
+  "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?": {
+   "text": "അല്ലെങ്കിൽ ബുക്ക് എ ഡെമോ ഫോം ഉപയോഗിക്കൂ, അവർ നിങ്ങളെ ബന്ധപ്പെടും. ബുക്ക് എ ഡെമോ ഫോം തുറക്കട്ടെ?"
+  },
+  "Nexora is powered by Jatta M Kommerce. Would you like to hear more?": {
+   "text": "നെക്സോറ, ജട്ട എം കൊമേഴ്സിന്റെ ഉൽപ്പന്നമാണ്. കൂടുതൽ അറിയണോ?"
+  },
+  "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?": {
+   "text": "കൂടുതൽ വിവരങ്ങൾ contact@jattamkommerce.com ൽ ടീം നൽകും. നെക്സോറ എന്താണ് ചെയ്യുന്നതെന്ന് അറിയണോ?",
+   "say": "കൂടുതൽ വിവരങ്ങൾ കോൺടാക്ട് അറ്റ് ജട്ട എം കൊമേഴ്സ് ഡോട്ട് കോം ൽ ടീം നൽകും. നെക്സോറ എന്താണ് ചെയ്യുന്നതെന്ന് അറിയണോ?"
+  },
+  "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?": {
+   "text": "നെക്സോറ സെയിൽസ്ഫോഴ്സ്, ഹബ്സ്പോട്ട്, ബിൽഡർ ഇ-ആർ-പി പോലുള്ള ടൂളുകളുമായി ബന്ധിപ്പിക്കുന്നു. കൂടുതൽ അറിയണോ?"
+  },
+  "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?": {
+   "text": "വെബ്ഹുക്കുകൾ, റെസ്റ്റ് എ-പി-ഐ, എസ്-എ-പി, റെറ പോർട്ടലുകൾക്കുള്ള കണക്ടറുകളും ഉണ്ട്. നിങ്ങൾക്ക് ഏതാണ് യോജിച്ചതെന്ന് ടീം ഉറപ്പാക്കാൻ ഡെമോ ഫോം തുറക്കട്ടെ?"
+  },
+  "Sustainability runs all through the example project. Would you like to hear more?": {
+   "text": "മാതൃകാ പ്രോജക്ടിലുടനീളം പരിസ്ഥിതി സംരക്ഷണമുണ്ട്. കൂടുതൽ അറിയണോ?"
+  },
+  "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?": {
+   "text": "മേൽക്കൂര സോളാർ, മഴവെള്ള സംഭരണം, ഗ്രേവാട്ടർ പുനരുപയോഗം, ഇവി ചാർജിംഗ്, ഗ്രീൻ ബിൽഡിംഗ് ട്രാക്കിംഗ്. ഈ ആസൂത്രണം തുടങ്ങുന്ന സൈറ്റ് ഇവാല്യുവേഷനിൽ നിന്ന് ആരംഭിക്കട്ടെ?"
+  },
+  "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?": {
+   "text": "നെക്സോറ അക്കൗണ്ടുകൾ ഇപ്പോഴും തയ്യാറാക്കുകയാണ്, അതിനാൽ ലോഗിൻ ഇതുവരെ ബന്ധിപ്പിച്ചിട്ടില്ല. ടീം നിങ്ങൾക്ക് ആക്സസ് നൽകാൻ ഡെമോ ഫോം തുറക്കട്ടെ?"
+  },
+  "It's simple: just scroll to move through the phases. Would you like to hear more?": {
+   "text": "വളരെ എളുപ്പം: ഘട്ടങ്ങൾ മാറാൻ സ്ക്രോൾ ചെയ്യൂ. കൂടുതൽ അറിയണോ?"
+  },
+  "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?": {
+   "text": "മുകളിൽ വലതുവശത്തെ മെനുവിൽ എല്ലാ ഘട്ടങ്ങളുമുണ്ട്, ബുക്ക് എ ഡെമോ പേജിന്റെ മുകളിലാണ്. ഇപ്പോൾ നിങ്ങളെ വെബ്സൈറ്റിലേക്ക് കൊണ്ടുപോകട്ടെ?"
+  },
+  "This website doesn't save our conversation. Would you like to hear more?": {
+   "text": "ഈ വെബ്സൈറ്റ് നമ്മുടെ സംഭാഷണം സേവ് ചെയ്യുന്നില്ല. കൂടുതൽ അറിയണോ?"
+  },
+  "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?": {
+   "text": "നിങ്ങൾ സംസാരിക്കുമ്പോൾ, ബ്രൗസർ ശബ്ദത്തെ ടെക്സ്റ്റാക്കി മാറ്റുന്നു, അതിനാൽ സ്വകാര്യ വിവരങ്ങൾ ഇവിടെ പങ്കിടരുത്. നെക്സോറയെക്കുറിച്ച് മറ്റെന്തെങ്കിലും സഹായം വേണോ?"
+  },
+  "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?": {
+   "text": "കൊള്ളാം, എങ്കിൽ നെക്സോറ നിങ്ങൾക്കായി തന്നെ ഉണ്ടാക്കിയതാണ്. അഞ്ച് മൊഡ്യൂളുകൾ കാണണോ, അതോ ഡെമോ ബുക്ക് ചെയ്യാൻ സഹായിക്കട്ടെ?"
+  },
+  "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?": {
+   "text": "അതിമനോഹരം! നെക്സോറയിൽ വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ 3D യിൽ കാണാം. നിങ്ങൾക്കായി വെർച്വൽ ടൂർ തുടങ്ങട്ടെ?",
+   "say": "അതിമനോഹരം! നെക്സോറയിൽ വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ ത്രീ-ഡി യിൽ കാണാം. നിങ്ങൾക്കായി വെർച്വൽ ടൂർ തുടങ്ങട്ടെ?"
+  },
+  "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?": {
+   "text": "കുഴപ്പമില്ല, സാവധാനം നോക്കൂ. ആദ്യ ഘട്ടം മുതൽ കാണിച്ചുതരട്ടെ?"
+  },
+  "Hi there! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "നമസ്കാരം! നിങ്ങൾ ഡെവലപ്പറോ ബിൽഡറോ ആണോ, വീട് അന്വേഷിക്കുകയാണോ, അതോ വെറുതെ നോക്കുകയാണോ?"
+  },
+  "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?": {
+   "text": "നമസ്കാരം! നിങ്ങൾ ഇവിടെ വന്നതിൽ സന്തോഷം. നിങ്ങൾ ഡെവലപ്പറാണോ, വീട് വാങ്ങുന്നയാളാണോ, അതോ വെറുതെ നോക്കുകയാണോ?"
+  },
+  "I'm doing very well, thank you! How can I help you today?": {
+   "text": "എനിക്ക് സുഖമാണ്, നന്ദി! ഇന്ന് ഞാൻ എങ്ങനെ സഹായിക്കണം?"
+  },
+  "I'm great, thanks for asking! What would you like to know about Nexora?": {
+   "text": "എനിക്ക് നല്ല സുഖം, ചോദിച്ചതിന് നന്ദി! നെക്സോറയെക്കുറിച്ച് എന്താണ് അറിയേണ്ടത്?"
+  },
+  "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?": {
+   "text": "ഞാൻ ഹന്ന, നെക്സോറയുടെ വെർച്വൽ റിസപ്ഷനിസ്റ്റ്, നിങ്ങളെ വഴികാട്ടാൻ ഇവിടെയുണ്ട്. എന്താണ് അറിയേണ്ടത്?"
+  },
+  "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?": {
+   "text": "നിങ്ങളെ സ്വാഗതം ചെയ്യാനും ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകാനും നെക്സോറ കാണിച്ചുതരാനും ഞാൻ ഇവിടെയുണ്ട്. എന്താണ് അറിയേണ്ടത്?"
+  },
+  "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?": {
+   "text": "ഞാൻ ഒരു എഐ റിസപ്ഷനിസ്റ്റാണ്, എങ്കിലും സഹായിക്കാൻ പൂർണ്ണമായും തയ്യാറാണ്. എന്താണ് അറിയേണ്ടത്?"
+  },
+  "You're very welcome! Is there anything else I can help you with?": {
+   "text": "സ്വാഗതം! മറ്റെന്തെങ്കിലും സഹായം വേണോ?"
+  },
+  "My pleasure! Anything else you'd like to know about Nexora?": {
+   "text": "എന്റെ സന്തോഷം! നെക്സോറയെക്കുറിച്ച് മറ്റെന്തെങ്കിലും അറിയണോ?"
+  },
+  "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!": {
+   "text": "നെക്സോറ സന്ദർശിച്ചതിന് നന്ദി! ആവശ്യമെങ്കിൽ ഞാൻ എപ്പോഴും മെനുവിലുണ്ട്. നല്ലൊരു ദിവസം ആശംസിക്കുന്നു!"
+  },
+  "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?": {
+   "text": "നെക്സോറയെക്കുറിച്ച് വിശദീകരിക്കാം, വെബ്സൈറ്റ് കാണിച്ചുതരാം, ഡെമോ ബുക്ക് ചെയ്യാൻ സഹായിക്കാം. എവിടെ നിന്ന് തുടങ്ങാം?"
+  },
+  "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?": {
+   "text": "അത് എന്റെ പരിധിക്ക് അല്പം പുറത്താണ്, പക്ഷേ നെക്സോറ കാണിക്കാൻ എനിക്ക് ഇഷ്ടമാണ്. ഒരു ചെറിയ ടൂർ തരട്ടെ?"
+  },
+  "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?": {
+   "text": "ക്ഷമിക്കണം, അതിന് എനിക്ക് സഹായിക്കാനാവില്ല. പക്ഷേ നെക്സോറ കാണിച്ചുതരാം. ഒരു ചെറിയ ടൂർ പോകാം?"
+  },
+  "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?": {
+   "text": "അതിന് സഹായിക്കാൻ കഴിഞ്ഞിരുന്നെങ്കിൽ! നെക്സോറ കാണിക്കുന്നതിലാണ് ഞാൻ മികച്ചത്. ഒരു ചെറിയ ടൂർ വേണോ?"
+  },
+  "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?": {
+   "text": "കുഴപ്പമില്ല, ലളിതമായി പറയാം. വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ 3D യിൽ കാണിക്കാൻ നെക്സോറ ബിൽഡർമാരെ സഹായിക്കുന്നു. കാണിച്ചുതരട്ടെ?",
+   "say": "കുഴപ്പമില്ല, ലളിതമായി പറയാം. വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ ത്രീ-ഡി യിൽ കാണിക്കാൻ നെക്സോറ ബിൽഡർമാരെ സഹായിക്കുന്നു. കാണിച്ചുതരട്ടെ?"
+  },
+  "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?": {
+   "text": "കുഴപ്പമില്ല. നെക്സോറ മനസ്സിലാക്കാനുള്ള എളുപ്പവഴി ഒരു ചെറിയ ടൂറാണ്. കാണിച്ചുതരട്ടെ?"
+  },
+  "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?": {
+   "text": "ക്ഷമിക്കണം, ആ വിവരം എന്റെ കയ്യിലില്ല. ഡെമോയിൽ ഞങ്ങളുടെ ടീം മറുപടി നൽകും. ഡെമോ ഫോം തുറക്കട്ടെ?"
+  },
+  "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?": {
+   "text": "നല്ല ചോദ്യം! അതിന്റെ ഉത്തരം എന്റെ കയ്യിലില്ല, പക്ഷേ ഡെമോയിൽ ടീം പറയും. ഡെമോ ഫോം തുറക്കട്ടെ?"
+  },
+  "Sorry, I didn't quite catch that. Could you say it another way?": {
+   "text": "ക്ഷമിക്കണം, എനിക്ക് ശരിക്കും മനസ്സിലായില്ല. മറ്റൊരു രീതിയിൽ പറയാമോ?"
+  },
+  "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.": {
+   "text": "ക്ഷമിക്കണം, മനസ്സിലായില്ല. നെക്സോറ എന്താണെന്ന് ചോദിക്കാം, അല്ലെങ്കിൽ ഒരു ടൂർ ആവശ്യപ്പെടാം."
+  },
+  "No problem at all. What would you like to know instead?": {
+   "text": "കുഴപ്പമില്ല. പകരം എന്താണ് അറിയേണ്ടത്?"
+  },
+  "That's fine. Is there something else about Nexora I can help with?": {
+   "text": "ശരി. നെക്സോറയെക്കുറിച്ച് മറ്റെന്തെങ്കിലും സഹായം വേണോ?"
+  },
+  "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?": {
+   "text": "കൊള്ളാം! നെക്സോറയെക്കുറിച്ച് വിശദീകരിക്കാം, കാണിച്ചുതരാം, അല്ലെങ്കിൽ ഡെമോ ബുക്ക് ചെയ്യാൻ സഹായിക്കാം. ഏതാണ് വേണ്ടത്?"
+  },
+  "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.": {
+   "text": "ക്ഷമിക്കണം, നിങ്ങളുടെ ഭാഷ എനിക്ക് മനസ്സിലാകുന്നില്ല. നമുക്ക് സംസാരിക്കാൻ, എന്റെ ഭാഷകളിൽ ഒന്ന് തിരഞ്ഞെടുക്കൂ."
+  },
+  "Of course, let's continue in English. How can I help you?": {
+   "text": "തീർച്ചയായും, ഇനി നമുക്ക് മലയാളത്തിൽ സംസാരിക്കാം. ഞാൻ എങ്ങനെ സഹായിക്കണം?"
+  },
+  "Of course, taking you to Site Evaluation now.": {
+   "text": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ സൈറ്റ് ഇവാല്യുവേഷനിലേക്ക് കൊണ്ടുപോകുന്നു."
+  },
+  "Of course, taking you to Master Planning now.": {
+   "text": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ മാസ്റ്റർ പ്ലാനിംഗിലേക്ക് കൊണ്ടുപോകുന്നു."
+  },
+  "Of course, taking you to Construction now.": {
+   "text": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ കൺസ്ട്രക്ഷനിലേക്ക് കൊണ്ടുപോകുന്നു."
+  },
+  "Of course, taking you to Fit-Out and Handover now.": {
+   "text": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറിലേക്കും കൊണ്ടുപോകുന്നു."
+  },
+  "Of course, taking you to Ready to Move In now.": {
+   "text": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ റെഡി ടു മൂവ് ഇന്നിലേക്ക് കൊണ്ടുപോകുന്നു."
+  },
+  "Of course, taking you to the Virtual Tour now.": {
+   "text": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ വെർച്വൽ ടൂറിലേക്ക് കൊണ്ടുപോകുന്നു."
+  },
+  "Of course, opening the demo form for you.": {
+   "text": "തീർച്ചയായും, നിങ്ങൾക്കായി ഡെമോ ഫോം തുറക്കുന്നു."
+  },
+  "Of course, taking you into the website now. I'm in the menu if you need me.": {
+   "text": "തീർച്ചയായും, ഇപ്പോൾ നിങ്ങളെ വെബ്സൈറ്റിലേക്ക് കൊണ്ടുപോകുന്നു. ആവശ്യമെങ്കിൽ ഞാൻ മെനുവിലുണ്ട്."
+  },
+  "Sorry, I didn't catch your name. Could you type just your first name?": {
+   "text": "ക്ഷമിക്കണം, നിങ്ങളുടെ പേര് മനസ്സിലായില്ല. നിങ്ങളുടെ ആദ്യ പേര് മാത്രം ടൈപ്പ് ചെയ്യാമോ?"
+  },
+  "No problem at all! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "കുഴപ്പമില്ല! നിങ്ങൾ ഡെവലപ്പറോ ബിൽഡറോ ആണോ, വീട് അന്വേഷിക്കുകയാണോ, അതോ വെറുതെ നോക്കുകയാണോ?"
+  },
+  "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "{name}, പരിചയപ്പെട്ടതിൽ സന്തോഷം! നിങ്ങൾ ഡെവലപ്പറോ ബിൽഡറോ ആണോ, വീട് അന്വേഷിക്കുകയാണോ, അതോ വെറുതെ നോക്കുകയാണോ?"
+  },
+  "Wonderful! Which company are you with, and what's your role there?": {
+   "text": "കൊള്ളാം! നിങ്ങൾ ഏത് കമ്പനിയിലാണ്, അവിടെ നിങ്ങളുടെ ചുമതല എന്താണ്?"
+  },
+  "Thank you! Shall I give you a quick guided tour of Nexora?": {
+   "text": "{name}, നന്ദി! നെക്സോറയുടെ ഒരു ചെറിയ ഗൈഡഡ് ടൂർ തരട്ടെ?"
+  },
+  "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?": {
+   "text": "അതിമനോഹരം! നെക്സോറയിൽ വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ 3D യിൽ കാണാം. ഒരു ചെറിയ ഗൈഡഡ് ടൂർ തരട്ടെ?",
+   "say": "അതിമനോഹരം! നെക്സോറയിൽ വീടുകൾ പണിയുന്നതിന് മുമ്പുതന്നെ ത്രീ-ഡി യിൽ കാണാം. ഒരു ചെറിയ ഗൈഡഡ് ടൂർ തരട്ടെ?"
+  },
+  "That's perfectly fine, take your time. Shall I give you a quick guided tour?": {
+   "text": "കുഴപ്പമില്ല, സാവധാനം നോക്കൂ. ഒരു ചെറിയ ഗൈഡഡ് ടൂർ തരട്ടെ?"
+  },
+  "No problem. You can ask me anything, or explore at your own pace.": {
+   "text": "കുഴപ്പമില്ല. എന്നോട് എന്തും ചോദിക്കാം, അല്ലെങ്കിൽ നിങ്ങളുടെ സൗകര്യത്തിന് നോക്കാം."
+  },
+  "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?": {
+   "text": "നമുക്ക് തുടങ്ങാം! ഇത് സൈറ്റ് ഇവാല്യുവേഷൻ, പണിയുന്നതിന് മുമ്പ് ഡെവലപ്പർ ഭൂമി പരിശോധിക്കുന്ന ഘട്ടം. മുന്നോട്ട് പോകാം?"
+  },
+  "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?": {
+   "text": "ഇത് മാസ്റ്റർ പ്ലാനിംഗ്. വില്ല ലേഔട്ടുകൾ അന്തിമമാകുന്നു, വാങ്ങുന്നവർക്കായി 3D ട്വിൻ ലൈവ് ആകുന്നു. മുന്നോട്ട് പോകാം?",
+   "say": "ഇത് മാസ്റ്റർ പ്ലാനിംഗ്. വില്ല ലേഔട്ടുകൾ അന്തിമമാകുന്നു, വാങ്ങുന്നവർക്കായി ത്രീ-ഡി ട്വിൻ ലൈവ് ആകുന്നു. മുന്നോട്ട് പോകാം?"
+  },
+  "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?": {
+   "text": "ഇത് കൺസ്ട്രക്ഷൻ. ഡ്രോൺ ചിത്രങ്ങളും ഫോട്ടോ രേഖകളും വഴി നെക്സോറ ഓരോ ഘട്ടവും ട്രാക്ക് ചെയ്യുന്നു. മുന്നോട്ട് പോകാം?"
+  },
+  "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?": {
+   "text": "ഇത് ഫിറ്റ്-ഔട്ടും ഹാൻഡോവറും. താക്കോൽ കൈമാറുന്നതിന് മുമ്പ് ഓരോ വീടിന്റെയും ഗുണനിലവാരം പരിശോധിക്കുന്നു. മുന്നോട്ട് പോകാം?"
+  },
+  "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?": {
+   "text": "റെഡി ടു മൂവ് ഇന്നിലേക്ക് സ്വാഗതം. റസിഡന്റ് ആപ്പ് ബുക്കിംഗുകൾ, സന്ദർശകർ, പരിപാലനം എന്നിവ നോക്കുന്നു. വില്ല കാണാം?"
+  },
+  "This is the virtual tour of our demo villa. Take your time, and look around.": {
+   "text": "ഇത് ഞങ്ങളുടെ ഡെമോ വില്ലയുടെ വെർച്വൽ ടൂർ. സാവധാനം ചുറ്റിനടന്ന് കാണൂ."
+  },
+  "That's the tour! Would you like a personal demo for your own project?": {
+   "text": "{name}, ഇതാണ് ഞങ്ങളുടെ ടൂർ! നിങ്ങളുടെ സ്വന്തം പ്രോജക്ടിനായി ഒരു വ്യക്തിഗത ഡെമോ വേണോ?"
+  },
+  "No problem, we'll stop here. I'm always in the menu if you need me.": {
+   "text": "കുഴപ്പമില്ല, ഇവിടെ നിർത്താം. ആവശ്യമെങ്കിൽ ഞാൻ എപ്പോഴും മെനുവിലുണ്ട്."
+  },
+  "I'd be happy to arrange a free demo! What's the best phone number to reach you?": {
+   "text": "സൗജന്യ ഡെമോ ഒരുക്കാൻ സന്തോഷമേയുള്ളൂ! നിങ്ങളെ ബന്ധപ്പെടാൻ ഏറ്റവും നല്ല ഫോൺ നമ്പർ ഏതാണ്?"
+  },
+  "I'd be happy to arrange a free demo! May I have your name first?": {
+   "text": "സൗജന്യ ഡെമോ ഒരുക്കാൻ സന്തോഷമേയുള്ളൂ! ആദ്യം നിങ്ങളുടെ പേര് പറയാമോ?"
+  },
+  "Thank you! What's the best phone number to reach you?": {
+   "text": "നന്ദി! നിങ്ങളെ ബന്ധപ്പെടാൻ ഏറ്റവും നല്ല ഫോൺ നമ്പർ ഏതാണ്?"
+  },
+  "Hmm, that number doesn't look right. Could you type it again, with ten digits?": {
+   "text": "ഹ്മ്, ആ നമ്പർ ശരിയായി തോന്നുന്നില്ല. പത്ത് അക്കങ്ങളോടെ വീണ്ടും ടൈപ്പ് ചെയ്യാമോ?"
+  },
+  "Thank you. And your email address?": {
+   "text": "നന്ദി. നിങ്ങളുടെ ഇമെയിൽ വിലാസം?"
+  },
+  "That email doesn't look quite right. Could you type it again?": {
+   "text": "ആ ഇമെയിൽ ശരിയായി തോന്നുന്നില്ല. വീണ്ടും ടൈപ്പ് ചെയ്യാമോ?"
+  },
+  "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.": {
+   "text": "{name}, നന്ദി! ഞങ്ങളുടെ ടീം ഉടൻ നിങ്ങളെ ബന്ധപ്പെടും. തീയതി തിരഞ്ഞെടുക്കാൻ ഡെമോ ഫോം തുറക്കുന്നു."
+  },
+  "No problem at all. The Book a Demo button is at the top, whenever you're ready.": {
+   "text": "കുഴപ്പമില്ല. നിങ്ങൾ തയ്യാറാകുമ്പോൾ, ബുക്ക് എ ഡെമോ ബട്ടൺ മുകളിലുണ്ട്."
+  }
+ },
+ "words": [
+  [
+   "അതെ",
+   "yes"
+  ],
+  [
+   "ഉവ്വ്",
+   "yes"
+  ],
+  [
+   "ശരി",
+   "yes"
+  ],
+  [
+   "തീർച്ചയായും",
+   "yes"
+  ],
+  [
+   "ഓക്കെ",
+   "ok"
+  ],
+  [
+   "ഇല്ല",
+   "no"
+  ],
+  [
+   "വേണ്ട",
+   "no"
+  ],
+  [
+   "വേണ്ട നന്ദി",
+   "no thanks"
+  ],
+  [
+   "പിന്നീട്",
+   "later"
+  ],
+  [
+   "കൂടുതൽ പറയൂ",
+   "tell me more"
+  ],
+  [
+   "ഇനിയും പറയൂ",
+   "tell me more"
+  ],
+  [
+   "അടുത്തത്",
+   "next"
+  ],
+  [
+   "എന്റെ പേര്",
+   "my name is"
+  ],
+  [
+   "ഞാൻ",
+   "i am"
+  ],
+  [
+   "ഡെവലപ്പർ",
+   "developer"
+  ],
+  [
+   "ബിൽഡർ",
+   "builder"
+  ],
+  [
+   "വീട് അന്വേഷിക്കുന്നു",
+   "looking for a home"
+  ],
+  [
+   "വീട് വാങ്ങാൻ",
+   "buy a home"
+  ],
+  [
+   "വെറുതെ നോക്കുന്നു",
+   "just looking"
+  ],
+  [
+   "നെക്സോറ",
+   "nexora"
+  ],
+  [
+   "എന്താണ്",
+   "what is"
+  ],
+  [
+   "എന്ത്",
+   "what"
+  ],
+  [
+   "വില",
+   "price"
+  ],
+  [
+   "ചെലവ്",
+   "cost"
+  ],
+  [
+   "ഡെമോ",
+   "demo"
+  ],
+  [
+   "ടൂർ",
+   "tour"
+  ],
+  [
+   "കാണിക്കൂ",
+   "show me"
+  ],
+  [
+   "തുറക്കൂ",
+   "open"
+  ],
+  [
+   "ബന്ധപ്പെടുക",
+   "contact"
+  ],
+  [
+   "ഇമെയിൽ",
+   "email"
+  ],
+  [
+   "നമസ്കാരം",
+   "hello"
+  ],
+  [
+   "സുഖമാണോ",
+   "how are you"
+  ],
+  [
+   "നന്ദി",
+   "thanks"
+  ],
+  [
+   "നിങ്ങൾ ആരാണ്",
+   "who are you"
+  ],
+  [
+   "നിങ്ങളുടെ പേര്",
+   "your name"
+  ],
+  [
+   "വില്ല",
+   "villa"
+  ],
+  [
+   "നിർമ്മാണം",
+   "construction"
+  ],
+  [
+   "സ്ഥലം",
+   "land"
+  ],
+  [
+   "മനസ്സിലായില്ല",
+   "do not understand"
+  ],
+  [
+   "സഹായം",
+   "help"
+  ],
+  [
+   "athe",
+   "yes"
+  ],
+  [
+   "sheri",
+   "yes"
+  ],
+  [
+   "shari",
+   "yes"
+  ],
+  [
+   "illa",
+   "no"
+  ],
+  [
+   "venda",
+   "no"
+  ],
+  [
+   "ente peru",
+   "my name is"
+  ],
+  [
+   "njan",
+   "i am"
+  ],
+  [
+   "namaskaram",
+   "hello"
+  ],
+  [
+   "nanni",
+   "thanks"
+  ],
+  [
+   "vila",
+   "price"
+  ],
+  [
+   "enthu",
+   "what"
+  ]
+ ]
+}

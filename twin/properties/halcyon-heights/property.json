@@ -1,0 +1,1119 @@
+{
+  "_note": "FICTIONAL DEMO PROJECT. This project does not exist. Every name, unit, area, price, status and amenity in this file is sample data used to demonstrate the site, and the UI labels it as such. For a real project use real data and set \"mode\" to \"live\". See README.md.",
+  "mode": "demo",
+  "brand": {
+    "name": "Restate",
+    "logo": "",
+    "accent": "#c9a46a"
+  },
+  "project": {
+    "name": "Halcyon Heights",
+    "type": "Luxury residences",
+    "stage": "ready",
+    "location": "Sample waterfront",
+    "city": "Demo city",
+    "developer": "Sample developer",
+    "possession": "Ready to move (sample)",
+    "fictional": true
+  },
+  "listing": {
+    "listed": true,
+    "featured": 2
+  },
+  "marketing": {
+    "tagline": "A single 30-floor tower of 3 and 4 BHK sky residences.",
+    "description": "A fictional, completed project used to demonstrate the platform. One slender tower of 30 floors with three homes per floor: two 4 BHK residences and one 3 BHK. Every figure on this page is sample data.",
+    "highlights": [
+      "One tower, 30 floors",
+      "Three homes per floor",
+      "3 and 4 BHK sky residences",
+      "Ready to move"
+    ],
+    "amenities": [
+      "Rooftop lounge",
+      "Lap pool",
+      "Concierge",
+      "Spa",
+      "Private dining room"
+    ],
+    "hero": {
+      "poster": "poster.jpg",
+      "posterMobile": "poster-mobile.jpg",
+      "video": null,
+      "credit": "Illustrative 3D view · fictional project"
+    },
+    "gallery": [],
+    "brochure": null,
+    "location": {
+      "address": null,
+      "lat": null,
+      "lng": null
+    }
+  },
+  "availabilityAsOf": "2026-11-10",
+  "currency": "INR",
+  "areaUnit": "sqft",
+  "unitTypes": {
+    "3BHK": {
+      "label": "3 BHK",
+      "tour": "sample-tour"
+    },
+    "4BHK": {
+      "label": "4 BHK",
+      "tour": "sample-tour"
+    }
+  },
+  "tours": {
+    "sample-tour": {
+      "title": "Sample 360° tour",
+      "sample": true,
+      "credit": "Sample panoramas from Poly Haven (CC0). They are not photographs of this property.",
+      "scenes": [
+        {
+          "id": "living",
+          "name": "Living room",
+          "image": "../../assets/pano/living.jpg",
+          "yaw": -20,
+          "hotspots": [
+            {
+              "to": "bedroom",
+              "yaw": -172,
+              "pitch": -4
+            }
+          ]
+        },
+        {
+          "id": "bedroom",
+          "name": "Bedroom",
+          "image": "../../assets/pano/bedroom.jpg",
+          "yaw": 10,
+          "hotspots": [
+            {
+              "to": "bathroom",
+              "yaw": 150,
+              "pitch": -6
+            },
+            {
+              "to": "living",
+              "yaw": -145,
+              "pitch": -6
+            }
+          ]
+        },
+        {
+          "id": "bathroom",
+          "name": "Bathroom",
+          "image": "../../assets/pano/bathroom.jpg",
+          "yaw": 15,
+          "hotspots": [
+            {
+              "to": "bedroom",
+              "yaw": 20,
+              "pitch": -6
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "towers": [
+    {
+      "id": "tower-1",
+      "name": "Tower",
+      "floors": 30,
+      "unitsPerFloor": 3,
+      "units": [
+        {
+          "number": "H-101",
+          "floor": 1,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 58940000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-102",
+          "floor": 1,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 58940000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-103",
+          "floor": 1,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 43470000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-201",
+          "floor": 2,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 58940000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-202",
+          "floor": 2,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 58940000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-203",
+          "floor": 2,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 43470000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-301",
+          "floor": 3,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59100000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-302",
+          "floor": 3,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59100000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-303",
+          "floor": 3,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 43590000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-401",
+          "floor": 4,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59260000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-402",
+          "floor": 4,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59260000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-403",
+          "floor": 4,
+          "type": "3BHK",
+          "status": "available",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 43710000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-501",
+          "floor": 5,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59420000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-502",
+          "floor": 5,
+          "type": "4BHK",
+          "status": "booked",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59420000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-503",
+          "floor": 5,
+          "type": "3BHK",
+          "status": "available",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 43830000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-601",
+          "floor": 6,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59580000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-602",
+          "floor": 6,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59580000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-603",
+          "floor": 6,
+          "type": "3BHK",
+          "status": "booked",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 43940000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-701",
+          "floor": 7,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59740000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-702",
+          "floor": 7,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59740000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-703",
+          "floor": 7,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 44060000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-801",
+          "floor": 8,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59890000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-802",
+          "floor": 8,
+          "type": "4BHK",
+          "status": "booked",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 59890000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-803",
+          "floor": 8,
+          "type": "3BHK",
+          "status": "booked",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 44180000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-901",
+          "floor": 9,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60050000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-902",
+          "floor": 9,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60050000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-903",
+          "floor": 9,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 44300000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1001",
+          "floor": 10,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60210000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1002",
+          "floor": 10,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60210000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1003",
+          "floor": 10,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 44410000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1101",
+          "floor": 11,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60370000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1102",
+          "floor": 11,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60370000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1103",
+          "floor": 11,
+          "type": "3BHK",
+          "status": "booked",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 44530000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1201",
+          "floor": 12,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60530000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1202",
+          "floor": 12,
+          "type": "4BHK",
+          "status": "booked",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60530000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1203",
+          "floor": 12,
+          "type": "3BHK",
+          "status": "hold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 44650000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1301",
+          "floor": 13,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60690000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1302",
+          "floor": 13,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60690000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1303",
+          "floor": 13,
+          "type": "3BHK",
+          "status": "available",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 44770000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1401",
+          "floor": 14,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60840000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1402",
+          "floor": 14,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 60840000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1403",
+          "floor": 14,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 44880000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1501",
+          "floor": 15,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61000000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1502",
+          "floor": 15,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61000000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1503",
+          "floor": 15,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45000000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1601",
+          "floor": 16,
+          "type": "4BHK",
+          "status": "booked",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61160000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1602",
+          "floor": 16,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61160000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1603",
+          "floor": 16,
+          "type": "3BHK",
+          "status": "available",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45120000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1701",
+          "floor": 17,
+          "type": "4BHK",
+          "status": "booked",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61320000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1702",
+          "floor": 17,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61320000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1703",
+          "floor": 17,
+          "type": "3BHK",
+          "status": "available",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45240000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1801",
+          "floor": 18,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61480000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1802",
+          "floor": 18,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61480000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1803",
+          "floor": 18,
+          "type": "3BHK",
+          "status": "available",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45350000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-1901",
+          "floor": 19,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61640000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-1902",
+          "floor": 19,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61640000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-1903",
+          "floor": 19,
+          "type": "3BHK",
+          "status": "booked",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45470000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2001",
+          "floor": 20,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61790000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2002",
+          "floor": 20,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61790000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2003",
+          "floor": 20,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45590000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2101",
+          "floor": 21,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61950000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2102",
+          "floor": 21,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 61950000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2103",
+          "floor": 21,
+          "type": "3BHK",
+          "status": "available",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45710000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2201",
+          "floor": 22,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62110000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2202",
+          "floor": 22,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62110000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2203",
+          "floor": 22,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45820000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2301",
+          "floor": 23,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62270000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2302",
+          "floor": 23,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62270000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2303",
+          "floor": 23,
+          "type": "3BHK",
+          "status": "booked",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 45940000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2401",
+          "floor": 24,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62430000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2402",
+          "floor": 24,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62430000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2403",
+          "floor": 24,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 46060000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2501",
+          "floor": 25,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62590000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2502",
+          "floor": 25,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62590000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2503",
+          "floor": 25,
+          "type": "3BHK",
+          "status": "booked",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 46180000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2601",
+          "floor": 26,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62740000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2602",
+          "floor": 26,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62740000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2603",
+          "floor": 26,
+          "type": "3BHK",
+          "status": "booked",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 46290000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2701",
+          "floor": 27,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62900000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2702",
+          "floor": 27,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 62900000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2703",
+          "floor": 27,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 46410000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2801",
+          "floor": 28,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 63060000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2802",
+          "floor": 28,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 63060000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2803",
+          "floor": 28,
+          "type": "3BHK",
+          "status": "sold",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 46530000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-2901",
+          "floor": 29,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 63220000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-2902",
+          "floor": 29,
+          "type": "4BHK",
+          "status": "hold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 63220000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-2903",
+          "floor": 29,
+          "type": "3BHK",
+          "status": "available",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 46650000,
+          "facing": "South-West"
+        },
+        {
+          "number": "H-3001",
+          "floor": 30,
+          "type": "4BHK",
+          "status": "available",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 63380000,
+          "facing": "North-West"
+        },
+        {
+          "number": "H-3002",
+          "floor": 30,
+          "type": "4BHK",
+          "status": "sold",
+          "carpetSqft": 2468,
+          "builtUpSqft": 2754,
+          "superSqft": 3519,
+          "price": 63380000,
+          "facing": "North-East"
+        },
+        {
+          "number": "H-3003",
+          "floor": 30,
+          "type": "3BHK",
+          "status": "booked",
+          "carpetSqft": 1816,
+          "builtUpSqft": 2030,
+          "superSqft": 2611,
+          "price": 46760000,
+          "facing": "South-West"
+        }
+      ]
+    }
+  ]
+}

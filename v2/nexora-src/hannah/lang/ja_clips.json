@@ -1,0 +1,965 @@
+[
+ {
+  "id": "ja_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "こんにちは、ネクソラへようこそ！私はハンナ、バーチャル受付です。お名前を伺ってもよろしいですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c083.mp4"
+ },
+ {
+  "id": "ja_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "おかえりなさい！またお会いできてうれしいです。今日はどのようなご用件でしょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c084.mp4"
+ },
+ {
+  "id": "ja_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "ネクソラは、ジャッタ・エム・コマースの不動産ソフトウェアです。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c085.mp4"
+ },
+ {
+  "id": "ja_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "デベロッパーが、建てる前からプロジェクトをスリーディーで見せられるようにします。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c086.mp4"
+ },
+ {
+  "id": "ja_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "工事の進み具合を管理し、購入者への引き渡しまで、すべてを一か所で扱います。スリーディーデジタルツインとは何か、お知りになりたいですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c087.mp4"
+ },
+ {
+  "id": "ja_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "デジタルツインとは、プロジェクトの写真のようにリアルなスリーディーの複製です。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c088.mp4"
+ },
+ {
+  "id": "ja_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "建築家の図面から作られるので、購入者はブラウザで各ヴィラを見て回れます。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c089.mp4"
+ },
+ {
+  "id": "ja_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "ネクソラは、レビット、アーキキャド、ビムのモデルを七十二時間以内にツインに変換できます。サンプルヴィラのバーチャルツアーをご覧になりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c090.mp4"
+ },
+ {
+  "id": "ja_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "ネクソラには、更地から入居まで、五つの主要モジュールがあります。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c091.mp4"
+ },
+ {
+  "id": "ja_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "最初の三つは、土地と事業性の評価、スリーディー販売ギャラリー、そして工事管理です。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c092.mp4"
+ },
+ {
+  "id": "ja_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "次に品質と手直しの管理、最後に購入者への引き渡しと入居者ポータルです。一つずつご案内しましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c093.mp4"
+ },
+ {
+  "id": "ja_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "ネクソラは、不動産デベロッパーと建設会社のために作られています。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c094.mp4"
+ },
+ {
+  "id": "ja_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "小さなヴィラの建設会社から、大規模なタウンシップのデベロッパーまで。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c095.mp4"
+ },
+ {
+  "id": "ja_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "購入者や入居者も、家を見たり工事を確認したりするのに使います。デベロッパーの方ですか、それともご自身の家をお探しですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c096.mp4"
+ },
+ {
+  "id": "ja_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "第一段階はサイト評価で、建てる前に土地を調べる段階です。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c097.mp4"
+ },
+ {
+  "id": "ja_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "道路、測量、水道、電気、許認可、用途地域、地盤調査まで、ネクソラが管理します。サイト評価を開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c098.mp4"
+ },
+ {
+  "id": "ja_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "第二段階はマスタープランニングで、ヴィラの間取りが決まる段階です。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c099.mp4"
+ },
+ {
+  "id": "ja_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "レラ登録が完了し、購入者向けにスリーディーツインが公開されます。在庫と予約もリアルタイムです。マスタープランニングを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c100.mp4"
+ },
+ {
+  "id": "ja_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "第三段階は建設で、タワーとクラブハウスが立ち上がっていく段階です。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c101.mp4"
+ },
+ {
+  "id": "ja_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "ネクソラは、ドローン画像、請求書の確認、写真記録で、各工程を管理します。建設の段階へご案内しましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c102.mp4"
+ },
+ {
+  "id": "ja_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "第四段階は内装と引き渡しで、室内が仕上がる時期です。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c103.mp4"
+ },
+ {
+  "id": "ja_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "すべての住戸は二百以上の品質項目で検査され、最終確認のあとに鍵が渡されます。内装と引き渡しを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c104.mp4"
+ },
+ {
+  "id": "ja_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "第五段階は入居準備完了で、住人が暮らし始める時期です。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c105.mp4"
+ },
+ {
+  "id": "ja_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "入居者アプリが、共用施設の予約、来客、セキュリティ、メンテナンスを扱います。入居準備完了をご覧になりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c106.mp4"
+ },
+ {
+  "id": "ja_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "バーチャルツアーでは、サンプルの高級ヴィラをスリーディーで見て回れます。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c107.mp4"
+ },
+ {
+  "id": "ja_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "庭、クラブハウスとプール、リビングパビリオン、主寝室スイートを歩いて見られます。バーチャルツアーを始めましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c108.mp4"
+ },
+ {
+  "id": "ja_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "このサイトは、ネクソラの物語を五つの段階とバーチャルツアーで紹介しています。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c109.mp4"
+ },
+ {
+  "id": "ja_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "サイト評価、マスタープランニング、建設、内装と引き渡し、そして入居準備完了です。最初のサイト評価から始めましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c110.mp4"
+ },
+ {
+  "id": "ja_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "ネクソラには、あらゆる規模の建設会社向けのサブスクリプションプランがあります。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c111.mp4"
+ },
+ {
+  "id": "ja_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "価格は公開していないので、デモでチームがお客様のプロジェクトの料金をご案内します。デモ予約フォームを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c112.mp4"
+ },
+ {
+  "id": "ja_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "申し訳ありません、ここのヴィラは見本で、販売物件ではありません。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c113.mp4"
+ },
+ {
+  "id": "ja_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "そのため価格や所在地はありませんが、購入者がプロジェクトをどう見るかはバーチャルツアーでわかります。バーチャルツアーをご覧になりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c114.mp4"
+ },
+ {
+  "id": "ja_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "無料デモのご予約を、喜んでお手伝いします。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c115.mp4"
+ },
+ {
+  "id": "ja_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "プロジェクトについて少し教えていただければ、チームから個別のご案内のご連絡をします。今デモフォームを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c116.mp4"
+ },
+ {
+  "id": "ja_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "チームには コンタクト・アット・ジャッタエムコマース・ドット・コム へメールでご連絡いただけます。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c117.mp4"
+ },
+ {
+  "id": "ja_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "または、ブック・ア・デモのフォームをご利用ください。チームからご連絡します。フォームを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c118.mp4"
+ },
+ {
+  "id": "ja_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "ネクソラは、ジャッタ・エム・コマースの製品です。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c119.mp4"
+ },
+ {
+  "id": "ja_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "詳しくは コンタクト・アット・ジャッタエムコマース・ドット・コム でチームがお答えします。ネクソラで何ができるか、お知りになりたいですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c120.mp4"
+ },
+ {
+  "id": "ja_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "ネクソラは、セールスフォース、ハブスポット、建設会社のイーアールピーなどと連携します。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c121.mp4"
+ },
+ {
+  "id": "ja_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "ウェブフック、レストエーピーアイ、エスエーピーやレラのポータル用コネクターもあります。お客様のシステムに合うか確認できるよう、デモフォームを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c122.mp4"
+ },
+ {
+  "id": "ja_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "サンプルプロジェクトの全体に、環境への配慮が行き届いています。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c123.mp4"
+ },
+ {
+  "id": "ja_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "屋上の太陽光発電、雨水の利用、中水のリサイクル、電気自動車の充電、グリーンビルディングの管理です。この計画が始まるサイト評価から始めましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c124.mp4"
+ },
+ {
+  "id": "ja_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "ネクソラのアカウントはまだ準備中のため、ログインはまだご利用いただけません。チームがアクセスをご用意できるよう、デモフォームを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c125.mp4"
+ },
+ {
+  "id": "ja_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "とても簡単です。スクロールするだけで段階を移動できます。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c126.mp4"
+ },
+ {
+  "id": "ja_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "右上のメニューにすべての段階があり、ブック・ア・デモはページの一番上にあります。今からサイトへご案内しましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c127.mp4"
+ },
+ {
+  "id": "ja_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "このサイトは、私たちの会話を保存しません。もっと詳しくお聞きになりますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c128.mp4"
+ },
+ {
+  "id": "ja_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "お話しになると、ブラウザが声を文字に変換しますので、ここでは個人情報を共有しないでください。ネクソラについて、ほかにお手伝いできることはありますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c129.mp4"
+ },
+ {
+  "id": "ja_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "素晴らしいです。ネクソラはまさにお客様のためのものです。五つのモジュールをご覧になりますか、それともデモのご予約をお手伝いしましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c130.mp4"
+ },
+ {
+  "id": "ja_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "素敵です！ネクソラなら、建てる前から家をスリーディーで見られます。バーチャルツアーを始めましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c131.mp4"
+ },
+ {
+  "id": "ja_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "大丈夫です、ごゆっくりどうぞ。最初の段階からご案内しましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c132.mp4"
+ },
+ {
+  "id": "ja_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "こんにちは！デベロッパーや建設会社の方ですか、家をお探しですか、それとも見ているだけですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c133.mp4"
+ },
+ {
+  "id": "ja_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "こんにちは！お越しいただきうれしいです。デベロッパーの方ですか、購入をお考えですか、それとも見ているだけですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c134.mp4"
+ },
+ {
+  "id": "ja_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "とても元気です、ありがとうございます！今日はどのようなご用件でしょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c135.mp4"
+ },
+ {
+  "id": "ja_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "元気です、お気遣いありがとうございます！ネクソラについて何をお知りになりたいですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c136.mp4"
+ },
+ {
+  "id": "ja_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "私はハンナ、ネクソラのバーチャル受付で、ご案内役です。何をお知りになりたいですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c137.mp4"
+ },
+ {
+  "id": "ja_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "お客様をお迎えし、ご質問にお答えし、ネクソラをご案内するためにここにいます。何をお知りになりたいですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c138.mp4"
+ },
+ {
+  "id": "ja_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "私はエーアイの受付ですが、同じようにお手伝いします。何をお知りになりたいですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c139.mp4"
+ },
+ {
+  "id": "ja_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "どういたしまして！ほかに何かお手伝いできることはありますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c034.mp4"
+ },
+ {
+  "id": "ja_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "こちらこそ！ネクソラについて、ほかに知りたいことはありますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c035.mp4"
+ },
+ {
+  "id": "ja_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "ネクソラへお越しいただきありがとうございました！いつでもメニューからお呼びください。素敵な一日を！",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c140.mp4"
+ },
+ {
+  "id": "ja_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "ネクソラのご説明、サイトのご案内、デモのご予約をお手伝いできます。どこから始めましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c141.mp4"
+ },
+ {
+  "id": "ja_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "それは少し私の担当外ですが、ぜひネクソラをご案内させてください。簡単なツアーはいかがですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c142.mp4"
+ },
+ {
+  "id": "ja_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "申し訳ありません、それはお手伝いできません。でもネクソラはご案内できます。簡単なツアーをしましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c143.mp4"
+ },
+ {
+  "id": "ja_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "お手伝いできたらよかったのですが！私の得意はネクソラのご案内です。簡単なツアーはいかがですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c144.mp4"
+ },
+ {
+  "id": "ja_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "大丈夫です、簡単にご説明しますね。ネクソラは、建てる前から家をスリーディーで見せられるよう建設会社を支援します。ご案内しましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c145.mp4"
+ },
+ {
+  "id": "ja_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "大丈夫です。ネクソラを知るいちばん簡単な方法は、簡単なツアーです。ご案内しましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c146.mp4"
+ },
+ {
+  "id": "ja_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "申し訳ありません、その情報はここにはありません。デモでチームがお答えできます。デモフォームを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c147.mp4"
+ },
+ {
+  "id": "ja_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "よいご質問ですね！ここに答えはありませんが、デモでチームがお答えします。デモフォームを開きましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c148.mp4"
+ },
+ {
+  "id": "ja_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "申し訳ありません、よく聞き取れませんでした。別の言い方でお願いできますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c149.mp4"
+ },
+ {
+  "id": "ja_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "申し訳ありません、わかりませんでした。ネクソラとは何か、またはツアーについてお尋ねください。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c150.mp4"
+ },
+ {
+  "id": "ja_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "大丈夫です。代わりに何をお知りになりたいですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c048.mp4"
+ },
+ {
+  "id": "ja_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "承知しました。ネクソラについて、ほかにお手伝いできることはありますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c049.mp4"
+ },
+ {
+  "id": "ja_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "素晴らしいです！ネクソラのご説明、ご案内、デモのご予約ができます。どれにしましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c151.mp4"
+ },
+ {
+  "id": "ja_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "申し訳ありません、そのお言葉はわかりません。お話しできるよう、私の言語から一つお選びください。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c152.mp4"
+ },
+ {
+  "id": "ja_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "かしこまりました、日本語で続けましょう。どのようにお手伝いしましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c185.mp4"
+ },
+ {
+  "id": "ja_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "かしこまりました、サイト評価へご案内します。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c153.mp4"
+ },
+ {
+  "id": "ja_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "かしこまりました、マスタープランニングへご案内します。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c154.mp4"
+ },
+ {
+  "id": "ja_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "かしこまりました、建設へご案内します。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c155.mp4"
+ },
+ {
+  "id": "ja_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "かしこまりました、内装と引き渡しへご案内します。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c156.mp4"
+ },
+ {
+  "id": "ja_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "かしこまりました、入居準備完了へご案内します。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c157.mp4"
+ },
+ {
+  "id": "ja_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "かしこまりました、バーチャルツアーへご案内します。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c158.mp4"
+ },
+ {
+  "id": "ja_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "かしこまりました、デモフォームを開きます。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c159.mp4"
+ },
+ {
+  "id": "ja_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "かしこまりました、サイトへご案内します。いつでもメニューからお呼びください。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c160.mp4"
+ },
+ {
+  "id": "ja_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "申し訳ありません、お名前が聞き取れませんでした。下のお名前だけ入力していただけますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c161.mp4"
+ },
+ {
+  "id": "ja_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "大丈夫です！デベロッパーや建設会社の方ですか、家をお探しですか、それとも見ているだけですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c162.mp4"
+ },
+ {
+  "id": "ja_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "お会いできてうれしいです！デベロッパーや建設会社の方ですか、家をお探しですか、それとも見ているだけですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c163.mp4"
+ },
+ {
+  "id": "ja_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "素晴らしいです！どちらの会社で、どのようなお立場ですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c164.mp4"
+ },
+ {
+  "id": "ja_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "ありがとうございます！ネクソラの簡単なガイドツアーはいかがですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c165.mp4"
+ },
+ {
+  "id": "ja_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "素敵です！ネクソラなら、建てる前から家をスリーディーで見られます。簡単なガイドツアーはいかがですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c166.mp4"
+ },
+ {
+  "id": "ja_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "大丈夫です、ごゆっくりどうぞ。簡単なガイドツアーはいかがですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c167.mp4"
+ },
+ {
+  "id": "ja_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "大丈夫です。何でも聞いてください。ご自分のペースでサイトを見ることもできます。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c168.mp4"
+ },
+ {
+  "id": "ja_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "始めましょう！こちらはサイト評価、建てる前に土地を調べる段階です。次へ進みますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c169.mp4"
+ },
+ {
+  "id": "ja_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "こちらはマスタープランニングです。ヴィラの間取りが決まり、購入者向けにスリーディーツインが公開されます。次へ進みますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c170.mp4"
+ },
+ {
+  "id": "ja_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "こちらは建設です。ネクソラは、ドローン画像と写真記録で各工程を管理します。次へ進みますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c171.mp4"
+ },
+ {
+  "id": "ja_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "こちらは内装と引き渡しです。鍵を渡す前に、すべての住戸の品質を検査します。次へ進みますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c172.mp4"
+ },
+ {
+  "id": "ja_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "入居準備完了へようこそ。入居者アプリが予約、来客、メンテナンスを扱います。ヴィラを見てみましょうか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c173.mp4"
+ },
+ {
+  "id": "ja_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "こちらがデモヴィラのバーチャルツアーです。ごゆっくりご覧ください。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c174.mp4"
+ },
+ {
+  "id": "ja_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "ツアーは以上です！ご自身のプロジェクトのために、個別のデモはいかがですか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c175.mp4"
+ },
+ {
+  "id": "ja_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "大丈夫です、ここで終わりにしましょう。いつでもメニューからお呼びください。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c176.mp4"
+ },
+ {
+  "id": "ja_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "無料デモを喜んで手配します！ご連絡に最適な電話番号を教えていただけますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c177.mp4"
+ },
+ {
+  "id": "ja_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "無料デモを喜んで手配します！先にお名前を伺えますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c178.mp4"
+ },
+ {
+  "id": "ja_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "ありがとうございます！ご連絡に最適な電話番号を教えていただけますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c179.mp4"
+ },
+ {
+  "id": "ja_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "うーん、その番号は正しくないようです。国番号を付けて、もう一度入力していただけますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c180.mp4"
+ },
+ {
+  "id": "ja_c181",
+  "key": "Thank you. And your email address?",
+  "say": "ありがとうございます。メールアドレスもお願いします。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c181.mp4"
+ },
+ {
+  "id": "ja_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "そのメールアドレスは正しくないようです。もう一度入力していただけますか？",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c182.mp4"
+ },
+ {
+  "id": "ja_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "ありがとうございます！チームから近いうちにご連絡します。日にちを選べるよう、デモフォームを開きますね。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c183.mp4"
+ },
+ {
+  "id": "ja_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "大丈夫です。ブック・ア・デモのボタンは、いつでも上にあります。",
+  "engine": "kokoro",
+  "voice": "jf_alpha",
+  "lang": "j",
+  "file": "ja/c184.mp4"
+ }
+]

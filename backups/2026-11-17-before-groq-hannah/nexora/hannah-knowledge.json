@@ -1,0 +1,294 @@
+{
+  "_howToEdit": [
+    "This file is everything Hannah knows. She answers ONLY from it and never makes facts up.",
+    "To teach her something new, copy one entry in 'topics', give it a new id, and change its keywords, phrases and answer.",
+    "keywords: single words a visitor might use (lower case). phrases: short word groups that strongly signal the topic.",
+    "answer: what Hannah says. Keep it to two or three short, friendly sentences.",
+    "followUp (optional): a yes/no offer she makes after the answer. If the visitor says yes, she does 'action'.",
+    "action types: {\"type\":\"phase\",\"phase\":1-6} opens a phase of the site; {\"type\":\"panel\",\"panel\":\"Contact\"} opens a site panel (Contact = Book a Demo form); {\"type\":\"enter\"} enters the site.",
+    "Do not put prices, dates, project names or promises here unless they are official and published on the website.",
+    "After editing, check the file is valid JSON (for example at jsonlint.com) and copy it to the other copies of the site (see docs/hannah-receptionist.md)."
+  ],
+
+  "assistant": {
+    "name": "Hannah",
+    "role": "Virtual Receptionist"
+  },
+
+  "voice": {
+    "_note": "Hannah uses the visitor's browser voices. The first available voice in this list is used; otherwise the best English female voice the browser offers. Voices that report word timing (Microsoft natural voices in Edge, the Mac's own voices) give the most exact lip sync; Google's network voices in Chrome do not report it, so they come last.",
+    "preferredVoices": [
+      "Microsoft Aria Online (Natural)",
+      "Microsoft Jenny Online (Natural)",
+      "Microsoft Sonia Online (Natural)",
+      "Ava",
+      "Zoe",
+      "Allison",
+      "Samantha",
+      "Karen",
+      "Moira",
+      "Tessa",
+      "Serena",
+      "Microsoft Zira",
+      "Google UK English Female",
+      "Google US English"
+    ],
+    "rate": 1.0,
+    "pitch": 1.05,
+    "recognitionLanguage": "en-IN"
+  },
+
+  "company": {
+    "name": "Nexora",
+    "poweredBy": "Jatta M Kommerce",
+    "contactEmail": "contact@jattamkommerce.com",
+    "summary": "Nexora is a real estate SaaS platform, powered by Jatta M Kommerce. It combines interactive 3D digital twins, site evaluation tools, construction tracking and buyer handover in one place, so developers can show, sell and manage villa and gated community projects before and while they are built."
+  },
+
+  "greeting": {
+    "first": "Hello and welcome to Nexora! I'm Hannah, your virtual receptionist. How can I help you today?",
+    "returning": "Welcome back! I'm Hannah. What can I help you with?",
+    "placeholder": "Ask me about Nexora, our products, or book a demo..."
+  },
+
+  "topics": [
+    {
+      "id": "what-is-nexora",
+      "keywords": ["nexora", "platform", "company", "saas", "software", "product", "overview", "about"],
+      "phrases": ["what is nexora", "about nexora", "what does nexora do", "tell me about nexora", "what do you do", "what is this", "what is this website", "what do you offer", "what does your company do", "explain nexora", "what nexora does", "what nexora is", "what can nexora do", "how does nexora work", "how nexora works"],
+      "answer": "Nexora is a real estate software platform, powered by Jatta M Kommerce. It helps developers show their projects as interactive 3D digital twins, plan and track construction, and hand homes over to buyers, all in one place.",
+      "followUp": { "ask": "Would you like me to explain what a 3D digital twin is?", "topic": "digital-twin" }
+    },
+    {
+      "id": "digital-twin",
+      "keywords": ["twin", "3d", "replica", "model", "visualise", "visualize", "visualization", "bim", "revit", "archicad", "ifc"],
+      "phrases": ["digital twin", "3d model", "what is a digital twin", "3d twin", "interactive twin", "3d experience"],
+      "answer": "A digital twin is a photorealistic 3D copy of a development, made from the architectural and engineering drawings. Buyers and teams can explore every villa and amenity in the browser before it's built. The website says Nexora can turn Revit, ArchiCAD or BIM models into an interactive twin in under 72 hours.",
+      "followUp": { "ask": "Would you like to see the virtual tour of our example villa?", "action": { "type": "phase", "phase": 6 } }
+    },
+    {
+      "id": "modules",
+      "keywords": ["modules", "features", "services", "products", "tools", "capabilities", "offer", "offering", "solutions"],
+      "phrases": ["what are your products", "what services", "what features", "your services", "your products", "what can nexora do", "what can the platform do", "list of modules", "main features"],
+      "answer": "Nexora has five main modules: land and feasibility, a 3D virtual sales gallery, a construction milestone tracker, digital quality and snagging, and a buyer handover and resident portal. Together they cover a project from the empty plot to residents moving in.",
+      "followUp": { "ask": "Shall I walk you through them one at a time, starting with Site Evaluation?", "action": { "type": "phase", "phase": 1 } }
+    },
+    {
+      "id": "who-for",
+      "keywords": ["developers", "builders", "who", "customers", "clients", "suitable", "audience"],
+      "phrases": ["who is it for", "who is nexora for", "who uses nexora", "is it for builders", "is it for buyers", "who can use"],
+      "answer": "Nexora is built for real estate developers and builders, from boutique villa builders to large township developers. Their home buyers and residents use it too, to explore homes in 3D, follow construction and manage their community after moving in.",
+      "followUp": { "ask": "Are you a developer, or are you looking for a home yourself?" }
+    },
+    {
+      "id": "phase-1",
+      "keywords": ["evaluation", "plot", "land", "feasibility", "soil", "zoning", "survey", "topography", "sanctions", "setbacks"],
+      "phrases": ["site evaluation", "phase 1", "phase one", "stage 1", "stage one", "first phase", "before construction"],
+      "answer": "Phase 1 is Site Evaluation. Nexora helps developers check a plot before breaking ground: road access, boundary and topography surveys, water and power, municipal sanctions, zoning, soil testing and environmental clearances.",
+      "followUp": { "ask": "Would you like me to open Site Evaluation for you?", "action": { "type": "phase", "phase": 1 } }
+    },
+    {
+      "id": "phase-2",
+      "keywords": ["planning", "rera", "layout", "layouts", "customiser", "customizer", "inventory", "booking", "blueprint"],
+      "phrases": ["master planning", "phase 2", "phase two", "stage 2", "stage two", "sales gallery", "villa customiser", "villa customizer", "live inventory"],
+      "answer": "Phase 2 is Master Planning. Villa layouts are finalised, RERA registration is secured, and Nexora's 3D twin is launched for buyers, with a villa customiser for finishes, live inventory and booking, and a homeowner portal.",
+      "followUp": { "ask": "Shall I open Master Planning so you can see it?", "action": { "type": "phase", "phase": 2 } }
+    },
+    {
+      "id": "phase-3",
+      "keywords": ["construction", "build", "building", "progress", "tracking", "tracker", "milestone", "milestones", "drone", "towers", "foundation", "clubhouse"],
+      "phrases": ["phase 3", "phase three", "stage 3", "stage three", "construction tracking", "track construction", "construction progress", "milestone tracker"],
+      "answer": "Phase 3 is Construction. You can watch the society, towers and clubhouse rise from the foundations up. Nexora's milestone tracker records progress with drone images, contractor bill checks and photo audit trails.",
+      "followUp": { "ask": "Would you like me to take you to the Construction phase?", "action": { "type": "phase", "phase": 3 } }
+    },
+    {
+      "id": "phase-4",
+      "keywords": ["handover", "fitout", "fit-out", "snag", "snagging", "interiors", "finishes", "quality", "inspection", "keys"],
+      "phrases": ["fit out", "fit-out and handover", "phase 4", "phase four", "stage 4", "stage four", "snag audit", "quality check", "key handover"],
+      "answer": "Phase 4 is Fit-Out and Handover. Interiors are finished, every home is checked against more than 200 quality points in the Nexora app, contractors fix the snags, and the keys are handed over after a walkthrough.",
+      "followUp": { "ask": "Shall I open Fit-Out and Handover for you?", "action": { "type": "phase", "phase": 4 } }
+    },
+    {
+      "id": "phase-5",
+      "keywords": ["residents", "resident", "amenities", "security", "maintenance", "facility", "community", "living", "app"],
+      "phrases": ["ready to move in", "phase 5", "phase five", "stage 5", "stage five", "resident app", "after handover", "moving in", "facility management"],
+      "answer": "Phase 5 is Ready to Move In. Residents settle in, the clubhouse and pool open, and the Nexora resident app handles amenity bookings, visitor approvals, security and maintenance requests.",
+      "followUp": { "ask": "Would you like to see Ready to Move In?", "action": { "type": "phase", "phase": 5 } }
+    },
+    {
+      "id": "phase-6",
+      "keywords": ["tour", "villa", "walkthrough", "explore", "inside", "rooms", "bedroom", "garden"],
+      "phrases": ["virtual tour", "phase 6", "phase six", "stage 6", "stage six", "3d tour", "see the villa", "show me the villa", "walk through"],
+      "answer": "The Virtual Tour lets you explore our example luxury villa in 3D: the driveway and architecture, the private garden, the society clubhouse and pool, the living pavilion, the master suite, and the smart security and solar roof.",
+      "followUp": { "ask": "Shall I start the virtual tour for you?", "action": { "type": "phase", "phase": 6 } }
+    },
+    {
+      "id": "phases-overview",
+      "keywords": ["phases", "stages", "steps", "journey", "process", "story"],
+      "phrases": ["what are the phases", "how many phases", "the phases", "the stages", "how does it work", "walk me through", "show me around", "give me a tour", "guide me"],
+      "answer": "The website tells Nexora's story in five phases and a virtual tour: Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Each phase shows how Nexora helps at that point in a project.",
+      "followUp": { "ask": "Would you like to start at the beginning, with Site Evaluation?", "action": { "type": "phase", "phase": 1 } }
+    },
+    {
+      "id": "pricing",
+      "keywords": ["price", "prices", "pricing", "cost", "costs", "fee", "fees", "subscription", "plans", "plan", "charges", "expensive", "cheap", "quote", "rate"],
+      "phrases": ["how much", "how much does it cost", "what does it cost", "price list", "pricing plans", "subscription plans"],
+      "answer": "Nexora offers subscription plans for builders and developers of different sizes, from boutique villa builders to enterprise developers. Prices aren't published on the website, so the best way to get pricing for your project is to ask the team on a demo.",
+      "followUp": { "ask": "Would you like me to open the demo booking form?", "action": { "type": "panel", "panel": "Contact" } }
+    },
+    {
+      "id": "property-prices",
+      "keywords": ["buy", "purchase", "available", "availability", "units", "flat", "apartment", "location", "possession", "bhk", "sqft"],
+      "phrases": ["buy a villa", "buy a home", "buy a house", "villa price", "price of the villa", "is it available", "where is the project", "which location", "real project"],
+      "answer": "I'm sorry, I can't help with buying a specific home here. The villa and community on this website are illustrative examples of what Nexora can show, not homes for sale, so there are no prices, locations or availability to share.",
+      "followUp": { "ask": "Would you like to see how buyers explore a project in the virtual tour?", "action": { "type": "phase", "phase": 6 } }
+    },
+    {
+      "id": "demo",
+      "keywords": ["demo", "demonstration", "trial", "meeting", "call", "appointment", "consultation", "walkthrough"],
+      "phrases": ["book a demo", "schedule a demo", "request a demo", "get a demo", "free demo", "talk to sales", "speak to someone", "talk to someone", "speak to a person", "talk to a human"],
+      "answer": "I'd be happy to help you book a free demo. In the Book a Demo form you tell us a little about your project and a preferred date, and the team will contact you to arrange a personal walkthrough.",
+      "followUp": { "ask": "Shall I open the demo form for you now?", "action": { "type": "panel", "panel": "Contact" } }
+    },
+    {
+      "id": "contact",
+      "keywords": ["contact", "email", "mail", "reach", "phone", "number", "address", "office", "support", "help desk"],
+      "phrases": ["contact you", "contact details", "how can i contact", "get in touch", "email address", "phone number", "customer support", "your office"],
+      "answer": "You can email the Nexora team at contact@jattamkommerce.com, or use the Book a Demo form and they'll get back to you. I don't have a phone number or office address to share.",
+      "followUp": { "ask": "Would you like me to open the Book a Demo form?", "action": { "type": "panel", "panel": "Contact" } }
+    },
+    {
+      "id": "jatta",
+      "keywords": ["jatta", "kommerce", "commerce", "parent", "owner", "owns"],
+      "phrases": ["jatta m kommerce", "who owns nexora", "who made nexora", "who built nexora", "who is behind"],
+      "answer": "Nexora is powered by Jatta M Kommerce. I don't have more company details to share here, but the team will be glad to tell you more at contact@jattamkommerce.com.",
+      "followUp": { "ask": "Would you like to know what Nexora does?", "topic": "what-is-nexora" }
+    },
+    {
+      "id": "integrations",
+      "keywords": ["integration", "integrations", "integrate", "crm", "erp", "salesforce", "hubspot", "sap", "api", "apis", "webhooks", "connect"],
+      "phrases": ["does it integrate", "connect to our crm", "rest api"],
+      "answer": "The website describes two-way sync with Salesforce, HubSpot and builder ERPs, plus webhooks, REST APIs and connectors for SAP and RERA portals. The team can confirm what fits your setup on a demo.",
+      "followUp": { "ask": "Shall I open the demo form so you can ask them?", "action": { "type": "panel", "panel": "Contact" } }
+    },
+    {
+      "id": "sustainability",
+      "keywords": ["green", "solar", "sustainable", "sustainability", "igbc", "leed", "rainwater", "energy", "carbon", "environment", "eco"],
+      "phrases": ["green building", "net zero", "solar power", "rainwater harvesting"],
+      "answer": "Sustainability runs through the example project: rooftop solar with batteries, rainwater harvesting, greywater recycling, EV charging and IGBC green-building tracking. Nexora helps developers plan and track these from the first site evaluation.",
+      "followUp": { "ask": "Would you like to start with Site Evaluation, where this planning begins?", "action": { "type": "phase", "phase": 1 } }
+    },
+    {
+      "id": "account",
+      "keywords": ["login", "log", "signin", "signup", "account", "register", "password"],
+      "phrases": ["log in", "sign in", "sign up", "create an account", "my account"],
+      "answer": "Nexora accounts are still being set up, so log in and sign up aren't connected yet. To get access for your team, the best way is to book a demo.",
+      "followUp": { "ask": "Shall I open the demo form?", "action": { "type": "panel", "panel": "Contact" } }
+    },
+    {
+      "id": "website-help",
+      "keywords": ["navigate", "navigation", "menu", "scroll", "website", "site", "use", "find", "buttons"],
+      "phrases": ["how do i use", "how to use the website", "how do i navigate", "where is the menu", "how do i get around", "how does the website work"],
+      "answer": "It's simple: scroll to move through the phases, and the Menu at the top right lists every phase. Book a Demo is at the top of the page, and you can talk to me again any time from the menu.",
+      "followUp": { "ask": "Shall I take you into the website now?", "action": { "type": "enter" } }
+    },
+    {
+      "id": "security-data",
+      "keywords": ["privacy", "data", "secure", "safe", "recording", "recorded", "store"],
+      "phrases": ["is my data safe", "do you record", "privacy policy", "are you recording"],
+      "answer": "This website doesn't save our conversation. When you speak, your browser's speech service turns your voice into text for me, so please don't share sensitive personal details here. If you'd like to be contacted, the Book a Demo form is the right place.",
+      "followUp": { "ask": "Is there anything about Nexora I can help with?" }
+    }
+  ],
+
+  "navigation": [
+    { "label": "Site Evaluation", "names": ["site evaluation", "phase 1", "phase one", "stage 1", "stage one", "evaluation"], "action": { "type": "phase", "phase": 1 } },
+    { "label": "Master Planning", "names": ["master planning", "phase 2", "phase two", "stage 2", "stage two", "planning"], "action": { "type": "phase", "phase": 2 } },
+    { "label": "Construction", "names": ["construction", "phase 3", "phase three", "stage 3", "stage three"], "action": { "type": "phase", "phase": 3 } },
+    { "label": "Fit-Out and Handover", "names": ["fit out", "fit-out", "fitout", "handover", "phase 4", "phase four", "stage 4", "stage four"], "action": { "type": "phase", "phase": 4 } },
+    { "label": "Ready to Move In", "names": ["ready to move in", "move in", "phase 5", "phase five", "stage 5", "stage five"], "action": { "type": "phase", "phase": 5 } },
+    { "label": "the Virtual Tour", "names": ["virtual tour", "tour", "phase 6", "stage 6", "the villa", "3d tour"], "action": { "type": "phase", "phase": 6 } },
+    { "label": "the demo form", "names": ["demo", "demo form", "book a demo", "booking form", "contact form"], "action": { "type": "panel", "panel": "Contact" } },
+    { "label": "the website", "names": ["website", "site", "the site", "nexora website", "home page", "homepage", "main site"], "action": { "type": "enter" } }
+  ],
+
+  "roles": {
+    "developer": {
+      "keywords": ["developer", "builder", "builders", "developers", "construction company", "real estate company", "promoter", "contractor", "architect", "my project", "our project", "my company", "we build", "i build"],
+      "answer": "Lovely, then Nexora is made for you. It helps you evaluate land, launch a 3D sales gallery for buyers, track construction and hand homes over, all on one platform.",
+      "followUp": { "ask": "Would you like a quick look at the five modules, or shall I help you book a demo?", "topic": "modules" }
+    },
+    "buyer": {
+      "keywords": ["buyer", "home buyer", "looking for a home", "looking for a house", "looking for a villa", "buy a home", "my family", "investor", "investment"],
+      "answer": "Wonderful. Nexora shows homes as interactive 3D twins, so buyers can explore every room, choose finishes and follow construction. The villa here is an example, so the virtual tour is the best place to see how it feels.",
+      "followUp": { "ask": "Shall I start the virtual tour for you?", "action": { "type": "phase", "phase": 6 } }
+    },
+    "explorer": {
+      "keywords": ["just looking", "just browsing", "browsing", "exploring", "curious", "just checking", "having a look", "nothing specific", "not sure yet"],
+      "answer": "That's perfectly fine, take your time. In short, Nexora helps real estate developers show and manage their projects in 3D, from the empty plot to the day residents move in.",
+      "followUp": { "ask": "Would you like me to show you around, starting with the first phase?", "action": { "type": "phase", "phase": 1 } }
+    }
+  },
+
+  "smallTalk": [
+    { "id": "hello", "phrases": ["hi", "hello", "hey", "hiya", "good morning", "good afternoon", "good evening", "namaste", "hi hannah", "hello hannah", "hey there", "greetings"],
+      "answers": ["Hi there, lovely to meet you! So I can point you in the right direction: are you a developer or builder, looking for a home, or just exploring?",
+                  "Hello! Great to have you here. Are you a developer or builder, a home buyer, or just having a look around?"],
+      "askRole": true },
+    { "id": "how-are-you", "phrases": ["how are you", "how are you doing", "how is it going", "hows it going", "how do you do", "how's your day", "you good"],
+      "answers": ["I'm doing very well, thank you for asking! How can I help you with Nexora today?",
+                  "I'm great, thanks! It's a pleasure to have you here. What would you like to know about Nexora?"] },
+    { "id": "who-are-you", "phrases": ["who are you", "what are you", "what is your name", "your name", "introduce yourself"],
+      "answers": ["I'm Hannah, Nexora's virtual receptionist. I can explain what Nexora does, guide you around the website, and help you book a demo. What would you like to start with?"] },
+    { "id": "are-you-ai", "phrases": ["are you real", "are you human", "are you a robot", "are you ai", "are you a bot", "are you a person", "is this a real person", "are you an ai", "real person", "a real human", "a human", "a robot", "a bot", "an ai", "chatbot", "chat bot", "is this ai", "is this a bot"],
+      "answers": ["I'm an AI receptionist, not a person, but I'm here to help just the same. If you'd like to speak with the team, I can open the demo form for you. What would you like to know?"] },
+    { "id": "thanks", "phrases": ["thanks", "thank you", "thank you so much", "thanks a lot", "cheers", "great thanks", "that helps", "helpful", "awesome", "perfect", "great"],
+      "answers": ["You're very welcome! Is there anything else I can help you with?",
+                  "My pleasure! Anything else you'd like to know about Nexora?"] },
+    { "id": "bye", "phrases": ["bye", "goodbye", "see you", "see you later", "that's all", "thats all", "nothing else", "no thanks bye", "i'm done", "im done"],
+      "answers": ["Thank you for visiting Nexora! You can enter the website whenever you're ready, and I'm always here from the menu if you need me. Have a lovely day!"],
+      "action": { "type": "none" } },
+    { "id": "capabilities", "phrases": ["what can you do", "how can you help", "what can i ask", "what can you help with", "what do you know"],
+      "answers": ["I can explain what Nexora is and how it works, walk you through the five phases and the virtual tour, open any part of the website for you, and help you book a demo. Where would you like to start?"] }
+  ],
+
+  "replies": {
+    "offTopic": [
+      "I'd be happy to help with that, but I'm here to help you explore Nexora. Would you like to see what our platform can do, or arrange a demo?",
+      "That's a great question, but it's a little outside what I can help with here. I'm Nexora's receptionist, so I can show you our 3D real estate platform or help you book a demo. Which would you prefer?",
+      "I'm sorry, that's not something I can help with. What I can do is show you around Nexora, or connect you with our team through a demo. Would either of those be useful?"
+    ],
+    "confused": [
+      "No problem at all, let me keep it simple. Nexora helps real estate developers show homes in 3D before they're built. I can do one of three things for you: explain how it works, show you around the website, or help you book a demo. Which would you like?",
+      "That's completely fine. Here's the short version: Nexora is software that helps builders show, sell and manage housing projects in 3D. Would you like me to show you around, or would a demo with our team be more helpful?"
+    ],
+    "unknownNexora": [
+      "I'm sorry, I don't have that information, and I don't want to guess. Our team can answer it properly: you can email contact@jattamkommerce.com or book a demo. Shall I open the demo form?",
+      "That's a good question, and I'm sorry I don't have the answer here. The Nexora team can help you with it on a demo, or at contact@jattamkommerce.com. Would you like me to open the demo form?"
+    ],
+    "notUnderstood": [
+      "I'm sorry, I didn't quite catch that. Could you say it another way? You can ask me what Nexora does, ask about a phase, or ask to book a demo.",
+      "Sorry, I didn't quite follow. Could you rephrase that for me? For example, you could ask: what is Nexora, or how do I book a demo?"
+    ],
+    "yes": "Of course.",
+    "noThanks": [
+      "No problem at all. What would you like to know instead?",
+      "That's fine. Is there something else about Nexora I can help with?"
+    ],
+    "navigate": {
+      "phase": "Of course. I'll take you to {label} now. Enjoy exploring, and you can find me in the menu any time.",
+      "panel": "Of course. I'm opening {label} for you now.",
+      "enter": "Of course. I'll take you into the Nexora website now. You can find me in the menu any time you need me."
+    },
+    "micBlocked": "It looks like the microphone is blocked. That's okay, you can type your question below instead.",
+    "voiceUnavailable": "Your browser can't play my voice, so I'll reply in text."
+  },
+
+  "domainWords": [
+    "nexora", "jatta", "kommerce", "platform", "software", "saas", "app", "website", "site", "page", "estate", "property", "properties",
+    "villa", "villas", "home", "homes", "house", "flat", "apartment", "project", "projects", "developer", "builder", "construction", "build",
+    "plot", "land", "site", "phase", "stage", "3d", "twin", "tour", "demo", "price", "cost", "plan", "plans", "subscription", "buyer",
+    "resident", "society", "community", "clubhouse", "amenities", "rera", "handover", "snag", "crm", "module", "feature", "features", "service",
+    "services", "product", "products", "account", "login", "contact", "email", "team", "sales", "company", "snagging", "office", "integrate", "pricing"
+  ]
+}

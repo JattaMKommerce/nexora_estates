@@ -58,6 +58,24 @@ export default function SiteApp({ location }) {
           <Page key={pageKey} location={location} />
         </main>
         <Footer />
+        <button
+          type="button"
+          className="hannah-fab"
+          onClick={() => {
+            if (window.NexoraHannah) window.NexoraHannah.open();
+          }}
+          aria-label="Talk to Hannah, Virtual Receptionist"
+          title="Ask Hannah, Virtual Receptionist"
+        >
+          <span className="hannah-fab__avatar">
+            <img src="/nexora/hannah/hannah-avatar.jpg" alt="Hannah" />
+            <span className="hannah-fab__online" />
+          </span>
+          <span className="hannah-fab__text">
+            <strong>Hannah AI</strong>
+            <small>Virtual Receptionist</small>
+          </span>
+        </button>
       </div>
     </SiteContext.Provider>
   );

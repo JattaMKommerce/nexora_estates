@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Lotus Residency | Luxury Gated Community 3D Architectural Model &amp; Interactive Walkthrough</title>
+    <meta name="description" content="Interactive 3D real estate digital twin model walkthrough: explore the architectural exhibition entrance, resort aquatics swimming pool from all 4 sides, glass wellness gym, full gated society with 15-floor towers, parking plaza, walking promenades, and luxury walk-in bungalow." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Top Header Navigation -->
+    <header class="gallery-nav" id="gallery-nav">
+      <div class="gallery-nav__brand">
+        <div class="nomadiic-brand">
+          <span class="nomadiic-brand__text">LOTUS RESIDENCY</span>
+          <span class="nomadiic-brand__sub">GATED COMMUNITY 3D DIGITAL TWIN</span>
+        </div>
+      </div>
+
+      <!-- Quick Walkthrough Station Navigation Pills -->
+      <nav class="room-nav-pills" id="room-nav-pills" aria-label="Real Estate Model Walkthrough Navigation">
+        <button type="button" class="room-pill is-active" data-station="society" title="360° Masterplan Society Overview">
+          <span class="room-pill__icon">🌐</span>
+          <span class="room-pill__label">Society 360°</span>
+        </button>
+        <button type="button" class="room-pill" data-station="gate" title="Grand Security Entrance & Gatehouse">
+          <span class="room-pill__icon">🚪</span>
+          <span class="room-pill__label">Gatehouse</span>
+        </button>
+        <button type="button" class="room-pill" data-station="clubhouse" title="Contemporary 2-Tier Clubhouse & Gym">
+          <span class="room-pill__icon">🏛️</span>
+          <span class="room-pill__label">Clubhouse</span>
+        </button>
+        <button type="button" class="room-pill" data-station="pool" title="Resort Swimming Pool & Sun Deck">
+          <span class="room-pill__icon">🏊</span>
+          <span class="room-pill__label">Resort Pool</span>
+        </button>
+        <button type="button" class="room-pill" data-station="sports" title="Basketball, Tennis & Kids Adventure Playground">
+          <span class="room-pill__icon">⚽</span>
+          <span class="room-pill__label">Sports &amp; Play</span>
+        </button>
+        <button type="button" class="room-pill" data-station="apartment" title="Walk inside Luxury High-Floor Residence Suite">
+          <span class="room-pill__icon">🛋️</span>
+          <span class="room-pill__label">Walk-In Suite</span>
+        </button>
+      </nav>
+
+      <div class="gallery-nav__status">
+        <span class="status-indicator"></span>
+        <span id="nav-status-text">3D Architectural Model · Interactive Real Estate Walkthrough</span>
+      </div>
+
+      <!-- Day / Night Linear Gradient Controller -->
+      <div class="daynight-controller" id="daynight-controller" title="Slide to check Day &amp; Night Lighting Effect">
+        <span class="daynight-icon day-icon" aria-hidden="true">☀️</span>
+        <div class="gradient-slider-track">
+          <input type="range" id="daynight-slider" min="0" max="100" value="0" step="1" aria-label="Day and Night Lighting Slider" />
+        </div>
+        <span class="daynight-icon night-icon" aria-hidden="true">🌙</span>
+        <span class="daynight-badge" id="daynight-badge">DAY 12:00 PM</span>
+      </div>
+
+      <div class="gallery-nav__actions">
+        <!-- Digital Brochure Button -->
+        <button type="button" class="brochure-nav-btn" id="brochure-toggle-btn" title="Open Complete Interactive Project Brochure">
+          <span class="brochure-icon">📖</span>
+          <span class="brochure-label">Digital Brochure</span>
+        </button>
+
+        <!-- Site Evaluation (Google Maps) Bridge Link -->
+        <a href="/site-evaluation/?lat=12.97160&lng=77.59460&name=Lotus+Residency" target="_blank" rel="noopener" class="site-eval-nav-btn" id="site-eval-link" title="Open in Site Evaluation (Interactive Map &amp; Infrastructure)">
+          <span class="site-eval-icon">📍</span>
+          <span class="site-eval-label">Site Evaluation (Map) ↗</span>
+        </a>
+
+        <!-- Orange Contact / Client Inquiry button -->
+        <a href="#contact" class="contact-pill-btn" id="inquire-btn">
+          Inquire 3D Twin
+        </a>
+      </div>
+    </header>
+
+    <!-- Stage 1: Nomadiic Horse Realtime Palace Container (Hidden) -->
+    <div id="palace-container" class="stage-layer" role="region" aria-label="Palace Background" style="display:none;"></div>
+
+    <!-- Stage 2: Three.js Real Estate 3D Digital Model Container -->
+    <div id="canvas-container" class="stage-layer" role="region" aria-label="3D Real Estate Walkthrough Experience">
+      <!-- 3D Projected Spatial Labels Layer -->
+      <div id="spatial-labels-layer" class="spatial-labels-layer" aria-hidden="true"></div>
+    </div>
+
+    <!-- Real GMaps Interactive Compass & Cardinal Heading Widget (Matches Site Evaluation HUD) -->
+    <div class="compass-widget" id="compass-widget" title="Click to Align with True North (0°)">
+      <div class="compass-dial" id="compass-dial">
+        <div class="compass-needle-n">N</div>
+        <div class="compass-needle-s"></div>
+      </div>
+      <div class="compass-meta">
+        <span class="compass-deg" id="compass-deg">0° N</span>
+        <span class="compass-text" id="compass-text">Masterplan · Drag to Rotate 360°</span>
+      </div>
+    </div>
+
+    <!-- Interactive Drag Rotation Guidance Pill -->
+    <div class="drag-hint-pill" id="drag-hint-pill" aria-hidden="true">
+      <span class="drag-icon">🖱️</span>
+      <span>Click &amp; drag anywhere to rotate society 360° · Scroll to zoom</span>
+    </div>
+
+    <!-- 4-Side Panoramic View Controls (Dynamically updates for each station) -->
+    <nav class="society-view-controls" id="society-view-controls" aria-label="4-Side Panoramic Angles">
+      <div id="view-controls-buttons" class="view-controls-buttons">
+        <!-- Injected dynamically in JavaScript based on active station -->
+      </div>
+    </nav>
+
+    <!-- Floating Cursor Tip -->
+    <div class="cursor-tip" id="cursor-tip" aria-hidden="true">
+      <span class="cursor-tip-pill" id="cursor-tip-pill">EXPLORE IN 3D</span>
+    </div>
+
+    <!-- Navigation Step Back Button -->
+    <div class="portal-back-wrap" id="portal-back-wrap" aria-hidden="true">
+      <button type="button" class="portal-back-btn" id="portal-back-btn">
+        <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
+          <path d="M16 10H5M9 5.5 4.5 10 9 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="portal-back-text">← STEP BACK</span>
+      </button>
+    </div>
+
+    <!-- Bottom-Left Audio Equalizer Pill -->
+    <button type="button" class="audio-pill is-active" id="audio-toggle" aria-label="Toggle Sound Ambience">
+      <div class="eq-bars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <!-- Bottom-Right Navigation Controls & Hint -->
+    <div class="bottom-right-wrap" id="bottom-right-wrap">
+      <div class="room-nav" id="room-nav">
+        <button type="button" class="round-nav-btn" id="prev-btn" aria-label="Previous station">←</button>
+        <button type="button" class="round-nav-btn" id="next-btn" aria-label="Next station">→</button>
+      </div>
+
+      <p class="walk-hint" id="walk-hint" aria-live="polite">
+        <span id="hint-line-1">Real Estate 3D Walkthrough</span>
+        <span id="hint-line-2">Scroll or click pills above to experience amenities &amp; society</span>
+      </p>
+    </div>
+
+    <!-- Complete Real Estate Digital Brochure & Walkthrough Modal -->
+    <div class="brochure-modal" id="brochure-modal" aria-hidden="true" role="dialog" aria-label="Lotus Residency Digital Brochure">
+      <div class="brochure-overlay" id="brochure-overlay"></div>
+      <div class="brochure-dialog">
+        <header class="brochure-header">
+          <div class="brochure-header__brand">
+            <span class="brochure-badge">✨ Official Master Brochure</span>
+            <h2>LOTUS RESIDENCY</h2>
+            <p>Contemporary Gated Enclave · 4 Luxury Towers · 2-Tier Clubhouse · Resort Pool</p>
+          </div>
+          <div class="brochure-header__actions">
+            <button type="button" class="brochure-action-btn brochure-action-btn--print" id="brochure-print-btn" title="Download / Print Brochure">
+              <span>📥 Download PDF</span>
+            </button>
+            <a href="#contact" class="brochure-action-btn brochure-action-btn--visit" id="brochure-visit-btn">
+              <span>📅 Schedule Private Visit</span>
+            </a>
+            <button type="button" class="brochure-close-btn" id="brochure-close-btn" aria-label="Close Brochure">✕</button>
+          </div>
+        </header>
+
+        <!-- Brochure Navigation Tabs -->
+        <nav class="brochure-tabs" id="brochure-tabs" role="tablist">
+          <button type="button" class="brochure-tab is-active" data-tab="overview" role="tab" aria-selected="true">
+            <span>🏛️ Masterplan &amp; Overview</span>
+          </button>
+          <button type="button" class="brochure-tab" data-tab="floorplans" role="tab" aria-selected="false">
+            <span>📐 Residences &amp; Floor Plans</span>
+          </button>
+          <button type="button" class="brochure-tab" data-tab="amenities" role="tab" aria-selected="false">
+            <span>🏊 World-Class Amenities</span>
+          </button>
+          <button type="button" class="brochure-tab" data-tab="specs" role="tab" aria-selected="false">
+            <span>📋 Specifications &amp; Finishes</span>
+          </button>
+          <button type="button" class="brochure-tab" data-tab="location" role="tab" aria-selected="false">
+            <span>📍 Location &amp; Connectivity</span>
+          </button>
+        </nav>
+
+        <!-- Tab 1: Masterplan & Overview -->
+        <div class="brochure-panel is-active" id="tab-overview" role="tabpanel">
+          <div class="brochure-hero-stats">
+            <div class="hero-stat-card">
+              <span class="hero-stat-num">1.8</span>
+              <span class="hero-stat-unit">Acres</span>
+              <span class="hero-stat-desc">Gated Masterplan Land Parcel</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="hero-stat-num">4</span>
+              <span class="hero-stat-unit">Towers</span>
+              <span class="hero-stat-desc">15 Floors · Neoclassical Architecture</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="hero-stat-num">120</span>
+              <span class="hero-stat-unit">Residences</span>
+              <span class="hero-stat-desc">3 &amp; 4 BHK Sky Suites</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="hero-stat-num">1</span>
+              <span class="hero-stat-unit">Villa</span>
+              <span class="hero-stat-desc">Central Luxury Walk-In Duplex</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="hero-stat-num">72%</span>
+              <span class="hero-stat-unit">Green</span>
+              <span class="hero-stat-desc">Open Landscaped Promenades</span>
+            </div>
+          </div>
+
+          <div class="brochure-section-card">
+            <h3>Masterplan Architectural Highlights</h3>
+            <p class="brochure-lead">
+              Lotus Residency is an iconic gated residential sanctuary crafted for discerning homeowners. Designed around an expansive central landscaped courtyard park, the community balances contemporary architectural elegance with resort living.
+            </p>
+
+            <div class="brochure-grid-cards">
+              <div class="masterplan-feature">
+                <span class="feature-icon">🏢</span>
+                <div class="feature-info">
+                  <h4>Four 15-Floor Residential Towers</h4>
+                  <p>Towers A &amp; B (East Wing) and Towers C &amp; D (West Wing). Symmetrical 15-floor neoclassical elevations with 4-sided architectural detailing, cantilevered balconies, and rooftop temple pediments.</p>
+                  <button type="button" class="brochure-fly-btn" data-fly-target="society">Explore Society Masterplan in 3D →</button>
+                </div>
+              </div>
+
+              <div class="masterplan-feature">
+                <span class="feature-icon">🏡</span>
+                <div class="feature-info">
+                  <h4>Central Signature Walk-In Villa</h4>
+                  <p>A 4,200 sq.ft. designer duplex pavilion in the heart of the community featuring double-height living, Italian marble fireplace wall, gourmet island kitchen, and master bedroom suite.</p>
+                  <button type="button" class="brochure-fly-btn" data-fly-target="bungalow">Walk Inside Luxury Villa in 3D →</button>
+                </div>
+              </div>
+
+              <div class="masterplan-feature">
+                <span class="feature-icon">🏊</span>
+                <div class="feature-info">
+                  <h4>Resort Aquatics Oasis</h4>
+                  <p>28-meter Olympic lap pool, zero-entry kids shallow splash park, floating sun loungers, and private poolside cabanas framed by royal palms.</p>
+                  <button type="button" class="brochure-fly-btn" data-fly-target="pool">Experience Pool Oasis in 3D →</button>
+                </div>
+              </div>
+
+              <div class="masterplan-feature">
+                <span class="feature-icon">🏋️</span>
+                <div class="feature-info">
+                  <h4>Vitality Wellness Glass Fitness Club</h4>
+                  <p>A freestanding all-glass gym pavilion equipped with Technogym cardio machines, Olympic free-weight racks, yoga deck, and direct garden vistas.</p>
+                  <button type="button" class="brochure-fly-btn" data-fly-target="gym">Tour Wellness Gym in 3D →</button>
+                </div>
+              </div>
+
+              <div class="masterplan-feature">
+                <span class="feature-icon">🎾</span>
+                <div class="feature-info">
+                  <h4>Outdoor Sports Arena</h4>
+                  <p>Full regulation NBA basketball court with glass backboards &amp; terracotta key, and US Open acrylic tennis court with championship lighting.</p>
+                  <button type="button" class="brochure-fly-btn" data-fly-target="society">View Sports Arena in 3D →</button>
+                </div>
+              </div>
+
+              <div class="masterplan-feature">
+                <span class="feature-icon">🚗</span>
+                <div class="feature-info">
+                  <h4>Resident Parking &amp; EV Hub</h4>
+                  <p>Architectural open timber pergola plaza with semi-transparent solar glass canopy, 60+ shaded parking bays, and high-speed Level-3 EV chargers.</p>
+                  <button type="button" class="brochure-fly-btn" data-fly-target="society">View Parking Plaza in 3D →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Residences & Floor Plans -->
+        <div class="brochure-panel" id="tab-floorplans" role="tabpanel">
+          <div class="floorplan-selector">
+            <button type="button" class="floorplan-nav-chip is-active" data-plan="3bhk">3 BHK Grand Luxe (1,850 sq.ft.)</button>
+            <button type="button" class="floorplan-nav-chip" data-plan="4bhk">4 BHK Presidential Suite (2,650 sq.ft.)</button>
+            <button type="button" class="floorplan-nav-chip" data-plan="villa">Signature Central Villa (4,200 sq.ft.)</button>
+          </div>
+
+          <!-- 3 BHK Plan -->
+          <div class="floorplan-display is-active" id="plan-3bhk">
+            <div class="floorplan-meta-bar">
+              <div>
+                <h4>3 BHK Grand Luxe Residence</h4>
+                <p>Towers A, B, C &amp; D · Floors 2 to 14 · East &amp; West Facing</p>
+              </div>
+              <div class="floorplan-specs-pills">
+                <span>Super Built-Up: 1,850 sq.ft.</span>
+                <span>Carpet Area: 1,480 sq.ft.</span>
+                <span>3 Bed · 3 Bath · 2 Balconies</span>
+              </div>
+            </div>
+
+            <div class="floorplan-visual-wrap">
+              <svg viewBox="0 0 680 380" class="floorplan-svg" aria-label="3 BHK Architectural Floor Plan Blueprint">
+                <rect x="10" y="10" width="660" height="360" rx="8" fill="#0d141e" stroke="#253549" stroke-width="2"/>
+                <!-- Outer walls -->
+                <rect x="40" y="30" width="600" height="320" fill="#131e2d" stroke="#60a5fa" stroke-width="2.5"/>
+                <!-- Foyer & Entry -->
+                <rect x="40" y="160" width="90" height="80" fill="#18273a" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="85" y="205" text-anchor="middle" fill="#93c5fd" font-size="12" font-family="sans-serif">Foyer<tspan x="85" dy="16" font-size="10" fill="#64748b">8' x 6'</tspan></text>
+                <!-- Grand Living & Dining Room -->
+                <rect x="130" y="100" width="260" height="180" fill="#1e2f47" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="260" y="180" text-anchor="middle" fill="#ffd200" font-size="14" font-weight="bold" font-family="sans-serif">Grand Living &amp; Dining Lounge<tspan x="260" dy="20" font-size="11" fill="#cbd5e1">24' x 16' · Italian Marble Flooring</tspan></text>
+                <!-- Wide Cantilevered Balcony Deck -->
+                <rect x="390" y="100" width="80" height="180" fill="#16293d" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <text x="430" y="195" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Panoramic Deck<tspan x="430" dy="16" font-size="9" fill="#64748b">16' x 6'</tspan></text>
+                <!-- Modular Kitchen & Utility -->
+                <rect x="130" y="30" width="160" height="70" fill="#18273a" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="210" y="65" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Gourmet Kitchen<tspan x="210" dy="16" font-size="9" fill="#64748b">14' x 10'</tspan></text>
+                <rect x="40" y="30" width="90" height="70" fill="#152233" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="85" y="68" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="sans-serif">Utility<tspan x="85" dy="14" font-size="8" fill="#64748b">8' x 6'</tspan></text>
+                <!-- Master Bedroom Suite -->
+                <rect x="470" y="30" width="170" height="160" fill="#1a2b40" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="555" y="105" text-anchor="middle" fill="#ffd200" font-size="12" font-weight="bold" font-family="sans-serif">Master Suite<tspan x="555" dy="18" font-size="10" fill="#cbd5e1">16' x 14' · Oak Floor</tspan></text>
+                <!-- Master Ensuite & Walk-in Closet -->
+                <rect x="470" y="190" width="85" height="90" fill="#152233" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="512" y="235" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="sans-serif">Walk-in<tspan x="512" dy="14" font-size="8" fill="#64748b">8' x 7'</tspan></text>
+                <rect x="555" y="190" width="85" height="90" fill="#152233" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="597" y="235" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="sans-serif">Ensuite<tspan x="597" dy="14" font-size="8" fill="#64748b">8' x 7'</tspan></text>
+                <!-- Bedroom 2 & Bath -->
+                <rect x="130" y="280" width="170" height="70" fill="#18273a" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="215" y="320" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Bedroom 2 · 14' x 11'</text>
+                <rect x="40" y="240" width="90" height="110" fill="#152233" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="85" y="295" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="sans-serif">Bath 2<tspan x="85" dy="14" font-size="8" fill="#64748b">8' x 5'</tspan></text>
+                <!-- Bedroom 3 & Bath -->
+                <rect x="300" y="280" width="170" height="70" fill="#18273a" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="385" y="320" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Bedroom 3 · 13' x 11'</text>
+                <rect x="470" y="280" width="170" height="70" fill="#152233" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="555" y="320" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="sans-serif">Bath 3 · 8' x 6'</text>
+              </svg>
+            </div>
+            <div class="floorplan-actions-row">
+              <button type="button" class="brochure-fly-btn" data-fly-target="society">View 15-Floor Towers in 3D Masterplan →</button>
+            </div>
+          </div>
+
+          <!-- 4 BHK Plan -->
+          <div class="floorplan-display" id="plan-4bhk">
+            <div class="floorplan-meta-bar">
+              <div>
+                <h4>4 BHK Presidential Sky Suite</h4>
+                <p>Towers A, B, C &amp; D · Higher Floors 10 to 14 · Corner Triple-Aspect</p>
+              </div>
+              <div class="floorplan-specs-pills">
+                <span>Super Built-Up: 2,650 sq.ft.</span>
+                <span>Carpet Area: 2,120 sq.ft.</span>
+                <span>4 Bed · 4.5 Bath · Wraparound Deck · Maid Room</span>
+              </div>
+            </div>
+            <div class="floorplan-visual-wrap">
+              <svg viewBox="0 0 680 380" class="floorplan-svg" aria-label="4 BHK Architectural Floor Plan Blueprint">
+                <rect x="10" y="10" width="660" height="360" rx="8" fill="#0d141e" stroke="#253549" stroke-width="2"/>
+                <rect x="30" y="25" width="620" height="330" fill="#131e2d" stroke="#60a5fa" stroke-width="2.5"/>
+                <!-- Grand Double Living -->
+                <rect x="150" y="90" width="280" height="190" fill="#1e2f47" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="290" y="175" text-anchor="middle" fill="#ffd200" font-size="14" font-weight="bold" font-family="sans-serif">Grand Living &amp; Family Salon<tspan x="290" dy="22" font-size="11" fill="#cbd5e1">28' x 18' · Triple Sided Light</tspan></text>
+                <!-- Wraparound Terrace -->
+                <rect x="430" y="90" width="90" height="190" fill="#16293d" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <text x="475" y="185" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Wraparound<tspan x="475" dy="16" font-size="9" fill="#64748b">Terrace Deck</tspan></text>
+                <!-- Master Presidential Suite -->
+                <rect x="30" y="25" width="220" height="130" fill="#1a2b40" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="140" y="85" text-anchor="middle" fill="#ffd200" font-size="12" font-weight="bold" font-family="sans-serif">Presidential Suite<tspan x="140" dy="18" font-size="10" fill="#cbd5e1">20' x 16' · Private Balcony</tspan></text>
+                <!-- Kitchen & Dining -->
+                <rect x="250" y="25" width="180" height="65" fill="#18273a" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="340" y="60" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Island Kitchen · 16' x 10'</text>
+                <!-- Bedroom 2 Suite -->
+                <rect x="430" y="25" width="220" height="110" fill="#18273a" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="540" y="75" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Suite 2 · 18' x 12'</text>
+                <!-- Bedroom 3 & 4 -->
+                <rect x="150" y="280" width="200" height="75" fill="#18273a" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="250" y="322" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Suite 3 · 16' x 12'</text>
+                <rect x="350" y="280" width="170" height="75" fill="#18273a" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="435" y="322" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">Suite 4 · 14' x 12'</text>
+                <!-- Maid Room -->
+                <rect x="520" y="280" width="130" height="75" fill="#152233" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="585" y="322" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="sans-serif">Maid Suite · 10' x 8'</text>
+              </svg>
+            </div>
+            <div class="floorplan-actions-row">
+              <button type="button" class="brochure-fly-btn" data-fly-target="society">View Higher Floor Elevations in 3D →</button>
+            </div>
+          </div>
+
+          <!-- Central Villa Plan -->
+          <div class="floorplan-display" id="plan-villa">
+            <div class="floorplan-meta-bar">
+              <div>
+                <h4>Signature Central Walk-In Duplex Villa</h4>
+                <p>Ground + 1 Floor · Centerpiece Residence · Direct Olympic Pool Access</p>
+              </div>
+              <div class="floorplan-specs-pills">
+                <span>Super Built-Up: 4,200 sq.ft.</span>
+                <span>Carpet Area: 3,450 sq.ft.</span>
+                <span>Double-Height Living · Gourmet Island · Private Courtyard</span>
+              </div>
+            </div>
+            <div class="floorplan-visual-wrap">
+              <svg viewBox="0 0 680 380" class="floorplan-svg" aria-label="Central Villa Architectural Blueprint">
+                <rect x="10" y="10" width="660" height="360" rx="8" fill="#0d141e" stroke="#253549" stroke-width="2"/>
+                <rect x="40" y="25" width="600" height="330" fill="#131e2d" stroke="#ffd200" stroke-width="2.5"/>
+                <!-- Grand Double-Height Living Room with Fireplace -->
+                <rect x="40" y="160" width="340" height="195" fill="#1e2f47" stroke="#ffd200" stroke-width="1.5"/>
+                <text x="210" y="240" text-anchor="middle" fill="#ffd200" font-size="14" font-weight="bold" font-family="sans-serif">Grand Living Room &amp; Electric Fireplace Lounge<tspan x="210" dy="24" font-size="11" fill="#cbd5e1">Double-Height Ceiling (6.4m) · 85" OLED Media Wall</tspan></text>
+                <!-- Gourmet Modular Kitchen & Dining -->
+                <rect x="40" y="25" width="340" height="135" fill="#18273a" stroke="#ffd200" stroke-width="1.5"/>
+                <text x="210" y="85" text-anchor="middle" fill="#ffd200" font-size="13" font-weight="bold" font-family="sans-serif">Gourmet Modular Kitchen &amp; 10-Seater Dining<tspan x="210" dy="22" font-size="11" fill="#cbd5e1">Calacatta Waterfall Marble Island · Integrated Miele Appliances</tspan></text>
+                <!-- Master Bedroom Suite -->
+                <rect x="380" y="25" width="260" height="200" fill="#1a2b40" stroke="#ffd200" stroke-width="1.5"/>
+                <text x="510" y="115" text-anchor="middle" fill="#ffd200" font-size="13" font-weight="bold" font-family="sans-serif">Master Bedroom Suite<tspan x="510" dy="22" font-size="11" fill="#cbd5e1">European Oak Flooring · Acoustic Paneling</tspan></text>
+                <!-- Private Landscaped Courtyard & Water Feature -->
+                <rect x="380" y="225" width="260" height="130" fill="#16293d" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <text x="510" y="285" text-anchor="middle" fill="#93c5fd" font-size="12" font-family="sans-serif">Private Zen Courtyard &amp; Reflection Pond<tspan x="510" dy="18" font-size="10" fill="#64748b">Stepping Stones · Direct Pool Access</tspan></text>
+              </svg>
+            </div>
+            <div class="floorplan-actions-row">
+              <button type="button" class="brochure-fly-btn" data-fly-target="bungalow">Step Inside Central Villa in 3D Walkthrough →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: World-Class Amenities -->
+        <div class="brochure-panel" id="tab-amenities" role="tabpanel">
+          <div class="amenities-showcase-grid">
+            <div class="amenity-card">
+              <div class="amenity-header">
+                <span class="amenity-icon">🏊</span>
+                <h4>28m Olympic Lap Pool &amp; Sun Deck</h4>
+              </div>
+              <p>Temperature-controlled infinity-edge lap pool with shallow kids waterpark, imported porcelain deck tiles, teak sun loungers, and private shaded cabanas.</p>
+              <button type="button" class="brochure-fly-btn" data-fly-target="pool">Walk to Swimming Pool in 3D →</button>
+            </div>
+
+            <div class="amenity-card">
+              <div class="amenity-header">
+                <span class="amenity-icon">🏋️</span>
+                <h4>Vitality All-Glass Fitness Club</h4>
+              </div>
+              <p>Modern architectural glass pavilion equipped with Technogym treadmills, elliptical trainers, Olympic bench press, dumbbell racks, and garden glass vistas.</p>
+              <button type="button" class="brochure-fly-btn" data-fly-target="gym">Walk to Wellness Gym in 3D →</button>
+            </div>
+
+            <div class="amenity-card">
+              <div class="amenity-header">
+                <span class="amenity-icon">🏀</span>
+                <h4>NBA Basketball &amp; Tennis Arena</h4>
+              </div>
+              <p>Championship-grade acrylic US Open tennis court and regulation basketball court with professional glass backboards, nighttime floodlights, and stadium fencing.</p>
+              <button type="button" class="brochure-fly-btn" data-fly-target="society">View Sports Arena in 3D →</button>
+            </div>
+
+            <div class="amenity-card">
+              <div class="amenity-header">
+                <span class="amenity-icon">🏡</span>
+                <h4>Central Luxury Bungalow Villa</h4>
+              </div>
+              <p>Walk-in duplex centerpiece residence featuring a grand double-height living room with slatted oak feature wall, gourmet kitchen, and master suite.</p>
+              <button type="button" class="brochure-fly-btn" data-fly-target="bungalow">Walk Inside Villa in 3D →</button>
+            </div>
+
+            <div class="amenity-card">
+              <div class="amenity-header">
+                <span class="amenity-icon">🚗</span>
+                <h4>Resident Parking &amp; EV Hub</h4>
+              </div>
+              <p>Open timber pergola plaza with semi-transparent solar glass canopy, 60+ shaded parking bays, and high-speed Level-3 EV chargers.</p>
+              <button type="button" class="brochure-fly-btn" data-fly-target="society">View Parking Plaza in 3D →</button>
+            </div>
+
+            <div class="amenity-card">
+              <div class="amenity-header">
+                <span class="amenity-icon">🌿</span>
+                <h4>Landscaped Promenades &amp; Parks</h4>
+              </div>
+              <p>Pedestrian-only stone paver footpaths, royal palm tree colonnades, fragrant flowerbeds, and architectural warm bollard streetlamps.</p>
+              <button type="button" class="brochure-fly-btn" data-fly-target="society">Explore Society Grounds in 3D →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Technical Specifications & Finishes -->
+        <div class="brochure-panel" id="tab-specs" role="tabpanel">
+          <div class="specs-table-wrap">
+            <table class="specs-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Luxury Project Specification</th>
+                  <th>Brand / Standard</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Structure</b></td>
+                  <td>RCC shear-wall seismic resistant design with high-performance concrete</td>
+                  <td>IS 1893:2016 Compliant · Zone III</td>
+                </tr>
+                <tr>
+                  <td><b>Flooring</b></td>
+                  <td>Imported Italian Statuario marble in living, dining, and foyer; Engineered European oak in master bedroom; Anti-skid vitrified porcelain on decks</td>
+                  <td>Imported Italian Marble / Boen Oak</td>
+                </tr>
+                <tr>
+                  <td><b>Doors &amp; Fenestration</b></td>
+                  <td>Floor-to-ceiling Schuco aluminium double-glazed acoustic windows with Low-E thermal coating; 8-foot solid teak entrance doors</td>
+                  <td>Schuco Germany · Acoustic Glazing</td>
+                </tr>
+                <tr>
+                  <td><b>Modular Kitchen</b></td>
+                  <td>Custom Italian modular kitchen with quartz waterfall island, soft-close Blum hardware, integrated dishwasher, hob, and chimney</td>
+                  <td>Poggenpohl / Siematic / Miele</td>
+                </tr>
+                <tr>
+                  <td><b>Bathrooms &amp; Fixtures</b></td>
+                  <td>Thermostatic concealed rain showers, frameless glass cubicles, wall-hung rimless water closets, backlit anti-fog mirrors</td>
+                  <td>Grohe / Kohler / Toto</td>
+                </tr>
+                <tr>
+                  <td><b>Smart Home Automation</b></td>
+                  <td>App and voice-controlled lighting mood scenes, automated motorized curtains, biometric digital door access, video door phone</td>
+                  <td>Lutron / Legrand Arteor / Yale</td>
+                </tr>
+                <tr>
+                  <td><b>Elevators &amp; Lobbies</b></td>
+                  <td>High-speed passenger elevators (2.5 m/s) with touchless destination dispatch; Separate service/stretcher elevator</td>
+                  <td>Mitsubishi / Otis Signature</td>
+                </tr>
+                <tr>
+                  <td><b>Power &amp; Green Energy</b></td>
+                  <td>100% full generator backup for all apartments and common areas; Rooftop solar array; Rainwater harvesting</td>
+                  <td>IGBC Gold Certified · Cummins DG</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 5: Location & Connectivity -->
+        <div class="brochure-panel" id="tab-location" role="tabpanel">
+          <div class="location-brochure-wrap">
+            <div class="location-summary-card">
+              <h3>Prime Urban Connectivity</h3>
+              <p>Strategically situated in the high-growth corridor with seamless arterial connectivity to metro stations, tech hubs, premier educational institutions, and healthcare centers.</p>
+
+              <div class="connectivity-grid">
+                <div class="conn-item">
+                  <span class="conn-icon">🚇</span>
+                  <span class="conn-label">Metro Station</span>
+                  <span class="conn-time">4 Mins</span>
+                  <span class="conn-dist">850 m</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-icon">💼</span>
+                  <span class="conn-label">Major Tech Corridor</span>
+                  <span class="conn-time">12 Mins</span>
+                  <span class="conn-dist">5.2 km</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-icon">🏥</span>
+                  <span class="conn-label">Super-Speciality Hospital</span>
+                  <span class="conn-time">6 Mins</span>
+                  <span class="conn-dist">1.8 km</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-icon">🎓</span>
+                  <span class="conn-label">International Schools</span>
+                  <span class="conn-time">8 Mins</span>
+                  <span class="conn-dist">2.4 km</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-icon">🛍️</span>
+                  <span class="conn-label">Luxury Retail &amp; Dining</span>
+                  <span class="conn-time">10 Mins</span>
+                  <span class="conn-dist">3.6 km</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-icon">✈️</span>
+                  <span class="conn-label">International Airport</span>
+                  <span class="conn-time">38 Mins</span>
+                  <span class="conn-dist">32 km (Expressway)</span>
+                </div>
+              </div>
+
+              <div class="location-cta-box">
+                <p>Explore this site in our real satellite GIS mapping platform with live road distances, street view, and 3D terrain:</p>
+                <a href="/site-evaluation/?lat=12.97160&lng=77.59460&name=Lotus+Residency" target="_blank" rel="noopener" class="site-eval-nav-btn site-eval-nav-btn--lg">
+                  <span class="site-eval-icon">📍</span>
+                  <span>Open Full Satellite Site Evaluation Map ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

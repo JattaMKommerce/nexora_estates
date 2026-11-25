@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Site Evaluation · Nexora</title>
+<meta name="description" content="Tap the land you plan to build on and see everything around it: hospitals, schools, metro, bus, shops, with real road distances.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="style.css?v=71">
+</head>
+<body>
+<div id="map" aria-label="Satellite map. Tap the land where you plan to build."></div>
+
+<!-- search + category chips, floating over the map (like a maps app) -->
+<div class="top" id="top">
+  <div class="searchbar">
+    <span class="logo" aria-hidden="true">N</span>
+    <input id="q" type="search" placeholder="Search a city, area or address" autocomplete="off" aria-label="Search a place">
+    <button class="searchbar__btn" id="locate" type="button" aria-label="Use my location" title="Use my location">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+    </button>
+    <ul class="suggest" id="suggest" role="listbox" hidden></ul>
+  </div>
+  <div class="chips" id="chips" role="toolbar" aria-label="Show places"></div>
+</div>
+
+<!-- the sheet: a side panel on computers, a bottom sheet you swipe on phones -->
+<section class="sheet" id="sheet" aria-label="Site evaluation">
+  <div class="sheet__grip" id="grip" aria-hidden="true"><span></span></div>
+  <div class="sheet__body" id="body"></div>
+</section>
+
+<div class="fab">
+  <div class="fmenu">
+    <button class="fab__btn fab__btn--menu" id="t-menu" type="button" aria-label="More options" aria-haspopup="true" aria-expanded="false">⋮</button>
+    <div class="menu" id="fmenu" hidden role="menu">
+      <button role="menuitem" data-act="around" type="button">📍 Nearby places &amp; distances</button>
+      <button role="menuitem" data-act="sides" type="button">🧭 What’s on each side</button>
+      <button role="menuitem" data-act="street" type="button">🚶 Stand on the site</button>
+      <button role="menuitem" data-act="top" type="button">🗺️ View from top</button>
+      <button role="menuitem" data-act="share" type="button">🔗 Share this site</button>
+      <button role="menuitem" data-act="close" type="button">✕ Clear the site</button>
+    </div>
+  </div>
+  <button class="fab__btn" id="t-max" type="button" aria-pressed="false" title="Maximise the map">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+  </button>
+  <button class="fab__btn" id="t-3d" type="button" aria-pressed="false" title="3D view">3D</button>
+  <button class="fab__btn" id="t-site" type="button" title="Back to the site" hidden>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+  </button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- street view (our own 3D model): turn to see the site from every side -->
+<div class="street" id="street" hidden>
+  <div class="street__top"><span class="street__icon">🚶</span><div><strong id="st-title">Street view</strong><small id="st-facing">Facing north</small></div>
+    <button class="street__exit" id="st-exit" type="button">View from top</button></div>
+  <div class="street__ctrl" role="group" aria-label="Turn">
+    <button type="button" id="st-left" aria-label="Turn left">⟲</button>
+    <button type="button" data-face="0">N</button><button type="button" data-face="90">E</button><button type="button" data-face="180">S</button><button type="button" data-face="270">W</button>
+    <button type="button" id="st-right" aria-label="Turn right">⟳</button>
+  </div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="app.js?v=71"></script>
+</body>
+</html>

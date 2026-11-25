@@ -1,0 +1,965 @@
+[
+ {
+  "id": "ta_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "வணக்கம், நெக்ஸோராவுக்கு உங்களை வரவேற்கிறேன்! நான் ஹன்னா, உங்கள் விர்ச்சுவல் வரவேற்பாளர். உங்கள் பெயரைத் தெரிந்துகொள்ளலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c083.mp4"
+ },
+ {
+  "id": "ta_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "மீண்டும் வருக! உங்களை மீண்டும் பார்ப்பதில் மகிழ்ச்சி. இன்று நான் உங்களுக்கு எப்படி உதவலாம்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c084.mp4"
+ },
+ {
+  "id": "ta_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "நெக்ஸோரா, ஜட்டா எம் காமர்ஸின் ரியல் எஸ்டேட் மென்பொருள். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c085.mp4"
+ },
+ {
+  "id": "ta_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "இது டெவலப்பர்கள் தங்கள் திட்டங்களை கட்டுவதற்கு முன்பே த்ரீ-டி-யில் காட்ட உதவுகிறது. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c086.mp4"
+ },
+ {
+  "id": "ta_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "கட்டுமானத்தைக் கண்காணித்து, வீடுகளை வாங்குபவர்களிடம் ஒப்படைப்பது வரை எல்லாவற்றையும் ஒரே இடத்தில் செய்கிறது. த்ரீ-டி டிஜிட்டல் ட்வின் என்றால் என்ன என்று தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c087.mp4"
+ },
+ {
+  "id": "ta_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "டிஜிட்டல் ட்வின் என்பது ஒரு திட்டத்தின் நிஜம் போன்ற த்ரீ-டி பிரதி. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c088.mp4"
+ },
+ {
+  "id": "ta_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "இது கட்டிடக் கலைஞரின் வரைபடங்களிலிருந்து உருவாகிறது, அதனால் வாங்குபவர்கள் ஒவ்வொரு வில்லாவையும் பிரவுசரில் பார்க்கலாம். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c089.mp4"
+ },
+ {
+  "id": "ta_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "நெக்ஸோரா ரெவிட், ஆர்க்கிகேட் அல்லது பிம் மாடல்களை எழுபத்திரண்டு மணி நேரத்துக்குள் ட்வினாக மாற்றும். எங்கள் மாதிரி வில்லாவின் விர்ச்சுவல் டூரைப் பார்க்க விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c090.mp4"
+ },
+ {
+  "id": "ta_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "நெக்ஸோராவில் ஐந்து முக்கிய மாட்யூல்கள் உள்ளன, காலி நிலத்திலிருந்து குடியிருப்பாளர்கள் வந்து சேரும் வரை. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c091.mp4"
+ },
+ {
+  "id": "ta_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "முதல் மூன்று: நிலம் மற்றும் சாத்தியக்கூறு, த்ரீ-டி விற்பனை கேலரி, மற்றும் கட்டுமான டிராக்கர். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c092.mp4"
+ },
+ {
+  "id": "ta_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "பிறகு தரம் மற்றும் குறைபாடு சரிபார்ப்பு, கடைசியாக வாங்குபவர் ஒப்படைப்பு மற்றும் குடியிருப்பாளர் போர்ட்டல். ஒவ்வொன்றாக உங்களுக்குக் காட்டட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c093.mp4"
+ },
+ {
+  "id": "ta_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "நெக்ஸோரா ரியல் எஸ்டேட் டெவலப்பர்கள் மற்றும் பில்டர்களுக்காக உருவாக்கப்பட்டது. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c094.mp4"
+ },
+ {
+  "id": "ta_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "சிறிய வில்லா பில்டர்கள் முதல் பெரிய டவுன்ஷிப் டெவலப்பர்கள் வரை. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c095.mp4"
+ },
+ {
+  "id": "ta_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "அவர்களின் வாங்குபவர்களும் குடியிருப்பாளர்களும் வீடுகளைப் பார்க்கவும் கட்டுமானத்தைக் கண்காணிக்கவும் இதைப் பயன்படுத்துகிறார்கள். நீங்கள் டெவலப்பரா, அல்லது உங்களுக்காக வீடு தேடுகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c096.mp4"
+ },
+ {
+  "id": "ta_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "முதல் கட்டம் சைட் எவாலுவேஷன், கட்டுவதற்கு முன் டெவலப்பர் நிலத்தைச் சரிபார்க்கும் இடம். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c097.mp4"
+ },
+ {
+  "id": "ta_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "சாலை வசதி, சர்வே, தண்ணீர், மின்சாரம், அனுமதிகள், மண்டலம் மற்றும் மண் பரிசோதனை அனைத்தையும் நெக்ஸோரா கண்காணிக்கிறது. உங்களுக்காக சைட் எவாலுவேஷனைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c098.mp4"
+ },
+ {
+  "id": "ta_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "இரண்டாம் கட்டம் மாஸ்டர் பிளானிங், வில்லா லேஅவுட்கள் இறுதி செய்யப்படும் இடம். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c099.mp4"
+ },
+ {
+  "id": "ta_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "ரெரா பதிவு முடிகிறது, வாங்குபவர்களுக்கு த்ரீ-டி ட்வின் நேரலையாகிறது, நேரடி இருப்பு மற்றும் புக்கிங்குடன். நீங்கள் பார்க்க மாஸ்டர் பிளானிங்கைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c100.mp4"
+ },
+ {
+  "id": "ta_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "மூன்றாம் கட்டம் கன்ஸ்ட்ரக்ஷன், டவர்களும் கிளப்ஹவுஸும் தரையிலிருந்து எழும் இடம். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c101.mp4"
+ },
+ {
+  "id": "ta_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "ட்ரோன் படங்கள், பில் சரிபார்ப்பு மற்றும் புகைப்படப் பதிவுகளுடன் ஒவ்வொரு கட்டத்தையும் நெக்ஸோரா கண்காணிக்கிறது. உங்களை கன்ஸ்ட்ரக்ஷன் கட்டத்துக்கு அழைத்துச் செல்லட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c102.mp4"
+ },
+ {
+  "id": "ta_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "நான்காம் கட்டம் ஃபிட்-அவுட் மற்றும் ஹேண்டோவர், உட்புற வேலைகள் முடியும் நேரம். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c103.mp4"
+ },
+ {
+  "id": "ta_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "ஒவ்வொரு வீடும் இருநூறு-க்கும் மேற்பட்ட தரப் புள்ளிகளில் சரிபார்க்கப்படுகிறது, பார்வையிட்ட பிறகு சாவிகள் ஒப்படைக்கப்படுகின்றன. உங்களுக்காக ஃபிட்-அவுட் மற்றும் ஹேண்டோவரைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c104.mp4"
+ },
+ {
+  "id": "ta_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "ஐந்தாம் கட்டம் ரெடி டு மூவ் இன், குடியிருப்பாளர்கள் குடியேறும் நேரம். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c105.mp4"
+ },
+ {
+  "id": "ta_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "குடியிருப்பாளர் ஆப், வசதி முன்பதிவு, விருந்தினர்கள், பாதுகாப்பு மற்றும் பராமரிப்பைக் கவனிக்கிறது. ரெடி டு மூவ் இன்-ஐப் பார்க்க விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c106.mp4"
+ },
+ {
+  "id": "ta_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "விர்ச்சுவல் டூரில் எங்கள் மாதிரி சொகுசு வில்லாவை த்ரீ-டி-யில் பார்க்கலாம். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c107.mp4"
+ },
+ {
+  "id": "ta_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "தோட்டம், கிளப்ஹவுஸ் மற்றும் நீச்சல் குளம், லிவிங் பெவிலியன் மற்றும் மாஸ்டர் சூட் வழியாக நடந்து பார்க்கலாம். உங்களுக்காக விர்ச்சுவல் டூரைத் தொடங்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c108.mp4"
+ },
+ {
+  "id": "ta_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "இணையதளம் நெக்ஸோராவின் கதையை ஐந்து கட்டங்களிலும் ஒரு விர்ச்சுவல் டூரிலும் சொல்கிறது. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c109.mp4"
+ },
+ {
+  "id": "ta_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "சைட் எவாலுவேஷன், மாஸ்டர் பிளானிங், கன்ஸ்ட்ரக்ஷன், ஃபிட்-அவுட் மற்றும் ஹேண்டோவர், மற்றும் ரெடி டு மூவ் இன். தொடக்கத்திலிருந்து, சைட் எவாலுவேஷனிலிருந்து ஆரம்பிக்கலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c110.mp4"
+ },
+ {
+  "id": "ta_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "நெக்ஸோராவில் எல்லா அளவு பில்டர்களுக்கும் சந்தா திட்டங்கள் உள்ளன. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c111.mp4"
+ },
+ {
+  "id": "ta_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "விலைகள் வெளியிடப்படவில்லை, அதனால் டெமோவில் உங்கள் திட்டத்துக்கான விலையைக் குழு சொல்லும். டெமோ புக்கிங் படிவத்தைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c112.mp4"
+ },
+ {
+  "id": "ta_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "மன்னிக்கவும், இங்குள்ள வில்லா ஒரு மாதிரி மட்டுமே, விற்பனைக்கு அல்ல. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c113.mp4"
+ },
+ {
+  "id": "ta_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "அதனால் விலையோ இடமோ இல்லை, ஆனால் வாங்குபவர்கள் ஒரு திட்டத்தை எப்படிப் பார்க்கிறார்கள் என்பதை விர்ச்சுவல் டூர் காட்டுகிறது. விர்ச்சுவல் டூரைப் பார்க்க விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c114.mp4"
+ },
+ {
+  "id": "ta_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "இலவச டெமோ புக் செய்ய உதவுவதில் மகிழ்ச்சி. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c115.mp4"
+ },
+ {
+  "id": "ta_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "உங்கள் திட்டத்தைப் பற்றி கொஞ்சம் சொல்லுங்கள், தனிப்பட்ட விளக்கத்துக்காக குழு உங்களைத் தொடர்புகொள்ளும். இப்போதே டெமோ படிவத்தைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c116.mp4"
+ },
+ {
+  "id": "ta_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "குழுவுக்கு கான்டாக்ட் அட் ஜட்டா எம் காமர்ஸ் டாட் காம் என்ற முகவரிக்கு மின்னஞ்சல் அனுப்பலாம். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c117.mp4"
+ },
+ {
+  "id": "ta_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "அல்லது புக் எ டெமோ படிவத்தைப் பயன்படுத்துங்கள், அவர்கள் உங்களைத் தொடர்புகொள்வார்கள். புக் எ டெமோ படிவத்தைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c118.mp4"
+ },
+ {
+  "id": "ta_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "நெக்ஸோரா, ஜட்டா எம் காமர்ஸின் தயாரிப்பு. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c119.mp4"
+ },
+ {
+  "id": "ta_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "மேலும் விவரங்களை கான்டாக்ட் அட் ஜட்டா எம் காமர்ஸ் டாட் காம்-இல் குழு சொல்லும். நெக்ஸோரா என்ன செய்கிறது என்று தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c120.mp4"
+ },
+ {
+  "id": "ta_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "நெக்ஸோரா சேல்ஸ்ஃபோர்ஸ், ஹப்ஸ்பாட் மற்றும் பில்டர் ஈ-ஆர்-பி போன்ற கருவிகளுடன் இணைகிறது. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c121.mp4"
+ },
+ {
+  "id": "ta_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "வெப்ஹூக்ஸ், ரெஸ்ட் ஏ-பி-ஐ, மற்றும் எஸ்-ஏ-பி, ரெரா போர்ட்டல்களுக்கான இணைப்புகளும் உள்ளன. உங்களுக்கு எது பொருந்தும் என்று குழு உறுதிசெய்ய டெமோ படிவத்தைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c122.mp4"
+ },
+ {
+  "id": "ta_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "மாதிரித் திட்டம் முழுவதும் சுற்றுச்சூழல் கவனிக்கப்பட்டுள்ளது. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c123.mp4"
+ },
+ {
+  "id": "ta_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "கூரை சோலார், மழைநீர் சேகரிப்பு, கழிவுநீர் மறுசுழற்சி, ஈவி சார்ஜிங் மற்றும் பசுமைக் கட்டிடக் கண்காணிப்பு. இந்தத் திட்டமிடல் தொடங்கும் சைட் எவாலுவேஷனிலிருந்து ஆரம்பிக்கலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c124.mp4"
+ },
+ {
+  "id": "ta_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "நெக்ஸோரா கணக்குகள் இன்னும் தயாராகி வருகின்றன, அதனால் லாக் இன் இன்னும் இணைக்கப்படவில்லை. குழு உங்களுக்கு அணுகல் தர டெமோ படிவத்தைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c125.mp4"
+ },
+ {
+  "id": "ta_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "மிக எளிது: கட்டங்களை மாற்ற ஸ்க்ரோல் செய்யுங்கள். மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c126.mp4"
+ },
+ {
+  "id": "ta_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "மேலே வலதுபுறம் உள்ள மெனுவில் எல்லா கட்டங்களும் உள்ளன, புக் எ டெமோ பக்கத்தின் மேலே உள்ளது. இப்போது உங்களை இணையதளத்துக்குள் அழைத்துச் செல்லட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c127.mp4"
+ },
+ {
+  "id": "ta_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "இந்த இணையதளம் நம் உரையாடலைச் சேமிப்பதில்லை. மேலும் தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c128.mp4"
+ },
+ {
+  "id": "ta_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "நீங்கள் பேசும்போது, உங்கள் பிரவுசர் குரலை எழுத்தாக மாற்றுகிறது, அதனால் தனிப்பட்ட விவரங்களை இங்கே பகிர வேண்டாம். நெக்ஸோரா பற்றி வேறு ஏதாவது உதவி வேண்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c129.mp4"
+ },
+ {
+  "id": "ta_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "அருமை, அப்படியானால் நெக்ஸோரா உங்களுக்காகவே உருவாக்கப்பட்டது. ஐந்து மாட்யூல்களைப் பார்க்க விரும்புகிறீர்களா, அல்லது டெமோ புக் செய்ய உதவட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c130.mp4"
+ },
+ {
+  "id": "ta_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "அருமை! நெக்ஸோராவில் வீடுகளைக் கட்டுவதற்கு முன்பே த்ரீ-டி-யில் பார்க்கலாம். உங்களுக்காக விர்ச்சுவல் டூரைத் தொடங்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c131.mp4"
+ },
+ {
+  "id": "ta_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "பரவாயில்லை, நிதானமாகப் பாருங்கள். முதல் கட்டத்திலிருந்து உங்களுக்குச் சுற்றிக் காட்டட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c132.mp4"
+ },
+ {
+  "id": "ta_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "வணக்கம்! நீங்கள் டெவலப்பர் அல்லது பில்டரா, வீடு தேடுகிறீர்களா, அல்லது சும்மா பார்க்கிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c133.mp4"
+ },
+ {
+  "id": "ta_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "வணக்கம்! நீங்கள் இங்கு வந்தது மகிழ்ச்சி. நீங்கள் டெவலப்பரா, வீடு வாங்குபவரா, அல்லது சும்மா பார்க்கிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c134.mp4"
+ },
+ {
+  "id": "ta_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "நான் நன்றாக இருக்கிறேன், நன்றி! இன்று நான் உங்களுக்கு எப்படி உதவலாம்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c135.mp4"
+ },
+ {
+  "id": "ta_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "நான் நலம், கேட்டதற்கு நன்றி! நெக்ஸோரா பற்றி என்ன தெரிந்துகொள்ள விரும்புகிறீர்கள்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c136.mp4"
+ },
+ {
+  "id": "ta_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "நான் ஹன்னா, நெக்ஸோராவின் விர்ச்சுவல் வரவேற்பாளர், உங்களுக்கு வழிகாட்ட இங்கே இருக்கிறேன். என்ன தெரிந்துகொள்ள விரும்புகிறீர்கள்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c137.mp4"
+ },
+ {
+  "id": "ta_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "உங்களை வரவேற்கவும், கேள்விகளுக்குப் பதில் சொல்லவும், நெக்ஸோராவைச் சுற்றிக் காட்டவும் இங்கே இருக்கிறேன். என்ன தெரிந்துகொள்ள விரும்புகிறீர்கள்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c138.mp4"
+ },
+ {
+  "id": "ta_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "நான் ஒரு ஏஐ வரவேற்பாளர், ஆனாலும் உதவ முழுமையாகத் தயாராக இருக்கிறேன். என்ன தெரிந்துகொள்ள விரும்புகிறீர்கள்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c139.mp4"
+ },
+ {
+  "id": "ta_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "மிக்க மகிழ்ச்சி! வேறு ஏதாவது உதவி வேண்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c034.mp4"
+ },
+ {
+  "id": "ta_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "என் மகிழ்ச்சி! நெக்ஸோரா பற்றி வேறு ஏதாவது தெரிந்துகொள்ள விரும்புகிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c035.mp4"
+ },
+ {
+  "id": "ta_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "நெக்ஸோராவுக்கு வந்ததற்கு நன்றி! தேவைப்பட்டால் நான் எப்போதும் மெனுவில் இருக்கிறேன். இனிய நாளாக அமையட்டும்!",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c140.mp4"
+ },
+ {
+  "id": "ta_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "நெக்ஸோராவைப் பற்றி விளக்கவும், இணையதளத்தைச் சுற்றிக் காட்டவும், டெமோ புக் செய்யவும் உதவுவேன். எங்கிருந்து தொடங்கலாம்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c141.mp4"
+ },
+ {
+  "id": "ta_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "அது என் எல்லைக்குக் கொஞ்சம் வெளியே இருக்கிறது, ஆனால் நெக்ஸோராவைக் காட்ட ஆசைப்படுகிறேன். ஒரு சிறிய டூர் தரட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c142.mp4"
+ },
+ {
+  "id": "ta_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "மன்னிக்கவும், அதற்கு என்னால் உதவ முடியாது. ஆனால் நெக்ஸோராவைச் சுற்றிக் காட்ட முடியும். ஒரு சிறிய டூர் செல்லலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c143.mp4"
+ },
+ {
+  "id": "ta_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "அதற்கு உதவ முடிந்தால் நன்றாக இருக்கும்! நெக்ஸோராவைக் காட்டுவதில்தான் நான் சிறந்தவள். ஒரு சிறிய டூர் வேண்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c144.mp4"
+ },
+ {
+  "id": "ta_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "பரவாயில்லை, எளிமையாகச் சொல்கிறேன். வீடுகளைக் கட்டுவதற்கு முன்பே த்ரீ-டி-யில் காட்ட நெக்ஸோரா பில்டர்களுக்கு உதவுகிறது. சுற்றிக் காட்டட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c145.mp4"
+ },
+ {
+  "id": "ta_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "பரவாயில்லை. நெக்ஸோராவைப் புரிந்துகொள்ள எளிதான வழி ஒரு சிறிய டூர். சுற்றிக் காட்டட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c146.mp4"
+ },
+ {
+  "id": "ta_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "மன்னிக்கவும், அந்த விவரம் என்னிடம் இல்லை. டெமோவில் எங்கள் குழு பதில் சொல்லும். டெமோ படிவத்தைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c147.mp4"
+ },
+ {
+  "id": "ta_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "நல்ல கேள்வி! அதற்கான பதில் என்னிடம் இல்லை, ஆனால் டெமோவில் குழு சொல்லும். டெமோ படிவத்தைத் திறக்கட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c148.mp4"
+ },
+ {
+  "id": "ta_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "மன்னிக்கவும், எனக்குச் சரியாகப் புரியவில்லை. வேறு விதமாகச் சொல்ல முடியுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c149.mp4"
+ },
+ {
+  "id": "ta_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "மன்னிக்கவும், புரியவில்லை. நெக்ஸோரா என்றால் என்ன என்று கேட்கலாம், அல்லது ஒரு டூர் கேட்கலாம்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c150.mp4"
+ },
+ {
+  "id": "ta_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "பரவாயில்லை. அதற்குப் பதிலாக என்ன தெரிந்துகொள்ள விரும்புகிறீர்கள்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c048.mp4"
+ },
+ {
+  "id": "ta_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "சரி. நெக்ஸோரா பற்றி வேறு ஏதாவது உதவி வேண்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c049.mp4"
+ },
+ {
+  "id": "ta_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "அருமை! நெக்ஸோராவை விளக்கலாம், சுற்றிக் காட்டலாம், அல்லது டெமோ புக் செய்ய உதவலாம். எது வேண்டும்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c151.mp4"
+ },
+ {
+  "id": "ta_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "மன்னிக்கவும், உங்கள் மொழி எனக்குப் புரியவில்லை. நாம் பேச, என் மொழிகளில் ஒன்றைத் தேர்ந்தெடுங்கள்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c152.mp4"
+ },
+ {
+  "id": "ta_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "நிச்சயமாக, இனி நாம் தமிழில் பேசலாம். நான் உங்களுக்கு எப்படி உதவலாம்?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c185.mp4"
+ },
+ {
+  "id": "ta_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "நிச்சயமாக, இப்போது உங்களை சைட் எவாலுவேஷனுக்கு அழைத்துச் செல்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c153.mp4"
+ },
+ {
+  "id": "ta_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "நிச்சயமாக, இப்போது உங்களை மாஸ்டர் பிளானிங்குக்கு அழைத்துச் செல்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c154.mp4"
+ },
+ {
+  "id": "ta_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "நிச்சயமாக, இப்போது உங்களை கன்ஸ்ட்ரக்ஷனுக்கு அழைத்துச் செல்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c155.mp4"
+ },
+ {
+  "id": "ta_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "நிச்சயமாக, இப்போது உங்களை ஃபிட்-அவுட் மற்றும் ஹேண்டோவருக்கு அழைத்துச் செல்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c156.mp4"
+ },
+ {
+  "id": "ta_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "நிச்சயமாக, இப்போது உங்களை ரெடி டு மூவ் இன்-க்கு அழைத்துச் செல்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c157.mp4"
+ },
+ {
+  "id": "ta_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "நிச்சயமாக, இப்போது உங்களை விர்ச்சுவல் டூருக்கு அழைத்துச் செல்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c158.mp4"
+ },
+ {
+  "id": "ta_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "நிச்சயமாக, உங்களுக்காக டெமோ படிவத்தைத் திறக்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c159.mp4"
+ },
+ {
+  "id": "ta_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "நிச்சயமாக, இப்போது உங்களை இணையதளத்துக்குள் அழைத்துச் செல்கிறேன். தேவைப்பட்டால் நான் மெனுவில் இருக்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c160.mp4"
+ },
+ {
+  "id": "ta_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "மன்னிக்கவும், உங்கள் பெயர் புரியவில்லை. உங்கள் முதல் பெயரை மட்டும் டைப் செய்ய முடியுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c161.mp4"
+ },
+ {
+  "id": "ta_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "பரவாயில்லை! நீங்கள் டெவலப்பர் அல்லது பில்டரா, வீடு தேடுகிறீர்களா, அல்லது சும்மா பார்க்கிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c162.mp4"
+ },
+ {
+  "id": "ta_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "உங்களைச் சந்தித்ததில் மகிழ்ச்சி! நீங்கள் டெவலப்பர் அல்லது பில்டரா, வீடு தேடுகிறீர்களா, அல்லது சும்மா பார்க்கிறீர்களா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c163.mp4"
+ },
+ {
+  "id": "ta_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "அருமை! நீங்கள் எந்த நிறுவனத்தில் இருக்கிறீர்கள், அங்கே உங்கள் பொறுப்பு என்ன?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c164.mp4"
+ },
+ {
+  "id": "ta_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "நன்றி! நெக்ஸோராவின் ஒரு சிறிய வழிகாட்டப்பட்ட டூர் தரட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c165.mp4"
+ },
+ {
+  "id": "ta_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "அருமை! நெக்ஸோராவில் வீடுகளைக் கட்டுவதற்கு முன்பே த்ரீ-டி-யில் பார்க்கலாம். ஒரு சிறிய வழிகாட்டப்பட்ட டூர் தரட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c166.mp4"
+ },
+ {
+  "id": "ta_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "பரவாயில்லை, நிதானமாகப் பாருங்கள். ஒரு சிறிய வழிகாட்டப்பட்ட டூர் தரட்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c167.mp4"
+ },
+ {
+  "id": "ta_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "பரவாயில்லை. என்னிடம் எதையும் கேட்கலாம், அல்லது உங்கள் வசதிப்படி பார்க்கலாம்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c168.mp4"
+ },
+ {
+  "id": "ta_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "தொடங்கலாம்! இது சைட் எவாலுவேஷன், கட்டுவதற்கு முன் டெவலப்பர் நிலத்தைச் சரிபார்க்கும் இடம். அடுத்ததுக்குப் போகலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c169.mp4"
+ },
+ {
+  "id": "ta_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "இது மாஸ்டர் பிளானிங். வில்லா லேஅவுட்கள் இறுதியாகின்றன, வாங்குபவர்களுக்கு த்ரீ-டி ட்வின் நேரலையாகிறது. அடுத்ததுக்குப் போகலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c170.mp4"
+ },
+ {
+  "id": "ta_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "இது கன்ஸ்ட்ரக்ஷன். ட்ரோன் படங்கள் மற்றும் புகைப்படப் பதிவுகளுடன் நெக்ஸோரா ஒவ்வொரு கட்டத்தையும் கண்காணிக்கிறது. அடுத்ததுக்குப் போகலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c171.mp4"
+ },
+ {
+  "id": "ta_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "இது ஃபிட்-அவுட் மற்றும் ஹேண்டோவர். சாவிகள் ஒப்படைக்கப்படும் முன் ஒவ்வொரு வீட்டின் தரமும் சரிபார்க்கப்படுகிறது. அடுத்ததுக்குப் போகலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c172.mp4"
+ },
+ {
+  "id": "ta_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "ரெடி டு மூவ் இன்-க்கு வரவேற்கிறோம். குடியிருப்பாளர் ஆப் புக்கிங், விருந்தினர்கள் மற்றும் பராமரிப்பைக் கவனிக்கிறது. வில்லாவைப் பார்க்கலாமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c173.mp4"
+ },
+ {
+  "id": "ta_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "இது எங்கள் டெமோ வில்லாவின் விர்ச்சுவல் டூர். நிதானமாகச் சுற்றிப் பாருங்கள்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c174.mp4"
+ },
+ {
+  "id": "ta_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "இதுதான் டூர்! உங்கள் சொந்தத் திட்டத்துக்கு ஒரு தனிப்பட்ட டெமோ வேண்டுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c175.mp4"
+ },
+ {
+  "id": "ta_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "பரவாயில்லை, இங்கே நிறுத்திக்கொள்வோம். தேவைப்பட்டால் நான் எப்போதும் மெனுவில் இருக்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c176.mp4"
+ },
+ {
+  "id": "ta_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "இலவச டெமோ ஏற்பாடு செய்வதில் மகிழ்ச்சி! உங்களைத் தொடர்புகொள்ள சிறந்த தொலைபேசி எண் எது?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c177.mp4"
+ },
+ {
+  "id": "ta_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "இலவச டெமோ ஏற்பாடு செய்வதில் மகிழ்ச்சி! முதலில் உங்கள் பெயரைச் சொல்ல முடியுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c178.mp4"
+ },
+ {
+  "id": "ta_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "நன்றி! உங்களைத் தொடர்புகொள்ள சிறந்த தொலைபேசி எண் எது?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c179.mp4"
+ },
+ {
+  "id": "ta_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "ம்ம், அந்த எண் சரியாகத் தெரியவில்லை. பத்து இலக்கங்களுடன் மீண்டும் டைப் செய்ய முடியுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c180.mp4"
+ },
+ {
+  "id": "ta_c181",
+  "key": "Thank you. And your email address?",
+  "say": "நன்றி. உங்கள் மின்னஞ்சல் முகவரி?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c181.mp4"
+ },
+ {
+  "id": "ta_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "அந்த மின்னஞ்சல் சரியாகத் தெரியவில்லை. மீண்டும் டைப் செய்ய முடியுமா?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c182.mp4"
+ },
+ {
+  "id": "ta_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "நன்றி! எங்கள் குழு விரைவில் உங்களைத் தொடர்புகொள்ளும். நீங்கள் தேதியைத் தேர்ந்தெடுக்க டெமோ படிவத்தைத் திறக்கிறேன்.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c183.mp4"
+ },
+ {
+  "id": "ta_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "பரவாயில்லை. நீங்கள் தயாரானதும், புக் எ டெமோ பட்டன் மேலே இருக்கிறது.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "ta",
+  "file": "ta/c184.mp4"
+ }
+]

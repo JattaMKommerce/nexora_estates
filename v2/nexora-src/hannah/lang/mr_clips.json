@@ -1,0 +1,965 @@
+[
+ {
+  "id": "mr_c083",
+  "key": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+  "say": "नमस्कार, नेक्सोरामध्ये आपले स्वागत आहे! मी हन्ना, तुमची व्हर्च्युअल रिसेप्शनिस्ट. मी तुमचे नाव जाणून घेऊ शकते का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c083.mp4"
+ },
+ {
+  "id": "mr_c084",
+  "key": "Welcome back! It's lovely to see you again. How can I help you today?",
+  "say": "पुन्हा स्वागत आहे! तुम्हाला पुन्हा पाहून खूप आनंद झाला. आज मी तुमची कशी मदत करू?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c084.mp4"
+ },
+ {
+  "id": "mr_c085",
+  "key": "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "नेक्सोरा हे जट्टा एम कॉमर्सचे रिअल इस्टेट सॉफ्टवेअर आहे. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c085.mp4"
+ },
+ {
+  "id": "mr_c086",
+  "key": "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?",
+  "say": "हे डेव्हलपर्सना त्यांचे प्रोजेक्ट्स बांधण्याआधीच थ्री-डी मध्ये दाखवायला मदत करते. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c086.mp4"
+ },
+ {
+  "id": "mr_c087",
+  "key": "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?",
+  "say": "हे बांधकामावर लक्ष ठेवते आणि घरे खरेदीदारांना सोपवेपर्यंत सर्व काही एकाच ठिकाणी सांभाळते. थ्री-डी डिजिटल ट्विन म्हणजे काय हे जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c087.mp4"
+ },
+ {
+  "id": "mr_c088",
+  "key": "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?",
+  "say": "डिजिटल ट्विन म्हणजे एखाद्या प्रोजेक्टची हुबेहूब, खऱ्यासारखी थ्री-डी प्रत. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c088.mp4"
+ },
+ {
+  "id": "mr_c089",
+  "key": "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?",
+  "say": "ती आर्किटेक्टच्या ड्रॉइंग्जमधून बनवली जाते, त्यामुळे खरेदीदार प्रत्येक व्हिला ब्राउझरमध्ये पाहू शकतात. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c089.mp4"
+ },
+ {
+  "id": "mr_c090",
+  "key": "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?",
+  "say": "नेक्सोरा रेव्हिट, आर्कीकॅड किंवा बिम मॉडेल्सना बहात्तर तासांच्या आत ट्विनमध्ये बदलू शकते. आमच्या नमुना व्हिलाची व्हर्च्युअल टूर पाहायची आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c090.mp4"
+ },
+ {
+  "id": "mr_c091",
+  "key": "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?",
+  "say": "नेक्सोरामध्ये पाच मुख्य मॉड्यूल्स आहेत, रिकाम्या जमिनीपासून रहिवासी राहायला येईपर्यंत. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c091.mp4"
+ },
+ {
+  "id": "mr_c092",
+  "key": "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?",
+  "say": "पहिले तीन: जमीन आणि व्यवहार्यता, थ्री-डी सेल्स गॅलरी, आणि कन्स्ट्रक्शन ट्रॅकर. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c092.mp4"
+ },
+ {
+  "id": "mr_c093",
+  "key": "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?",
+  "say": "नंतर क्वालिटी आणि स्नॅगिंग, आणि शेवटी बायर हँडओव्हर आणि रेसिडेंट पोर्टल. एक-एक करून दाखवू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c093.mp4"
+ },
+ {
+  "id": "mr_c094",
+  "key": "Nexora is built for real estate developers and builders. Would you like to hear more?",
+  "say": "नेक्सोरा रिअल इस्टेट डेव्हलपर्स आणि बिल्डर्ससाठी बनवले आहे. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c094.mp4"
+ },
+ {
+  "id": "mr_c095",
+  "key": "From boutique villa builders to large township developers. Would you like to hear more?",
+  "say": "छोट्या व्हिला बिल्डर्सपासून मोठ्या टाउनशिप डेव्हलपर्सपर्यंत. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c095.mp4"
+ },
+ {
+  "id": "mr_c096",
+  "key": "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?",
+  "say": "त्यांचे खरेदीदार आणि रहिवासीही घरे पाहण्यासाठी आणि बांधकामावर लक्ष ठेवण्यासाठी याचा वापर करतात. तुम्ही डेव्हलपर आहात, की स्वतःसाठी घर शोधत आहात?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c096.mp4"
+ },
+ {
+  "id": "mr_c097",
+  "key": "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?",
+  "say": "पहिला टप्पा साइट इव्हॅल्युएशन, जिथे बांधण्याआधी डेव्हलपर जमिनीची तपासणी करतो. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c097.mp4"
+ },
+ {
+  "id": "mr_c098",
+  "key": "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?",
+  "say": "रस्ता, सर्वेक्षण, पाणी, वीज, मंजुरी, झोनिंग आणि माती परीक्षण, या सगळ्यावर नेक्सोरा लक्ष ठेवते. तुमच्यासाठी साइट इव्हॅल्युएशन उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c098.mp4"
+ },
+ {
+  "id": "mr_c099",
+  "key": "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?",
+  "say": "दुसरा टप्पा मास्टर प्लॅनिंग, जिथे व्हिलाचे लेआउट निश्चित होतात. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c099.mp4"
+ },
+ {
+  "id": "mr_c100",
+  "key": "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?",
+  "say": "रेरा नोंदणी पूर्ण होते, आणि खरेदीदारांसाठी थ्री-डी ट्विन लाइव्ह होते, लाइव्ह इन्व्हेंटरी आणि बुकिंगसह. तुम्ही पाहण्यासाठी मास्टर प्लॅनिंग उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c100.mp4"
+ },
+ {
+  "id": "mr_c101",
+  "key": "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?",
+  "say": "तिसरा टप्पा कन्स्ट्रक्शन, जिथे टॉवर्स आणि क्लबहाउस जमिनीतून उभे राहतात. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c101.mp4"
+ },
+ {
+  "id": "mr_c102",
+  "key": "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?",
+  "say": "ड्रोन फोटो, बिल तपासणी आणि फोटो नोंदींसह नेक्सोरा प्रत्येक टप्प्याचा मागोवा घेते. तुम्हाला कन्स्ट्रक्शन टप्प्यावर घेऊन जाऊ का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c102.mp4"
+ },
+ {
+  "id": "mr_c103",
+  "key": "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?",
+  "say": "चौथा टप्पा फिट-आउट आणि हँडओव्हर, जेव्हा इंटिरियर्स पूर्ण होतात. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c103.mp4"
+ },
+ {
+  "id": "mr_c104",
+  "key": "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?",
+  "say": "प्रत्येक घर दोनशे पेक्षा जास्त क्वालिटी पॉइंट्सवर तपासले जाते, आणि वॉकथ्रूनंतर चाव्या सोपवल्या जातात. तुमच्यासाठी फिट-आउट आणि हँडओव्हर उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c104.mp4"
+ },
+ {
+  "id": "mr_c105",
+  "key": "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?",
+  "say": "पाचवा टप्पा रेडी टू मूव्ह इन, जेव्हा रहिवासी स्थायिक होतात. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c105.mp4"
+ },
+ {
+  "id": "mr_c106",
+  "key": "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?",
+  "say": "रेसिडेंट ॲप सुविधांचे बुकिंग, पाहुणे, सुरक्षा आणि देखभाल सांभाळते. रेडी टू मूव्ह इन पाहायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c106.mp4"
+ },
+ {
+  "id": "mr_c107",
+  "key": "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?",
+  "say": "व्हर्च्युअल टूरमध्ये तुम्ही आमचा नमुना लक्झरी व्हिला थ्री-डी मध्ये पाहू शकता. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c107.mp4"
+ },
+ {
+  "id": "mr_c108",
+  "key": "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?",
+  "say": "बाग, क्लबहाउस आणि पूल, लिव्हिंग पॅव्हेलियन आणि मास्टर सूटमधून फिरून पाहू शकता. तुमच्यासाठी व्हर्च्युअल टूर सुरू करू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c108.mp4"
+ },
+ {
+  "id": "mr_c109",
+  "key": "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?",
+  "say": "वेबसाइट नेक्सोराची गोष्ट पाच टप्प्यांत आणि एका व्हर्च्युअल टूरमध्ये सांगते. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c109.mp4"
+ },
+ {
+  "id": "mr_c110",
+  "key": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?",
+  "say": "साइट इव्हॅल्युएशन, मास्टर प्लॅनिंग, कन्स्ट्रक्शन, फिट-आउट आणि हँडओव्हर, आणि रेडी टू मूव्ह इन. सुरुवातीपासून, साइट इव्हॅल्युएशनपासून सुरू करायचे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c110.mp4"
+ },
+ {
+  "id": "mr_c111",
+  "key": "Nexora has subscription plans for builders of every size. Would you like to hear more?",
+  "say": "नेक्सोरामध्ये सर्व आकारांच्या बिल्डर्ससाठी सबस्क्रिप्शन प्लॅन्स आहेत. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c111.mp4"
+ },
+ {
+  "id": "mr_c112",
+  "key": "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?",
+  "say": "किमती प्रसिद्ध केलेल्या नाहीत, म्हणून डेमोमध्ये टीम तुमच्या प्रोजेक्टची किंमत सांगते. डेमो बुकिंग फॉर्म उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c112.mp4"
+ },
+ {
+  "id": "mr_c113",
+  "key": "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?",
+  "say": "माफ करा, इथला व्हिला फक्त एक उदाहरण आहे, विक्रीसाठी नाही. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c113.mp4"
+ },
+ {
+  "id": "mr_c114",
+  "key": "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?",
+  "say": "त्यामुळे किंमत किंवा ठिकाण नाही, पण खरेदीदार प्रोजेक्ट कसा पाहतात हे व्हर्च्युअल टूर दाखवते. व्हर्च्युअल टूर पाहायची आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c114.mp4"
+ },
+ {
+  "id": "mr_c115",
+  "key": "I'd be happy to help you book a free demo. Would you like to hear more?",
+  "say": "तुमचा मोफत डेमो बुक करायला मदत करताना मला आनंद होईल. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c115.mp4"
+ },
+ {
+  "id": "mr_c116",
+  "key": "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?",
+  "say": "तुमच्या प्रोजेक्टबद्दल थोडे सांगा, आणि वैयक्तिक वॉकथ्रूसाठी टीम तुमच्याशी संपर्क करेल. आत्ताच डेमो फॉर्म उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c116.mp4"
+ },
+ {
+  "id": "mr_c117",
+  "key": "You can email the team at contact@jattamkommerce.com. Would you like to hear more?",
+  "say": "तुम्ही टीमला कॉन्टॅक्ट ॲट जट्टा एम कॉमर्स डॉट कॉम वर ईमेल करू शकता. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c117.mp4"
+ },
+ {
+  "id": "mr_c118",
+  "key": "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?",
+  "say": "किंवा बुक अ डेमो फॉर्म वापरा, ते तुमच्याशी संपर्क करतील. बुक अ डेमो फॉर्म उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c118.mp4"
+ },
+ {
+  "id": "mr_c119",
+  "key": "Nexora is powered by Jatta M Kommerce. Would you like to hear more?",
+  "say": "नेक्सोरा हे जट्टा एम कॉमर्सचे उत्पादन आहे. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c119.mp4"
+ },
+ {
+  "id": "mr_c120",
+  "key": "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?",
+  "say": "अधिक माहिती टीम कॉन्टॅक्ट ॲट जट्टा एम कॉमर्स डॉट कॉम वर देईल. नेक्सोरा काय करते हे जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c120.mp4"
+ },
+ {
+  "id": "mr_c121",
+  "key": "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?",
+  "say": "नेक्सोरा सेल्सफोर्स, हबस्पॉट आणि बिल्डर ई-आर-पी सारख्या टूल्सशी जोडले जाते. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c121.mp4"
+ },
+ {
+  "id": "mr_c122",
+  "key": "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?",
+  "say": "वेबहुक्स, रेस्ट ए-पी-आय, आणि एस-ए-पी व रेरा पोर्टल्ससाठी कनेक्टर्सही आहेत. तुमच्यासाठी काय योग्य आहे हे टीमने निश्चित करावे म्हणून डेमो फॉर्म उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c122.mp4"
+ },
+ {
+  "id": "mr_c123",
+  "key": "Sustainability runs all through the example project. Would you like to hear more?",
+  "say": "नमुना प्रोजेक्टमध्ये सगळीकडे पर्यावरणाची काळजी घेतली आहे. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c123.mp4"
+ },
+ {
+  "id": "mr_c124",
+  "key": "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?",
+  "say": "छतावर सोलर, पावसाचे पाणी साठवणे, ग्रेवॉटर रिसायकलिंग, ईव्ही चार्जिंग आणि ग्रीन बिल्डिंग ट्रॅकिंग. हे नियोजन जिथून सुरू होते, त्या साइट इव्हॅल्युएशनपासून सुरू करायचे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c124.mp4"
+ },
+ {
+  "id": "mr_c125",
+  "key": "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?",
+  "say": "नेक्सोरा अकाउंट्स अजून तयार होत आहेत, त्यामुळे लॉग इन अजून जोडलेले नाही. टीमने तुम्हाला ॲक्सेस द्यावा म्हणून डेमो फॉर्म उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c125.mp4"
+ },
+ {
+  "id": "mr_c126",
+  "key": "It's simple: just scroll to move through the phases. Would you like to hear more?",
+  "say": "खूप सोपे आहे: टप्पे बदलण्यासाठी फक्त स्क्रोल करा. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c126.mp4"
+ },
+ {
+  "id": "mr_c127",
+  "key": "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?",
+  "say": "वर उजवीकडील मेन्यूमध्ये सगळे टप्पे आहेत, आणि बुक अ डेमो पानाच्या वर आहे. आता तुम्हाला वेबसाइटमध्ये घेऊन जाऊ का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c127.mp4"
+ },
+ {
+  "id": "mr_c128",
+  "key": "This website doesn't save our conversation. Would you like to hear more?",
+  "say": "ही वेबसाइट आपले संभाषण सेव्ह करत नाही. अजून जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c128.mp4"
+ },
+ {
+  "id": "mr_c129",
+  "key": "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?",
+  "say": "तुम्ही बोलता तेव्हा तुमचा ब्राउझर आवाजाचे मजकुरात रूपांतर करतो, म्हणून इथे वैयक्तिक माहिती शेअर करू नका. नेक्सोराबद्दल अजून काही मदत हवी आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c129.mp4"
+ },
+ {
+  "id": "mr_c130",
+  "key": "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?",
+  "say": "छान, मग नेक्सोरा तुमच्यासाठीच बनले आहे. पाच मॉड्यूल्स पाहायचे आहेत, की डेमो बुक करायला मदत करू?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c130.mp4"
+ },
+ {
+  "id": "mr_c131",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?",
+  "say": "छान! नेक्सोरामध्ये तुम्ही घरे बांधण्याआधीच थ्री-डी मध्ये पाहू शकता. तुमच्यासाठी व्हर्च्युअल टूर सुरू करू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c131.mp4"
+ },
+ {
+  "id": "mr_c132",
+  "key": "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?",
+  "say": "काही हरकत नाही, निवांत पाहा. पहिल्या टप्प्यापासून सगळे दाखवू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c132.mp4"
+ },
+ {
+  "id": "mr_c133",
+  "key": "Hi there! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "नमस्कार! तुम्ही डेव्हलपर किंवा बिल्डर आहात, घर शोधत आहात, की फक्त बघत आहात?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c133.mp4"
+ },
+ {
+  "id": "mr_c134",
+  "key": "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?",
+  "say": "नमस्कार! तुम्ही इथे आलात याचा आनंद आहे. तुम्ही डेव्हलपर आहात, घर खरेदीदार आहात, की फक्त बघत आहात?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c134.mp4"
+ },
+ {
+  "id": "mr_c135",
+  "key": "I'm doing very well, thank you! How can I help you today?",
+  "say": "मी खूप छान आहे, धन्यवाद! आज मी तुमची कशी मदत करू?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c135.mp4"
+ },
+ {
+  "id": "mr_c136",
+  "key": "I'm great, thanks for asking! What would you like to know about Nexora?",
+  "say": "मी मस्त आहे, विचारल्याबद्दल धन्यवाद! नेक्सोराबद्दल काय जाणून घ्यायचे आहे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c136.mp4"
+ },
+ {
+  "id": "mr_c137",
+  "key": "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?",
+  "say": "मी हन्ना, नेक्सोराची व्हर्च्युअल रिसेप्शनिस्ट, आणि तुम्हाला मार्गदर्शन करायला इथे आहे. काय जाणून घ्यायचे आहे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c137.mp4"
+ },
+ {
+  "id": "mr_c138",
+  "key": "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?",
+  "say": "तुमचे स्वागत करायला, तुमच्या प्रश्नांची उत्तरे द्यायला, आणि नेक्सोरा दाखवायला मी इथे आहे. काय जाणून घ्यायचे आहे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c138.mp4"
+ },
+ {
+  "id": "mr_c139",
+  "key": "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?",
+  "say": "मी एक एआय रिसेप्शनिस्ट आहे, पण मदत करायला पूर्णपणे तयार आहे. काय जाणून घ्यायचे आहे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c139.mp4"
+ },
+ {
+  "id": "mr_c034",
+  "key": "You're very welcome! Is there anything else I can help you with?",
+  "say": "तुमचे स्वागत आहे! अजून काही मदत हवी आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c034.mp4"
+ },
+ {
+  "id": "mr_c035",
+  "key": "My pleasure! Anything else you'd like to know about Nexora?",
+  "say": "माझा आनंद! नेक्सोराबद्दल अजून काही जाणून घ्यायचे आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c035.mp4"
+ },
+ {
+  "id": "mr_c140",
+  "key": "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!",
+  "say": "नेक्सोराला भेट दिल्याबद्दल धन्यवाद! गरज असेल तर मी नेहमी मेन्यूमध्ये आहे. तुमचा दिवस छान जावो!",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c140.mp4"
+ },
+ {
+  "id": "mr_c141",
+  "key": "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?",
+  "say": "मी नेक्सोराबद्दल सांगू शकते, वेबसाइट दाखवू शकते, आणि डेमो बुक करायला मदत करू शकते. कुठून सुरुवात करूया?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c141.mp4"
+ },
+ {
+  "id": "mr_c142",
+  "key": "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?",
+  "say": "हे माझ्या कक्षेबाहेर थोडे आहे, पण नेक्सोरा दाखवायला मला आवडेल. एक छोटी टूर देऊ का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c142.mp4"
+ },
+ {
+  "id": "mr_c143",
+  "key": "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?",
+  "say": "माफ करा, यात मी मदत करू शकत नाही. पण मी नेक्सोरा दाखवू शकते. एक छोटी टूर करूया का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c143.mp4"
+ },
+ {
+  "id": "mr_c144",
+  "key": "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?",
+  "say": "यात मदत करता आली असती तर बरे झाले असते! नेक्सोरा दाखवण्यात मी सगळ्यात चांगली आहे. एक छोटी टूर हवी आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c144.mp4"
+ },
+ {
+  "id": "mr_c145",
+  "key": "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?",
+  "say": "काही हरकत नाही, सोप्या शब्दांत सांगते. नेक्सोरा बिल्डर्सना घरे बांधण्याआधीच थ्री-डी मध्ये दाखवायला मदत करते. सगळे दाखवू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c145.mp4"
+ },
+ {
+  "id": "mr_c146",
+  "key": "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?",
+  "say": "अगदी ठीक आहे. नेक्सोरा समजून घेण्याचा सगळ्यात सोपा मार्ग म्हणजे एक छोटी टूर. सगळे दाखवू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c146.mp4"
+ },
+ {
+  "id": "mr_c147",
+  "key": "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?",
+  "say": "माफ करा, ही माहिती माझ्याकडे नाही. आमची टीम डेमोमध्ये याचे उत्तर देऊ शकते. डेमो फॉर्म उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c147.mp4"
+ },
+ {
+  "id": "mr_c148",
+  "key": "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?",
+  "say": "छान प्रश्न! याचे उत्तर माझ्याकडे नाही, पण टीम डेमोमध्ये सांगेल. डेमो फॉर्म उघडू का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c148.mp4"
+ },
+ {
+  "id": "mr_c149",
+  "key": "Sorry, I didn't quite catch that. Could you say it another way?",
+  "say": "माफ करा, मला नीट समजले नाही. तुम्ही वेगळ्या प्रकारे सांगू शकता का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c149.mp4"
+ },
+ {
+  "id": "mr_c150",
+  "key": "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.",
+  "say": "माफ करा, मला समजले नाही. नेक्सोरा म्हणजे काय असे विचारू शकता, किंवा टूर मागू शकता.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c150.mp4"
+ },
+ {
+  "id": "mr_c048",
+  "key": "No problem at all. What would you like to know instead?",
+  "say": "काही हरकत नाही. त्याऐवजी काय जाणून घ्यायचे आहे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c048.mp4"
+ },
+ {
+  "id": "mr_c049",
+  "key": "That's fine. Is there something else about Nexora I can help with?",
+  "say": "ठीक आहे. नेक्सोराबद्दल अजून काही मदत हवी आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c049.mp4"
+ },
+ {
+  "id": "mr_c151",
+  "key": "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?",
+  "say": "छान! मी नेक्सोराबद्दल सांगू शकते, सगळे दाखवू शकते, किंवा डेमो बुक करायला मदत करू शकते. काय हवे आहे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c151.mp4"
+ },
+ {
+  "id": "mr_c152",
+  "key": "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.",
+  "say": "माफ करा, मला तुमची भाषा समजत नाही. आपण बोलू शकू म्हणून, माझ्या भाषांपैकी एक निवडा.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c152.mp4"
+ },
+ {
+  "id": "mr_c185",
+  "key": "Of course, let's continue in English. How can I help you?",
+  "say": "नक्कीच, आता आपण मराठीत बोलूया. मी तुमची कशी मदत करू?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c185.mp4"
+ },
+ {
+  "id": "mr_c153",
+  "key": "Of course, taking you to Site Evaluation now.",
+  "say": "नक्कीच, आता तुम्हाला साइट इव्हॅल्युएशनवर घेऊन जाते.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c153.mp4"
+ },
+ {
+  "id": "mr_c154",
+  "key": "Of course, taking you to Master Planning now.",
+  "say": "नक्कीच, आता तुम्हाला मास्टर प्लॅनिंगवर घेऊन जाते.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c154.mp4"
+ },
+ {
+  "id": "mr_c155",
+  "key": "Of course, taking you to Construction now.",
+  "say": "नक्कीच, आता तुम्हाला कन्स्ट्रक्शनवर घेऊन जाते.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c155.mp4"
+ },
+ {
+  "id": "mr_c156",
+  "key": "Of course, taking you to Fit-Out and Handover now.",
+  "say": "नक्कीच, आता तुम्हाला फिट-आउट आणि हँडओव्हरवर घेऊन जाते.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c156.mp4"
+ },
+ {
+  "id": "mr_c157",
+  "key": "Of course, taking you to Ready to Move In now.",
+  "say": "नक्कीच, आता तुम्हाला रेडी टू मूव्ह इनवर घेऊन जाते.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c157.mp4"
+ },
+ {
+  "id": "mr_c158",
+  "key": "Of course, taking you to the Virtual Tour now.",
+  "say": "नक्कीच, आता तुम्हाला व्हर्च्युअल टूरवर घेऊन जाते.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c158.mp4"
+ },
+ {
+  "id": "mr_c159",
+  "key": "Of course, opening the demo form for you.",
+  "say": "नक्कीच, तुमच्यासाठी डेमो फॉर्म उघडत आहे.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c159.mp4"
+ },
+ {
+  "id": "mr_c160",
+  "key": "Of course, taking you into the website now. I'm in the menu if you need me.",
+  "say": "नक्कीच, आता तुम्हाला वेबसाइटमध्ये घेऊन जाते. गरज असेल तर मी मेन्यूमध्ये आहे.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c160.mp4"
+ },
+ {
+  "id": "mr_c161",
+  "key": "Sorry, I didn't catch your name. Could you type just your first name?",
+  "say": "माफ करा, मला तुमचे नाव समजले नाही. फक्त तुमचे पहिले नाव टाइप करू शकता का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c161.mp4"
+ },
+ {
+  "id": "mr_c162",
+  "key": "No problem at all! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "काही हरकत नाही! तुम्ही डेव्हलपर किंवा बिल्डर आहात, घर शोधत आहात, की फक्त बघत आहात?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c162.mp4"
+ },
+ {
+  "id": "mr_c163",
+  "key": "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?",
+  "say": "तुम्हाला भेटून खूप आनंद झाला! तुम्ही डेव्हलपर किंवा बिल्डर आहात, घर शोधत आहात, की फक्त बघत आहात?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c163.mp4"
+ },
+ {
+  "id": "mr_c164",
+  "key": "Wonderful! Which company are you with, and what's your role there?",
+  "say": "छान! तुम्ही कोणत्या कंपनीत आहात, आणि तिथे तुमची भूमिका काय आहे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c164.mp4"
+ },
+ {
+  "id": "mr_c165",
+  "key": "Thank you! Shall I give you a quick guided tour of Nexora?",
+  "say": "धन्यवाद! नेक्सोराची एक छोटी गाइडेड टूर देऊ का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c165.mp4"
+ },
+ {
+  "id": "mr_c166",
+  "key": "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?",
+  "say": "छान! नेक्सोरामध्ये तुम्ही घरे बांधण्याआधीच थ्री-डी मध्ये पाहू शकता. एक छोटी गाइडेड टूर देऊ का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c166.mp4"
+ },
+ {
+  "id": "mr_c167",
+  "key": "That's perfectly fine, take your time. Shall I give you a quick guided tour?",
+  "say": "काही हरकत नाही, निवांत पाहा. एक छोटी गाइडेड टूर देऊ का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c167.mp4"
+ },
+ {
+  "id": "mr_c168",
+  "key": "No problem. You can ask me anything, or explore at your own pace.",
+  "say": "काही हरकत नाही. तुम्ही मला काहीही विचारू शकता, किंवा तुमच्या सोयीने वेबसाइट पाहू शकता.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c168.mp4"
+ },
+ {
+  "id": "mr_c169",
+  "key": "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?",
+  "say": "चला सुरू करूया! हे साइट इव्हॅल्युएशन, जिथे बांधण्याआधी डेव्हलपर जमिनीची तपासणी करतो. पुढे जायचे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c169.mp4"
+ },
+ {
+  "id": "mr_c170",
+  "key": "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?",
+  "say": "हे मास्टर प्लॅनिंग. व्हिलाचे लेआउट निश्चित होतात, आणि खरेदीदारांसाठी थ्री-डी ट्विन लाइव्ह होते. पुढे जायचे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c170.mp4"
+ },
+ {
+  "id": "mr_c171",
+  "key": "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?",
+  "say": "हे कन्स्ट्रक्शन. ड्रोन फोटो आणि फोटो नोंदींसह नेक्सोरा प्रत्येक टप्प्याचा मागोवा घेते. पुढे जायचे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c171.mp4"
+ },
+ {
+  "id": "mr_c172",
+  "key": "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?",
+  "say": "हे फिट-आउट आणि हँडओव्हर. चाव्या सोपवण्याआधी प्रत्येक घराची क्वालिटी तपासली जाते. पुढे जायचे?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c172.mp4"
+ },
+ {
+  "id": "mr_c173",
+  "key": "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?",
+  "say": "रेडी टू मूव्ह इनमध्ये स्वागत आहे. रेसिडेंट ॲप बुकिंग, पाहुणे आणि देखभाल सांभाळते. व्हिला पाहूया का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c173.mp4"
+ },
+ {
+  "id": "mr_c174",
+  "key": "This is the virtual tour of our demo villa. Take your time, and look around.",
+  "say": "ही आमच्या डेमो व्हिलाची व्हर्च्युअल टूर आहे. निवांत फिरून पाहा.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c174.mp4"
+ },
+ {
+  "id": "mr_c175",
+  "key": "That's the tour! Would you like a personal demo for your own project?",
+  "say": "ही होती आमची टूर! तुमच्या स्वतःच्या प्रोजेक्टसाठी वैयक्तिक डेमो हवा आहे का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c175.mp4"
+ },
+ {
+  "id": "mr_c176",
+  "key": "No problem, we'll stop here. I'm always in the menu if you need me.",
+  "say": "काही हरकत नाही, इथेच थांबूया. गरज असेल तर मी नेहमी मेन्यूमध्ये आहे.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c176.mp4"
+ },
+ {
+  "id": "mr_c177",
+  "key": "I'd be happy to arrange a free demo! What's the best phone number to reach you?",
+  "say": "तुमचा मोफत डेमो ठरवायला मला आनंद होईल! तुमच्याशी संपर्क करण्यासाठी सगळ्यात योग्य फोन नंबर कोणता?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c177.mp4"
+ },
+ {
+  "id": "mr_c178",
+  "key": "I'd be happy to arrange a free demo! May I have your name first?",
+  "say": "तुमचा मोफत डेमो ठरवायला मला आनंद होईल! आधी तुमचे नाव सांगाल का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c178.mp4"
+ },
+ {
+  "id": "mr_c179",
+  "key": "Thank you! What's the best phone number to reach you?",
+  "say": "धन्यवाद! तुमच्याशी संपर्क करण्यासाठी सगळ्यात योग्य फोन नंबर कोणता?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c179.mp4"
+ },
+ {
+  "id": "mr_c180",
+  "key": "Hmm, that number doesn't look right. Could you type it again, with ten digits?",
+  "say": "हम्म, हा नंबर बरोबर वाटत नाही. दहा अंकांसह पुन्हा टाइप करू शकता का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c180.mp4"
+ },
+ {
+  "id": "mr_c181",
+  "key": "Thank you. And your email address?",
+  "say": "धन्यवाद. आणि तुमचा ईमेल पत्ता?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c181.mp4"
+ },
+ {
+  "id": "mr_c182",
+  "key": "That email doesn't look quite right. Could you type it again?",
+  "say": "हा ईमेल बरोबर वाटत नाही. पुन्हा टाइप करू शकता का?",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c182.mp4"
+ },
+ {
+  "id": "mr_c183",
+  "key": "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.",
+  "say": "धन्यवाद! आमची टीम लवकरच तुमच्याशी संपर्क करेल. तुम्ही तारीख निवडावी म्हणून डेमो फॉर्म उघडत आहे.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c183.mp4"
+ },
+ {
+  "id": "mr_c184",
+  "key": "No problem at all. The Book a Demo button is at the top, whenever you're ready.",
+  "say": "काही हरकत नाही. तुम्ही तयार असाल तेव्हा, बुक अ डेमो बटण वर आहे.",
+  "engine": "f5",
+  "voice": "",
+  "lang": "mr",
+  "file": "mr/c184.mp4"
+ }
+]

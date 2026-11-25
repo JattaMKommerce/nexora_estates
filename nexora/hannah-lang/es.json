@@ -1,0 +1,554 @@
+{
+ "code": "es",
+ "label": "Español",
+ "placeholder": "Escriba su nombre, o pregúnteme lo que quiera sobre Nexora...",
+ "greetingKey": "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?",
+ "switchedKey": "Of course, let's continue in English. How can I help you?",
+ "lines": {
+  "Hello, and welcome to Nexora! I'm Hannah, your virtual receptionist. May I know your name?": {
+   "text": "¡Hola, y bienvenido a Nexora! Soy Hannah, su recepcionista virtual. ¿Puedo saber su nombre?"
+  },
+  "Welcome back! It's lovely to see you again. How can I help you today?": {
+   "text": "¡Bienvenido de nuevo! Qué alegría volver a verle. ¿En qué puedo ayudarle hoy?"
+  },
+  "Nexora is real estate software, powered by Jatta M Kommerce. Would you like to hear more?": {
+   "text": "Nexora es un software inmobiliario de Jatta M Kommerce. ¿Le gustaría saber más?"
+  },
+  "It helps developers show their projects in 3D, before they're even built. Would you like to hear more?": {
+   "text": "Ayuda a los promotores a mostrar sus proyectos en 3D, incluso antes de construirlos. ¿Le gustaría saber más?"
+  },
+  "It also tracks construction and hands homes over to buyers, all in one place. Would you like to know what a 3D digital twin is?": {
+   "text": "También sigue la obra y gestiona la entrega de las viviendas a los compradores, todo en un mismo lugar. ¿Le gustaría saber qué es un gemelo digital en 3D?"
+  },
+  "A digital twin is a photorealistic 3D copy of a project. Would you like to hear more?": {
+   "text": "Un gemelo digital es una copia fotorrealista en 3D de un proyecto. ¿Le gustaría saber más?"
+  },
+  "It's made from the architect's drawings, so buyers can explore every villa in the browser. Would you like to hear more?": {
+   "text": "Se crea a partir de los planos del arquitecto, así que los compradores pueden recorrer cada villa en el navegador. ¿Le gustaría saber más?"
+  },
+  "Nexora can turn Revit, ArchiCAD or BIM models into a twin in under 72 hours. Would you like to see the virtual tour of our example villa?": {
+   "text": "Nexora puede convertir modelos de Revit, ArchiCAD o BIM en un gemelo en menos de 72 horas. ¿Le gustaría ver el recorrido virtual de nuestra villa de ejemplo?"
+  },
+  "Nexora has five main modules, from the empty plot to residents moving in. Would you like to hear more?": {
+   "text": "Nexora tiene cinco módulos principales, desde el terreno vacío hasta la llegada de los residentes. ¿Le gustaría saber más?"
+  },
+  "The first three are land and feasibility, a 3D sales gallery, and a construction tracker. Would you like to hear more?": {
+   "text": "Los tres primeros son terreno y viabilidad, una galería de ventas en 3D y un seguimiento de obra. ¿Le gustaría saber más?"
+  },
+  "Then come quality and snagging, and finally a buyer handover and resident portal. Shall I walk you through them one at a time?": {
+   "text": "Después vienen calidad y repasos, y por último la entrega al comprador y el portal de residentes. ¿Se los muestro uno por uno?"
+  },
+  "Nexora is built for real estate developers and builders. Would you like to hear more?": {
+   "text": "Nexora está pensado para promotores y constructores inmobiliarios. ¿Le gustaría saber más?"
+  },
+  "From boutique villa builders to large township developers. Would you like to hear more?": {
+   "text": "Desde pequeños constructores de villas hasta grandes promotores de urbanizaciones. ¿Le gustaría saber más?"
+  },
+  "Their buyers and residents use it too, to explore homes and follow construction. Are you a developer, or are you looking for a home yourself?": {
+   "text": "Sus compradores y residentes también lo usan, para ver las viviendas y seguir la obra. ¿Es usted promotor, o busca una vivienda para usted?"
+  },
+  "Phase 1 is Site Evaluation, where a developer checks the plot before building. Would you like to hear more?": {
+   "text": "La fase uno es Site Evaluation, donde el promotor analiza el terreno antes de construir. ¿Le gustaría saber más?"
+  },
+  "Nexora tracks road access, surveys, water, power, approvals, zoning and soil tests. Would you like me to open Site Evaluation for you?": {
+   "text": "Nexora controla accesos, topografía, agua, electricidad, permisos, urbanismo y estudios del suelo. ¿Le abro Site Evaluation?"
+  },
+  "Phase 2 is Master Planning, where the villa layouts are finalised. Would you like to hear more?": {
+   "text": "La fase dos es Master Planning, donde se definen los planos de las villas. ¿Le gustaría saber más?"
+  },
+  "RERA registration is secured, and the 3D twin goes live for buyers, with live inventory and booking. Shall I open Master Planning so you can see it?": {
+   "text": "Se obtiene el registro RERA, y el gemelo 3D se publica para los compradores, con inventario y reservas en vivo. ¿Le abro Master Planning para que lo vea?"
+  },
+  "Phase 3 is Construction, where the towers and clubhouse rise from the ground. Would you like to hear more?": {
+   "text": "La fase tres es Construction, donde las torres y la casa club se levantan desde el suelo. ¿Le gustaría saber más?"
+  },
+  "Nexora tracks every milestone with drone images, bill checks and photo records. Would you like me to take you to the Construction phase?": {
+   "text": "Nexora sigue cada hito con imágenes de dron, control de facturas y registros fotográficos. ¿Le llevo a la fase de Construction?"
+  },
+  "Phase 4 is Fit-Out and Handover, when the interiors are finished. Would you like to hear more?": {
+   "text": "La fase cuatro es Fit-Out and Handover, cuando se terminan los interiores. ¿Le gustaría saber más?"
+  },
+  "Every home is checked against more than 200 quality points, and the keys are handed over after a walkthrough. Shall I open Fit-Out and Handover for you?": {
+   "text": "Cada vivienda se revisa en más de 200 puntos de calidad, y las llaves se entregan tras una visita final. ¿Le abro Fit-Out and Handover?"
+  },
+  "Phase 5 is Ready to Move In, when residents settle in. Would you like to hear more?": {
+   "text": "La fase cinco es Ready to Move In, cuando los residentes se instalan. ¿Le gustaría saber más?"
+  },
+  "The resident app handles amenity bookings, visitors, security and maintenance. Would you like to see Ready to Move In?": {
+   "text": "La app de residentes gestiona reservas de instalaciones, visitas, seguridad y mantenimiento. ¿Le gustaría ver Ready to Move In?"
+  },
+  "The Virtual Tour lets you explore our example luxury villa in 3D. Would you like to hear more?": {
+   "text": "El recorrido virtual le permite explorar nuestra villa de lujo de ejemplo en 3D. ¿Le gustaría saber más?"
+  },
+  "You can walk through the garden, the clubhouse and pool, the living pavilion and the master suite. Shall I start the virtual tour for you?": {
+   "text": "Puede recorrer el jardín, la casa club y la piscina, el pabellón de estar y la suite principal. ¿Inicio el recorrido virtual para usted?"
+  },
+  "The website tells Nexora's story in five phases, plus a virtual tour. Would you like to hear more?": {
+   "text": "La web cuenta la historia de Nexora en cinco fases, más un recorrido virtual. ¿Le gustaría saber más?"
+  },
+  "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, and Ready to Move In. Would you like to start at the beginning, with Site Evaluation?": {
+   "text": "Site Evaluation, Master Planning, Construction, Fit-Out and Handover, y Ready to Move In. ¿Empezamos por el principio, con Site Evaluation?"
+  },
+  "Nexora has subscription plans for builders of every size. Would you like to hear more?": {
+   "text": "Nexora tiene planes de suscripción para constructores de todos los tamaños. ¿Le gustaría saber más?"
+  },
+  "Prices aren't published, so the team shares pricing for your project on a demo. Would you like me to open the demo booking form?": {
+   "text": "Los precios no están publicados, así que el equipo le indica el precio de su proyecto en una demostración. ¿Le abro el formulario de reserva?"
+  },
+  "I'm sorry, the villa here is an example, not a home for sale. Would you like to hear more?": {
+   "text": "Lo siento, la villa que ve aquí es un ejemplo, no una vivienda en venta. ¿Le gustaría saber más?"
+  },
+  "So there are no prices or locations to share, but the virtual tour shows how buyers explore a project. Would you like to see the virtual tour?": {
+   "text": "Por eso no hay precios ni ubicaciones, pero el recorrido virtual muestra cómo los compradores exploran un proyecto. ¿Le gustaría ver el recorrido virtual?"
+  },
+  "I'd be happy to help you book a free demo. Would you like to hear more?": {
+   "text": "Con mucho gusto le ayudo a reservar una demostración gratuita. ¿Le gustaría saber más?"
+  },
+  "You share a little about your project, and the team contacts you for a personal walkthrough. Shall I open the demo form for you now?": {
+   "text": "Nos cuenta un poco sobre su proyecto, y el equipo le contacta para una presentación personalizada. ¿Le abro el formulario ahora?"
+  },
+  "You can email the team at contact@jattamkommerce.com. Would you like to hear more?": {
+   "text": "Puede escribir al equipo a contact@jattamkommerce.com. ¿Le gustaría saber más?",
+   "say": "Puede escribir al equipo a contact arroba jattamkommerce punto com. ¿Le gustaría saber más?"
+  },
+  "Or use the Book a Demo form, and they'll get back to you. Would you like me to open the Book a Demo form?": {
+   "text": "O use el formulario Book a Demo, y le responderán. ¿Le abro el formulario Book a Demo?"
+  },
+  "Nexora is powered by Jatta M Kommerce. Would you like to hear more?": {
+   "text": "Nexora es un producto de Jatta M Kommerce. ¿Le gustaría saber más?"
+  },
+  "The team can tell you more at contact@jattamkommerce.com. Would you like to know what Nexora does?": {
+   "text": "El equipo puede darle más detalles en contact@jattamkommerce.com. ¿Le gustaría saber qué hace Nexora?",
+   "say": "El equipo puede darle más detalles en contact arroba jattamkommerce punto com. ¿Le gustaría saber qué hace Nexora?"
+  },
+  "Nexora connects with tools like Salesforce, HubSpot and builder ERPs. Would you like to hear more?": {
+   "text": "Nexora se conecta con herramientas como Salesforce, HubSpot y los ERP de constructoras. ¿Le gustaría saber más?"
+  },
+  "There are also webhooks, REST APIs, and connectors for SAP and RERA portals. Shall I open the demo form, so the team can confirm what fits your setup?": {
+   "text": "También hay webhooks, API REST y conectores para SAP y los portales RERA. ¿Le abro el formulario, para que el equipo confirme qué encaja con su sistema?"
+  },
+  "Sustainability runs all through the example project. Would you like to hear more?": {
+   "text": "La sostenibilidad está presente en todo el proyecto de ejemplo. ¿Le gustaría saber más?"
+  },
+  "Rooftop solar, rainwater harvesting, greywater recycling, EV charging and green-building tracking. Would you like to start with Site Evaluation, where this planning begins?": {
+   "text": "Paneles solares en la cubierta, recogida de agua de lluvia, reciclaje de aguas grises, carga de vehículos eléctricos y seguimiento de edificación verde. ¿Empezamos por Site Evaluation, donde comienza esta planificación?"
+  },
+  "Nexora accounts are still being set up, so log in isn't connected yet. Shall I open the demo form, so the team can give you access?": {
+   "text": "Las cuentas de Nexora aún se están preparando, así que el acceso todavía no está conectado. ¿Le abro el formulario, para que el equipo le dé acceso?"
+  },
+  "It's simple: just scroll to move through the phases. Would you like to hear more?": {
+   "text": "Es muy sencillo: solo desplácese para pasar de una fase a otra. ¿Le gustaría saber más?"
+  },
+  "The Menu at the top right lists every phase, and Book a Demo is at the top of the page. Shall I take you into the website now?": {
+   "text": "El menú de arriba a la derecha muestra todas las fases, y Book a Demo está en la parte superior de la página. ¿Le llevo ahora a la web?"
+  },
+  "This website doesn't save our conversation. Would you like to hear more?": {
+   "text": "Esta web no guarda nuestra conversación. ¿Le gustaría saber más?"
+  },
+  "When you speak, your browser turns your voice into text, so please don't share sensitive details here. Is there anything about Nexora I can help with?": {
+   "text": "Cuando habla, su navegador convierte su voz en texto, así que no comparta aquí datos sensibles. ¿Hay algo más de Nexora en lo que pueda ayudarle?"
+  },
+  "Lovely, then Nexora is made for you. Would you like a quick look at the five modules, or shall I help you book a demo?": {
+   "text": "Estupendo, entonces Nexora está hecho para usted. ¿Le gustaría ver los cinco módulos, o le ayudo a reservar una demostración?"
+  },
+  "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I start the virtual tour for you?": {
+   "text": "¡Estupendo! Con Nexora puede ver las viviendas en 3D antes de que se construyan. ¿Inicio el recorrido virtual para usted?"
+  },
+  "That's perfectly fine, take your time. Would you like me to show you around, starting with the first phase?": {
+   "text": "No se preocupe, tómese su tiempo. ¿Le muestro todo, empezando por la primera fase?"
+  },
+  "Hi there! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "¡Hola! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?"
+  },
+  "Hello! Great to have you here. Are you a developer, a home buyer, or just looking around?": {
+   "text": "¡Hola! Qué bien tenerle por aquí. ¿Es usted promotor, comprador de vivienda, o solo está mirando?"
+  },
+  "I'm doing very well, thank you! How can I help you today?": {
+   "text": "¡Muy bien, gracias! ¿En qué puedo ayudarle hoy?"
+  },
+  "I'm great, thanks for asking! What would you like to know about Nexora?": {
+   "text": "¡Estupendamente, gracias por preguntar! ¿Qué le gustaría saber sobre Nexora?"
+  },
+  "I'm Hannah, Nexora's virtual receptionist, and I'm here to guide you. What would you like to know?": {
+   "text": "Soy Hannah, la recepcionista virtual de Nexora, y estoy aquí para guiarle. ¿Qué le gustaría saber?"
+  },
+  "I'm here to welcome you, answer your questions, and guide you around Nexora. What would you like to know?": {
+   "text": "Estoy aquí para darle la bienvenida, responder sus preguntas y enseñarle Nexora. ¿Qué le gustaría saber?"
+  },
+  "I'm an AI receptionist, but I'm here to help just the same. What would you like to know?": {
+   "text": "Soy una recepcionista con inteligencia artificial, pero estoy aquí para ayudarle igual. ¿Qué le gustaría saber?"
+  },
+  "You're very welcome! Is there anything else I can help you with?": {
+   "text": "¡De nada! ¿Puedo ayudarle en algo más?"
+  },
+  "My pleasure! Anything else you'd like to know about Nexora?": {
+   "text": "¡Un placer! ¿Le gustaría saber algo más sobre Nexora?"
+  },
+  "Thank you for visiting Nexora! I'm always in the menu if you need me. Have a lovely day!": {
+   "text": "¡Gracias por visitar Nexora! Si me necesita, siempre estoy en el menú. ¡Que tenga un buen día!"
+  },
+  "I can explain Nexora, guide you around the website, and help you book a demo. Where shall we start?": {
+   "text": "Puedo explicarle Nexora, enseñarle la web y ayudarle a reservar una demostración. ¿Por dónde empezamos?"
+  },
+  "That's a little outside what I can help with, but I'd love to show you Nexora. Shall I give you a quick tour?": {
+   "text": "Eso se sale un poco de lo mío, pero me encantaría enseñarle Nexora. ¿Le hago un recorrido rápido?"
+  },
+  "I'm sorry, I can't help with that one. But I can show you around Nexora. Shall we take a quick tour?": {
+   "text": "Lo siento, con eso no puedo ayudarle. Pero sí puedo enseñarle Nexora. ¿Hacemos un recorrido rápido?"
+  },
+  "Ha, I wish I could help with that! I'm best at showing you Nexora. Would you like a quick tour?": {
+   "text": "¡Ojalá pudiera ayudarle con eso! Lo mío es enseñar Nexora. ¿Le apetece un recorrido rápido?"
+  },
+  "No problem, let me keep it simple. Nexora helps builders show homes in 3D, before they're built. Shall I show you around?": {
+   "text": "No pasa nada, se lo explico de forma sencilla. Nexora ayuda a los constructores a mostrar viviendas en 3D antes de construirlas. ¿Se lo enseño?"
+  },
+  "That's completely fine. The easiest way to understand Nexora is a quick tour. Shall I show you around?": {
+   "text": "Tranquilo. La forma más fácil de entender Nexora es un recorrido rápido. ¿Se lo enseño?"
+  },
+  "I'm sorry, I don't have that detail here. Our team can answer it on a demo. Shall I open the demo form?": {
+   "text": "Lo siento, no tengo ese dato aquí. Nuestro equipo puede responderle en una demostración. ¿Le abro el formulario?"
+  },
+  "Good question! I don't have the answer here, but the team will on a demo. Shall I open the demo form?": {
+   "text": "¡Buena pregunta! No tengo la respuesta aquí, pero el equipo sí, en una demostración. ¿Le abro el formulario?"
+  },
+  "Sorry, I didn't quite catch that. Could you say it another way?": {
+   "text": "Perdone, no le he entendido bien. ¿Podría decirlo de otra manera?"
+  },
+  "Sorry, I didn't follow. You can ask me what Nexora is, or ask me for a tour.": {
+   "text": "Perdone, no le he entendido. Puede preguntarme qué es Nexora, o pedirme un recorrido."
+  },
+  "No problem at all. What would you like to know instead?": {
+   "text": "No pasa nada. ¿Qué le gustaría saber entonces?"
+  },
+  "That's fine. Is there something else about Nexora I can help with?": {
+   "text": "De acuerdo. ¿Hay algo más de Nexora en lo que pueda ayudarle?"
+  },
+  "Great! I can explain Nexora, show you around, or help you book a demo. Which would you like?": {
+   "text": "¡Estupendo! Puedo explicarle Nexora, enseñarle todo, o ayudarle a reservar una demostración. ¿Qué prefiere?"
+  },
+  "Sorry, I can't understand your language. Please choose one of my languages, so we can talk.": {
+   "text": "Lo siento, no entiendo su idioma. Por favor, elija uno de mis idiomas para que podamos hablar."
+  },
+  "Of course, let's continue in English. How can I help you?": {
+   "text": "Por supuesto, sigamos en español. ¿En qué puedo ayudarle?"
+  },
+  "Of course, taking you to Site Evaluation now.": {
+   "text": "Por supuesto, le llevo ahora a Site Evaluation."
+  },
+  "Of course, taking you to Master Planning now.": {
+   "text": "Por supuesto, le llevo ahora a Master Planning."
+  },
+  "Of course, taking you to Construction now.": {
+   "text": "Por supuesto, le llevo ahora a Construction."
+  },
+  "Of course, taking you to Fit-Out and Handover now.": {
+   "text": "Por supuesto, le llevo ahora a Fit-Out and Handover."
+  },
+  "Of course, taking you to Ready to Move In now.": {
+   "text": "Por supuesto, le llevo ahora a Ready to Move In."
+  },
+  "Of course, taking you to the Virtual Tour now.": {
+   "text": "Por supuesto, le llevo ahora al recorrido virtual."
+  },
+  "Of course, opening the demo form for you.": {
+   "text": "Por supuesto, le abro el formulario de demostración."
+  },
+  "Of course, taking you into the website now. I'm in the menu if you need me.": {
+   "text": "Por supuesto, le llevo ahora a la web. Si me necesita, estoy en el menú."
+  },
+  "Sorry, I didn't catch your name. Could you type just your first name?": {
+   "text": "Perdone, no he entendido su nombre. ¿Podría escribir solo su nombre de pila?"
+  },
+  "No problem at all! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "¡No pasa nada! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?"
+  },
+  "Lovely to meet you! Are you a developer or builder, looking for a home, or just exploring?": {
+   "text": "{name}, ¡encantada de conocerle! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?"
+  },
+  "Wonderful! Which company are you with, and what's your role there?": {
+   "text": "¡Estupendo! ¿En qué empresa trabaja, y cuál es su cargo?"
+  },
+  "Thank you! Shall I give you a quick guided tour of Nexora?": {
+   "text": "{name}, ¡gracias! ¿Le hago un breve recorrido guiado por Nexora?"
+  },
+  "Wonderful! Nexora lets you explore homes in 3D, before they're built. Shall I give you a quick guided tour?": {
+   "text": "¡Estupendo! Con Nexora puede ver las viviendas en 3D antes de que se construyan. ¿Le hago un breve recorrido guiado?"
+  },
+  "That's perfectly fine, take your time. Shall I give you a quick guided tour?": {
+   "text": "No se preocupe, tómese su tiempo. ¿Le hago un breve recorrido guiado?"
+  },
+  "No problem. You can ask me anything, or explore at your own pace.": {
+   "text": "No pasa nada. Puede preguntarme lo que quiera, o explorar la web a su ritmo."
+  },
+  "Let's begin! This is Site Evaluation, where a developer checks the plot before building. Shall we move on?": {
+   "text": "¡Empecemos! Esto es Site Evaluation, donde el promotor analiza el terreno antes de construir. ¿Seguimos?"
+  },
+  "This is Master Planning. The villa layouts are finalised, and the 3D twin goes live for buyers. Shall we move on?": {
+   "text": "Esto es Master Planning. Se definen los planos de las villas, y el gemelo 3D se publica para los compradores. ¿Seguimos?"
+  },
+  "Here is Construction. Nexora tracks every milestone with drone images and photo records. Shall we move on?": {
+   "text": "Aquí está Construction. Nexora sigue cada hito con imágenes de dron y registros fotográficos. ¿Seguimos?"
+  },
+  "This is Fit-Out and Handover. Every home is quality checked before the keys are handed over. Shall we move on?": {
+   "text": "Esto es Fit-Out and Handover. Cada vivienda pasa un control de calidad antes de entregar las llaves. ¿Seguimos?"
+  },
+  "Welcome to Ready to Move In. The resident app handles bookings, visitors and maintenance. Shall we see the villa?": {
+   "text": "Bienvenido a Ready to Move In. La app de residentes gestiona reservas, visitas y mantenimiento. ¿Vemos la villa?"
+  },
+  "This is the virtual tour of our demo villa. Take your time, and look around.": {
+   "text": "Este es el recorrido virtual de nuestra villa de ejemplo. Tómese su tiempo y explore."
+  },
+  "That's the tour! Would you like a personal demo for your own project?": {
+   "text": "{name}, ¡ese fue el recorrido! ¿Le gustaría una demostración personalizada para su propio proyecto?"
+  },
+  "No problem, we'll stop here. I'm always in the menu if you need me.": {
+   "text": "No pasa nada, lo dejamos aquí. Si me necesita, siempre estoy en el menú."
+  },
+  "I'd be happy to arrange a free demo! What's the best phone number to reach you?": {
+   "text": "¡Con gusto le organizo una demostración gratuita! ¿Cuál es el mejor número de teléfono para contactarle?"
+  },
+  "I'd be happy to arrange a free demo! May I have your name first?": {
+   "text": "¡Con gusto le organizo una demostración gratuita! ¿Me dice primero su nombre?"
+  },
+  "Thank you! What's the best phone number to reach you?": {
+   "text": "¡Gracias! ¿Cuál es el mejor número de teléfono para contactarle?"
+  },
+  "Hmm, that number doesn't look right. Could you type it again, with ten digits?": {
+   "text": "Mmm, ese número no parece correcto. ¿Podría escribirlo de nuevo, con el prefijo de su país?"
+  },
+  "Thank you. And your email address?": {
+   "text": "Gracias. ¿Y su correo electrónico?"
+  },
+  "That email doesn't look quite right. Could you type it again?": {
+   "text": "Ese correo no parece correcto. ¿Podría escribirlo de nuevo?"
+  },
+  "Thank you! Our team will contact you soon. I'm opening the demo form, so you can pick a date.": {
+   "text": "{name}, ¡gracias! Nuestro equipo le contactará pronto. Le abro el formulario para que elija una fecha."
+  },
+  "No problem at all. The Book a Demo button is at the top, whenever you're ready.": {
+   "text": "No pasa nada. El botón Book a Demo está arriba, cuando quiera."
+  }
+ },
+ "words": [
+  [
+   "sí",
+   "yes"
+  ],
+  [
+   "si",
+   "yes"
+  ],
+  [
+   "claro",
+   "yes"
+  ],
+  [
+   "por supuesto",
+   "yes"
+  ],
+  [
+   "vale",
+   "yes"
+  ],
+  [
+   "de acuerdo",
+   "yes"
+  ],
+  [
+   "ok",
+   "ok"
+  ],
+  [
+   "no",
+   "no"
+  ],
+  [
+   "no gracias",
+   "no thanks"
+  ],
+  [
+   "ahora no",
+   "not now"
+  ],
+  [
+   "más tarde",
+   "later"
+  ],
+  [
+   "cuénteme más",
+   "tell me more"
+  ],
+  [
+   "cuéntame más",
+   "tell me more"
+  ],
+  [
+   "más",
+   "more"
+  ],
+  [
+   "siguiente",
+   "next"
+  ],
+  [
+   "me llamo",
+   "my name is"
+  ],
+  [
+   "mi nombre es",
+   "my name is"
+  ],
+  [
+   "soy",
+   "i am"
+  ],
+  [
+   "promotor",
+   "developer"
+  ],
+  [
+   "desarrollador",
+   "developer"
+  ],
+  [
+   "constructor",
+   "builder"
+  ],
+  [
+   "constructora",
+   "builder"
+  ],
+  [
+   "busco casa",
+   "looking for a home"
+  ],
+  [
+   "busco una casa",
+   "looking for a home"
+  ],
+  [
+   "comprar una casa",
+   "buy a home"
+  ],
+  [
+   "solo estoy mirando",
+   "just looking"
+  ],
+  [
+   "solo mirando",
+   "just looking"
+  ],
+  [
+   "qué es",
+   "what is"
+  ],
+  [
+   "que es",
+   "what is"
+  ],
+  [
+   "precio",
+   "price"
+  ],
+  [
+   "precios",
+   "prices"
+  ],
+  [
+   "cuesta",
+   "cost"
+  ],
+  [
+   "cuánto cuesta",
+   "price"
+  ],
+  [
+   "demostración",
+   "demo"
+  ],
+  [
+   "demo",
+   "demo"
+  ],
+  [
+   "recorrido",
+   "tour"
+  ],
+  [
+   "tour",
+   "tour"
+  ],
+  [
+   "muéstreme",
+   "show me"
+  ],
+  [
+   "abra",
+   "open"
+  ],
+  [
+   "contacto",
+   "contact"
+  ],
+  [
+   "correo",
+   "email"
+  ],
+  [
+   "hola",
+   "hello"
+  ],
+  [
+   "buenos días",
+   "hello"
+  ],
+  [
+   "buenas tardes",
+   "hello"
+  ],
+  [
+   "cómo está",
+   "how are you"
+  ],
+  [
+   "qué tal",
+   "how are you"
+  ],
+  [
+   "gracias",
+   "thanks"
+  ],
+  [
+   "adiós",
+   "bye"
+  ],
+  [
+   "quién es usted",
+   "who are you"
+  ],
+  [
+   "quién eres",
+   "who are you"
+  ],
+  [
+   "villa",
+   "villa"
+  ],
+  [
+   "construcción",
+   "construction"
+  ],
+  [
+   "terreno",
+   "land"
+  ],
+  [
+   "no entiendo",
+   "do not understand"
+  ],
+  [
+   "ayuda",
+   "help"
+  ]
+ ]
+}

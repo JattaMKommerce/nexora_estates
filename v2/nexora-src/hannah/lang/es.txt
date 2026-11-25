@@ -1,0 +1,114 @@
+label: Español
+voice: kokoro:ef_dora:e
+placeholder: Escriba su nombre, o pregúnteme lo que quiera sobre Nexora...
+say: contact@jattamkommerce.com=contact arroba jattamkommerce punto com
+words: sí=yes|si=yes|claro=yes|por supuesto=yes|vale=yes|de acuerdo=yes|ok=ok|no=no|no gracias=no thanks|ahora no=not now|más tarde=later|cuénteme más=tell me more|cuéntame más=tell me more|más=more|siguiente=next
+words: me llamo=my name is|mi nombre es=my name is|soy=i am|promotor=developer|desarrollador=developer|constructor=builder|constructora=builder|busco casa=looking for a home|busco una casa=looking for a home|comprar una casa=buy a home|solo estoy mirando=just looking|solo mirando=just looking|qué es=what is|que es=what is
+words: precio=price|precios=prices|cuesta=cost|cuánto cuesta=price|demostración=demo|demo=demo|recorrido=tour|tour=tour|muéstreme=show me|abra=open|contacto=contact|correo=email|hola=hello|buenos días=hello|buenas tardes=hello|cómo está=how are you|qué tal=how are you|gracias=thanks|adiós=bye|quién es usted=who are you|quién eres=who are you|villa=villa|construcción=construction|terreno=land|no entiendo=do not understand|ayuda=help
+c083 ¡Hola, y bienvenido a Nexora! Soy Hannah, su recepcionista virtual. ¿Puedo saber su nombre?
+c084 ¡Bienvenido de nuevo! Qué alegría volver a verle. ¿En qué puedo ayudarle hoy?
+c085 Nexora es un software inmobiliario de Jatta M Kommerce. ¿Le gustaría saber más?
+c086 Ayuda a los promotores a mostrar sus proyectos en 3D, incluso antes de construirlos. ¿Le gustaría saber más?
+c087 También sigue la obra y gestiona la entrega de las viviendas a los compradores, todo en un mismo lugar. ¿Le gustaría saber qué es un gemelo digital en 3D?
+c088 Un gemelo digital es una copia fotorrealista en 3D de un proyecto. ¿Le gustaría saber más?
+c089 Se crea a partir de los planos del arquitecto, así que los compradores pueden recorrer cada villa en el navegador. ¿Le gustaría saber más?
+c090 Nexora puede convertir modelos de Revit, ArchiCAD o BIM en un gemelo en menos de 72 horas. ¿Le gustaría ver el recorrido virtual de nuestra villa de ejemplo?
+c091 Nexora tiene cinco módulos principales, desde el terreno vacío hasta la llegada de los residentes. ¿Le gustaría saber más?
+c092 Los tres primeros son terreno y viabilidad, una galería de ventas en 3D y un seguimiento de obra. ¿Le gustaría saber más?
+c093 Después vienen calidad y repasos, y por último la entrega al comprador y el portal de residentes. ¿Se los muestro uno por uno?
+c094 Nexora está pensado para promotores y constructores inmobiliarios. ¿Le gustaría saber más?
+c095 Desde pequeños constructores de villas hasta grandes promotores de urbanizaciones. ¿Le gustaría saber más?
+c096 Sus compradores y residentes también lo usan, para ver las viviendas y seguir la obra. ¿Es usted promotor, o busca una vivienda para usted?
+c097 La fase uno es Site Evaluation, donde el promotor analiza el terreno antes de construir. ¿Le gustaría saber más?
+c098 Nexora controla accesos, topografía, agua, electricidad, permisos, urbanismo y estudios del suelo. ¿Le abro Site Evaluation?
+c099 La fase dos es Master Planning, donde se definen los planos de las villas. ¿Le gustaría saber más?
+c100 Se obtiene el registro RERA, y el gemelo 3D se publica para los compradores, con inventario y reservas en vivo. ¿Le abro Master Planning para que lo vea?
+c101 La fase tres es Construction, donde las torres y la casa club se levantan desde el suelo. ¿Le gustaría saber más?
+c102 Nexora sigue cada hito con imágenes de dron, control de facturas y registros fotográficos. ¿Le llevo a la fase de Construction?
+c103 La fase cuatro es Fit-Out and Handover, cuando se terminan los interiores. ¿Le gustaría saber más?
+c104 Cada vivienda se revisa en más de 200 puntos de calidad, y las llaves se entregan tras una visita final. ¿Le abro Fit-Out and Handover?
+c105 La fase cinco es Ready to Move In, cuando los residentes se instalan. ¿Le gustaría saber más?
+c106 La app de residentes gestiona reservas de instalaciones, visitas, seguridad y mantenimiento. ¿Le gustaría ver Ready to Move In?
+c107 El recorrido virtual le permite explorar nuestra villa de lujo de ejemplo en 3D. ¿Le gustaría saber más?
+c108 Puede recorrer el jardín, la casa club y la piscina, el pabellón de estar y la suite principal. ¿Inicio el recorrido virtual para usted?
+c109 La web cuenta la historia de Nexora en cinco fases, más un recorrido virtual. ¿Le gustaría saber más?
+c110 Site Evaluation, Master Planning, Construction, Fit-Out and Handover, y Ready to Move In. ¿Empezamos por el principio, con Site Evaluation?
+c111 Nexora tiene planes de suscripción para constructores de todos los tamaños. ¿Le gustaría saber más?
+c112 Los precios no están publicados, así que el equipo le indica el precio de su proyecto en una demostración. ¿Le abro el formulario de reserva?
+c113 Lo siento, la villa que ve aquí es un ejemplo, no una vivienda en venta. ¿Le gustaría saber más?
+c114 Por eso no hay precios ni ubicaciones, pero el recorrido virtual muestra cómo los compradores exploran un proyecto. ¿Le gustaría ver el recorrido virtual?
+c115 Con mucho gusto le ayudo a reservar una demostración gratuita. ¿Le gustaría saber más?
+c116 Nos cuenta un poco sobre su proyecto, y el equipo le contacta para una presentación personalizada. ¿Le abro el formulario ahora?
+c117 Puede escribir al equipo a contact@jattamkommerce.com. ¿Le gustaría saber más?
+c118 O use el formulario Book a Demo, y le responderán. ¿Le abro el formulario Book a Demo?
+c119 Nexora es un producto de Jatta M Kommerce. ¿Le gustaría saber más?
+c120 El equipo puede darle más detalles en contact@jattamkommerce.com. ¿Le gustaría saber qué hace Nexora?
+c121 Nexora se conecta con herramientas como Salesforce, HubSpot y los ERP de constructoras. ¿Le gustaría saber más?
+c122 También hay webhooks, API REST y conectores para SAP y los portales RERA. ¿Le abro el formulario, para que el equipo confirme qué encaja con su sistema?
+c123 La sostenibilidad está presente en todo el proyecto de ejemplo. ¿Le gustaría saber más?
+c124 Paneles solares en la cubierta, recogida de agua de lluvia, reciclaje de aguas grises, carga de vehículos eléctricos y seguimiento de edificación verde. ¿Empezamos por Site Evaluation, donde comienza esta planificación?
+c125 Las cuentas de Nexora aún se están preparando, así que el acceso todavía no está conectado. ¿Le abro el formulario, para que el equipo le dé acceso?
+c126 Es muy sencillo: solo desplácese para pasar de una fase a otra. ¿Le gustaría saber más?
+c127 El menú de arriba a la derecha muestra todas las fases, y Book a Demo está en la parte superior de la página. ¿Le llevo ahora a la web?
+c128 Esta web no guarda nuestra conversación. ¿Le gustaría saber más?
+c129 Cuando habla, su navegador convierte su voz en texto, así que no comparta aquí datos sensibles. ¿Hay algo más de Nexora en lo que pueda ayudarle?
+c130 Estupendo, entonces Nexora está hecho para usted. ¿Le gustaría ver los cinco módulos, o le ayudo a reservar una demostración?
+c131 ¡Estupendo! Con Nexora puede ver las viviendas en 3D antes de que se construyan. ¿Inicio el recorrido virtual para usted?
+c132 No se preocupe, tómese su tiempo. ¿Le muestro todo, empezando por la primera fase?
+c133 ¡Hola! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?
+c134 ¡Hola! Qué bien tenerle por aquí. ¿Es usted promotor, comprador de vivienda, o solo está mirando?
+c135 ¡Muy bien, gracias! ¿En qué puedo ayudarle hoy?
+c136 ¡Estupendamente, gracias por preguntar! ¿Qué le gustaría saber sobre Nexora?
+c137 Soy Hannah, la recepcionista virtual de Nexora, y estoy aquí para guiarle. ¿Qué le gustaría saber?
+c138 Estoy aquí para darle la bienvenida, responder sus preguntas y enseñarle Nexora. ¿Qué le gustaría saber?
+c139 Soy una recepcionista con inteligencia artificial, pero estoy aquí para ayudarle igual. ¿Qué le gustaría saber?
+c034 ¡De nada! ¿Puedo ayudarle en algo más?
+c035 ¡Un placer! ¿Le gustaría saber algo más sobre Nexora?
+c140 ¡Gracias por visitar Nexora! Si me necesita, siempre estoy en el menú. ¡Que tenga un buen día!
+c141 Puedo explicarle Nexora, enseñarle la web y ayudarle a reservar una demostración. ¿Por dónde empezamos?
+c142 Eso se sale un poco de lo mío, pero me encantaría enseñarle Nexora. ¿Le hago un recorrido rápido?
+c143 Lo siento, con eso no puedo ayudarle. Pero sí puedo enseñarle Nexora. ¿Hacemos un recorrido rápido?
+c144 ¡Ojalá pudiera ayudarle con eso! Lo mío es enseñar Nexora. ¿Le apetece un recorrido rápido?
+c145 No pasa nada, se lo explico de forma sencilla. Nexora ayuda a los constructores a mostrar viviendas en 3D antes de construirlas. ¿Se lo enseño?
+c146 Tranquilo. La forma más fácil de entender Nexora es un recorrido rápido. ¿Se lo enseño?
+c147 Lo siento, no tengo ese dato aquí. Nuestro equipo puede responderle en una demostración. ¿Le abro el formulario?
+c148 ¡Buena pregunta! No tengo la respuesta aquí, pero el equipo sí, en una demostración. ¿Le abro el formulario?
+c149 Perdone, no le he entendido bien. ¿Podría decirlo de otra manera?
+c150 Perdone, no le he entendido. Puede preguntarme qué es Nexora, o pedirme un recorrido.
+c048 No pasa nada. ¿Qué le gustaría saber entonces?
+c049 De acuerdo. ¿Hay algo más de Nexora en lo que pueda ayudarle?
+c151 ¡Estupendo! Puedo explicarle Nexora, enseñarle todo, o ayudarle a reservar una demostración. ¿Qué prefiere?
+c152 Lo siento, no entiendo su idioma. Por favor, elija uno de mis idiomas para que podamos hablar.
+c153 Por supuesto, le llevo ahora a Site Evaluation.
+c154 Por supuesto, le llevo ahora a Master Planning.
+c155 Por supuesto, le llevo ahora a Construction.
+c156 Por supuesto, le llevo ahora a Fit-Out and Handover.
+c157 Por supuesto, le llevo ahora a Ready to Move In.
+c158 Por supuesto, le llevo ahora al recorrido virtual.
+c159 Por supuesto, le abro el formulario de demostración.
+c160 Por supuesto, le llevo ahora a la web. Si me necesita, estoy en el menú.
+c161 Perdone, no he entendido su nombre. ¿Podría escribir solo su nombre de pila?
+c162 ¡No pasa nada! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?
+c163 {name}, ¡encantada de conocerle! ¿Es usted promotor o constructor, busca una vivienda, o solo está mirando?
+c164 ¡Estupendo! ¿En qué empresa trabaja, y cuál es su cargo?
+c165 {name}, ¡gracias! ¿Le hago un breve recorrido guiado por Nexora?
+c166 ¡Estupendo! Con Nexora puede ver las viviendas en 3D antes de que se construyan. ¿Le hago un breve recorrido guiado?
+c167 No se preocupe, tómese su tiempo. ¿Le hago un breve recorrido guiado?
+c168 No pasa nada. Puede preguntarme lo que quiera, o explorar la web a su ritmo.
+c169 ¡Empecemos! Esto es Site Evaluation, donde el promotor analiza el terreno antes de construir. ¿Seguimos?
+c170 Esto es Master Planning. Se definen los planos de las villas, y el gemelo 3D se publica para los compradores. ¿Seguimos?
+c171 Aquí está Construction. Nexora sigue cada hito con imágenes de dron y registros fotográficos. ¿Seguimos?
+c172 Esto es Fit-Out and Handover. Cada vivienda pasa un control de calidad antes de entregar las llaves. ¿Seguimos?
+c173 Bienvenido a Ready to Move In. La app de residentes gestiona reservas, visitas y mantenimiento. ¿Vemos la villa?
+c174 Este es el recorrido virtual de nuestra villa de ejemplo. Tómese su tiempo y explore.
+c175 {name}, ¡ese fue el recorrido! ¿Le gustaría una demostración personalizada para su propio proyecto?
+c176 No pasa nada, lo dejamos aquí. Si me necesita, siempre estoy en el menú.
+c177 ¡Con gusto le organizo una demostración gratuita! ¿Cuál es el mejor número de teléfono para contactarle?
+c178 ¡Con gusto le organizo una demostración gratuita! ¿Me dice primero su nombre?
+c179 ¡Gracias! ¿Cuál es el mejor número de teléfono para contactarle?
+c180 Mmm, ese número no parece correcto. ¿Podría escribirlo de nuevo, con el prefijo de su país?
+c181 Gracias. ¿Y su correo electrónico?
+c182 Ese correo no parece correcto. ¿Podría escribirlo de nuevo?
+c183 {name}, ¡gracias! Nuestro equipo le contactará pronto. Le abro el formulario para que elija una fecha.
+c184 No pasa nada. El botón Book a Demo está arriba, cuando quiera.
+c185 Por supuesto, sigamos en español. ¿En qué puedo ayudarle?

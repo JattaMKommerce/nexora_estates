@@ -1,27 +1,78 @@
 # Hannah: Nexora's virtual receptionist
 
 Hannah is the first thing a visitor sees on the Nexora website: a video-call style welcome screen in
-front of the site, which loads untouched behind her. Since 2026-11-16 she is Nexora's own, built from
-her approved portrait. LiveAvatar is no longer used, so no credits are spent.
+front of the site, which loads untouched behind her. She is Nexora's own: her portrait brought to
+life in WebGL. LiveAvatar is not used.
 
-She runs entirely in the visitor's browser: no API keys, no paid services, no server. The
-conversation is not saved.
+Since 2026-11-17 her voice and her answers to open questions come from **Groq**, through a small PHP
+file on our own server (`api/hannah.php`) that holds the API key. The key never reaches the browser.
+If the server is unavailable, she falls back to the browser's own voice and the knowledge base, so
+she always works. The conversation is not saved.
 
 ## Files
 
-| File (in `v2/public/nexora/`) | What it does |
+| File | What it does |
 |---|---|
-| `hannah.js` | The welcome screen and the conversation flow. |
-| `hannah.css` | Its look: off-white page, Nexora yellow, the call card, messages, ask bar. |
-| `hannah-face.js` | Brings her portrait to life in WebGL: lip sync, smile, blinks, brows, gaze, head motion. |
-| `hannah-voice.js` | Her voice and lip-sync timing (browser speech), and listening (browser speech recognition). |
-| `hannah-brain.js` | Chooses her answer from the knowledge base. |
-| `hannah-lang.js` | Languages: detection, on-device translation, the language list. |
-| `hannah-knowledge.json` | **Everything she knows. Edit this to train her.** |
-| `hannah/hannah-plate.jpg`, `hannah-face.json`, `hannah-avatar.jpg` | Her seated reception photo, its face rig and the message avatar, generated from `v2/nexora-src/hannah/` (see the README there). |
+| `api/hannah.php` | **Server (Hostinger).** Holds the Groq key. `chat`: answers grounded in the knowledge base (`openai/gpt-oss-20b`). `tts`: her voice (`canopylabs/orpheus-v1-english`, voice `hannah`), cached in `api/.cache/`. Same-site only, rate-limited per visitor. |
+| `api/.htaccess` | Lets the web reach only `hannah.php` in that folder. |
+| `api/secrets.php` | Local key for development. **Ignored by git; never upload it.** |
+| `v2/public/nexora/hannah.js` | The welcome screen and the conversation flow. |
+| `v2/public/nexora/hannah.css` | Its look: off-white page, Nexora yellow, the call card, messages, ask bar. |
+| `v2/public/nexora/hannah-face.js` | Her face in WebGL: viseme lip sync, springs, breathing, blinks, gaze, brows, head motion. |
+| `v2/public/nexora/hannah-voice.js` | Her voice (Groq audio via Web Audio, browser voice as fallback), lip-sync timing, and listening. |
+| `v2/public/nexora/hannah-brain.js` | Chooses her answer from the knowledge base; marks the questions it can't answer for the AI. |
+| `v2/public/nexora/hannah-knowledge.json` | **Everything she knows. Edit this to train her** (the AI reads it too). |
+| `v2/public/nexora/hannah/*` | Her portrait plate, its face rig and the message avatar. |
 
-`index.html` loads the five scripts. Copies: `v2/public/nexora/` (source) → `nexora/` (root upload
-set) → `dist/nexora/` (`npm run build`). Keep all three in sync.
+`index.html` loads the scripts. Copies: `v2/public/nexora/` (source) → `nexora/` (root, what
+Hostinger serves) → `dist/nexora/` (`npm run build`). Keep all three in sync. `api/` exists only at
+the root.
+
+## Groq: how her voice and lip sync work
+
+1. **Who answers.** The knowledge base answers what it knows, instantly and exactly (including
+   navigation and "shall I open the demo form?" offers). Only questions it has no answer for go to
+   the AI, which is told to use the same knowledge base facts only, to reply in 1-3 spoken
+   sentences, and to never invent prices or features.
+2. **Her voice.** The reply is cut into sentences of at most 195 characters (Groq's limit is 200;
+   the first piece is kept short so she starts quickly). Each is fetched as audio while the
+   previous one plays, and they are scheduled back to back on the Web Audio clock.
+3. **Lip sync.** For each sentence: the text becomes visemes (aa, E, I, O, U, PP, FF, TH, DD, kk, CH,
+   SS, RR, sil); the audio is measured every 10 ms (loudness, low/high frequency balance, stressed
+   syllables); the text's phrases are stretched onto the phrases actually heard. The face reads the
+   audio clock through `getOutputTimestamp()` (which includes speaker latency) every frame, blends
+   the visemes into one mouth pose, scales the jaw by the real loudness and moves every control
+   with a critically damped spring. Result: no drift, no snapping, the mouth never stays open.
+4. **Life.** Noise-driven head drift, chest and shoulder breathing, asymmetric blinks (sometimes
+   double or half), saccades and glances, a drifting resting smile, nods and brow lifts on stressed
+   syllables, raised brows on questions, a listening tilt.
+
+**Cost control.** Audio is cached on the server per sentence: the greeting and knowledge-base answers
+are generated once, then served free. Limits per visitor IP: 15 AI answers a minute (300 a day) and
+90 voice sentences a minute (2,500 a day); change `LIMITS` in `api/hannah.php`.
+
+**Test switches.** `?hannahlocal` turns Groq off (browser voice + knowledge base only).
+`?hannahdebug` exposes `__hannahFace` and `__hannahVoice` in the console.
+
+## Putting it live on Hostinger
+
+1. **Groq console (once):** open the Orpheus playground and accept its terms
+   (console.groq.com → Playground → model `canopylabs/orpheus-v1-english`). Until then her voice
+   falls back to the browser's.
+2. **The key (once), never through git:** in Hostinger hPanel → File Manager, go to your home
+   folder (the top level, `/home/u…/`, *above* `domains/` and `public_html`) and create
+   `nexora-secrets.php` containing:
+   ```php
+   <?php return ['GROQ_API_KEY' => 'gsk_your_key_here'];
+   ```
+3. **Deploy** as usual through git: `api/hannah.php` and `api/.htaccess` must be included;
+   `api/secrets.php` is ignored by git and must never be committed.
+4. **Check:** open the site, click once, and she should speak in the Groq voice. A
+   `[Hannah] ... unavailable` warning in the browser console names the problem
+   (`not_configured` = key file not found; `model_terms_required` = step 1).
+
+**Local development:** `npm run dev` also starts PHP's built-in server for `/api` (PHP is installed
+on this Mac); the local key is in `api/secrets.php`.
 
 ## What visitors see and can do
 

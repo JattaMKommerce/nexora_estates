@@ -1,0 +1,551 @@
+/*
+ * Hannah, Nexora's virtual receptionist: the full-screen welcome layer (see hannah.js).
+ *
+ * The site's own styles size everything in rem against a viewport-based root font size and set
+ * body { font-size: 0 }, so this layer uses px and its own font size and inherits nothing.
+ *
+ *  1. Before the layer is built: keep the site hidden (no flash of the homepage)
+ *  2. Layer, top bar
+ *  3. Hannah's stage: status, the LiveAvatar frame, microphone line
+ *  4. Panel: welcome text, how to talk to her, phase shortcuts, Enter Nexora
+ *  5. Tablet and phone layouts
+ *  6. "Talk to Hannah" in the site menu
+ *  7. Reduced motion
+ */
+
+/* 1. Before the layer is built ------------------------------------------------------------------ */
+
+html.nx-hannah,
+html.nx-hannah body {
+  background: #f5f3ee !important;
+  overflow: hidden !important;
+}
+html.nx-hannah body > :not(.hn) { visibility: hidden !important; }
+
+/* 2. Layer, top bar ------------------------------------------------------------------------------ */
+
+.hn {
+  --hn-paper: #f5f3ee;
+  --hn-card: #fffdf9;
+  --hn-ink: #261d26;
+  --hn-ink-soft: rgba(38, 29, 38, 0.66);
+  --hn-ink-faint: rgba(38, 29, 38, 0.46);
+  --hn-line: rgba(38, 29, 38, 0.13);
+  --hn-yellow: #ffd200;
+  --hn-ok: #23893a;
+  --hn-wait: #c98a00;
+  --hn-bad: #c62f2f;
+  --hn-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --hn-gutter: clamp(16px, 4vw, 56px);
+
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background:
+    radial-gradient(1100px 680px at 32% 46%, #fffdf8 0%, rgba(255, 253, 248, 0) 62%),
+    var(--hn-paper);
+  color: var(--hn-ink);
+  font-family: Riegla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  transition: opacity 0.7s var(--hn-ease);
+}
+.hn *, .hn *::before, .hn *::after { box-sizing: border-box; }
+.hn.is-in { opacity: 1; }
+.hn.is-leaving { opacity: 0; pointer-events: none; transition-duration: 0.6s; }
+.hn:focus { outline: none; }
+.hn button { font-family: inherit; -webkit-appearance: none; appearance: none; margin: 0; }
+.hn :focus-visible { outline: 3px solid var(--hn-ink); outline-offset: 3px; }
+
+.hn__inner {
+  min-height: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 var(--hn-gutter);
+  display: flex;
+  flex-direction: column;
+}
+
+.hn__bar {
+  flex: none;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hn__brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.hn__brand svg { width: 46px; height: 32px; flex: none; }
+.hn__brandText { display: flex; flex-direction: column; line-height: 1.1; min-width: 0; }
+.hn__brandName { font-size: 19px; font-weight: 700; letter-spacing: 0.01em; }
+.hn__brandSub {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hn-ink-faint);
+  white-space: nowrap;
+}
+
+.hn__skip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 18px 0 20px;
+  border: 1px solid rgba(38, 29, 38, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--hn-ink);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.hn__skip svg { width: 16px; height: 16px; }
+@media (hover: hover) {
+  .hn__skip:hover { background: var(--hn-ink); border-color: var(--hn-ink); color: #fff; }
+}
+
+/* the layout: Hannah large on the left; the panel, Enter Nexora and the note on the right */
+.hn__main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "stage panel"
+    "stage cta"
+    "stage fine";
+  column-gap: clamp(32px, 4vw, 72px);
+  row-gap: 0;
+  align-content: center;
+  padding: 8px 0 32px;
+}
+.hn__panel, .hn__cta, .hn__fine { max-width: 460px; }
+
+/* 3. Hannah's stage ------------------------------------------------------------------------------ */
+
+.hn__stage {
+  grid-area: stage;
+  align-self: center;
+  width: 100%;
+  /* the frame is 16:9; keep it, the head and the microphone line inside the window height */
+  max-width: calc((100svh - 220px) * 16 / 9);
+  min-width: 0;
+  justify-self: center;
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+  transition: opacity 0.9s 0.1s var(--hn-ease), transform 1.1s 0.1s var(--hn-ease);
+}
+.hn.is-in .hn__stage { opacity: 1; transform: none; }
+.hn.is-leaving .hn__stage { transform: scale(0.97); transition-duration: 0.6s; transition-delay: 0s; }
+
+.hn__stageHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.hn__who { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.hn__who strong { font-size: 18px; font-weight: 700; }
+.hn__who span { font-size: 14px; color: var(--hn-ink-soft); white-space: nowrap; }
+
+.hn__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding: 0 12px 0 10px;
+  border: 1px solid var(--hn-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.hn__status i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hn-wait);
+  flex: none;
+}
+.hn__status[data-state="connecting"] i { animation: hn-pulse 1.4s ease-in-out infinite; }
+.hn__status[data-state="ready"] i { background: var(--hn-ok); box-shadow: 0 0 0 3px rgba(35, 137, 58, 0.16); }
+.hn__status[data-state="slow"] i,
+.hn__status[data-state="offline"] i { background: var(--hn-bad); }
+@keyframes hn-pulse { 50% { opacity: 0.3; } }
+
+.hn__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #1d171d;
+  box-shadow:
+    0 0 0 1px rgba(38, 29, 38, 0.08),
+    0 34px 70px -34px rgba(38, 29, 38, 0.42),
+    0 14px 28px -16px rgba(38, 29, 38, 0.2);
+  isolation: isolate;
+}
+.hn__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #1d171d;
+}
+
+/* shown until the embed has loaded, or when it cannot */
+.hn__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.82);
+  background: radial-gradient(80% 90% at 50% 40%, #2c232c 0%, #1d171d 100%);
+  transition: opacity 0.6s var(--hn-ease), visibility 0s 0.6s;
+}
+.hn__frame.is-loaded .hn__veil { opacity: 0; visibility: hidden; pointer-events: none; }
+.hn__veil p { margin: 0; font-size: 15px; max-width: 34ch; }
+.hn__spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  border-top-color: var(--hn-yellow);
+  animation: hn-spin 0.9s linear infinite;
+}
+.hn__frame.is-failed .hn__spinner { display: none; }
+@keyframes hn-spin { to { transform: rotate(360deg); } }
+.hn__retry {
+  height: 40px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--hn-yellow);
+  color: var(--hn-ink);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.hn__retry[hidden] { display: none; }
+
+.hn__mic {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 14px 2px 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--hn-ink-soft);
+}
+.hn__mic svg { width: 18px; height: 18px; flex: none; margin-top: 1px; color: var(--hn-ink); }
+.hn__mic[data-state="granted"] svg { color: var(--hn-ok); }
+.hn__mic[data-state="denied"] svg,
+.hn__mic[data-state="insecure"] svg { color: var(--hn-bad); }
+.hn__mic[data-state="denied"] { color: var(--hn-ink); }
+
+/* 4. Panel ---------------------------------------------------------------------------------------- */
+
+.hn__panel {
+  grid-area: panel;
+  align-self: end;
+  min-width: 0;
+}
+.hn__panel, .hn__cta, .hn__fine {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s 0.35s var(--hn-ease), transform 1.1s 0.35s var(--hn-ease);
+}
+.hn.is-in .hn__panel, .hn.is-in .hn__cta, .hn.is-in .hn__fine { opacity: 1; transform: none; }
+
+.hn__eyebrow {
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hn-ink-soft);
+}
+.hn__eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--hn-yellow);
+}
+.hn__title {
+  margin: 0;
+  font-size: clamp(40px, 20px + 3vw, 66px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--hn-ink);
+}
+.hn__lead {
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--hn-ink-soft);
+  max-width: 40ch;
+}
+
+.hn__steps {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.hn__steps li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--hn-ink-soft);
+  transition: color 0.3s ease;
+}
+.hn__steps li b { color: var(--hn-ink); font-weight: 700; }
+.hn__steps li > span:first-child {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--hn-line);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hn-ink);
+  background: rgba(255, 255, 255, 0.6);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.hn__steps li.is-current > span:first-child { background: var(--hn-yellow); border-color: var(--hn-yellow); }
+.hn__steps li.is-done > span:first-child { background: var(--hn-ink); border-color: var(--hn-ink); color: var(--hn-yellow); }
+
+.hn__label {
+  margin: 30px 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hn-ink-faint);
+}
+.hn__stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.hn__stop {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--hn-line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--hn-ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.hn__stop span {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--hn-ink-faint);
+}
+@media (hover: hover) {
+  .hn__stop:hover { background: var(--hn-card); border-color: rgba(38, 29, 38, 0.4); }
+}
+
+/* Enter Nexora stays in reach: when the content is taller than the window, it sticks to the bottom */
+.hn__cta {
+  grid-area: cta;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  margin-top: 12px;
+  padding: 16px 0 14px;
+  background: linear-gradient(to top, var(--hn-paper) 74%, rgba(245, 243, 238, 0));
+}
+.hn__enter {
+  width: 100%;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--hn-yellow);
+  color: var(--hn-ink);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 14px 30px -16px rgba(201, 150, 0, 0.75);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.hn__enter svg { width: 18px; height: 18px; transition: transform 0.25s var(--hn-ease); }
+@media (hover: hover) {
+  .hn__enter:hover { background: var(--hn-ink); color: var(--hn-yellow); }
+  .hn__enter:hover svg { transform: translateX(3px); }
+}
+.hn__enter:active { transform: scale(0.99); }
+.hn__fine {
+  grid-area: fine;
+  align-self: start;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--hn-ink-faint);
+}
+
+/* 5. Tablet and phone layouts ------------------------------------------------------------------- */
+
+/* laptop screens: tighten the panel so it fits beside Hannah */
+@media (min-width: 981px) and (max-height: 940px) {
+  .hn__bar { height: 68px; }
+  .hn__main { padding-bottom: 12px; }
+  .hn__eyebrow { margin-bottom: 14px; }
+  .hn__title { font-size: clamp(38px, 16px + 2.7vw, 58px); }
+  .hn__lead { font-size: 16px; margin-top: 14px; }
+  .hn__steps { margin-top: 22px; gap: 10px; }
+  .hn__label { margin-top: 22px; margin-bottom: 10px; }
+  .hn__stop { min-height: 44px; padding: 9px 12px; }
+  .hn__enter { height: 56px; }
+}
+@media (min-width: 981px) and (max-height: 820px) {
+  .hn__bar { height: 60px; }
+  .hn__eyebrow { margin-bottom: 10px; }
+  .hn__title { font-size: clamp(34px, 12px + 2.4vw, 48px); }
+  .hn__lead { font-size: 15px; margin-top: 10px; }
+  .hn__steps { margin-top: 16px; gap: 8px; }
+  .hn__steps li { font-size: 14px; }
+  .hn__label { margin-top: 16px; margin-bottom: 8px; }
+  .hn__stop { min-height: 38px; padding: 7px 10px; font-size: 13.5px; }
+  .hn__cta { padding: 12px 0 12px; }
+  .hn__enter { height: 52px; }
+  .hn__fine { font-size: 12px; }
+}
+@media (min-width: 981px) and (max-height: 690px) {
+  .hn__eyebrow { display: none; }
+  .hn__title { font-size: clamp(32px, 10px + 2.2vw, 42px); }
+  .hn__steps li { font-size: 13.5px; line-height: 1.4; }
+  .hn__stop { min-height: 36px; }
+}
+
+/* tablets and phones: one column, Hannah first; Enter Nexora pinned to the bottom of the screen */
+@media (max-width: 980px) {
+  .hn__main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "stage" "panel" "cta" "fine";
+    align-content: start;
+    row-gap: 28px;
+    padding: 4px 0 24px;
+  }
+  .hn__stage { max-width: min(760px, calc((100svh - 150px) * 16 / 9)); }
+  .hn__panel, .hn__fine { max-width: 760px; width: 100%; justify-self: center; }
+  .hn__title { font-size: clamp(34px, 6vw, 52px); }
+  .hn__cta {
+    justify-self: stretch;
+    max-width: none;
+    margin: -10px calc(var(--hn-gutter) * -1) 0;
+    padding: 18px var(--hn-gutter) calc(14px + env(safe-area-inset-bottom));
+  }
+  .hn .hn__enter { display: flex; max-width: 760px; margin: 0 auto; }
+  .hn__fine { margin-top: -16px; }
+}
+
+/* phones held upright: Hannah's window is portrait (the embed's vertical layout), sized so the
+   embed's own Chat now bar stays clear of the pinned Enter Nexora button */
+.hn__frame.is-vertical { aspect-ratio: 9 / 16; }
+@media (max-width: 760px) {
+  .hn__bar { height: 64px; }
+  .hn__brand svg { width: 38px; height: 26px; }
+  .hn__brandName { font-size: 17px; }
+  .hn__brandSub { display: none; }
+  .hn__skip { height: 40px; padding: 0 14px 0 16px; font-size: 13px; }
+  .hn__stage { max-width: none; }
+  .hn__frame.is-vertical {
+    width: min(100%, calc((100svh - 250px) * 9 / 16));
+    min-width: min(100%, 260px);
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+  .hn__who span { font-size: 13px; }
+  .hn__mic { font-size: 13px; }
+  .hn__lead { font-size: 16px; }
+  .hn__steps li { font-size: 14.5px; }
+  .hn__stop { font-size: 13.5px; }
+  .hn__enter { height: 56px; }
+}
+@media (max-width: 360px) {
+  .hn__stops { grid-template-columns: 1fr; }
+  .hn__who span { display: none; }
+}
+
+/* phones on their side: Hannah fits the short screen; Skip introduction stays at the top */
+@media (max-width: 980px) and (max-height: 500px) {
+  .hn__bar { height: 56px; }
+  .hn__stage { max-width: calc((100svh - 120px) * 16 / 9); justify-self: center; }
+  .hn__cta { position: static; }
+}
+
+/* 6. "Talk to Hannah" in the site menu ------------------------------------------------------------ */
+
+/* The menu ends with Log in / Sign up; Talk to Hannah sits under it. */
+.nav__menuContact {
+  flex-direction: column !important;
+  row-gap: 1rem;
+  height: auto !important;
+  padding: 1.6rem 0;
+}
+#menu-hannah { margin: 0 auto !important; }
+
+/* 7. Reduced motion ---------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hn, .hn__stage, .hn__panel { transition-duration: 0.01s !important; transition-delay: 0s !important; transform: none !important; }
+  .hn__spinner { animation-duration: 2.4s; }
+  .hn__status[data-state="connecting"] i { animation: none; }
+}
