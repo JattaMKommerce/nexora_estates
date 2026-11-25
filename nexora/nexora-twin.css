@@ -185,3 +185,108 @@
 @media (max-width: 760px) {
   .nx-twin-tour.nx-twin-on .exploreScreen__tourNode { right: 16px !important; bottom: calc(250px + var(--nx-stop, 0) * 52px) !important; }
 }
+
+/* Phase 4 (Fit-Out): floor by floor inside the picture panel that slides past ------------------ */
+
+.nx-twinPanel { position: relative; overflow: hidden; }
+.nx-twin.is-shown {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.9s ease;
+}
+.nx-twinPanel .nx-twin { background: #1d1a17; }
+/* lighter shade: the caption has its own glass card */
+.nx-twinPanel .nx-twin::after {
+  background: linear-gradient(90deg, rgba(20, 16, 10, 0.42) 0%, rgba(20, 16, 10, 0) 42%);
+}
+
+.nx-twinFit {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.nx-twinFit.is-on {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 0.4s;
+}
+.nx-twinFit__card {
+  min-width: 260px;
+  padding: 16px 20px 16px;
+  border-radius: 18px;
+  color: #fff;
+  background: rgba(24, 20, 14, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+.nx-twinFit__count { color: rgba(255, 255, 255, 0.7); font-variant-numeric: tabular-nums; }
+.nx-twinFit__level {
+  margin-top: 8px;
+  font-size: 30px;
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.nx-twinFit__text { margin-top: 4px; font-size: 14px; opacity: 0.85; }
+.nx-twinFit__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 12px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.72);
+}
+.nx-twinFit__legend span { display: inline-flex; align-items: center; gap: 6px; }
+.nx-twinFit__legend span::before { content: ''; width: 8px; height: 8px; border-radius: 2px; }
+.nx-twinFit__legend .is-available::before { background: #5aa978; }
+.nx-twinFit__legend .is-hold::before { background: #e0a23c; }
+.nx-twinFit__legend .is-sold::before { background: #9a9aa2; }
+.nx-twinFit__dots { display: flex; gap: 6px; margin-top: 14px; }
+.nx-twinFit__dots span {
+  width: 18px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.22);
+  transition: background 0.4s ease, width 0.4s ease;
+}
+.nx-twinFit__dots span.is-on { width: 30px; background: #ffd200; }
+.nx-twinFit__note {
+  margin-top: 12px;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* "Explore this floor": the 3D leaves the moving panel for a full-screen layer */
+.nx-twinFull {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  background: #1d1a17;
+}
+.nx-twin-immersive .nx-twinFull { display: block; }
+
+@media (max-width: 760px) {
+  .nx-twinFit { left: 12px; right: 12px; bottom: 12px; gap: 8px; }
+  .nx-twinFit__card { min-width: 0; padding: 10px 14px 12px; }
+  .nx-twinFit__level { font-size: 22px; }
+  .nx-twinFit__legend, .nx-twinFit__dots { display: none; }
+  .nx-twinFit__note { margin-top: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-twinFit, .nx-twinFit__dots span { transition: none; }
+}

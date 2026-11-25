@@ -6,6 +6,11 @@
  * A caption follows the build ("Level 12 of 22"), and "Explore in 3D" opens the same scene full
  * screen, where the visitor can turn it, open any floor, see each home's plan and step inside.
  *
+ * Phase 4 (Fit-Out & Handover): the floor-plan picture that slides past becomes the same 3D, now
+ * floor by floor: as the panel crosses the screen the floors above lift away one level at a time
+ * (low, middle, high), each home coloured by its status, with the level's figures beside it.
+ * "Explore this floor" opens that floor full screen.
+ *
  * The 3D code (twin/js/twin.js, built by `npm run build:twin`) loads only once the visitor reaches
  * Phase 2, so the start of the site stays as fast as before. If the browser has no WebGL or the
  * 3D can't start, the phase simply keeps its picture.
@@ -21,6 +26,7 @@
     slug: 'meridian-residences',
     phase: 3,              // Construction: the towers rise step by step
     tourPhase: 7,          // Virtual Tour: the finished towers, ready to explore
+    fitPhase: 4,           // Fit-Out & Handover: floor by floor, in the picture panel that slides past
     preloadFrom: 2,        // start loading the 3D on Phase 2
     // build progress ('rise' chapter, 0–1) the towers reach at each step of the phase:
     // 0.13 = empty site, 0.27 = foundations and podium, 0.555 = middle floors, 0.83 = upper floors, 1 = finished
@@ -45,6 +51,14 @@
   var host = null;        // the 3D's element (inside the site's media window)
   var ui = null;          // caption and button
   var lastCaption = '';
+  var featured = null;    // the featured tower's levels and floor, from the 3D ('project' event)
+  var fitOn = false;      // Phase 4's floor-by-floor panel is in use
+  var fit = null;         // its caption (inside the panel)
+  var fitStops = [];
+  var fitStop = -1;
+  var fitKey = '';
+  var fitShift = '';
+  var full = null;        // full-screen layer for "Explore this floor" (the panel moves sideways)
 
   var STAGE_TEXT = {
     foundation: 'Foundations',
@@ -67,15 +81,25 @@
 
   /* Elements ------------------------------------------------------------------------------- */
 
-  function ensureHost() {
-    var media = document.querySelector('.window__media');
-    if (!media) return null;
-    if (host && host.parentNode === media) return host;
-    host = host || document.createElement('div');
-    host.className = 'nx-twin';
-    host.setAttribute('aria-hidden', 'true');
-    media.appendChild(host);
+  function place(parent) {
+    if (!parent) return null;
+    if (!host) {
+      host = document.createElement('div');
+      host.className = 'nx-twin';
+      host.setAttribute('aria-hidden', 'true');
+    }
+    if (host.parentNode !== parent) parent.appendChild(host);
     return host;
+  }
+
+  function ensureHost() {
+    return place(document.querySelector('.window__media'));
+  }
+
+  // Phase 4's picture panel (the floor-plan picture is its fallback)
+  function fitPanel() {
+    var img = document.getElementById('phase' + CONFIG.fitPhase);
+    return img ? img.closest('.imageBreak__media') : null;
   }
 
   function buildUi() {
@@ -143,6 +167,10 @@
       }
     } else if (type === 'immersive') {
       if (!data && immersive) setImmersive(false);
+    } else if (type === 'project') {
+      featured = data && data.featured ? data.featured : null;
+      fitStops = featured ? floorStops(featured.levels.length, featured.floorIndex) : [];
+      fitStop = -1;
     }
   }
 
@@ -173,6 +201,18 @@
       else { x && x.lenis && x.lenis.start(); }
     } catch (e) { /* the site keeps scrolling as before */ }
     if (host) host.setAttribute('aria-hidden', on ? 'false' : 'true');
+    if (fitOn) {
+      if (on) {
+        if (!full) {
+          full = document.createElement('div');
+          full.className = 'nx-twinFull';
+          document.body.appendChild(full);
+        }
+        place(full);
+      } else {
+        place(fitPanel());
+      }
+    }
     twin.immersive(on);
   }
 
@@ -201,6 +241,144 @@
     ui.bar.style.transform = 'scaleX(' + Math.max(0.02, info.b).toFixed(3) + ')';
   }
 
+  /* Phase 4: floor by floor ---------------------------------------------------------------- */
+
+  // the floors it opens: low, middle and high, always including the featured one (as the 3D site's
+  // own "floor by floor" chapter does)
+  function floorStops(count, feat) {
+    if (!count) return [];
+    var pick = [0.12, 0.38, 0.88].map(function (f) { return Math.min(count - 1, Math.max(0, Math.round(count * f))); });
+    if (feat !== null && feat !== undefined) pick.push(feat);
+    return pick.filter(function (v, i) { return pick.indexOf(v) === i; }).sort(function (a, b) { return a - b; });
+  }
+
+  function buildFit(panel) {
+    if (fit && fit.box.parentNode === panel) return fit;
+    if (!fit) {
+      var box = document.createElement('div');
+      box.className = 'nx-twinFit';
+      box.innerHTML =
+        '<div class="nx-twinFit__card">' +
+          '<div class="nx-twinUi__live"><span class="nx-twinUi__dot"></span>Live 3D twin · Floor by floor<span class="nx-twinFit__count"></span></div>' +
+          '<div class="nx-twinFit__level"></div>' +
+          '<div class="nx-twinFit__text"></div>' +
+          '<div class="nx-twinFit__legend" aria-hidden="true">' +
+            '<span class="is-available">Available</span><span class="is-hold">On hold</span><span class="is-sold">Booked / sold</span>' +
+          '</div>' +
+          '<div class="nx-twinFit__dots" aria-hidden="true"></div>' +
+          '<div class="nx-twinFit__note">Sample data · layouts illustrative</div>' +
+        '</div>' +
+        '<button type="button" class="nx-twinUi__explore nx-twinFit__explore">' +
+          '<span class="nx-twinUi__exploreIcon" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Zm0 2.3 6.6 3.7L12 11.7 5.4 8 12 4.3ZM5 9.7l6 3.4v6.6l-6-3.4V9.7Zm8 10v-6.6l6-3.4v6.6l-6 3.4Z" fill="currentColor"/></svg>' +
+          '</span>Explore this floor</button>';
+      box.querySelector('.nx-twinFit__explore').addEventListener('click', function () {
+        if (!twin) return;
+        var floor = fitStops[Math.max(0, fitStop)];
+        setImmersive(true);
+        twin.command('floor', Number.isInteger(floor) ? { floor: floor } : {});
+      });
+      fit = {
+        box: box,
+        count: box.querySelector('.nx-twinFit__count'),
+        level: box.querySelector('.nx-twinFit__level'),
+        text: box.querySelector('.nx-twinFit__text'),
+        dots: box.querySelector('.nx-twinFit__dots')
+      };
+    }
+    panel.appendChild(fit.box);
+    return fit;
+  }
+
+  function fitCaption() {
+    if (!fit) return;
+    var n = fitStops.length;
+    var k = Math.max(0, fitStop);
+    var lv = featured && n ? featured.levels[fitStops[k]] : null;
+    var key = n + '|' + k + '|' + (lv ? lv.number : '');
+    if (key === fitKey) return;
+    fitKey = key;
+    var pad = function (v) { return (v < 10 ? '0' : '') + v; };
+    fit.count.textContent = n > 1 ? ' · ' + pad(k + 1) + ' / ' + pad(n) : '';
+    fit.level.textContent = lv ? 'Level ' + lv.number : 'Every floor, opened';
+    var c = lv && lv.counts;
+    fit.text.textContent = c
+      ? c.available + ' of ' + c.total + ' homes available' + (c.hold ? ' · ' + c.hold + ' on hold' : '')
+      : lv ? lv.units + ' homes on this level' : 'Each level\u2019s homes, coloured by availability';
+    var dots = '';
+    for (var i = 0; i < n; i++) dots += '<span' + (i === k ? ' class="is-on"' : '') + '></span>';
+    fit.dots.innerHTML = dots;
+  }
+
+  function enterFit(panel) {
+    fitOn = true;
+    fitStop = -1;
+    fitKey = '';
+    html.classList.add('nx-twin-fit');
+    panel.classList.add('nx-twinPanel');
+    buildFit(panel);
+    twin.scroll('floors', 0);
+  }
+
+  function leaveFit() {
+    if (!fitOn) return;
+    fitOn = false;
+    html.classList.remove('nx-twin-fit');
+    if (host) host.classList.remove('is-shown');
+    if (fit) fit.box.classList.remove('is-on');
+    fitStop = -1;
+    fitShift = '';
+    twin.offset({ x: 0, y: 0 });
+    twin.target({ view: 'exterior', floor: null });
+    // back to the Construction window, where the next phase that shows the 3D expects it
+    ensureHost();
+  }
+
+  // returns true while Phase 4 owns the 3D
+  function runFit(x, phase) {
+    var want = phase === CONFIG.fitPhase && !x.state.inDeepDive;
+    if (!want && !(fitOn && immersive)) { leaveFit(); return false; }
+    var panel = fitPanel();
+    if (!panel) { leaveFit(); return false; }
+    if (!fitOn) enterFit(panel);
+    if (!immersive) place(panel);
+    buildFit(panel);
+    var r = panel.getBoundingClientRect();
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var seen = r.width > 0 && r.right > -40 && r.left < vw + 40 && r.bottom > -40 && r.top < vh + 40;
+    var draw = seen || immersive;
+    if (draw !== drawing) { drawing = draw; twin.active(draw); }
+    var on = ready && !failed && draw;
+    host.classList.toggle('is-shown', on);
+    fit.box.classList.toggle('is-on', on && !immersive);
+    // the caption card sits at the lower left of the panel, so the building moves clear of it: to
+    // the right on wide screens, up on phones (centred again full screen)
+    var phone = vw <= 760;
+    var shift = immersive ? 0 : Math.round(phone ? r.height * 0.17 : r.width * 0.13);
+    if (shift + '|' + phone !== fitShift) {
+      fitShift = shift + '|' + phone;
+      twin.offset(phone ? { x: 0, y: shift } : { x: shift, y: 0 });
+    }
+    if (immersive) return true;
+    // as the panel's centre crosses the screen, the floors open in turn: right to left on wide
+    // screens, where the phase slides sideways, and bottom to top on phones, where it is a column
+    var column = r.width >= vw * 0.85;
+    var p = column
+      ? (vh * 0.85 - (r.top + r.height / 2)) / (vh * 0.7)
+      : (vw * 0.92 - (r.left + r.width / 2)) / (vw * 0.84);
+    p = Math.max(0, Math.min(1, p));
+    twin.scroll('floors', p);
+    var n = fitStops.length;
+    var k = n ? Math.min(n - 1, Math.floor(p * n)) : -1;
+    if (k !== fitStop) {
+      fitStop = k;
+      twin.target({ view: 'exterior', floor: k >= 0 ? fitStops[k] : null });
+    }
+    fitCaption();
+    return true;
+  }
+
   /* Following the site --------------------------------------------------------------------- */
 
   var last = performance.now();
@@ -213,8 +391,9 @@
     var phase = x.state.phaseIndex;
     if (!twin && !loading && !failed && phase >= CONFIG.preloadFrom && !x.state.inDeepDive) load();
     if (!twin) return;
+    if (runFit(x, phase)) { if (shown) hide(); return; }
     // the site's media window may have been rebuilt: keep the 3D inside it
-    if (host && !host.isConnected) ensureHost();
+    if (host && (!host.isConnected || host.parentNode !== document.querySelector('.window__media'))) ensureHost();
 
     var tour = phase === CONFIG.tourPhase;
     var inPhase = (phase === CONFIG.phase || tour) && !x.state.inDeepDive;
@@ -262,9 +441,10 @@
     }
     e.stopImmediatePropagation();
   }
-  ['wheel', 'keydown', 'touchstart', 'touchmove'].forEach(function (t) {
+  ['wheel', 'touchstart', 'touchmove'].forEach(function (t) {
     window.addEventListener(t, guard, { passive: true });
   });
+  window.addEventListener('keydown', guard); // Escape is handled here (preventDefault needs a non-passive listener)
 
   window.NexoraTwin = {
     get twin() { return twin; },
